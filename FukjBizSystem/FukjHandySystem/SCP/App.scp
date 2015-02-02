@@ -1,0 +1,110 @@
+/********************************************************************************
+ファイル名	：	App.scp
+バージョン	：	Ver.1.00
+作成日付	：	2006/01/14
+動作説明	：	BT-500アプリケーション
+
+注意		：	本プログラムを修正した場合
+				弊社サポートの対象外となります
+********************************************************************************/
+
+
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+
+Begin
+	
+	APP:make_file_list()
+	With Handy
+		:backLight = 4
+		:backLightTimer = 60
+		:autoPowerOff = 5
+		:resumeOn = true
+		:wakeupOn = true
+	EndWith
+	
+	While (1 )
+		APP:menu_main()
+	Wend
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("アプリケーションに問題が発生しました("&System:error&")", "ok" )
+End Method
+
+
+Package APP
+	//---------------------------------------------------
+	// メインメソッド
+	Method menu_main()
+	Begin
+		MENU1:menu_main()
+	End Method
+
+	
+	//---------------------------------------------------
+	// ファイルリスト作成メソッド
+	Method make_file_list()
+		
+	Begin
+		
+		With File
+			:name = "2:_FILE.LST"
+			:Puts( "<used_file_list>", "create" )
+			:Puts( "\n", "append" )
+			:Puts( "1:K_APL.SCB\n", "append" )
+			:Puts( "1:K_APL.SCP\n", "append" )
+			:Puts( "1:16X16.BTF\n", "append" )
+			:Puts( "2:_FILE.LST\n", "append" )
+			:Puts( "<recieve_master_list>", "append" )
+			:Puts( "\n", "append" )
+			:Initialize()
+		EndWith
+	End Method
+
+
+
+	
+EndPackage
+
+Package MENU1
+	
+	//---------------------------------------------------
+	// メニュメソッド
+	Method menu_main()
+		btvItem1
+		btvItem2
+		btvMenupos
+	Begin
+//Del		btvItem1 = "法定受付|9条受付|検体照合|ﾃﾞｰﾀ送信|ﾃﾞｰﾀｸﾘｱ"
+		btvItem1 = "　　　外観検査|　　　法定受付|　　　 9条受付|　　　検体照合|　　　ﾃﾞｰﾀ送信"
+		btvItem2 = nil
+		btvMenupos = 1
+		// ステータス表示設定
+		Screen:status = true
+		
+		While 1
+			btvMenupos = Handy:ShowMenu("      メニュー", btvItem1,btvItem2,nil,nil,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load("JOB7","App",0,0,0)
+			Case 2
+				System:Load("JOB1","App",0,0,0)
+			Case 3
+				System:Load("JOB2","App",0,0,0)
+			Case 4
+				System:Load("JOB3","App",0,0,0)
+			Case 5
+				System:Load("JOB4","App",0,0,0)
+	//ALT		Case 5
+	//ALT			System:Load("JOB5","App",0,0,0)
+			Case "C"
+				MENU1:menu_main()
+			End Select
+		Wend
+	End Method
+EndPackage
+
+

@@ -1,0 +1,2267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SuishitsuKensaUketsukeDataSet" targetNamespace="http://tempuri.org/SuishitsuKensaUketsukeDataSet.xsd" xmlns:mstns="http://tempuri.org/SuishitsuKensaUketsukeDataSet.xsd" xmlns="http://tempuri.org/SuishitsuKensaUketsukeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OVLFukjOverlayConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OVLFukjOverlayConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.OVLFukjOverlayConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KensaDaicho9joInfoTableAdapter" GeneratorDataComponentClassName="KensaDaicho9joInfoTableAdapter" Name="KensaDaicho9joInfo" UserDataComponentName="KensaDaicho9joInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  kdt.IraiNendo
+  , kdt.ShishoCd
+  , kdt.SuishitsuKensaIraiNo
+  , kdt.KeiryoShomeiIraiNendo
+  , kdt.KeiryoShomeiIraiSishoCd
+  , kdt.KeiryoShomeiIraiRenban
+  , concat( 
+    dbo.FuncConvertIraiNedoToWareki(kdt.KeiryoShomeiIraiNendo)
+    , '-'
+    , kdt.KeiryoShomeiIraiSishoCd
+    , '-'
+    , kdt.KeiryoShomeiIraiRenban
+  ) as KeiryoShomeiIraiNo
+  , ksi.KeiryoShomeiUketsukeKbn
+  , ksi.KeiryoShomeiGenkinShunyuFlg
+  , jdm.JokasoHokenjoCd
+  , jdm.JokasoTorokuNendo
+  , jdm.JokasoRenban
+  , concat( 
+    jdm.JokasoHokenjoCd
+    , '-'
+    , dbo.FuncConvertIraiNedoToWareki(jdm.JokasoTorokuNendo)
+    , '-'
+    , jdm.JokasoRenban
+  ) as KyokaiNo
+  , jdm.JokasoSetchishaNm 
+  , ksi.UpdateDt as KeiryoShomeiIraiUpdateDt
+  , ksi.KeiryoShomeiSaisuiinCd
+  , isnull(ssm.SaisuiinNm, '') as SaisuiinNm
+  , ksi.KeiryoShomeiSaisuiDt
+  , ksi.KeiryoShomeiSaisuiTime
+  , ksi.KeiryoShomeiSuion
+  , ksi.KeiryoShomeiKion
+  , ksi.KeiryoShomeiSetCd
+  , ksi.KeiryoShomeiKensaRyokin
+  , ksi.KeiryoShomeiShohizei
+  , ksi.KeiryoShomeiKensakomokuEdaban
+  , isnull(skkm.DaichoKensaSetNm, '') as DaichoKensaSetNm
+from
+  ( 
+    select
+      hdr.* 
+    from
+      ( 
+        select
+          * 
+        from
+          KensaDaicho9joHdrTbl 
+        where
+          IraiNendo = '2014' 
+          and ShishoCd = '1' 
+          and KensaIraiUketsukeDt = '20141211' 
+          and SuishitsuKensaIraiNo &gt;= '000000' 
+          and SuishitsuKensaIraiNo &lt;= '999999'
+      ) hdr 
+    where
+      not exists ( 
+        select
+          1 
+        from
+          KensaDaichoDtlTbl dtl 
+        where
+          dtl.KensaKbn = '1' 
+          and dtl.IraiNendo = hdr.IraiNendo 
+          and dtl.ShishoCd = hdr.ShishoCd 
+          and dtl.SuishitsuKensaIraiNo = hdr.SuishitsuKensaIraiNo 
+          and dtl.KeiryoShomeiKekkaNyuryoku = '1'
+      )
+  ) kdt 
+  inner join KeiryoShomeiIraiTbl ksi 
+    on kdt.KeiryoShomeiIraiNendo = ksi.KeiryoShomeiIraiNendo 
+    and kdt.KeiryoShomeiIraiSishoCd = ksi.KeiryoShomeiIraiSishoCd 
+    and kdt.KeiryoShomeiIraiRenban = ksi.KeiryoShomeiIraiRenban 
+  inner join JokasoDaichoMst jdm 
+    on ksi.KeiryoShomeiJokasoDaichoHokenjoCd = jdm.JokasoHokenjoCd 
+    and ksi.KeiryoShomeiJokasoDaichoNendo = jdm.JokasoTorokuNendo 
+    and ksi.KeiryoShomeiJokasoDaichoRenban = jdm.JokasoRenban 
+  left outer join SaisuiinMst ssm 
+    on ssm.SaisuiinCd = ksi.KeiryoShomeiSaisuiinCd 
+  left outer join DaichoSuishitsuKensaKomokuMst skkm 
+    on ksi.KeiryoShomeiJokasoDaichoHokenjoCd = skkm.JokasoHokenjoCd 
+    and ksi.KeiryoShomeiJokasoDaichoNendo = skkm.JokasoTorokuNendo  
+    and ksi.KeiryoShomeiJokasoDaichoRenban = skkm.JokasoRenban   
+    and ksi.KeiryoShomeiKensakomokuEdaban = skkm.DaichoKensaKomokuEdaban
+order by
+  kdt.IraiNendo
+  , kdt.ShishoCd
+  , kdt.SuishitsuKensaIraiNo
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IraiNendo" DataSetColumn="IraiNendo" />
+              <Mapping SourceColumn="ShishoCd" DataSetColumn="ShishoCd" />
+              <Mapping SourceColumn="SuishitsuKensaIraiNo" DataSetColumn="SuishitsuKensaIraiNo" />
+              <Mapping SourceColumn="KeiryoShomeiIraiNendo" DataSetColumn="KeiryoShomeiIraiNendo" />
+              <Mapping SourceColumn="KeiryoShomeiIraiSishoCd" DataSetColumn="KeiryoShomeiIraiSishoCd" />
+              <Mapping SourceColumn="KeiryoShomeiIraiRenban" DataSetColumn="KeiryoShomeiIraiRenban" />
+              <Mapping SourceColumn="KeiryoShomeiIraiNo" DataSetColumn="KeiryoShomeiIraiNo" />
+              <Mapping SourceColumn="KeiryoShomeiUketsukeKbn" DataSetColumn="KeiryoShomeiUketsukeKbn" />
+              <Mapping SourceColumn="KeiryoShomeiGenkinShunyuFlg" DataSetColumn="KeiryoShomeiGenkinShunyuFlg" />
+              <Mapping SourceColumn="JokasoHokenjoCd" DataSetColumn="JokasoHokenjoCd" />
+              <Mapping SourceColumn="JokasoTorokuNendo" DataSetColumn="JokasoTorokuNendo" />
+              <Mapping SourceColumn="JokasoRenban" DataSetColumn="JokasoRenban" />
+              <Mapping SourceColumn="KyokaiNo" DataSetColumn="KyokaiNo" />
+              <Mapping SourceColumn="JokasoSetchishaNm" DataSetColumn="JokasoSetchishaNm" />
+              <Mapping SourceColumn="KeiryoShomeiIraiUpdateDt" DataSetColumn="KeiryoShomeiIraiUpdateDt" />
+              <Mapping SourceColumn="KeiryoShomeiSaisuiinCd" DataSetColumn="KeiryoShomeiSaisuiinCd" />
+              <Mapping SourceColumn="KeiryoShomeiSaisuiDt" DataSetColumn="KeiryoShomeiSaisuiDt" />
+              <Mapping SourceColumn="KeiryoShomeiSaisuiTime" DataSetColumn="KeiryoShomeiSaisuiTime" />
+              <Mapping SourceColumn="KeiryoShomeiSuion" DataSetColumn="KeiryoShomeiSuion" />
+              <Mapping SourceColumn="KeiryoShomeiKion" DataSetColumn="KeiryoShomeiKion" />
+              <Mapping SourceColumn="KeiryoShomeiSetCd" DataSetColumn="KeiryoShomeiSetCd" />
+              <Mapping SourceColumn="KeiryoShomeiKensaRyokin" DataSetColumn="KeiryoShomeiKensaRyokin" />
+              <Mapping SourceColumn="KeiryoShomeiShohizei" DataSetColumn="KeiryoShomeiShohizei" />
+              <Mapping SourceColumn="KeiryoShomeiKensakomokuEdaban" DataSetColumn="KeiryoShomeiKensakomokuEdaban" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="DaichoKensaSetNm" DataSetColumn="DaichoKensaSetNm" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SuishitsuKensaJisshiKomokuInfoTableAdapter" GeneratorDataComponentClassName="SuishitsuKensaJisshiKomokuInfoTableAdapter" Name="SuishitsuKensaJisshiKomokuInfo" UserDataComponentName="SuishitsuKensaJisshiKomokuInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.ShoriHoshikiSuishitsuKensaJisshiMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  mst.KensaKomokuCd
+  , mst.KensaJisshiUmuFlg 
+from
+  ( 
+    select
+      * 
+    from
+      KensaIraiTbl 
+    where
+      KensaIraiHoteiKbn = @kensaIraiHoteiKbn 
+      and KensaIraiHokenjoCd = @kensaIraiHokenjoCd 
+      and KensaIraiNendo = @kensaIraiNendo 
+      and KensaIraiRenban = @kensaIraiRenban
+  ) kit 
+  inner join ShoriHoshikiSuishitsuKensaJisshiMst mst 
+    on kit.KensaIraiShorihoshikiKbn = mst.ShoriHoshikiKbn 
+    and kit.KensaIraiShorihoshikiCd = mst.ShoriHoshikiCd 
+    and kit.KensaIraiHoteiKbn = mst.KensaKbn 
+order by
+  mst.KensaKomokuCd
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiHoteiKbn" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@kensaIraiHoteiKbn" Precision="0" Scale="0" Size="1" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiHokenjoCd" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@kensaIraiHokenjoCd" Precision="0" Scale="0" Size="2" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiNendo" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@kensaIraiNendo" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiRenban" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@kensaIraiRenban" Precision="0" Scale="0" Size="6" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaKomokuCd" DataSetColumn="KensaKomokuCd" />
+              <Mapping SourceColumn="KensaJisshiUmuFlg" DataSetColumn="KensaJisshiUmuFlg" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KensaDaichoGaikanInfoTableAdapter" GeneratorDataComponentClassName="KensaDaichoGaikanInfoTableAdapter" Name="KensaDaichoGaikanInfo" UserDataComponentName="KensaDaichoGaikanInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  kdt.KensaKekkaIraiHoteiKbn
+  , kdt.KensaKekkaIraiHokenjoCd
+  , kdt.KensaKekkaIraiNendo
+  , kdt.KensaKekkaIraiRenban
+  , concat( 
+    kdt.KensaKekkaIraiHoteiKbn
+    , '-'
+    , kdt.KensaKekkaIraiHokenjoCd
+    , '-'
+    , dbo.FuncConvertIraiNedoToWareki(kdt.KensaKekkaIraiNendo)
+    , '-'
+    , kdt.KensaKekkaIraiRenban
+  ) as KensaIraiNo
+  , '0' as SaisaisuiKbn
+  , kdt.SuishitsuKensaIraiNo
+  , kit.KensaIraiUketsukeKbn
+  , kit.KensaIraiGenkinShunyuKbn
+  , isnull(kit.KensaIraiSaisuiinCd, '') as KensaIraiSaisuiinCd
+  , isnull(ssm.SaisuiinNm, '') as SaisuiinNm
+  , jdm.JokasoHokenjoCd
+  , jdm.JokasoTorokuNendo
+  , jdm.JokasoRenban
+  , concat( 
+    jdm.JokasoHokenjoCd
+    , '-'
+    , dbo.FuncConvertIraiNedoToWareki(jdm.JokasoTorokuNendo)
+    , '-'
+    , jdm.JokasoRenban
+  ) as KyokaiNo
+  , jdm.JokasoSetchishaNm
+  , kdd.KeiryoShomeiKekkaValue
+  , isnull(kit.KensaIraiKensaTantoshaCd, '') as KensaIraiKensaTantoshaCd
+  , isnull(skm.ShokuinNm, '') as ShokuinNm
+  , kdd.UpdateDt as KensaDaichoDtlUpdateDt
+  , kit.KensaIraiScreeningKbn
+from
+  ( 
+    select
+      hdr.* 
+    from
+      ( 
+        select
+          * 
+        from
+          KensaDaicho11joHdrTbl 
+        where
+          KensaKbn = '3' 
+          and IraiNendo = '2014' 
+          and ShishoCd = '1' 
+          and KensaIraiUketsukeDt = '20141212' 
+          and SuishitsuKensaIraiNo &gt;= '000000' 
+          and SuishitsuKensaIraiNo &lt;= '999999'
+      ) hdr 
+    where
+      not exists ( 
+        select
+          1 
+        from
+          KensaDaichoDtlTbl dtl 
+        where
+          dtl.KensaKbn = hdr.KensaKbn 
+          and dtl.IraiNendo = hdr.IraiNendo 
+          and dtl.ShishoCd = hdr.ShishoCd 
+          and dtl.SuishitsuKensaIraiNo = hdr.SuishitsuKensaIraiNo 
+          and dtl.KeiryoShomeiKekkaNyuryoku = '1'
+      )
+  ) kdt 
+  inner join KensaDaichoDtlTbl kdd 
+    on kdt.KensaKbn = kdd.KensaKbn 
+    and kdt.IraiNendo = kdd.IraiNendo 
+    and kdt.ShishoCd = kdd.ShishoCd 
+    and kdt.SuishitsuKensaIraiNo = kdd.SuishitsuKensaIraiNo 
+  inner join KensaIraiTbl kit 
+    on kdt.KensaKekkaIraiHoteiKbn = kit.KensaIraiHoteiKbn 
+    and kdt.KensaKekkaIraiHokenjoCd = kit.KensaIraiHokenjoCd 
+    and kdt.KensaKekkaIraiNendo = kit.KensaIraiNendo 
+    and kdt.KensaKekkaIraiRenban = kit.KensaIraiRenban 
+  inner join JokasoDaichoMst jdm 
+    on kit.KensaIraiJokasoHokenjoCd = jdm.JokasoHokenjoCd 
+    and kit.KensaIraiJokasoTorokuNendo = jdm.JokasoTorokuNendo 
+    and kit.KensaIraiJokasoRenban = jdm.JokasoRenban 
+  left outer join SaisuiinMst ssm 
+    on kit.KensaIraiSaisuiinCd = ssm.SaisuiinCd 
+  left outer join ShokuinMst skm 
+    on kit.KensaIraiKensaTantoshaCd = skm.ShokuinCd 
+where
+  kdd.ShikenkoumokuCd = '082' 
+order by
+  kdt.KensaKbn
+  , kdt.IraiNendo
+  , kdt.ShishoCd
+  , kdt.SuishitsuKensaIraiNo
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaKekkaIraiHoteiKbn" DataSetColumn="KensaKekkaIraiHoteiKbn" />
+              <Mapping SourceColumn="KensaKekkaIraiHokenjoCd" DataSetColumn="KensaKekkaIraiHokenjoCd" />
+              <Mapping SourceColumn="KensaKekkaIraiNendo" DataSetColumn="KensaKekkaIraiNendo" />
+              <Mapping SourceColumn="KensaKekkaIraiRenban" DataSetColumn="KensaKekkaIraiRenban" />
+              <Mapping SourceColumn="KensaIraiNo" DataSetColumn="KensaIraiNo" />
+              <Mapping SourceColumn="SaisaisuiKbn" DataSetColumn="SaisaisuiKbn" />
+              <Mapping SourceColumn="SuishitsuKensaIraiNo" DataSetColumn="SuishitsuKensaIraiNo" />
+              <Mapping SourceColumn="KensaIraiUketsukeKbn" DataSetColumn="KensaIraiUketsukeKbn" />
+              <Mapping SourceColumn="KensaIraiGenkinShunyuKbn" DataSetColumn="KensaIraiGenkinShunyuKbn" />
+              <Mapping SourceColumn="KensaIraiSaisuiinCd" DataSetColumn="KensaIraiSaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="JokasoHokenjoCd" DataSetColumn="JokasoHokenjoCd" />
+              <Mapping SourceColumn="JokasoTorokuNendo" DataSetColumn="JokasoTorokuNendo" />
+              <Mapping SourceColumn="JokasoRenban" DataSetColumn="JokasoRenban" />
+              <Mapping SourceColumn="KyokaiNo" DataSetColumn="KyokaiNo" />
+              <Mapping SourceColumn="JokasoSetchishaNm" DataSetColumn="JokasoSetchishaNm" />
+              <Mapping SourceColumn="KeiryoShomeiKekkaValue" DataSetColumn="KeiryoShomeiKekkaValue" />
+              <Mapping SourceColumn="KensaIraiKensaTantoshaCd" DataSetColumn="KensaIraiKensaTantoshaCd" />
+              <Mapping SourceColumn="ShokuinNm" DataSetColumn="ShokuinNm" />
+              <Mapping SourceColumn="KensaDaichoDtlUpdateDt" DataSetColumn="KensaDaichoDtlUpdateDt" />
+              <Mapping SourceColumn="KensaIraiScreeningKbn" DataSetColumn="KensaIraiScreeningKbn" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SuishitsuKensaEntryInfoTableAdapter" GeneratorDataComponentClassName="SuishitsuKensaEntryInfoTableAdapter" Name="SuishitsuKensaEntryInfo" UserDataComponentName="SuishitsuKensaEntryInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  ryokin.HoteiKensaRyokinRenban
+  , ryokin.TandokuKingaku11Jo
+  , ryokin.GappeiKingakuNew11Jo
+  , ryokin.GappeiKingakuNew11Jo as KensaAmt
+  , jokaso.KensaIraiKensaDt
+  , jokaso.KensaIraiHoteiKbn
+  , jokaso.KensaIraiHokenjoCd
+  , jokaso.KensaIraiNendo
+  , jokaso.KensaIraiRenban
+  , jokaso.JokasoHokenjoCd
+  , jokaso.JokasoTorokuNendo
+  , jokaso.JokasoRenban
+  , jokaso.JokasoHouKonkyoKbn
+  , jokaso.JokasoHokenjoJuriNoHokenCd
+  , jokaso.JokasoHokenjoJuriNoNendo
+  , jokaso.JokasoHokenjoJuriNoSichosonCd
+  , jokaso.JokasoHokenjoJuriNoRenban
+  , jokaso.JokasoHoshoNoKensakikan
+  , jokaso.JokasoHoshoNoNendo
+  , jokaso.JokasoHoshoNoRenban
+  , jokaso.JokasoSetchishaNm
+  , jokaso.JokasoSetchishaAdr
+  , jokaso.JokasoSetchishaZipCd
+  , jokaso.JokasoSetchishaTelNo
+  , jokaso.JokasoSetchiBashoAdr
+  , jokaso.JokasoSetchiBashoZipCd
+  , jokaso.JokasoSetchiBashoTelNo
+  , jokaso.JokasoShisetsuNm
+  , jokaso.JokasoSetchiBashoHokenjoCd
+  , jokaso.JokasoSaisuiGyoshaCd
+  , jokaso.JokasoSeikyuGyoshaCd
+  , jokaso.JokasoMochikomiGyoshaCd
+  , jokaso.JokasoSoufusakiNm
+  , jokaso.JokasoSoufusakiZipCd
+  , jokaso.JokasoSoufusakiAdr
+  , jokaso.JokasoSoufusakiTelNo
+  , jokaso.JokasoSeikyusakiNm
+  , jokaso.JokasoSeikyusakiZipCd
+  , jokaso.JokasoSeikyusakiAdr
+  , jokaso.JokasoSeikyusakiTelNo
+  , jokaso.JokasoItkatsuSeikyuGyoshaCd
+  , jokaso.KenchikuyotoDaibunrui1
+  , jokaso.KenchikuyotoShobunrui1
+  , jokaso.KenchikuyotoRenban1
+  , jokaso.KenchikuyotoDaibunrui2
+  , jokaso.KenchikuyotoShobunrui2
+  , jokaso.KenchikuyotoRenban2
+  , jokaso.KenchikuyotoDaibunrui3
+  , jokaso.KenchikuyotoShobunrui3
+  , jokaso.KenchikuyotoRenban3
+  , jokaso.KenchikuyotoDaibunrui4
+  , jokaso.KenchikuyotoShobunrui4
+  , jokaso.KenchikuyotoRenban4
+  , jokaso.KenchikuyotoDaibunrui5
+  , jokaso.KenchikuyotoShobunrui5
+  , jokaso.KenchikuyotoRenban5
+  , jokaso.JokasoOldKentikuYoutoCd
+  , jokaso.JokasoMekaGyoshaCd
+  , jokaso.JokasoKatashikiCd
+  , jokaso.JokasoKojiGyoshaKbn
+  , jokaso.JokasoHoshutenkenGyoshaCd
+  , jokaso.JokasoSeisouGyoshaCd
+  , jokaso.JokasoHoryusakiCd
+  , jokaso.JokasoJitsuSiyoJinin
+  , jokaso.JokasoShoriTaishoJinin
+  , jokaso.JokasoShoriHosikiKbn
+  , jokaso.JokasoShoriHosikiCd
+  , jokaso.JokasoHagakiSoufusakiKbn
+  , jokaso.Jokaso3JiShoriFlg
+  , jokaso.JokasoSyoriMokuhyoBOD
+  , jokaso.JokasoSichosonSetchiKbn
+  , jokaso.JokasoKoujiKbn
+  , jokaso.JokasoKoujiNen
+  , jokaso.JokasoKoujiNo
+  , jokaso.JokasoTatemonoNobeMenseki
+  , jokaso.JokasoNinteiNo
+  , jokaso.JokasoSetchiNen
+  , jokaso.JokasoSetchiTsuki
+  , jokaso.JokasoSetchiBi
+  , jokaso.JokasoSiyokaisiNen
+  , jokaso.JokasoSiyokaisiTsuki
+  , jokaso.JokasoSiyokaisiBi
+  , jokaso.JokasoSetchishaKana
+  , jokaso.JokasoGenChikuCd
+  , jokaso.JokasoJitsuSiyouJininSuchi
+  , jokaso.JokasoKasaageTakasa
+  , jokaso.JokasoRyunyuTairyuTakasa
+  , jokaso.JokasoHouryuTairyuTakasa 
+from
+  ( 
+    select
+      top(1) concat( 
+        ki.KensaIraiKensaNen
+        , ki.KensaIraiKensaTsuki
+        , ki.KensaIraiKensaBi
+      ) as KensaIraiKensaDt
+      , ki.KensaIraiHoteiKbn
+      , ki.KensaIraiHokenjoCd
+      , ki.KensaIraiNendo
+      , ki.KensaIraiRenban
+      , jd.* 
+    from
+      JokasoDaichoMst jd 
+      left outer join KensaIraiTbl ki 
+        on jd.JokasoHokenjoCd = ki.KensaIraiJokasoHokenjoCd 
+        and jd.JokasoTorokuNendo = ki.KensaIraiJokasoTorokuNendo 
+        and jd.JokasoRenban = ki.KensaIraiJokasoRenban 
+    where
+      jd.JokasoHokenjoCd = @jokasoHokenjoCd
+      and jd.JokasoTorokuNendo = @jokasoTorokuNendo
+      and jd.JokasoRenban = @jokasoRenban
+    order by
+      KensaIraiKensaDt desc
+  ) jokaso 
+  inner join HoteiKensaRyokinMst ryokin 
+    on ( 
+      jokaso.JokasoShoriTaishoJinin &gt;= ryokin.HoteiKensaRyokinNinsoStart 
+      and jokaso.JokasoShoriTaishoJinin &lt;= ryokin.HoteiKensaRyokinNinsoEnd
+    ) 
+    or ( 
+      jokaso.JokasoShoriTaishoJinin &gt;= ryokin.HoteiKensaRyokinNinsoStart 
+      and ryokin.HoteiKensaRyokinNinsoEnd = ''
+    ) 
+order by
+  jokaso.JokasoHokenjoCd
+  , jokaso.JokasoTorokuNendo
+  , jokaso.JokasoRenban
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoHokenjoCd" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@jokasoHokenjoCd" Precision="0" Scale="0" Size="2" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoTorokuNendo" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@jokasoTorokuNendo" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoRenban" ColumnName="" DataSourceName="" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@jokasoRenban" Precision="0" Scale="0" Size="5" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="HoteiKensaRyokinRenban" DataSetColumn="HoteiKensaRyokinRenban" />
+              <Mapping SourceColumn="TandokuKingaku11Jo" DataSetColumn="TandokuKingaku11Jo" />
+              <Mapping SourceColumn="GappeiKingakuNew11Jo" DataSetColumn="GappeiKingakuNew11Jo" />
+              <Mapping SourceColumn="KensaAmt" DataSetColumn="KensaAmt" />
+              <Mapping SourceColumn="KensaIraiKensaDt" DataSetColumn="KensaIraiKensaDt" />
+              <Mapping SourceColumn="KensaIraiHoteiKbn" DataSetColumn="KensaIraiHoteiKbn" />
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="KensaIraiRenban" DataSetColumn="KensaIraiRenban" />
+              <Mapping SourceColumn="JokasoHokenjoCd" DataSetColumn="JokasoHokenjoCd" />
+              <Mapping SourceColumn="JokasoTorokuNendo" DataSetColumn="JokasoTorokuNendo" />
+              <Mapping SourceColumn="JokasoRenban" DataSetColumn="JokasoRenban" />
+              <Mapping SourceColumn="JokasoHouKonkyoKbn" DataSetColumn="JokasoHouKonkyoKbn" />
+              <Mapping SourceColumn="JokasoHokenjoJuriNoHokenCd" DataSetColumn="JokasoHokenjoJuriNoHokenCd" />
+              <Mapping SourceColumn="JokasoHokenjoJuriNoNendo" DataSetColumn="JokasoHokenjoJuriNoNendo" />
+              <Mapping SourceColumn="JokasoHokenjoJuriNoSichosonCd" DataSetColumn="JokasoHokenjoJuriNoSichosonCd" />
+              <Mapping SourceColumn="JokasoHokenjoJuriNoRenban" DataSetColumn="JokasoHokenjoJuriNoRenban" />
+              <Mapping SourceColumn="JokasoHoshoNoKensakikan" DataSetColumn="JokasoHoshoNoKensakikan" />
+              <Mapping SourceColumn="JokasoHoshoNoNendo" DataSetColumn="JokasoHoshoNoNendo" />
+              <Mapping SourceColumn="JokasoHoshoNoRenban" DataSetColumn="JokasoHoshoNoRenban" />
+              <Mapping SourceColumn="JokasoSetchishaNm" DataSetColumn="JokasoSetchishaNm" />
+              <Mapping SourceColumn="JokasoSetchishaAdr" DataSetColumn="JokasoSetchishaAdr" />
+              <Mapping SourceColumn="JokasoSetchishaZipCd" DataSetColumn="JokasoSetchishaZipCd" />
+              <Mapping SourceColumn="JokasoSetchishaTelNo" DataSetColumn="JokasoSetchishaTelNo" />
+              <Mapping SourceColumn="JokasoSetchiBashoAdr" DataSetColumn="JokasoSetchiBashoAdr" />
+              <Mapping SourceColumn="JokasoSetchiBashoZipCd" DataSetColumn="JokasoSetchiBashoZipCd" />
+              <Mapping SourceColumn="JokasoSetchiBashoTelNo" DataSetColumn="JokasoSetchiBashoTelNo" />
+              <Mapping SourceColumn="JokasoShisetsuNm" DataSetColumn="JokasoShisetsuNm" />
+              <Mapping SourceColumn="JokasoSetchiBashoHokenjoCd" DataSetColumn="JokasoSetchiBashoHokenjoCd" />
+              <Mapping SourceColumn="JokasoSaisuiGyoshaCd" DataSetColumn="JokasoSaisuiGyoshaCd" />
+              <Mapping SourceColumn="JokasoSeikyuGyoshaCd" DataSetColumn="JokasoSeikyuGyoshaCd" />
+              <Mapping SourceColumn="JokasoMochikomiGyoshaCd" DataSetColumn="JokasoMochikomiGyoshaCd" />
+              <Mapping SourceColumn="JokasoSoufusakiNm" DataSetColumn="JokasoSoufusakiNm" />
+              <Mapping SourceColumn="JokasoSoufusakiZipCd" DataSetColumn="JokasoSoufusakiZipCd" />
+              <Mapping SourceColumn="JokasoSoufusakiAdr" DataSetColumn="JokasoSoufusakiAdr" />
+              <Mapping SourceColumn="JokasoSoufusakiTelNo" DataSetColumn="JokasoSoufusakiTelNo" />
+              <Mapping SourceColumn="JokasoSeikyusakiNm" DataSetColumn="JokasoSeikyusakiNm" />
+              <Mapping SourceColumn="JokasoSeikyusakiZipCd" DataSetColumn="JokasoSeikyusakiZipCd" />
+              <Mapping SourceColumn="JokasoSeikyusakiAdr" DataSetColumn="JokasoSeikyusakiAdr" />
+              <Mapping SourceColumn="JokasoSeikyusakiTelNo" DataSetColumn="JokasoSeikyusakiTelNo" />
+              <Mapping SourceColumn="JokasoItkatsuSeikyuGyoshaCd" DataSetColumn="JokasoItkatsuSeikyuGyoshaCd" />
+              <Mapping SourceColumn="KenchikuyotoDaibunrui1" DataSetColumn="KenchikuyotoDaibunrui1" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui1" DataSetColumn="KenchikuyotoShobunrui1" />
+              <Mapping SourceColumn="KenchikuyotoRenban1" DataSetColumn="KenchikuyotoRenban1" />
+              <Mapping SourceColumn="KenchikuyotoDaibunrui2" DataSetColumn="KenchikuyotoDaibunrui2" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui2" DataSetColumn="KenchikuyotoShobunrui2" />
+              <Mapping SourceColumn="KenchikuyotoRenban2" DataSetColumn="KenchikuyotoRenban2" />
+              <Mapping SourceColumn="KenchikuyotoDaibunrui3" DataSetColumn="KenchikuyotoDaibunrui3" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui3" DataSetColumn="KenchikuyotoShobunrui3" />
+              <Mapping SourceColumn="KenchikuyotoRenban3" DataSetColumn="KenchikuyotoRenban3" />
+              <Mapping SourceColumn="KenchikuyotoDaibunrui4" DataSetColumn="KenchikuyotoDaibunrui4" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui4" DataSetColumn="KenchikuyotoShobunrui4" />
+              <Mapping SourceColumn="KenchikuyotoRenban4" DataSetColumn="KenchikuyotoRenban4" />
+              <Mapping SourceColumn="KenchikuyotoDaibunrui5" DataSetColumn="KenchikuyotoDaibunrui5" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui5" DataSetColumn="KenchikuyotoShobunrui5" />
+              <Mapping SourceColumn="KenchikuyotoRenban5" DataSetColumn="KenchikuyotoRenban5" />
+              <Mapping SourceColumn="JokasoOldKentikuYoutoCd" DataSetColumn="JokasoOldKentikuYoutoCd" />
+              <Mapping SourceColumn="JokasoMekaGyoshaCd" DataSetColumn="JokasoMekaGyoshaCd" />
+              <Mapping SourceColumn="JokasoKatashikiCd" DataSetColumn="JokasoKatashikiCd" />
+              <Mapping SourceColumn="JokasoKojiGyoshaKbn" DataSetColumn="JokasoKojiGyoshaKbn" />
+              <Mapping SourceColumn="JokasoHoshutenkenGyoshaCd" DataSetColumn="JokasoHoshutenkenGyoshaCd" />
+              <Mapping SourceColumn="JokasoSeisouGyoshaCd" DataSetColumn="JokasoSeisouGyoshaCd" />
+              <Mapping SourceColumn="JokasoHoryusakiCd" DataSetColumn="JokasoHoryusakiCd" />
+              <Mapping SourceColumn="JokasoJitsuSiyoJinin" DataSetColumn="JokasoJitsuSiyoJinin" />
+              <Mapping SourceColumn="JokasoShoriTaishoJinin" DataSetColumn="JokasoShoriTaishoJinin" />
+              <Mapping SourceColumn="JokasoShoriHosikiKbn" DataSetColumn="JokasoShoriHosikiKbn" />
+              <Mapping SourceColumn="JokasoShoriHosikiCd" DataSetColumn="JokasoShoriHosikiCd" />
+              <Mapping SourceColumn="JokasoHagakiSoufusakiKbn" DataSetColumn="JokasoHagakiSoufusakiKbn" />
+              <Mapping SourceColumn="Jokaso3JiShoriFlg" DataSetColumn="Jokaso3JiShoriFlg" />
+              <Mapping SourceColumn="JokasoSyoriMokuhyoBOD" DataSetColumn="JokasoSyoriMokuhyoBOD" />
+              <Mapping SourceColumn="JokasoSichosonSetchiKbn" DataSetColumn="JokasoSichosonSetchiKbn" />
+              <Mapping SourceColumn="JokasoKoujiKbn" DataSetColumn="JokasoKoujiKbn" />
+              <Mapping SourceColumn="JokasoKoujiNen" DataSetColumn="JokasoKoujiNen" />
+              <Mapping SourceColumn="JokasoKoujiNo" DataSetColumn="JokasoKoujiNo" />
+              <Mapping SourceColumn="JokasoTatemonoNobeMenseki" DataSetColumn="JokasoTatemonoNobeMenseki" />
+              <Mapping SourceColumn="JokasoNinteiNo" DataSetColumn="JokasoNinteiNo" />
+              <Mapping SourceColumn="JokasoSetchiNen" DataSetColumn="JokasoSetchiNen" />
+              <Mapping SourceColumn="JokasoSetchiTsuki" DataSetColumn="JokasoSetchiTsuki" />
+              <Mapping SourceColumn="JokasoSetchiBi" DataSetColumn="JokasoSetchiBi" />
+              <Mapping SourceColumn="JokasoSiyokaisiNen" DataSetColumn="JokasoSiyokaisiNen" />
+              <Mapping SourceColumn="JokasoSiyokaisiTsuki" DataSetColumn="JokasoSiyokaisiTsuki" />
+              <Mapping SourceColumn="JokasoSiyokaisiBi" DataSetColumn="JokasoSiyokaisiBi" />
+              <Mapping SourceColumn="JokasoSetchishaKana" DataSetColumn="JokasoSetchishaKana" />
+              <Mapping SourceColumn="JokasoGenChikuCd" DataSetColumn="JokasoGenChikuCd" />
+              <Mapping SourceColumn="JokasoJitsuSiyouJininSuchi" DataSetColumn="JokasoJitsuSiyouJininSuchi" />
+              <Mapping SourceColumn="JokasoKasaageTakasa" DataSetColumn="JokasoKasaageTakasa" />
+              <Mapping SourceColumn="JokasoRyunyuTairyuTakasa" DataSetColumn="JokasoRyunyuTairyuTakasa" />
+              <Mapping SourceColumn="JokasoHouryuTairyuTakasa" DataSetColumn="JokasoHouryuTairyuTakasa" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ZenkaiKensaIraiInfoTableAdapter" GeneratorDataComponentClassName="ZenkaiKensaIraiInfoTableAdapter" Name="ZenkaiKensaIraiInfo" UserDataComponentName="ZenkaiKensaIraiInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  top(1) kit.KensaIraiHoteiKbn
+  , kit.KensaIraiHokenjoCd
+  , kit.KensaIraiNendo
+  , kit.KensaIraiRenban
+  , kit.KensaIraiSuishitsuUketsukeDt 
+  , kkt.KensaKekkaHantei 
+from
+  KensaIraiTbl kit
+  inner join KensaKekkaTbl kkt 
+    on kit.KensaIraiHoteiKbn = kkt.KensaKekkaIraiHoteiKbn
+    and kit.KensaIraiHokenjoCd = kkt.KensaKekkaIraiHokenjoCd
+    and kit.KensaIraiNendo = kkt.KensaKekkaIraiNendo
+    and kit.KensaIraiRenban = kkt.KensaKekkaIraiRenban
+where
+  kit.KensaIraiJokasoHokenjoCd = @jokasoHokenjoCd 
+  and kit.KensaIraiJokasoTorokuNendo = @jokasoTorokuNendo 
+  and kit.KensaIraiJokasoRenban = @jokasoRenban 
+  and kit.KensaIraiSuishitsuUketsukeDt &lt; @suishitsuUketsukeDt 
+  and kit.KensaIraiStatusKbn &gt;= '70' 
+  and kit.KensaIraiStatusKbn &lt; '90' 
+order by
+  kit.KensaIraiSuishitsuUketsukeDt desc
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoHokenjoCd" ColumnName="KensaIraiJokasoHokenjoCd" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@jokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KensaIraiJokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoTorokuNendo" ColumnName="KensaIraiJokasoTorokuNendo" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@jokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="KensaIraiJokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoRenban" ColumnName="KensaIraiJokasoRenban" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@jokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="KensaIraiJokasoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="suishitsuUketsukeDt" ColumnName="KensaIraiSuishitsuUketsukeDt" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(8)" DbType="String" Direction="Input" ParameterName="@suishitsuUketsukeDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="8" SourceColumn="KensaIraiSuishitsuUketsukeDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaIraiHoteiKbn" DataSetColumn="KensaIraiHoteiKbn" />
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="KensaIraiRenban" DataSetColumn="KensaIraiRenban" />
+              <Mapping SourceColumn="KensaIraiSuishitsuUketsukeDt" DataSetColumn="KensaIraiSuishitsuUketsukeDt" />
+              <Mapping SourceColumn="KensaKekkaHantei" DataSetColumn="KensaKekkaHantei" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KensaShokenFollowInfoTableAdapter" GeneratorDataComponentClassName="KensaShokenFollowInfoTableAdapter" Name="KensaShokenFollowInfo" UserDataComponentName="KensaShokenFollowInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  top(1) sm.ShokenFollowFlg
+  , sk.ShokenKbn
+  , sk.ShokenCd
+from
+  ShokenKekkaTbl sk 
+  left outer join ShokenMst sm 
+    on sk.ShokenKbn = sm.ShokenKbn 
+    and sk.ShokenCd = sm.ShokenCd 
+where
+  KensaIraiShokanIraiHoteiKbn = @kensaIraiHoteiKbn 
+  and KensaIraiShokenIraiHokenjoCd = @kensaIraiHokenjoCd 
+  and KensaIraiShokenIraiNendo = @kensaIraiNendo 
+  and KensaIraiShokenIraiRenban = @kensaIraiRenban 
+  and ShokenFollowFlg = '1'
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiHoteiKbn" ColumnName="KensaIraiShokanIraiHoteiKbn" DataSourceName="FukjBizSystem.dbo.ShokenKekkaTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@kensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="KensaIraiShokanIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiHokenjoCd" ColumnName="KensaIraiShokenIraiHokenjoCd" DataSourceName="FukjBizSystem.dbo.ShokenKekkaTbl" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@kensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KensaIraiShokenIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiNendo" ColumnName="KensaIraiShokenIraiNendo" DataSourceName="FukjBizSystem.dbo.ShokenKekkaTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@kensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="KensaIraiShokenIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="kensaIraiRenban" ColumnName="KensaIraiShokenIraiRenban" DataSourceName="FukjBizSystem.dbo.ShokenKekkaTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@kensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="KensaIraiShokenIraiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ShokenFollowFlg" DataSetColumn="ShokenFollowFlg" />
+              <Mapping SourceColumn="ShokenKbn" DataSetColumn="ShokenKbn" />
+              <Mapping SourceColumn="ShokenCd" DataSetColumn="ShokenCd" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KensaDaichoSuishitsuInfoTableAdapter" GeneratorDataComponentClassName="KensaDaichoSuishitsuInfoTableAdapter" Name="KensaDaichoSuishitsuInfo" UserDataComponentName="KensaDaichoSuishitsuInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  kdt.KensaKekkaIraiHoteiKbn
+  , kdt.KensaKekkaIraiHokenjoCd
+  , kdt.KensaKekkaIraiNendo
+  , kdt.KensaKekkaIraiRenban
+  , concat( 
+    kdt.KensaKekkaIraiHoteiKbn
+    , '-'
+    , kdt.KensaKekkaIraiHokenjoCd
+    , '-'
+    , dbo.FuncConvertIraiNedoToWareki(kdt.KensaKekkaIraiNendo)
+    , '-'
+    , kdt.KensaKekkaIraiRenban
+  ) as KensaIraiNo
+  , '1' as SaisaisuiKbn
+  , kdt.SuishitsuKensaIraiNo
+  , kit.KensaIraiUketsukeKbn
+  , kit.KensaIraiGenkinShunyuKbn
+  , isnull(kit.KensaIraiSaisuiinCd, '') as KensaIraiSaisuiinCd
+  , isnull(ssm.SaisuiinNm, '') as SaisuiinNm
+  , jdm.JokasoHokenjoCd
+  , jdm.JokasoTorokuNendo
+  , jdm.JokasoRenban
+  , concat( 
+    jdm.JokasoHokenjoCd
+    , '-'
+    , dbo.FuncConvertIraiNedoToWareki(jdm.JokasoTorokuNendo)
+    , '-'
+    , jdm.JokasoRenban
+  ) as KyokaiNo
+  , jdm.JokasoSetchishaNm
+  , kdd.KeiryoShomeiKekkaValue
+  , isnull(kit.KensaIraiKensaTantoshaCd, '') as KensaIraiKensaTantoshaCd
+  , isnull(skm.ShokuinNm, '') as ShokuinNm 
+  , kit.UpdateDt as KensaIraiUpdateDt
+  , kdd.UpdateDt as KensaDaichoDtlUpdateDt
+  , kit.KensaIraiKensaAmt
+  , kit.KensaIraiNyukinzumiAmt
+  , kit.KensaIraiHakkoKbn4
+  , kit.KensaIraiHakkoKbn5
+from
+  ( 
+    select
+      hdr.* 
+    from
+      ( 
+        select
+          * 
+        from
+          KensaDaicho11joHdrTbl 
+        where
+          KensaKbn = '2' 
+          and IraiNendo = '2014' 
+          and ShishoCd = '1' 
+          and KensaIraiUketsukeDt = '20141212' 
+          and SuishitsuKensaIraiNo &gt;= '000000' 
+          and SuishitsuKensaIraiNo &lt;= '999999'
+      ) hdr 
+    where
+      not exists ( 
+        select
+          1 
+        from
+          KensaDaichoDtlTbl dtl 
+        where
+          dtl.KensaKbn = hdr.KensaKbn 
+          and dtl.IraiNendo = hdr.IraiNendo 
+          and dtl.ShishoCd = hdr.ShishoCd 
+          and dtl.SuishitsuKensaIraiNo = hdr.SuishitsuKensaIraiNo 
+          and dtl.KeiryoShomeiKekkaNyuryoku = '1'
+      )
+  ) kdt 
+  inner join KensaDaichoDtlTbl kdd 
+    on kdt.KensaKbn = kdd.KensaKbn 
+    and kdt.IraiNendo = kdd.IraiNendo 
+    and kdt.ShishoCd = kdd.ShishoCd 
+    and kdt.SuishitsuKensaIraiNo = kdd.SuishitsuKensaIraiNo 
+  inner join KensaIraiTbl kit 
+    on kdt.KensaKekkaIraiHoteiKbn = kit.KensaIraiHoteiKbn 
+    and kdt.KensaKekkaIraiHokenjoCd = kit.KensaIraiHokenjoCd 
+    and kdt.KensaKekkaIraiNendo = kit.KensaIraiNendo 
+    and kdt.KensaKekkaIraiRenban = kit.KensaIraiRenban 
+  inner join JokasoDaichoMst jdm 
+    on kit.KensaIraiJokasoHokenjoCd = jdm.JokasoHokenjoCd 
+    and kit.KensaIraiJokasoTorokuNendo = jdm.JokasoTorokuNendo 
+    and kit.KensaIraiJokasoRenban = jdm.JokasoRenban 
+  left outer join SaisuiinMst ssm 
+    on kit.KensaIraiSaisuiinCd = ssm.SaisuiinCd 
+  left outer join ShokuinMst skm 
+    on kit.KensaIraiKensaTantoshaCd = skm.ShokuinCd 
+where
+  kdd.ShikenkoumokuCd = '070' 
+order by
+  kdt.KensaKbn
+  , kdt.IraiNendo
+  , kdt.ShishoCd
+  , kdt.SuishitsuKensaIraiNo
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaKekkaIraiHoteiKbn" DataSetColumn="KensaKekkaIraiHoteiKbn" />
+              <Mapping SourceColumn="KensaKekkaIraiHokenjoCd" DataSetColumn="KensaKekkaIraiHokenjoCd" />
+              <Mapping SourceColumn="KensaKekkaIraiNendo" DataSetColumn="KensaKekkaIraiNendo" />
+              <Mapping SourceColumn="KensaKekkaIraiRenban" DataSetColumn="KensaKekkaIraiRenban" />
+              <Mapping SourceColumn="KensaIraiNo" DataSetColumn="KensaIraiNo" />
+              <Mapping SourceColumn="SaisaisuiKbn" DataSetColumn="SaisaisuiKbn" />
+              <Mapping SourceColumn="SuishitsuKensaIraiNo" DataSetColumn="SuishitsuKensaIraiNo" />
+              <Mapping SourceColumn="KensaIraiUketsukeKbn" DataSetColumn="KensaIraiUketsukeKbn" />
+              <Mapping SourceColumn="KensaIraiGenkinShunyuKbn" DataSetColumn="KensaIraiGenkinShunyuKbn" />
+              <Mapping SourceColumn="KensaIraiSaisuiinCd" DataSetColumn="KensaIraiSaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="JokasoHokenjoCd" DataSetColumn="JokasoHokenjoCd" />
+              <Mapping SourceColumn="JokasoTorokuNendo" DataSetColumn="JokasoTorokuNendo" />
+              <Mapping SourceColumn="JokasoRenban" DataSetColumn="JokasoRenban" />
+              <Mapping SourceColumn="KyokaiNo" DataSetColumn="KyokaiNo" />
+              <Mapping SourceColumn="JokasoSetchishaNm" DataSetColumn="JokasoSetchishaNm" />
+              <Mapping SourceColumn="KeiryoShomeiKekkaValue" DataSetColumn="KeiryoShomeiKekkaValue" />
+              <Mapping SourceColumn="KensaIraiKensaTantoshaCd" DataSetColumn="KensaIraiKensaTantoshaCd" />
+              <Mapping SourceColumn="ShokuinNm" DataSetColumn="ShokuinNm" />
+              <Mapping SourceColumn="KensaIraiUpdateDt" DataSetColumn="KensaIraiUpdateDt" />
+              <Mapping SourceColumn="KensaDaichoDtlUpdateDt" DataSetColumn="KensaDaichoDtlUpdateDt" />
+              <Mapping SourceColumn="KensaIraiKensaAmt" DataSetColumn="KensaIraiKensaAmt" />
+              <Mapping SourceColumn="KensaIraiNyukinzumiAmt" DataSetColumn="KensaIraiNyukinzumiAmt" />
+              <Mapping SourceColumn="KensaIraiHakkoKbn4" DataSetColumn="KensaIraiHakkoKbn4" />
+              <Mapping SourceColumn="KensaIraiHakkoKbn5" DataSetColumn="KensaIraiHakkoKbn5" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KeiryoShomeiHakkoFlgInfoTableAdapter" GeneratorDataComponentClassName="KeiryoShomeiHakkoFlgInfoTableAdapter" Name="KeiryoShomeiHakkoFlgInfo" UserDataComponentName="KeiryoShomeiHakkoFlgInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  isnull(max(ssm.KeiryoshomeiHakkoFlg), 0) as KeiryoShomeiHakkoFlg
+from
+  DaichoSuishitsuKensaTanKomokuMst tkm 
+  inner join SuishitsuShikenKoumokuMst ssm 
+    on tkm.DaichoKensaKomokuCd = ssm.SuishitsuShikenKoumokuCd 
+where
+  tkm.JokasoHokenjoCd = @jokasoHokenjoCd 
+  and tkm.JokasoTorokuNendo = @jokasoTorokuNendo 
+  and tkm.JokasoRenban = @jokasoRenban 
+  and tkm.DaichoKensaKomokuEdaban = @komokuEdaban
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoHokenjoCd" ColumnName="JokasoHokenjoCd" DataSourceName="FukjBizSystem.dbo.DaichoSuishitsuKensaTanKomokuMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@jokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="JokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoTorokuNendo" ColumnName="JokasoTorokuNendo" DataSourceName="FukjBizSystem.dbo.DaichoSuishitsuKensaTanKomokuMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@jokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="JokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="jokasoRenban" ColumnName="JokasoRenban" DataSourceName="FukjBizSystem.dbo.DaichoSuishitsuKensaTanKomokuMst" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@jokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="JokasoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="komokuEdaban" ColumnName="DaichoKensaKomokuEdaban" DataSourceName="FukjBizSystem.dbo.DaichoSuishitsuKensaTanKomokuMst" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@komokuEdaban" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="DaichoKensaKomokuEdaban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KeiryoShomeiHakkoFlg" DataSetColumn="KeiryoShomeiHakkoFlg" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SuishitsuNippoCheckInfoTableAdapter" GeneratorDataComponentClassName="SuishitsuNippoCheckInfoTableAdapter" Name="SuishitsuNippoCheckInfo" UserDataComponentName="SuishitsuNippoCheckInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  count(CheckFlg) as CheckCnt 
+from
+  SuishitsuNippoHdrTbl 
+where
+  ShishoCd = @shishoCd 
+  and SuishitsuUketsukeDt = @suishitsuUketsukeDt
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="shishoCd" ColumnName="ShishoCd" DataSourceName="FukjBizSystem.dbo.SuishitsuNippoHdrTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@shishoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="ShishoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="suishitsuUketsukeDt" ColumnName="SuishitsuUketsukeDt" DataSourceName="FukjBizSystem.dbo.SuishitsuNippoHdrTbl" DataTypeServer="nvarchar(8)" DbType="String" Direction="Input" ParameterName="@suishitsuUketsukeDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="8" SourceColumn="SuishitsuUketsukeDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CheckCnt" DataSetColumn="CheckCnt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DisplayJokasoDaichoInfoTableAdapter" GeneratorDataComponentClassName="DisplayJokasoDaichoInfoTableAdapter" Name="DisplayJokasoDaichoInfo" UserDataComponentName="DisplayJokasoDaichoInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  JokasoDaichoMst.JokasoHokenjoCd
+  , JokasoDaichoMst.JokasoTorokuNendo
+  , JokasoDaichoMst.JokasoRenban
+  , JokasoDaichoMst.JokasoSetchishaNm
+  , JokasoDaichoMst.JokasoSetchishaTelNo
+  , JokasoDaichoMst.JokasoSetchishaKana
+  , JokasoDaichoMst.JokasoSetchishaAdr
+  , JokasoDaichoMst.JokasoSetchiBashoAdr
+  , JokasoDaichoMst.JokasoSaisuiGyoshaCd
+  , JokasoDaichoMst.JokasoMekaGyoshaCd
+  , JokasoDaichoMst.JokasoKatashikiCd
+  , JokasoDaichoMst.JokasoShoriHosikiKbn
+  , JokasoDaichoMst.JokasoShoriHosikiCd
+  , JokasoDaichoMst.JokasoShoriTaishoJinin
+  , JokasoDaichoMst.JokasoSyoriMokuhyoBOD
+  , kentikuYoto1.KenchikuyotoNm AS kentikuYotoNm1
+  , kentikuYoto2.KenchikuyotoNm AS kentikuYotoNm2
+  , kentikuYoto3.KenchikuyotoNm AS kentikuYotoNm3
+  , kentikuYoto4.KenchikuyotoNm AS kentikuYotoNm4
+  , kentikuYoto5.KenchikuyotoNm AS kentikuYotoNm5
+  , ShoriHoshikiMst.ShoriHoshikiNm
+  , KatashikiMst.KatashikiNm
+  , MakerGyosha.GyoshaNm AS MakerGyoshaNm
+  , SaisuiGyosha.GyoshaNm AS SaisuiGyoshaNm
+  , HoshutenkenGyosha.GyoshaNm AS HoshutenkenGyoshaNm
+  , SeisoGyosha.GyoshaNm AS SeisoGyoshaNm 
+FROM
+  JokasoDaichoMst 
+  LEFT OUTER JOIN KatashikiMst 
+    ON KatashikiMst.KatashikiMakerCd = JokasoDaichoMst.JokasoMekaGyoshaCd 
+    AND KatashikiMst.KatashikiCd = JokasoDaichoMst.JokasoKatashikiCd 
+  LEFT OUTER JOIN ShoriHoshikiMst 
+    ON ShoriHoshikiMst.ShoriHoshikiKbn = JokasoDaichoMst.JokasoShoriHosikiKbn 
+    AND ShoriHoshikiMst.ShoriHoshikiCd = JokasoDaichoMst.JokasoShoriHosikiCd 
+  LEFT OUTER JOIN KenchikuyotoMst AS kentikuYoto1 
+    ON kentikuYoto1.KenchikuyotoDaibunrui = JokasoDaichoMst.KenchikuyotoDaibunrui1 
+    AND kentikuYoto1.KenchikuyotoShobunrui = JokasoDaichoMst.KenchikuyotoDaibunrui1 
+    AND kentikuYoto1.KenchikuyotoRenban = JokasoDaichoMst.KenchikuyotoShobunrui1 
+  LEFT OUTER JOIN KenchikuyotoMst AS kentikuYoto2 
+    ON kentikuYoto2.KenchikuyotoDaibunrui = JokasoDaichoMst.KenchikuyotoDaibunrui2 
+    AND kentikuYoto2.KenchikuyotoShobunrui = JokasoDaichoMst.KenchikuyotoDaibunrui2 
+    AND kentikuYoto2.KenchikuyotoRenban = JokasoDaichoMst.KenchikuyotoShobunrui2 
+  LEFT OUTER JOIN KenchikuyotoMst AS kentikuYoto3 
+    ON kentikuYoto3.KenchikuyotoDaibunrui = JokasoDaichoMst.KenchikuyotoDaibunrui3 
+    AND kentikuYoto3.KenchikuyotoShobunrui = JokasoDaichoMst.KenchikuyotoDaibunrui3 
+    AND kentikuYoto3.KenchikuyotoRenban = JokasoDaichoMst.KenchikuyotoShobunrui3 
+  LEFT OUTER JOIN KenchikuyotoMst AS kentikuYoto4 
+    ON kentikuYoto4.KenchikuyotoDaibunrui = JokasoDaichoMst.KenchikuyotoDaibunrui4 
+    AND kentikuYoto4.KenchikuyotoShobunrui = JokasoDaichoMst.KenchikuyotoDaibunrui4 
+    AND kentikuYoto4.KenchikuyotoRenban = JokasoDaichoMst.KenchikuyotoShobunrui4 
+  LEFT OUTER JOIN KenchikuyotoMst AS kentikuYoto5 
+    ON kentikuYoto5.KenchikuyotoDaibunrui = JokasoDaichoMst.KenchikuyotoDaibunrui5 
+    AND kentikuYoto5.KenchikuyotoShobunrui = JokasoDaichoMst.KenchikuyotoDaibunrui5 
+    AND kentikuYoto5.KenchikuyotoRenban = JokasoDaichoMst.KenchikuyotoShobunrui5 
+  LEFT OUTER JOIN GyoshaMst AS MakerGyosha 
+    ON MakerGyosha.GyoshaCd = JokasoDaichoMst.JokasoMekaGyoshaCd 
+  LEFT OUTER JOIN GyoshaMst AS SaisuiGyosha 
+    ON SaisuiGyosha.GyoshaCd = JokasoDaichoMst.JokasoSaisuiGyoshaCd 
+  LEFT OUTER JOIN GyoshaMst AS HoshutenkenGyosha 
+    ON HoshutenkenGyosha.GyoshaCd = JokasoDaichoMst.JokasoHoshutenkenGyoshaCd 
+  LEFT OUTER JOIN GyoshaMst AS SeisoGyosha 
+    ON SeisoGyosha.GyoshaCd = JokasoDaichoMst.JokasoSeisouGyoshaCd 
+WHERE
+  JokasoDaichoMst.JokasoHokenjoCd = @JokasoHokenjoCd 
+  AND JokasoDaichoMst.JokasoTorokuNendo = @JokasoTorokuNendo 
+  AND JokasoDaichoMst.JokasoRenban = @JokasoRenban 
+ORDER BY
+  JokasoDaichoMst.JokasoHokenjoCd
+  , JokasoDaichoMst.JokasoTorokuNendo
+  , JokasoDaichoMst.JokasoRenban
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="JokasoHokenjoCd" ColumnName="JokasoHokenjoCd" DataSourceName="FukjBizSystem.dbo.JokasoDaichoMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@JokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="JokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="JokasoTorokuNendo" ColumnName="JokasoTorokuNendo" DataSourceName="FukjBizSystem.dbo.JokasoDaichoMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@JokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="JokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="JokasoRenban" ColumnName="JokasoRenban" DataSourceName="FukjBizSystem.dbo.JokasoDaichoMst" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@JokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="JokasoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="JokasoHokenjoCd" DataSetColumn="JokasoHokenjoCd" />
+              <Mapping SourceColumn="JokasoTorokuNendo" DataSetColumn="JokasoTorokuNendo" />
+              <Mapping SourceColumn="JokasoRenban" DataSetColumn="JokasoRenban" />
+              <Mapping SourceColumn="JokasoSetchishaNm" DataSetColumn="JokasoSetchishaNm" />
+              <Mapping SourceColumn="JokasoSetchishaTelNo" DataSetColumn="JokasoSetchishaTelNo" />
+              <Mapping SourceColumn="JokasoSetchishaKana" DataSetColumn="JokasoSetchishaKana" />
+              <Mapping SourceColumn="JokasoSetchishaAdr" DataSetColumn="JokasoSetchishaAdr" />
+              <Mapping SourceColumn="JokasoSetchiBashoAdr" DataSetColumn="JokasoSetchiBashoAdr" />
+              <Mapping SourceColumn="JokasoSaisuiGyoshaCd" DataSetColumn="JokasoSaisuiGyoshaCd" />
+              <Mapping SourceColumn="JokasoMekaGyoshaCd" DataSetColumn="JokasoMekaGyoshaCd" />
+              <Mapping SourceColumn="JokasoKatashikiCd" DataSetColumn="JokasoKatashikiCd" />
+              <Mapping SourceColumn="JokasoShoriHosikiKbn" DataSetColumn="JokasoShoriHosikiKbn" />
+              <Mapping SourceColumn="JokasoShoriHosikiCd" DataSetColumn="JokasoShoriHosikiCd" />
+              <Mapping SourceColumn="JokasoShoriTaishoJinin" DataSetColumn="JokasoShoriTaishoJinin" />
+              <Mapping SourceColumn="JokasoSyoriMokuhyoBOD" DataSetColumn="JokasoSyoriMokuhyoBOD" />
+              <Mapping SourceColumn="kentikuYotoNm1" DataSetColumn="kentikuYotoNm1" />
+              <Mapping SourceColumn="kentikuYotoNm2" DataSetColumn="kentikuYotoNm2" />
+              <Mapping SourceColumn="kentikuYotoNm3" DataSetColumn="kentikuYotoNm3" />
+              <Mapping SourceColumn="kentikuYotoNm4" DataSetColumn="kentikuYotoNm4" />
+              <Mapping SourceColumn="kentikuYotoNm5" DataSetColumn="kentikuYotoNm5" />
+              <Mapping SourceColumn="ShoriHoshikiNm" DataSetColumn="ShoriHoshikiNm" />
+              <Mapping SourceColumn="KatashikiNm" DataSetColumn="KatashikiNm" />
+              <Mapping SourceColumn="MakerGyoshaNm" DataSetColumn="MakerGyoshaNm" />
+              <Mapping SourceColumn="SaisuiGyoshaNm" DataSetColumn="SaisuiGyoshaNm" />
+              <Mapping SourceColumn="HoshutenkenGyoshaNm" DataSetColumn="HoshutenkenGyoshaNm" />
+              <Mapping SourceColumn="SeisoGyoshaNm" DataSetColumn="SeisoGyoshaNm" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SuishitsuKensaUketsukeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SuishitsuKensaUketsukeDataSet" msprop:Generator_UserDSName="SuishitsuKensaUketsukeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KensaDaicho9joInfo" msprop:Generator_TableClassName="KensaDaicho9joInfoDataTable" msprop:Generator_TableVarName="tableKensaDaicho9joInfo" msprop:Generator_RowChangedName="KensaDaicho9joInfoRowChanged" msprop:Generator_TablePropName="KensaDaicho9joInfo" msprop:Generator_RowDeletingName="KensaDaicho9joInfoRowDeleting" msprop:Generator_RowChangingName="KensaDaicho9joInfoRowChanging" msprop:Generator_RowEvHandlerName="KensaDaicho9joInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KensaDaicho9joInfoRowDeleted" msprop:Generator_RowClassName="KensaDaicho9joInfoRow" msprop:Generator_UserTableName="KensaDaicho9joInfo" msprop:Generator_RowEvArgName="KensaDaicho9joInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IraiNendo" msprop:Generator_ColumnVarNameInTable="columnIraiNendo" msprop:Generator_ColumnPropNameInRow="IraiNendo" msprop:Generator_ColumnPropNameInTable="IraiNendoColumn" msprop:Generator_UserColumnName="IraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShishoCd" msprop:Generator_ColumnVarNameInTable="columnShishoCd" msprop:Generator_ColumnPropNameInRow="ShishoCd" msprop:Generator_ColumnPropNameInTable="ShishoCdColumn" msprop:Generator_UserColumnName="ShishoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SuishitsuKensaIraiNo" msprop:Generator_ColumnVarNameInTable="columnSuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInRow="SuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInTable="SuishitsuKensaIraiNoColumn" msprop:Generator_UserColumnName="SuishitsuKensaIraiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiIraiNendo" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiIraiNendo" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiIraiNendoColumn" msprop:Generator_UserColumnName="KeiryoShomeiIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiIraiSishoCd" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiIraiSishoCd" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiIraiSishoCd" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiIraiSishoCdColumn" msprop:Generator_UserColumnName="KeiryoShomeiIraiSishoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiIraiRenban" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiIraiRenban" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiIraiRenbanColumn" msprop:Generator_UserColumnName="KeiryoShomeiIraiRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiIraiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiIraiNo" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiIraiNo" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiIraiNoColumn" msprop:Generator_UserColumnName="KeiryoShomeiIraiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiUketsukeKbn" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiUketsukeKbn" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiUketsukeKbn" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiUketsukeKbnColumn" msprop:Generator_UserColumnName="KeiryoShomeiUketsukeKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiGenkinShunyuFlg" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiGenkinShunyuFlg" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiGenkinShunyuFlg" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiGenkinShunyuFlgColumn" msprop:Generator_UserColumnName="KeiryoShomeiGenkinShunyuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="JokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="JokasoTorokuNendoColumn" msprop:Generator_UserColumnName="JokasoTorokuNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoRenban" msprop:Generator_ColumnPropNameInRow="JokasoRenban" msprop:Generator_ColumnPropNameInTable="JokasoRenbanColumn" msprop:Generator_UserColumnName="JokasoRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KyokaiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKyokaiNo" msprop:Generator_ColumnPropNameInRow="KyokaiNo" msprop:Generator_ColumnPropNameInTable="KyokaiNoColumn" msprop:Generator_UserColumnName="KyokaiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiIraiUpdateDt" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiIraiUpdateDt" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiIraiUpdateDt" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiIraiUpdateDtColumn" msprop:Generator_UserColumnName="KeiryoShomeiIraiUpdateDt" type="xs:dateTime" />
+              <xs:element name="KeiryoShomeiSaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiSaisuiinCd" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiSaisuiinCd" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiSaisuiinCdColumn" msprop:Generator_UserColumnName="KeiryoShomeiSaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiSaisuiDt" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiSaisuiDt" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiSaisuiDt" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiSaisuiDtColumn" msprop:Generator_UserColumnName="KeiryoShomeiSaisuiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiSaisuiTime" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiSaisuiTime" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiSaisuiTime" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiSaisuiTimeColumn" msprop:Generator_UserColumnName="KeiryoShomeiSaisuiTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiSuion" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiSuion" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiSuion" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiSuionColumn" msprop:Generator_UserColumnName="KeiryoShomeiSuion" type="xs:double" minOccurs="0" />
+              <xs:element name="KeiryoShomeiKion" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiKion" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiKion" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiKionColumn" msprop:Generator_UserColumnName="KeiryoShomeiKion" type="xs:double" minOccurs="0" />
+              <xs:element name="KeiryoShomeiSetCd" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiSetCd" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiSetCd" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiSetCdColumn" msprop:Generator_UserColumnName="KeiryoShomeiSetCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiKensaRyokin" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiKensaRyokin" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiKensaRyokin" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiKensaRyokinColumn" msprop:Generator_UserColumnName="KeiryoShomeiKensaRyokin" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KeiryoShomeiShohizei" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiShohizei" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiShohizei" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiShohizeiColumn" msprop:Generator_UserColumnName="KeiryoShomeiShohizei" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KeiryoShomeiKensakomokuEdaban" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiKensakomokuEdaban" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiKensakomokuEdaban" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiKensakomokuEdabanColumn" msprop:Generator_UserColumnName="KeiryoShomeiKensakomokuEdaban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DaichoKensaSetNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDaichoKensaSetNm" msprop:Generator_ColumnPropNameInRow="DaichoKensaSetNm" msprop:Generator_ColumnPropNameInTable="DaichoKensaSetNmColumn" msprop:Generator_UserColumnName="DaichoKensaSetNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SuishitsuKensaJisshiKomokuInfo" msprop:Generator_TableClassName="SuishitsuKensaJisshiKomokuInfoDataTable" msprop:Generator_TableVarName="tableSuishitsuKensaJisshiKomokuInfo" msprop:Generator_TablePropName="SuishitsuKensaJisshiKomokuInfo" msprop:Generator_RowDeletingName="SuishitsuKensaJisshiKomokuInfoRowDeleting" msprop:Generator_RowChangingName="SuishitsuKensaJisshiKomokuInfoRowChanging" msprop:Generator_RowEvHandlerName="SuishitsuKensaJisshiKomokuInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="SuishitsuKensaJisshiKomokuInfoRowDeleted" msprop:Generator_UserTableName="SuishitsuKensaJisshiKomokuInfo" msprop:Generator_RowChangedName="SuishitsuKensaJisshiKomokuInfoRowChanged" msprop:Generator_RowEvArgName="SuishitsuKensaJisshiKomokuInfoRowChangeEvent" msprop:Generator_RowClassName="SuishitsuKensaJisshiKomokuInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaKomokuCd" msprop:Generator_ColumnVarNameInTable="columnKensaKomokuCd" msprop:Generator_ColumnPropNameInRow="KensaKomokuCd" msprop:Generator_ColumnPropNameInTable="KensaKomokuCdColumn" msprop:Generator_UserColumnName="KensaKomokuCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaJisshiUmuFlg" msprop:Generator_ColumnVarNameInTable="columnKensaJisshiUmuFlg" msprop:Generator_ColumnPropNameInRow="KensaJisshiUmuFlg" msprop:Generator_ColumnPropNameInTable="KensaJisshiUmuFlgColumn" msprop:Generator_UserColumnName="KensaJisshiUmuFlg">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KensaDaichoGaikanInfo" msprop:Generator_TableClassName="KensaDaichoGaikanInfoDataTable" msprop:Generator_TableVarName="tableKensaDaichoGaikanInfo" msprop:Generator_TablePropName="KensaDaichoGaikanInfo" msprop:Generator_RowDeletingName="KensaDaichoGaikanInfoRowDeleting" msprop:Generator_RowChangingName="KensaDaichoGaikanInfoRowChanging" msprop:Generator_RowEvHandlerName="KensaDaichoGaikanInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KensaDaichoGaikanInfoRowDeleted" msprop:Generator_UserTableName="KensaDaichoGaikanInfo" msprop:Generator_RowChangedName="KensaDaichoGaikanInfoRowChanged" msprop:Generator_RowEvArgName="KensaDaichoGaikanInfoRowChangeEvent" msprop:Generator_RowClassName="KensaDaichoGaikanInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaKekkaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaKekkaIraiHoteiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaKekkaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiNendoColumn" msprop:Generator_UserColumnName="KensaKekkaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaKekkaIraiRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNo" msprop:Generator_ColumnPropNameInRow="KensaIraiNo" msprop:Generator_ColumnPropNameInTable="KensaIraiNoColumn" msprop:Generator_UserColumnName="KensaIraiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisaisuiKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSaisaisuiKbn" msprop:Generator_ColumnPropNameInRow="SaisaisuiKbn" msprop:Generator_ColumnPropNameInTable="SaisaisuiKbnColumn" msprop:Generator_UserColumnName="SaisaisuiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SuishitsuKensaIraiNo" msprop:Generator_ColumnVarNameInTable="columnSuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInRow="SuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInTable="SuishitsuKensaIraiNoColumn" msprop:Generator_UserColumnName="SuishitsuKensaIraiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiUketsukeKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiUketsukeKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiUketsukeKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiUketsukeKbnColumn" msprop:Generator_UserColumnName="KensaIraiUketsukeKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiGenkinShunyuKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiGenkinShunyuKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiGenkinShunyuKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiGenkinShunyuKbnColumn" msprop:Generator_UserColumnName="KensaIraiGenkinShunyuKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiSaisuiinCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiSaisuiinCd" msprop:Generator_ColumnPropNameInRow="KensaIraiSaisuiinCd" msprop:Generator_ColumnPropNameInTable="KensaIraiSaisuiinCdColumn" msprop:Generator_UserColumnName="KensaIraiSaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="JokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="JokasoTorokuNendoColumn" msprop:Generator_UserColumnName="JokasoTorokuNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoRenban" msprop:Generator_ColumnPropNameInRow="JokasoRenban" msprop:Generator_ColumnPropNameInTable="JokasoRenbanColumn" msprop:Generator_UserColumnName="JokasoRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KyokaiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKyokaiNo" msprop:Generator_ColumnPropNameInRow="KyokaiNo" msprop:Generator_ColumnPropNameInTable="KyokaiNoColumn" msprop:Generator_UserColumnName="KyokaiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiKekkaValue" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiKekkaValue" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiKekkaValue" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiKekkaValueColumn" msprop:Generator_UserColumnName="KeiryoShomeiKekkaValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KensaIraiKensaTantoshaCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiKensaTantoshaCd" msprop:Generator_ColumnPropNameInRow="KensaIraiKensaTantoshaCd" msprop:Generator_ColumnPropNameInTable="KensaIraiKensaTantoshaCdColumn" msprop:Generator_UserColumnName="KensaIraiKensaTantoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokuinNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokuinNm" msprop:Generator_ColumnPropNameInRow="ShokuinNm" msprop:Generator_ColumnPropNameInTable="ShokuinNmColumn" msprop:Generator_UserColumnName="ShokuinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaDaichoDtlUpdateDt" msprop:Generator_ColumnVarNameInTable="columnKensaDaichoDtlUpdateDt" msprop:Generator_ColumnPropNameInRow="KensaDaichoDtlUpdateDt" msprop:Generator_ColumnPropNameInTable="KensaDaichoDtlUpdateDtColumn" msprop:Generator_UserColumnName="KensaDaichoDtlUpdateDt" type="xs:dateTime" />
+              <xs:element name="KensaIraiScreeningKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiScreeningKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiScreeningKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiScreeningKbnColumn" msprop:Generator_UserColumnName="KensaIraiScreeningKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SuishitsuKensaEntryInfo" msprop:Generator_TableClassName="SuishitsuKensaEntryInfoDataTable" msprop:Generator_TableVarName="tableSuishitsuKensaEntryInfo" msprop:Generator_TablePropName="SuishitsuKensaEntryInfo" msprop:Generator_RowDeletingName="SuishitsuKensaEntryInfoRowDeleting" msprop:Generator_RowChangingName="SuishitsuKensaEntryInfoRowChanging" msprop:Generator_RowEvHandlerName="SuishitsuKensaEntryInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="SuishitsuKensaEntryInfoRowDeleted" msprop:Generator_UserTableName="SuishitsuKensaEntryInfo" msprop:Generator_RowChangedName="SuishitsuKensaEntryInfoRowChanged" msprop:Generator_RowEvArgName="SuishitsuKensaEntryInfoRowChangeEvent" msprop:Generator_RowClassName="SuishitsuKensaEntryInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HoteiKensaRyokinRenban" msprop:Generator_ColumnVarNameInTable="columnHoteiKensaRyokinRenban" msprop:Generator_ColumnPropNameInRow="HoteiKensaRyokinRenban" msprop:Generator_ColumnPropNameInTable="HoteiKensaRyokinRenbanColumn" msprop:Generator_UserColumnName="HoteiKensaRyokinRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TandokuKingaku11Jo" msprop:Generator_ColumnVarNameInTable="columnTandokuKingaku11Jo" msprop:Generator_ColumnPropNameInRow="TandokuKingaku11Jo" msprop:Generator_ColumnPropNameInTable="TandokuKingaku11JoColumn" msprop:Generator_UserColumnName="TandokuKingaku11Jo" type="xs:decimal" />
+              <xs:element name="GappeiKingakuNew11Jo" msprop:Generator_ColumnVarNameInTable="columnGappeiKingakuNew11Jo" msprop:Generator_ColumnPropNameInRow="GappeiKingakuNew11Jo" msprop:Generator_ColumnPropNameInTable="GappeiKingakuNew11JoColumn" msprop:Generator_UserColumnName="GappeiKingakuNew11Jo" type="xs:decimal" />
+              <xs:element name="KensaAmt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaAmt" msprop:Generator_ColumnPropNameInRow="KensaAmt" msprop:Generator_ColumnPropNameInTable="KensaAmtColumn" msprop:Generator_UserColumnName="KensaAmt" type="xs:decimal" />
+              <xs:element name="KensaIraiKensaDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiKensaDt" msprop:Generator_ColumnPropNameInRow="KensaIraiKensaDt" msprop:Generator_ColumnPropNameInTable="KensaIraiKensaDtColumn" msprop:Generator_UserColumnName="KensaIraiKensaDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiHoteiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKensaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="JokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="JokasoTorokuNendoColumn" msprop:Generator_UserColumnName="JokasoTorokuNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoRenban" msprop:Generator_ColumnPropNameInRow="JokasoRenban" msprop:Generator_ColumnPropNameInTable="JokasoRenbanColumn" msprop:Generator_UserColumnName="JokasoRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHouKonkyoKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoHouKonkyoKbn" msprop:Generator_ColumnPropNameInRow="JokasoHouKonkyoKbn" msprop:Generator_ColumnPropNameInTable="JokasoHouKonkyoKbnColumn" msprop:Generator_UserColumnName="JokasoHouKonkyoKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoJuriNoHokenCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoJuriNoHokenCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoJuriNoHokenCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoJuriNoHokenCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoJuriNoHokenCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoJuriNoNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoJuriNoNendo" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoJuriNoNendo" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoJuriNoNendoColumn" msprop:Generator_UserColumnName="JokasoHokenjoJuriNoNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoJuriNoSichosonCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoJuriNoSichosonCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoJuriNoSichosonCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoJuriNoSichosonCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoJuriNoSichosonCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoJuriNoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoJuriNoRenban" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoJuriNoRenban" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoJuriNoRenbanColumn" msprop:Generator_UserColumnName="JokasoHokenjoJuriNoRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHoshoNoKensakikan" msprop:Generator_ColumnVarNameInTable="columnJokasoHoshoNoKensakikan" msprop:Generator_ColumnPropNameInRow="JokasoHoshoNoKensakikan" msprop:Generator_ColumnPropNameInTable="JokasoHoshoNoKensakikanColumn" msprop:Generator_UserColumnName="JokasoHoshoNoKensakikan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHoshoNoNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoHoshoNoNendo" msprop:Generator_ColumnPropNameInRow="JokasoHoshoNoNendo" msprop:Generator_ColumnPropNameInTable="JokasoHoshoNoNendoColumn" msprop:Generator_UserColumnName="JokasoHoshoNoNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHoshoNoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoHoshoNoRenban" msprop:Generator_ColumnPropNameInRow="JokasoHoshoNoRenban" msprop:Generator_ColumnPropNameInTable="JokasoHoshoNoRenbanColumn" msprop:Generator_UserColumnName="JokasoHoshoNoRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaAdr" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaAdr" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaAdrColumn" msprop:Generator_UserColumnName="JokasoSetchishaAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaZipCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaZipCd" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaZipCd" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaZipCdColumn" msprop:Generator_UserColumnName="JokasoSetchishaZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaTelNo" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaTelNo" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaTelNo" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaTelNoColumn" msprop:Generator_UserColumnName="JokasoSetchishaTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoAdrColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoZipCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoZipCd" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoZipCd" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoZipCdColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoTelNo" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoTelNo" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoTelNo" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoTelNoColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShisetsuNm" msprop:Generator_ColumnVarNameInTable="columnJokasoShisetsuNm" msprop:Generator_ColumnPropNameInRow="JokasoShisetsuNm" msprop:Generator_ColumnPropNameInTable="JokasoShisetsuNmColumn" msprop:Generator_UserColumnName="JokasoShisetsuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSaisuiGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSaisuiGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoSaisuiGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoSaisuiGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoSaisuiGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeikyuGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSeikyuGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoSeikyuGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoSeikyuGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoSeikyuGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoMochikomiGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoMochikomiGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoMochikomiGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoMochikomiGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoMochikomiGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSoufusakiNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSoufusakiNm" msprop:Generator_ColumnPropNameInRow="JokasoSoufusakiNm" msprop:Generator_ColumnPropNameInTable="JokasoSoufusakiNmColumn" msprop:Generator_UserColumnName="JokasoSoufusakiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSoufusakiZipCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSoufusakiZipCd" msprop:Generator_ColumnPropNameInRow="JokasoSoufusakiZipCd" msprop:Generator_ColumnPropNameInTable="JokasoSoufusakiZipCdColumn" msprop:Generator_UserColumnName="JokasoSoufusakiZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSoufusakiAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSoufusakiAdr" msprop:Generator_ColumnPropNameInRow="JokasoSoufusakiAdr" msprop:Generator_ColumnPropNameInTable="JokasoSoufusakiAdrColumn" msprop:Generator_UserColumnName="JokasoSoufusakiAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSoufusakiTelNo" msprop:Generator_ColumnVarNameInTable="columnJokasoSoufusakiTelNo" msprop:Generator_ColumnPropNameInRow="JokasoSoufusakiTelNo" msprop:Generator_ColumnPropNameInTable="JokasoSoufusakiTelNoColumn" msprop:Generator_UserColumnName="JokasoSoufusakiTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeikyusakiNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSeikyusakiNm" msprop:Generator_ColumnPropNameInRow="JokasoSeikyusakiNm" msprop:Generator_ColumnPropNameInTable="JokasoSeikyusakiNmColumn" msprop:Generator_UserColumnName="JokasoSeikyusakiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeikyusakiZipCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSeikyusakiZipCd" msprop:Generator_ColumnPropNameInRow="JokasoSeikyusakiZipCd" msprop:Generator_ColumnPropNameInTable="JokasoSeikyusakiZipCdColumn" msprop:Generator_UserColumnName="JokasoSeikyusakiZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeikyusakiAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSeikyusakiAdr" msprop:Generator_ColumnPropNameInRow="JokasoSeikyusakiAdr" msprop:Generator_ColumnPropNameInTable="JokasoSeikyusakiAdrColumn" msprop:Generator_UserColumnName="JokasoSeikyusakiAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeikyusakiTelNo" msprop:Generator_ColumnVarNameInTable="columnJokasoSeikyusakiTelNo" msprop:Generator_ColumnPropNameInRow="JokasoSeikyusakiTelNo" msprop:Generator_ColumnPropNameInTable="JokasoSeikyusakiTelNoColumn" msprop:Generator_UserColumnName="JokasoSeikyusakiTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoItkatsuSeikyuGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoItkatsuSeikyuGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoItkatsuSeikyuGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoItkatsuSeikyuGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoItkatsuSeikyuGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoDaibunrui1" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui1" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui1" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunrui1Column" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui1" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui1" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui1" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunrui1Column" msprop:Generator_UserColumnName="KenchikuyotoShobunrui1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban1" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban1" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban1" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenban1Column" msprop:Generator_UserColumnName="KenchikuyotoRenban1" type="xs:int" minOccurs="0" />
+              <xs:element name="KenchikuyotoDaibunrui2" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui2" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui2" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunrui2Column" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui2" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui2" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui2" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunrui2Column" msprop:Generator_UserColumnName="KenchikuyotoShobunrui2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban2" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban2" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban2" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenban2Column" msprop:Generator_UserColumnName="KenchikuyotoRenban2" type="xs:int" minOccurs="0" />
+              <xs:element name="KenchikuyotoDaibunrui3" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui3" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui3" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunrui3Column" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui3" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui3" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui3" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunrui3Column" msprop:Generator_UserColumnName="KenchikuyotoShobunrui3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban3" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban3" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban3" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenban3Column" msprop:Generator_UserColumnName="KenchikuyotoRenban3" type="xs:int" minOccurs="0" />
+              <xs:element name="KenchikuyotoDaibunrui4" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui4" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui4" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunrui4Column" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui4" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui4" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui4" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunrui4Column" msprop:Generator_UserColumnName="KenchikuyotoShobunrui4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban4" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban4" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban4" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenban4Column" msprop:Generator_UserColumnName="KenchikuyotoRenban4" type="xs:int" minOccurs="0" />
+              <xs:element name="KenchikuyotoDaibunrui5" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui5" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui5" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunrui5Column" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui5" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui5" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui5" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunrui5Column" msprop:Generator_UserColumnName="KenchikuyotoShobunrui5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban5" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban5" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban5" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenban5Column" msprop:Generator_UserColumnName="KenchikuyotoRenban5" type="xs:int" minOccurs="0" />
+              <xs:element name="JokasoOldKentikuYoutoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoOldKentikuYoutoCd" msprop:Generator_ColumnPropNameInRow="JokasoOldKentikuYoutoCd" msprop:Generator_ColumnPropNameInTable="JokasoOldKentikuYoutoCdColumn" msprop:Generator_UserColumnName="JokasoOldKentikuYoutoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoMekaGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoMekaGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoMekaGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoMekaGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoMekaGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKatashikiCd" msprop:Generator_ColumnVarNameInTable="columnJokasoKatashikiCd" msprop:Generator_ColumnPropNameInRow="JokasoKatashikiCd" msprop:Generator_ColumnPropNameInTable="JokasoKatashikiCdColumn" msprop:Generator_UserColumnName="JokasoKatashikiCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKojiGyoshaKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoKojiGyoshaKbn" msprop:Generator_ColumnPropNameInRow="JokasoKojiGyoshaKbn" msprop:Generator_ColumnPropNameInTable="JokasoKojiGyoshaKbnColumn" msprop:Generator_UserColumnName="JokasoKojiGyoshaKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHoshutenkenGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHoshutenkenGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoHoshutenkenGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoHoshutenkenGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoHoshutenkenGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSeisouGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSeisouGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoSeisouGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoSeisouGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoSeisouGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHoryusakiCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHoryusakiCd" msprop:Generator_ColumnPropNameInRow="JokasoHoryusakiCd" msprop:Generator_ColumnPropNameInTable="JokasoHoryusakiCdColumn" msprop:Generator_UserColumnName="JokasoHoryusakiCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoJitsuSiyoJinin" msprop:Generator_ColumnVarNameInTable="columnJokasoJitsuSiyoJinin" msprop:Generator_ColumnPropNameInRow="JokasoJitsuSiyoJinin" msprop:Generator_ColumnPropNameInTable="JokasoJitsuSiyoJininColumn" msprop:Generator_UserColumnName="JokasoJitsuSiyoJinin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShoriTaishoJinin" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriTaishoJinin" msprop:Generator_ColumnPropNameInRow="JokasoShoriTaishoJinin" msprop:Generator_ColumnPropNameInTable="JokasoShoriTaishoJininColumn" msprop:Generator_UserColumnName="JokasoShoriTaishoJinin" type="xs:int" minOccurs="0" />
+              <xs:element name="JokasoShoriHosikiKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriHosikiKbn" msprop:Generator_ColumnPropNameInRow="JokasoShoriHosikiKbn" msprop:Generator_ColumnPropNameInTable="JokasoShoriHosikiKbnColumn" msprop:Generator_UserColumnName="JokasoShoriHosikiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShoriHosikiCd" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriHosikiCd" msprop:Generator_ColumnPropNameInRow="JokasoShoriHosikiCd" msprop:Generator_ColumnPropNameInTable="JokasoShoriHosikiCdColumn" msprop:Generator_UserColumnName="JokasoShoriHosikiCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHagakiSoufusakiKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoHagakiSoufusakiKbn" msprop:Generator_ColumnPropNameInRow="JokasoHagakiSoufusakiKbn" msprop:Generator_ColumnPropNameInTable="JokasoHagakiSoufusakiKbnColumn" msprop:Generator_UserColumnName="JokasoHagakiSoufusakiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Jokaso3JiShoriFlg" msprop:Generator_ColumnVarNameInTable="columnJokaso3JiShoriFlg" msprop:Generator_ColumnPropNameInRow="Jokaso3JiShoriFlg" msprop:Generator_ColumnPropNameInTable="Jokaso3JiShoriFlgColumn" msprop:Generator_UserColumnName="Jokaso3JiShoriFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSyoriMokuhyoBOD" msprop:Generator_ColumnVarNameInTable="columnJokasoSyoriMokuhyoBOD" msprop:Generator_ColumnPropNameInRow="JokasoSyoriMokuhyoBOD" msprop:Generator_ColumnPropNameInTable="JokasoSyoriMokuhyoBODColumn" msprop:Generator_UserColumnName="JokasoSyoriMokuhyoBOD" type="xs:int" minOccurs="0" />
+              <xs:element name="JokasoSichosonSetchiKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoSichosonSetchiKbn" msprop:Generator_ColumnPropNameInRow="JokasoSichosonSetchiKbn" msprop:Generator_ColumnPropNameInTable="JokasoSichosonSetchiKbnColumn" msprop:Generator_UserColumnName="JokasoSichosonSetchiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKoujiKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoKoujiKbn" msprop:Generator_ColumnPropNameInRow="JokasoKoujiKbn" msprop:Generator_ColumnPropNameInTable="JokasoKoujiKbnColumn" msprop:Generator_UserColumnName="JokasoKoujiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKoujiNen" msprop:Generator_ColumnVarNameInTable="columnJokasoKoujiNen" msprop:Generator_ColumnPropNameInRow="JokasoKoujiNen" msprop:Generator_ColumnPropNameInTable="JokasoKoujiNenColumn" msprop:Generator_UserColumnName="JokasoKoujiNen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKoujiNo" msprop:Generator_ColumnVarNameInTable="columnJokasoKoujiNo" msprop:Generator_ColumnPropNameInRow="JokasoKoujiNo" msprop:Generator_ColumnPropNameInTable="JokasoKoujiNoColumn" msprop:Generator_UserColumnName="JokasoKoujiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTatemonoNobeMenseki" msprop:Generator_ColumnVarNameInTable="columnJokasoTatemonoNobeMenseki" msprop:Generator_ColumnPropNameInRow="JokasoTatemonoNobeMenseki" msprop:Generator_ColumnPropNameInTable="JokasoTatemonoNobeMensekiColumn" msprop:Generator_UserColumnName="JokasoTatemonoNobeMenseki" type="xs:double" minOccurs="0" />
+              <xs:element name="JokasoNinteiNo" msprop:Generator_ColumnVarNameInTable="columnJokasoNinteiNo" msprop:Generator_ColumnPropNameInRow="JokasoNinteiNo" msprop:Generator_ColumnPropNameInTable="JokasoNinteiNoColumn" msprop:Generator_UserColumnName="JokasoNinteiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiNen" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiNen" msprop:Generator_ColumnPropNameInRow="JokasoSetchiNen" msprop:Generator_ColumnPropNameInTable="JokasoSetchiNenColumn" msprop:Generator_UserColumnName="JokasoSetchiNen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiTsuki" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiTsuki" msprop:Generator_ColumnPropNameInRow="JokasoSetchiTsuki" msprop:Generator_ColumnPropNameInTable="JokasoSetchiTsukiColumn" msprop:Generator_UserColumnName="JokasoSetchiTsuki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBi" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBi" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBi" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBiColumn" msprop:Generator_UserColumnName="JokasoSetchiBi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSiyokaisiNen" msprop:Generator_ColumnVarNameInTable="columnJokasoSiyokaisiNen" msprop:Generator_ColumnPropNameInRow="JokasoSiyokaisiNen" msprop:Generator_ColumnPropNameInTable="JokasoSiyokaisiNenColumn" msprop:Generator_UserColumnName="JokasoSiyokaisiNen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSiyokaisiTsuki" msprop:Generator_ColumnVarNameInTable="columnJokasoSiyokaisiTsuki" msprop:Generator_ColumnPropNameInRow="JokasoSiyokaisiTsuki" msprop:Generator_ColumnPropNameInTable="JokasoSiyokaisiTsukiColumn" msprop:Generator_UserColumnName="JokasoSiyokaisiTsuki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSiyokaisiBi" msprop:Generator_ColumnVarNameInTable="columnJokasoSiyokaisiBi" msprop:Generator_ColumnPropNameInRow="JokasoSiyokaisiBi" msprop:Generator_ColumnPropNameInTable="JokasoSiyokaisiBiColumn" msprop:Generator_UserColumnName="JokasoSiyokaisiBi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaKana" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaKana" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaKana" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaKanaColumn" msprop:Generator_UserColumnName="JokasoSetchishaKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoGenChikuCd" msprop:Generator_ColumnVarNameInTable="columnJokasoGenChikuCd" msprop:Generator_ColumnPropNameInRow="JokasoGenChikuCd" msprop:Generator_ColumnPropNameInTable="JokasoGenChikuCdColumn" msprop:Generator_UserColumnName="JokasoGenChikuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoJitsuSiyouJininSuchi" msprop:Generator_ColumnVarNameInTable="columnJokasoJitsuSiyouJininSuchi" msprop:Generator_ColumnPropNameInRow="JokasoJitsuSiyouJininSuchi" msprop:Generator_ColumnPropNameInTable="JokasoJitsuSiyouJininSuchiColumn" msprop:Generator_UserColumnName="JokasoJitsuSiyouJininSuchi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKasaageTakasa" msprop:Generator_ColumnVarNameInTable="columnJokasoKasaageTakasa" msprop:Generator_ColumnPropNameInRow="JokasoKasaageTakasa" msprop:Generator_ColumnPropNameInTable="JokasoKasaageTakasaColumn" msprop:Generator_UserColumnName="JokasoKasaageTakasa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRyunyuTairyuTakasa" msprop:Generator_ColumnVarNameInTable="columnJokasoRyunyuTairyuTakasa" msprop:Generator_ColumnPropNameInRow="JokasoRyunyuTairyuTakasa" msprop:Generator_ColumnPropNameInTable="JokasoRyunyuTairyuTakasaColumn" msprop:Generator_UserColumnName="JokasoRyunyuTairyuTakasa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHouryuTairyuTakasa" msprop:Generator_ColumnVarNameInTable="columnJokasoHouryuTairyuTakasa" msprop:Generator_ColumnPropNameInRow="JokasoHouryuTairyuTakasa" msprop:Generator_ColumnPropNameInTable="JokasoHouryuTairyuTakasaColumn" msprop:Generator_UserColumnName="JokasoHouryuTairyuTakasa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ZenkaiKensaIraiInfo" msprop:Generator_TableClassName="ZenkaiKensaIraiInfoDataTable" msprop:Generator_TableVarName="tableZenkaiKensaIraiInfo" msprop:Generator_RowChangedName="ZenkaiKensaIraiInfoRowChanged" msprop:Generator_TablePropName="ZenkaiKensaIraiInfo" msprop:Generator_RowDeletingName="ZenkaiKensaIraiInfoRowDeleting" msprop:Generator_RowChangingName="ZenkaiKensaIraiInfoRowChanging" msprop:Generator_RowEvHandlerName="ZenkaiKensaIraiInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="ZenkaiKensaIraiInfoRowDeleted" msprop:Generator_RowClassName="ZenkaiKensaIraiInfoRow" msprop:Generator_UserTableName="ZenkaiKensaIraiInfo" msprop:Generator_RowEvArgName="ZenkaiKensaIraiInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiHoteiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKensaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiSuishitsuUketsukeDt" msprop:Generator_ColumnVarNameInTable="columnKensaIraiSuishitsuUketsukeDt" msprop:Generator_ColumnPropNameInRow="KensaIraiSuishitsuUketsukeDt" msprop:Generator_ColumnPropNameInTable="KensaIraiSuishitsuUketsukeDtColumn" msprop:Generator_UserColumnName="KensaIraiSuishitsuUketsukeDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaHantei" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaHantei" msprop:Generator_ColumnPropNameInRow="KensaKekkaHantei" msprop:Generator_ColumnPropNameInTable="KensaKekkaHanteiColumn" msprop:Generator_UserColumnName="KensaKekkaHantei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KensaShokenFollowInfo" msprop:Generator_TableClassName="KensaShokenFollowInfoDataTable" msprop:Generator_TableVarName="tableKensaShokenFollowInfo" msprop:Generator_RowChangedName="KensaShokenFollowInfoRowChanged" msprop:Generator_TablePropName="KensaShokenFollowInfo" msprop:Generator_RowDeletingName="KensaShokenFollowInfoRowDeleting" msprop:Generator_RowChangingName="KensaShokenFollowInfoRowChanging" msprop:Generator_RowEvHandlerName="KensaShokenFollowInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KensaShokenFollowInfoRowDeleted" msprop:Generator_RowClassName="KensaShokenFollowInfoRow" msprop:Generator_UserTableName="KensaShokenFollowInfo" msprop:Generator_RowEvArgName="KensaShokenFollowInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShokenFollowFlg" msprop:Generator_ColumnVarNameInTable="columnShokenFollowFlg" msprop:Generator_ColumnPropNameInRow="ShokenFollowFlg" msprop:Generator_ColumnPropNameInTable="ShokenFollowFlgColumn" msprop:Generator_UserColumnName="ShokenFollowFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenKbn" msprop:Generator_ColumnVarNameInTable="columnShokenKbn" msprop:Generator_ColumnPropNameInRow="ShokenKbn" msprop:Generator_ColumnPropNameInTable="ShokenKbnColumn" msprop:Generator_UserColumnName="ShokenKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCd" msprop:Generator_ColumnVarNameInTable="columnShokenCd" msprop:Generator_ColumnPropNameInRow="ShokenCd" msprop:Generator_ColumnPropNameInTable="ShokenCdColumn" msprop:Generator_UserColumnName="ShokenCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KensaDaichoSuishitsuInfo" msprop:Generator_TableClassName="KensaDaichoSuishitsuInfoDataTable" msprop:Generator_TableVarName="tableKensaDaichoSuishitsuInfo" msprop:Generator_RowChangedName="KensaDaichoSuishitsuInfoRowChanged" msprop:Generator_TablePropName="KensaDaichoSuishitsuInfo" msprop:Generator_RowDeletingName="KensaDaichoSuishitsuInfoRowDeleting" msprop:Generator_RowChangingName="KensaDaichoSuishitsuInfoRowChanging" msprop:Generator_RowEvHandlerName="KensaDaichoSuishitsuInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KensaDaichoSuishitsuInfoRowDeleted" msprop:Generator_RowClassName="KensaDaichoSuishitsuInfoRow" msprop:Generator_UserTableName="KensaDaichoSuishitsuInfo" msprop:Generator_RowEvArgName="KensaDaichoSuishitsuInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaKekkaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaKekkaIraiHoteiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaKekkaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiNendoColumn" msprop:Generator_UserColumnName="KensaKekkaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaKekkaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaKekkaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaKekkaIraiRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNo" msprop:Generator_ColumnPropNameInRow="KensaIraiNo" msprop:Generator_ColumnPropNameInTable="KensaIraiNoColumn" msprop:Generator_UserColumnName="KensaIraiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisaisuiKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSaisaisuiKbn" msprop:Generator_ColumnPropNameInRow="SaisaisuiKbn" msprop:Generator_ColumnPropNameInTable="SaisaisuiKbnColumn" msprop:Generator_UserColumnName="SaisaisuiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SuishitsuKensaIraiNo" msprop:Generator_ColumnVarNameInTable="columnSuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInRow="SuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInTable="SuishitsuKensaIraiNoColumn" msprop:Generator_UserColumnName="SuishitsuKensaIraiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiUketsukeKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiUketsukeKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiUketsukeKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiUketsukeKbnColumn" msprop:Generator_UserColumnName="KensaIraiUketsukeKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiGenkinShunyuKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiGenkinShunyuKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiGenkinShunyuKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiGenkinShunyuKbnColumn" msprop:Generator_UserColumnName="KensaIraiGenkinShunyuKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiSaisuiinCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiSaisuiinCd" msprop:Generator_ColumnPropNameInRow="KensaIraiSaisuiinCd" msprop:Generator_ColumnPropNameInTable="KensaIraiSaisuiinCdColumn" msprop:Generator_UserColumnName="KensaIraiSaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="JokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="JokasoTorokuNendoColumn" msprop:Generator_UserColumnName="JokasoTorokuNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoRenban" msprop:Generator_ColumnPropNameInRow="JokasoRenban" msprop:Generator_ColumnPropNameInTable="JokasoRenbanColumn" msprop:Generator_UserColumnName="JokasoRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KyokaiNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKyokaiNo" msprop:Generator_ColumnPropNameInRow="KyokaiNo" msprop:Generator_ColumnPropNameInTable="KyokaiNoColumn" msprop:Generator_UserColumnName="KyokaiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeiryoShomeiKekkaValue" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiKekkaValue" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiKekkaValue" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiKekkaValueColumn" msprop:Generator_UserColumnName="KeiryoShomeiKekkaValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KensaIraiKensaTantoshaCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiKensaTantoshaCd" msprop:Generator_ColumnPropNameInRow="KensaIraiKensaTantoshaCd" msprop:Generator_ColumnPropNameInTable="KensaIraiKensaTantoshaCdColumn" msprop:Generator_UserColumnName="KensaIraiKensaTantoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokuinNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokuinNm" msprop:Generator_ColumnPropNameInRow="ShokuinNm" msprop:Generator_ColumnPropNameInTable="ShokuinNmColumn" msprop:Generator_UserColumnName="ShokuinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiUpdateDt" msprop:Generator_ColumnVarNameInTable="columnKensaIraiUpdateDt" msprop:Generator_ColumnPropNameInRow="KensaIraiUpdateDt" msprop:Generator_ColumnPropNameInTable="KensaIraiUpdateDtColumn" msprop:Generator_UserColumnName="KensaIraiUpdateDt" type="xs:dateTime" />
+              <xs:element name="KensaDaichoDtlUpdateDt" msprop:Generator_ColumnVarNameInTable="columnKensaDaichoDtlUpdateDt" msprop:Generator_ColumnPropNameInRow="KensaDaichoDtlUpdateDt" msprop:Generator_ColumnPropNameInTable="KensaDaichoDtlUpdateDtColumn" msprop:Generator_UserColumnName="KensaDaichoDtlUpdateDt" type="xs:dateTime" />
+              <xs:element name="KensaIraiKensaAmt" msprop:Generator_ColumnVarNameInTable="columnKensaIraiKensaAmt" msprop:Generator_ColumnPropNameInRow="KensaIraiKensaAmt" msprop:Generator_ColumnPropNameInTable="KensaIraiKensaAmtColumn" msprop:Generator_UserColumnName="KensaIraiKensaAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KensaIraiNyukinzumiAmt" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNyukinzumiAmt" msprop:Generator_ColumnPropNameInRow="KensaIraiNyukinzumiAmt" msprop:Generator_ColumnPropNameInTable="KensaIraiNyukinzumiAmtColumn" msprop:Generator_UserColumnName="KensaIraiNyukinzumiAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KensaIraiHakkoKbn4" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHakkoKbn4" msprop:Generator_ColumnPropNameInRow="KensaIraiHakkoKbn4" msprop:Generator_ColumnPropNameInTable="KensaIraiHakkoKbn4Column" msprop:Generator_UserColumnName="KensaIraiHakkoKbn4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiHakkoKbn5" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHakkoKbn5" msprop:Generator_ColumnPropNameInRow="KensaIraiHakkoKbn5" msprop:Generator_ColumnPropNameInTable="KensaIraiHakkoKbn5Column" msprop:Generator_UserColumnName="KensaIraiHakkoKbn5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KeiryoShomeiHakkoFlgInfo" msprop:Generator_TableClassName="KeiryoShomeiHakkoFlgInfoDataTable" msprop:Generator_TableVarName="tableKeiryoShomeiHakkoFlgInfo" msprop:Generator_TablePropName="KeiryoShomeiHakkoFlgInfo" msprop:Generator_RowDeletingName="KeiryoShomeiHakkoFlgInfoRowDeleting" msprop:Generator_RowChangingName="KeiryoShomeiHakkoFlgInfoRowChanging" msprop:Generator_RowEvHandlerName="KeiryoShomeiHakkoFlgInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KeiryoShomeiHakkoFlgInfoRowDeleted" msprop:Generator_UserTableName="KeiryoShomeiHakkoFlgInfo" msprop:Generator_RowChangedName="KeiryoShomeiHakkoFlgInfoRowChanged" msprop:Generator_RowEvArgName="KeiryoShomeiHakkoFlgInfoRowChangeEvent" msprop:Generator_RowClassName="KeiryoShomeiHakkoFlgInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KeiryoShomeiHakkoFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKeiryoShomeiHakkoFlg" msprop:Generator_ColumnPropNameInRow="KeiryoShomeiHakkoFlg" msprop:Generator_ColumnPropNameInTable="KeiryoShomeiHakkoFlgColumn" msprop:Generator_UserColumnName="KeiryoShomeiHakkoFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SuishitsuNippoCheckInfo" msprop:Generator_TableClassName="SuishitsuNippoCheckInfoDataTable" msprop:Generator_TableVarName="tableSuishitsuNippoCheckInfo" msprop:Generator_RowChangedName="SuishitsuNippoCheckInfoRowChanged" msprop:Generator_TablePropName="SuishitsuNippoCheckInfo" msprop:Generator_RowDeletingName="SuishitsuNippoCheckInfoRowDeleting" msprop:Generator_RowChangingName="SuishitsuNippoCheckInfoRowChanging" msprop:Generator_RowEvHandlerName="SuishitsuNippoCheckInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="SuishitsuNippoCheckInfoRowDeleted" msprop:Generator_RowClassName="SuishitsuNippoCheckInfoRow" msprop:Generator_UserTableName="SuishitsuNippoCheckInfo" msprop:Generator_RowEvArgName="SuishitsuNippoCheckInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CheckCnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCheckCnt" msprop:Generator_ColumnPropNameInRow="CheckCnt" msprop:Generator_ColumnPropNameInTable="CheckCntColumn" msprop:Generator_UserColumnName="CheckCnt" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DisplayJokasoDaichoInfo" msprop:Generator_TableClassName="DisplayJokasoDaichoInfoDataTable" msprop:Generator_TableVarName="tableDisplayJokasoDaichoInfo" msprop:Generator_RowChangedName="DisplayJokasoDaichoInfoRowChanged" msprop:Generator_TablePropName="DisplayJokasoDaichoInfo" msprop:Generator_RowDeletingName="DisplayJokasoDaichoInfoRowDeleting" msprop:Generator_RowChangingName="DisplayJokasoDaichoInfoRowChanging" msprop:Generator_RowEvHandlerName="DisplayJokasoDaichoInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="DisplayJokasoDaichoInfoRowDeleted" msprop:Generator_RowClassName="DisplayJokasoDaichoInfoRow" msprop:Generator_UserTableName="DisplayJokasoDaichoInfo" msprop:Generator_RowEvArgName="DisplayJokasoDaichoInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="JokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="JokasoHokenjoCdColumn" msprop:Generator_UserColumnName="JokasoHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="JokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="JokasoTorokuNendoColumn" msprop:Generator_UserColumnName="JokasoTorokuNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoRenban" msprop:Generator_ColumnVarNameInTable="columnJokasoRenban" msprop:Generator_ColumnPropNameInRow="JokasoRenban" msprop:Generator_ColumnPropNameInTable="JokasoRenbanColumn" msprop:Generator_UserColumnName="JokasoRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaNm" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaTelNo" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaTelNo" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaTelNo" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaTelNoColumn" msprop:Generator_UserColumnName="JokasoSetchishaTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaKana" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaKana" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaKana" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaKanaColumn" msprop:Generator_UserColumnName="JokasoSetchishaKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchishaAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaAdr" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaAdr" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaAdrColumn" msprop:Generator_UserColumnName="JokasoSetchishaAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoAdr" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoAdrColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSaisuiGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoSaisuiGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoSaisuiGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoSaisuiGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoSaisuiGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoMekaGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnJokasoMekaGyoshaCd" msprop:Generator_ColumnPropNameInRow="JokasoMekaGyoshaCd" msprop:Generator_ColumnPropNameInTable="JokasoMekaGyoshaCdColumn" msprop:Generator_UserColumnName="JokasoMekaGyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoKatashikiCd" msprop:Generator_ColumnVarNameInTable="columnJokasoKatashikiCd" msprop:Generator_ColumnPropNameInRow="JokasoKatashikiCd" msprop:Generator_ColumnPropNameInTable="JokasoKatashikiCdColumn" msprop:Generator_UserColumnName="JokasoKatashikiCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShoriHosikiKbn" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriHosikiKbn" msprop:Generator_ColumnPropNameInRow="JokasoShoriHosikiKbn" msprop:Generator_ColumnPropNameInTable="JokasoShoriHosikiKbnColumn" msprop:Generator_UserColumnName="JokasoShoriHosikiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShoriHosikiCd" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriHosikiCd" msprop:Generator_ColumnPropNameInRow="JokasoShoriHosikiCd" msprop:Generator_ColumnPropNameInTable="JokasoShoriHosikiCdColumn" msprop:Generator_UserColumnName="JokasoShoriHosikiCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoShoriTaishoJinin" msprop:Generator_ColumnVarNameInTable="columnJokasoShoriTaishoJinin" msprop:Generator_ColumnPropNameInRow="JokasoShoriTaishoJinin" msprop:Generator_ColumnPropNameInTable="JokasoShoriTaishoJininColumn" msprop:Generator_UserColumnName="JokasoShoriTaishoJinin" type="xs:int" minOccurs="0" />
+              <xs:element name="JokasoSyoriMokuhyoBOD" msprop:Generator_ColumnVarNameInTable="columnJokasoSyoriMokuhyoBOD" msprop:Generator_ColumnPropNameInRow="JokasoSyoriMokuhyoBOD" msprop:Generator_ColumnPropNameInTable="JokasoSyoriMokuhyoBODColumn" msprop:Generator_UserColumnName="JokasoSyoriMokuhyoBOD" type="xs:int" minOccurs="0" />
+              <xs:element name="kentikuYotoNm1" msprop:Generator_ColumnVarNameInTable="columnkentikuYotoNm1" msprop:Generator_ColumnPropNameInRow="kentikuYotoNm1" msprop:Generator_ColumnPropNameInTable="kentikuYotoNm1Column" msprop:Generator_UserColumnName="kentikuYotoNm1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kentikuYotoNm2" msprop:Generator_ColumnVarNameInTable="columnkentikuYotoNm2" msprop:Generator_ColumnPropNameInRow="kentikuYotoNm2" msprop:Generator_ColumnPropNameInTable="kentikuYotoNm2Column" msprop:Generator_UserColumnName="kentikuYotoNm2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kentikuYotoNm3" msprop:Generator_ColumnVarNameInTable="columnkentikuYotoNm3" msprop:Generator_ColumnPropNameInRow="kentikuYotoNm3" msprop:Generator_ColumnPropNameInTable="kentikuYotoNm3Column" msprop:Generator_UserColumnName="kentikuYotoNm3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kentikuYotoNm4" msprop:Generator_ColumnVarNameInTable="columnkentikuYotoNm4" msprop:Generator_ColumnPropNameInRow="kentikuYotoNm4" msprop:Generator_ColumnPropNameInTable="kentikuYotoNm4Column" msprop:Generator_UserColumnName="kentikuYotoNm4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kentikuYotoNm5" msprop:Generator_ColumnVarNameInTable="columnkentikuYotoNm5" msprop:Generator_ColumnPropNameInRow="kentikuYotoNm5" msprop:Generator_ColumnPropNameInTable="kentikuYotoNm5Column" msprop:Generator_UserColumnName="kentikuYotoNm5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShoriHoshikiNm" msprop:Generator_ColumnVarNameInTable="columnShoriHoshikiNm" msprop:Generator_ColumnPropNameInRow="ShoriHoshikiNm" msprop:Generator_ColumnPropNameInTable="ShoriHoshikiNmColumn" msprop:Generator_UserColumnName="ShoriHoshikiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KatashikiNm" msprop:Generator_ColumnVarNameInTable="columnKatashikiNm" msprop:Generator_ColumnPropNameInRow="KatashikiNm" msprop:Generator_ColumnPropNameInTable="KatashikiNmColumn" msprop:Generator_UserColumnName="KatashikiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MakerGyoshaNm" msprop:Generator_ColumnVarNameInTable="columnMakerGyoshaNm" msprop:Generator_ColumnPropNameInRow="MakerGyoshaNm" msprop:Generator_ColumnPropNameInTable="MakerGyoshaNmColumn" msprop:Generator_UserColumnName="MakerGyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiGyoshaNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiGyoshaNm" msprop:Generator_ColumnPropNameInRow="SaisuiGyoshaNm" msprop:Generator_ColumnPropNameInTable="SaisuiGyoshaNmColumn" msprop:Generator_UserColumnName="SaisuiGyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HoshutenkenGyoshaNm" msprop:Generator_ColumnVarNameInTable="columnHoshutenkenGyoshaNm" msprop:Generator_ColumnPropNameInRow="HoshutenkenGyoshaNm" msprop:Generator_ColumnPropNameInTable="HoshutenkenGyoshaNmColumn" msprop:Generator_UserColumnName="HoshutenkenGyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SeisoGyoshaNm" msprop:Generator_ColumnVarNameInTable="columnSeisoGyoshaNm" msprop:Generator_ColumnPropNameInRow="SeisoGyoshaNm" msprop:Generator_ColumnPropNameInTable="SeisoGyoshaNmColumn" msprop:Generator_UserColumnName="SeisoGyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ZenkaiKensaIraiInfo" />
+      <xs:field xpath="mstns:KensaIraiHoteiKbn" />
+      <xs:field xpath="mstns:KensaIraiHokenjoCd" />
+      <xs:field xpath="mstns:KensaIraiNendo" />
+      <xs:field xpath="mstns:KensaIraiRenban" />
+    </xs:unique>
+    <xs:unique name="DisplayJokasoDaichoInfo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DisplayJokasoDaichoInfo" />
+      <xs:field xpath="mstns:JokasoHokenjoCd" />
+      <xs:field xpath="mstns:JokasoTorokuNendo" />
+      <xs:field xpath="mstns:JokasoRenban" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

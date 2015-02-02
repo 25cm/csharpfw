@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KenchikuyotoMstDataSet" targetNamespace="http://tempuri.org/KenchikuyotoMstDataSet.xsd" xmlns:mstns="http://tempuri.org/KenchikuyotoMstDataSet.xsd" xmlns="http://tempuri.org/KenchikuyotoMstDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KenchikuyotoMstKensakuTableAdapter" GeneratorDataComponentClassName="KenchikuyotoMstKensakuTableAdapter" Name="KenchikuyotoMstKensaku" UserDataComponentName="KenchikuyotoMstKensakuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  KenchikuyotoMst.KenchikuyotoDaibunrui
+  , KenchikuyotoDaibunruiMst.KenchikuyotoDaibunruiNm
+  , KenchikuyotoMst.KenchikuyotoShobunrui
+  , KenchikuyotoShobunruiMst.KenchikuyotoShobunruiNm
+  , KenchikuyotoMst.KenchikuyotoRenban
+  , KenchikuyotoMst.KenchikuyotoNm 
+FROM
+  KenchikuyotoMst 
+  LEFT OUTER JOIN KenchikuyotoDaibunruiMst 
+    ON KenchikuyotoMst.KenchikuyotoDaibunrui = KenchikuyotoDaibunruiMst.KenchikuyotoDaibunruiCd 
+  LEFT OUTER JOIN KenchikuyotoShobunruiMst 
+    ON KenchikuyotoMst.KenchikuyotoShobunrui = KenchikuyotoShobunruiMst.KenchikuyotoShobunruiCd 
+ORDER BY
+  KenchikuyotoMst.KenchikuyotoDaibunrui
+  , KenchikuyotoMst.KenchikuyotoShobunrui
+  , KenchikuyotoMst.KenchikuyotoRenban
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KenchikuyotoDaibunrui" DataSetColumn="KenchikuyotoDaibunrui" />
+              <Mapping SourceColumn="KenchikuyotoDaibunruiNm" DataSetColumn="KenchikuyotoDaibunruiNm" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui" DataSetColumn="KenchikuyotoShobunrui" />
+              <Mapping SourceColumn="KenchikuyotoShobunruiNm" DataSetColumn="KenchikuyotoShobunruiNm" />
+              <Mapping SourceColumn="KenchikuyotoRenban" DataSetColumn="KenchikuyotoRenban" />
+              <Mapping SourceColumn="KenchikuyotoNm" DataSetColumn="KenchikuyotoNm" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KenchikuyotoMstTableAdapter" GeneratorDataComponentClassName="KenchikuyotoMstTableAdapter" Name="KenchikuyotoMst" UserDataComponentName="KenchikuyotoMstTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.KenchikuyotoMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [KenchikuyotoMst] WHERE (([KenchikuyotoDaibunrui] = @Original_KenchikuyotoDaibunrui) AND ([KenchikuyotoShobunrui] = @Original_KenchikuyotoShobunrui) AND ([KenchikuyotoRenban] = @Original_KenchikuyotoRenban) AND ([KenchikuyotoNm] = @Original_KenchikuyotoNm) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [KenchikuyotoMst] ([KenchikuyotoDaibunrui], [KenchikuyotoShobunrui], [KenchikuyotoRenban], [KenchikuyotoNm], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@KenchikuyotoDaibunrui, @KenchikuyotoShobunrui, @KenchikuyotoRenban, @KenchikuyotoNm, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm);
+SELECT KenchikuyotoDaibunrui, KenchikuyotoShobunrui, KenchikuyotoRenban, KenchikuyotoNm, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM KenchikuyotoMst WHERE (KenchikuyotoDaibunrui = @KenchikuyotoDaibunrui) AND (KenchikuyotoRenban = @KenchikuyotoRenban) AND (KenchikuyotoShobunrui = @KenchikuyotoShobunrui)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  KenchikuyotoDaibunrui
+  , KenchikuyotoShobunrui
+  , KenchikuyotoRenban
+  , KenchikuyotoNm
+  , InsertDt
+  , InsertUser
+  , InsertTarm
+  , UpdateDt
+  , UpdateUser
+  , UpdateTarm 
+FROM
+  KenchikuyotoMst
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [KenchikuyotoMst] SET [KenchikuyotoDaibunrui] = @KenchikuyotoDaibunrui, [KenchikuyotoShobunrui] = @KenchikuyotoShobunrui, [KenchikuyotoRenban] = @KenchikuyotoRenban, [KenchikuyotoNm] = @KenchikuyotoNm, [InsertDt] = @InsertDt, [InsertUser] = @InsertUser, [InsertTarm] = @InsertTarm, [UpdateDt] = @UpdateDt, [UpdateUser] = @UpdateUser, [UpdateTarm] = @UpdateTarm WHERE (([KenchikuyotoDaibunrui] = @Original_KenchikuyotoDaibunrui) AND ([KenchikuyotoShobunrui] = @Original_KenchikuyotoShobunrui) AND ([KenchikuyotoRenban] = @Original_KenchikuyotoRenban) AND ([KenchikuyotoNm] = @Original_KenchikuyotoNm) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm));
+SELECT KenchikuyotoDaibunrui, KenchikuyotoShobunrui, KenchikuyotoRenban, KenchikuyotoNm, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM KenchikuyotoMst WHERE (KenchikuyotoDaibunrui = @KenchikuyotoDaibunrui) AND (KenchikuyotoRenban = @KenchikuyotoRenban) AND (KenchikuyotoShobunrui = @KenchikuyotoShobunrui)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KenchikuyotoNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KenchikuyotoNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KenchikuyotoDaibunrui" DataSetColumn="KenchikuyotoDaibunrui" />
+              <Mapping SourceColumn="KenchikuyotoShobunrui" DataSetColumn="KenchikuyotoShobunrui" />
+              <Mapping SourceColumn="KenchikuyotoRenban" DataSetColumn="KenchikuyotoRenban" />
+              <Mapping SourceColumn="KenchikuyotoNm" DataSetColumn="KenchikuyotoNm" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByKey" Modifier="Public" Name="DeleteByKey" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByKey">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE 
+FROM
+  KenchikuyotoMst 
+WHERE
+  ( 
+    KenchikuyotoDaibunrui = @Original_KenchikuyotoDaibunrui
+  ) 
+  AND ( 
+    KenchikuyotoShobunrui = @Original_KenchikuyotoShobunrui
+  ) 
+  AND ( 
+    KenchikuyotoRenban = @Original_KenchikuyotoRenban
+  ) 
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_KenchikuyotoDaibunrui" ColumnName="KenchikuyotoDaibunrui" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_KenchikuyotoShobunrui" ColumnName="KenchikuyotoShobunrui" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@Original_KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_KenchikuyotoRenban" ColumnName="KenchikuyotoRenban" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.KenchikuyotoMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKey" GeneratorSourceName="FillByKey" GetMethodModifier="Public" GetMethodName="GetDataByKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKey" UserSourceName="FillByKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  KenchikuyotoDaibunrui
+  , KenchikuyotoShobunrui
+  , KenchikuyotoRenban
+  , KenchikuyotoNm
+  , InsertDt
+  , InsertUser
+  , InsertTarm
+  , UpdateDt
+  , UpdateUser
+  , UpdateTarm 
+FROM
+  KenchikuyotoMst
+WHERE
+  (KenchikuyotoDaibunrui = @KenchikuyotoDaibunrui) 
+  AND (KenchikuyotoShobunrui = @KenchikuyotoShobunrui) 
+  AND (KenchikuyotoRenban = @KenchikuyotoRenban) 
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KenchikuyotoDaibunrui" ColumnName="KenchikuyotoDaibunrui" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@KenchikuyotoDaibunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KenchikuyotoDaibunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="KenchikuyotoShobunrui" ColumnName="KenchikuyotoShobunrui" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@KenchikuyotoShobunrui" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KenchikuyotoShobunrui" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="KenchikuyotoRenban" ColumnName="KenchikuyotoRenban" DataSourceName="FukjBizSystem.dbo.KenchikuyotoMst" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@KenchikuyotoRenban" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="KenchikuyotoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KenchikuyotoMstDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KenchikuyotoMstDataSet" msprop:Generator_UserDSName="KenchikuyotoMstDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KenchikuyotoMstKensaku" msprop:Generator_TableClassName="KenchikuyotoMstKensakuDataTable" msprop:Generator_TableVarName="tableKenchikuyotoMstKensaku" msprop:Generator_TablePropName="KenchikuyotoMstKensaku" msprop:Generator_RowDeletingName="KenchikuyotoMstKensakuRowDeleting" msprop:Generator_RowChangingName="KenchikuyotoMstKensakuRowChanging" msprop:Generator_RowEvHandlerName="KenchikuyotoMstKensakuRowChangeEventHandler" msprop:Generator_RowDeletedName="KenchikuyotoMstKensakuRowDeleted" msprop:Generator_UserTableName="KenchikuyotoMstKensaku" msprop:Generator_RowChangedName="KenchikuyotoMstKensakuRowChanged" msprop:Generator_RowEvArgName="KenchikuyotoMstKensakuRowChangeEvent" msprop:Generator_RowClassName="KenchikuyotoMstKensakuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KenchikuyotoDaibunrui" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunruiColumn" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoDaibunruiNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunruiNm" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunruiNm" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunruiNmColumn" msprop:Generator_UserColumnName="KenchikuyotoDaibunruiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunruiColumn" msprop:Generator_UserColumnName="KenchikuyotoShobunrui" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunruiNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunruiNm" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunruiNm" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunruiNmColumn" msprop:Generator_UserColumnName="KenchikuyotoShobunruiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenbanColumn" msprop:Generator_UserColumnName="KenchikuyotoRenban" type="xs:int" minOccurs="0" />
+              <xs:element name="KenchikuyotoNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KenchikuyotoNm" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoNm" msprop:Generator_ColumnPropNameInTable="KenchikuyotoNmColumn" msprop:Generator_UserColumnName="KenchikuyotoNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KenchikuyotoMst" msprop:Generator_TableClassName="KenchikuyotoMstDataTable" msprop:Generator_TableVarName="tableKenchikuyotoMst" msprop:Generator_TablePropName="KenchikuyotoMst" msprop:Generator_RowDeletingName="KenchikuyotoMstRowDeleting" msprop:Generator_RowChangingName="KenchikuyotoMstRowChanging" msprop:Generator_RowEvHandlerName="KenchikuyotoMstRowChangeEventHandler" msprop:Generator_RowDeletedName="KenchikuyotoMstRowDeleted" msprop:Generator_UserTableName="KenchikuyotoMst" msprop:Generator_RowChangedName="KenchikuyotoMstRowChanged" msprop:Generator_RowEvArgName="KenchikuyotoMstRowChangeEvent" msprop:Generator_RowClassName="KenchikuyotoMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KenchikuyotoDaibunrui" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoDaibunrui" msprop:Generator_ColumnPropNameInRow="KenchikuyotoDaibunrui" msprop:Generator_ColumnPropNameInTable="KenchikuyotoDaibunruiColumn" msprop:Generator_UserColumnName="KenchikuyotoDaibunrui">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoShobunrui" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoShobunrui" msprop:Generator_ColumnPropNameInRow="KenchikuyotoShobunrui" msprop:Generator_ColumnPropNameInTable="KenchikuyotoShobunruiColumn" msprop:Generator_UserColumnName="KenchikuyotoShobunrui">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KenchikuyotoRenban" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoRenban" msprop:Generator_ColumnPropNameInRow="KenchikuyotoRenban" msprop:Generator_ColumnPropNameInTable="KenchikuyotoRenbanColumn" msprop:Generator_UserColumnName="KenchikuyotoRenban" type="xs:int" />
+              <xs:element name="KenchikuyotoNm" msprop:Generator_ColumnVarNameInTable="columnKenchikuyotoNm" msprop:Generator_ColumnPropNameInRow="KenchikuyotoNm" msprop:Generator_ColumnPropNameInTable="KenchikuyotoNmColumn" msprop:Generator_UserColumnName="KenchikuyotoNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KenchikuyotoMst" />
+      <xs:field xpath="mstns:KenchikuyotoDaibunrui" />
+      <xs:field xpath="mstns:KenchikuyotoShobunrui" />
+      <xs:field xpath="mstns:KenchikuyotoRenban" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

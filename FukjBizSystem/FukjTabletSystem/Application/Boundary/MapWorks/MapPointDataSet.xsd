@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MapPointDataSet" targetNamespace="http://tempuri.org/MapPointDataSet.xsd" xmlns:mstns="http://tempuri.org/MapPointDataSet.xsd" xmlns="http://tempuri.org/MapPointDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MapPointDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MapPointDataSet" msprop:Generator_UserDSName="MapPointDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="JokasoMapPoint" msprop:Generator_TableClassName="JokasoMapPointDataTable" msprop:Generator_TableVarName="tableJokasoMapPoint" msprop:Generator_RowChangedName="JokasoMapPointRowChanged" msprop:Generator_TablePropName="JokasoMapPoint" msprop:Generator_RowDeletingName="JokasoMapPointRowDeleting" msprop:Generator_RowChangingName="JokasoMapPointRowChanging" msprop:Generator_RowEvHandlerName="JokasoMapPointRowChangeEventHandler" msprop:Generator_RowDeletedName="JokasoMapPointRowDeleted" msprop:Generator_RowClassName="JokasoMapPointRow" msprop:Generator_UserTableName="JokasoMapPoint" msprop:Generator_RowEvArgName="JokasoMapPointRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHoteiKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiHoteiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiHokenjoCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiRowIndex" msprop:Generator_ColumnVarNameInTable="columnKensaIraiRowIndex" msprop:Generator_ColumnPropNameInRow="KensaIraiRowIndex" msprop:Generator_ColumnPropNameInTable="KensaIraiRowIndexColumn" msprop:Generator_UserColumnName="KensaIraiRowIndex" type="xs:string" minOccurs="0" />
+              <xs:element name="JokasoSetchishaNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchishaNm" msprop:Generator_ColumnPropNameInRow="JokasoSetchishaNm" msprop:Generator_ColumnPropNameInTable="JokasoSetchishaNmColumn" msprop:Generator_UserColumnName="JokasoSetchishaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoSetchiBashoAdr" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInRow="JokasoSetchiBashoAdr" msprop:Generator_ColumnPropNameInTable="JokasoSetchiBashoAdrColumn" msprop:Generator_UserColumnName="JokasoSetchiBashoAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaKekkaKensaJoukyouKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaKekkaKensaJoukyouKbn" msprop:Generator_ColumnPropNameInRow="KensaKekkaKensaJoukyouKbn" msprop:Generator_ColumnPropNameInTable="KensaKekkaKensaJoukyouKbnColumn" msprop:Generator_UserColumnName="KensaKekkaKensaJoukyouKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoZenrinKeidoCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJokasoZenrinKeidoCd" msprop:Generator_ColumnPropNameInRow="JokasoZenrinKeidoCd" msprop:Generator_ColumnPropNameInTable="JokasoZenrinKeidoCdColumn" msprop:Generator_UserColumnName="JokasoZenrinKeidoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoZenrinIdoCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJokasoZenrinIdoCd" msprop:Generator_ColumnPropNameInRow="JokasoZenrinIdoCd" msprop:Generator_ColumnPropNameInTable="JokasoZenrinIdoCdColumn" msprop:Generator_UserColumnName="JokasoZenrinIdoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MapPointStatusObjectID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="ObjectID" msprop:Generator_ColumnVarNameInTable="columnMapPointStatusObjectID" msprop:Generator_ColumnPropNameInRow="MapPointStatusObjectID" msprop:Generator_ColumnPropNameInTable="MapPointStatusObjectIDColumn" msprop:Generator_UserColumnName="MapPointStatusObjectID" type="xs:string" minOccurs="0" />
+              <xs:element name="MapPointInfoObjectID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="InfoObjectID" msprop:Generator_ColumnVarNameInTable="columnMapPointInfoObjectID" msprop:Generator_ColumnPropNameInRow="MapPointInfoObjectID" msprop:Generator_ColumnPropNameInTable="MapPointInfoObjectIDColumn" msprop:Generator_UserColumnName="MapPointInfoObjectID" type="xs:string" minOccurs="0" />
+              <xs:element name="MapPointSeqObjectID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="SeqObjectID" msprop:Generator_ColumnVarNameInTable="columnMapPointSeqObjectID" msprop:Generator_ColumnPropNameInRow="MapPointSeqObjectID" msprop:Generator_ColumnPropNameInTable="MapPointSeqObjectIDColumn" msprop:Generator_UserColumnName="MapPointSeqObjectID" type="xs:string" minOccurs="0" />
+              <xs:element name="MapPointSeqObjectID_backcolor" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="SeqObjectID_backcolor" msprop:Generator_ColumnVarNameInTable="columnMapPointSeqObjectID_backcolor" msprop:Generator_ColumnPropNameInRow="MapPointSeqObjectID_backcolor" msprop:Generator_ColumnPropNameInTable="MapPointSeqObjectID_backcolorColumn" msprop:Generator_UserColumnName="MapPointSeqObjectID_backcolor" type="xs:string" minOccurs="0" />
+              <xs:element name="MapPointX" msprop:Generator_ColumnVarNameInTable="columnMapPointX" msprop:Generator_ColumnPropNameInRow="MapPointX" msprop:Generator_ColumnPropNameInTable="MapPointXColumn" msprop:Generator_UserColumnName="MapPointX" type="xs:int" minOccurs="0" />
+              <xs:element name="MapPointY" msprop:Generator_ColumnVarNameInTable="columnMapPointY" msprop:Generator_ColumnPropNameInRow="MapPointY" msprop:Generator_ColumnPropNameInTable="MapPointYColumn" msprop:Generator_UserColumnName="MapPointY" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:JokasoMapPoint" />
+      <xs:field xpath="mstns:KensaIraiRenban" />
+      <xs:field xpath="mstns:KensaIraiNendo" />
+      <xs:field xpath="mstns:KensaIraiHokenjoCd" />
+      <xs:field xpath="mstns:KensaIraiHoteiKbn" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

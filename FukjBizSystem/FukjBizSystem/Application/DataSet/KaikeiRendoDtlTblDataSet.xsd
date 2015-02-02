@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KaikeiRendoDtlTblDataSet" targetNamespace="http://tempuri.org/KaikeiRendoDtlTblDataSet.xsd" xmlns:mstns="http://tempuri.org/KaikeiRendoDtlTblDataSet.xsd" xmlns="http://tempuri.org/KaikeiRendoDtlTblDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KaikeiRendoDtlTblTableAdapter" GeneratorDataComponentClassName="KaikeiRendoDtlTblTableAdapter" Name="KaikeiRendoDtlTbl" UserDataComponentName="KaikeiRendoDtlTblTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[KaikeiRendoDtlTbl] WHERE (([KaikeiNo] = @Original_KaikeiNo) AND ([KeikeiRenban] = @Original_KeikeiRenban) AND ((@IsNull_OutputKbn = 1 AND [OutputKbn] IS NULL) OR ([OutputKbn] = @Original_OutputKbn)) AND ((@IsNull_NyusyukkinKbn = 1 AND [NyusyukkinKbn] IS NULL) OR ([NyusyukkinKbn] = @Original_NyusyukkinKbn)) AND ((@IsNull_KaikeiGyosyaCd = 1 AND [KaikeiGyosyaCd] IS NULL) OR ([KaikeiGyosyaCd] = @Original_KaikeiGyosyaCd)) AND ((@IsNull_SeikyuNo = 1 AND [SeikyuNo] IS NULL) OR ([SeikyuNo] = @Original_SeikyuNo)) AND ((@IsNull_SeikyuRenban = 1 AND [SeikyuRenban] IS NULL) OR ([SeikyuRenban] = @Original_SeikyuRenban)) AND ((@IsNull_NyukinNo = 1 AND [NyukinNo] IS NULL) OR ([NyukinNo] = @Original_NyukinNo)) AND ((@IsNull_HenkinRenban = 1 AND [HenkinRenban] IS NULL) OR ([HenkinRenban] = @Original_HenkinRenban)) AND ((@IsNull_SyohizeiKbn = 1 AND [SyohizeiKbn] IS NULL) OR ([SyohizeiKbn] = @Original_SyohizeiKbn)) AND ((@IsNull_RendoKaikeiCD = 1 AND [RendoKaikeiCD] IS NULL) OR ([RendoKaikeiCD] = @Original_RendoKaikeiCD)) AND ((@IsNull_DenpyoDt = 1 AND [DenpyoDt] IS NULL) OR ([DenpyoDt] = @Original_DenpyoDt)) AND ((@IsNull_SyohizeiJidoKeisan = 1 AND [SyohizeiJidoKeisan] IS NULL) OR ([SyohizeiJidoKeisan] = @Original_SyohizeiJidoKeisan)) AND ((@IsNull_KarikataJigyoCd = 1 AND [KarikataJigyoCd] IS NULL) OR ([KarikataJigyoCd] = @Original_KarikataJigyoCd)) AND ((@IsNull_KarikataKamokuCd = 1 AND [KarikataKamokuCd] IS NULL) OR ([KarikataKamokuCd] = @Original_KarikataKamokuCd)) AND ((@IsNull_KarikataKamokuNm = 1 AND [KarikataKamokuNm] IS NULL) OR ([KarikataKamokuNm] = @Original_KarikataKamokuNm)) AND ((@IsNull_KarikataHojoKamokuCd = 1 AND [KarikataHojoKamokuCd] IS NULL) OR ([KarikataHojoKamokuCd] = @Original_KarikataHojoKamokuCd)) AND ((@IsNull_KarikataHojoKamokuNm = 1 AND [KarikataHojoKamokuNm] IS NULL) OR ([KarikataHojoKamokuNm] = @Original_KarikataHojoKamokuNm)) AND ((@IsNull_KarikataSyoKamokuCd = 1 AND [KarikataSyoKamokuCd] IS NULL) OR ([KarikataSyoKamokuCd] = @Original_KarikataSyoKamokuCd)) AND ((@IsNull_KarikataSyoKamokuNm = 1 AND [KarikataSyoKamokuNm] IS NULL) OR ([KarikataSyoKamokuNm] = @Original_KarikataSyoKamokuNm)) AND ((@IsNull_KarikataZeiKbn = 1 AND [KarikataZeiKbn] IS NULL) OR ([KarikataZeiKbn] = @Original_KarikataZeiKbn)) AND ((@IsNull_KarikataKingaku = 1 AND [KarikataKingaku] IS NULL) OR ([KarikataKingaku] = @Original_KarikataKingaku)) AND ((@IsNull_KarikataSyohizei = 1 AND [KarikataSyohizei] IS NULL) OR ([KarikataSyohizei] = @Original_KarikataSyohizei)) AND ((@IsNull_KashikataJigyoCd = 1 AND [KashikataJigyoCd] IS NULL) OR ([KashikataJigyoCd] = @Original_KashikataJigyoCd)) AND ((@IsNull_KashikataKamokuCd = 1 AND [KashikataKamokuCd] IS NULL) OR ([KashikataKamokuCd] = @Original_KashikataKamokuCd)) AND ((@IsNull_KashikataKamokuNm = 1 AND [KashikataKamokuNm] IS NULL) OR ([KashikataKamokuNm] = @Original_KashikataKamokuNm)) AND ((@IsNull_KashikataHojoKamokuCd = 1 AND [KashikataHojoKamokuCd] IS NULL) OR ([KashikataHojoKamokuCd] = @Original_KashikataHojoKamokuCd)) AND ((@IsNull_KashikataHojoKamokuNm = 1 AND [KashikataHojoKamokuNm] IS NULL) OR ([KashikataHojoKamokuNm] = @Original_KashikataHojoKamokuNm)) AND ((@IsNull_KashikataSyoKamokuCd = 1 AND [KashikataSyoKamokuCd] IS NULL) OR ([KashikataSyoKamokuCd] = @Original_KashikataSyoKamokuCd)) AND ((@IsNull_KashikataSyoKamokuNm = 1 AND [KashikataSyoKamokuNm] IS NULL) OR ([KashikataSyoKamokuNm] = @Original_KashikataSyoKamokuNm)) AND ((@IsNull_KashikataZeiKbn = 1 AND [KashikataZeiKbn] IS NULL) OR ([KashikataZeiKbn] = @Original_KashikataZeiKbn)) AND ((@IsNull_KashikataKingaku = 1 AND [KashikataKingaku] IS NULL) OR ([KashikataKingaku] = @Original_KashikataKingaku)) AND ((@IsNull_SyohizeiGaku = 1 AND [SyohizeiGaku] IS NULL) OR ([SyohizeiGaku] = @Original_SyohizeiGaku)) AND ((@IsNull_RendoSuji1 = 1 AND [RendoSuji1] IS NULL) OR ([RendoSuji1] = @Original_RendoSuji1)) AND ((@IsNull_RendoSuji2 = 1 AND [RendoSuji2] IS NULL) OR ([RendoSuji2] = @Original_RendoSuji2)) AND ((@IsNull_Tekiyo = 1 AND [Tekiyo] IS NULL) OR ([Tekiyo] = @Original_Tekiyo)) AND ((@IsNull_NaibuTorihikiKbn = 1 AND [NaibuTorihikiKbn] IS NULL) OR ([NaibuTorihikiKbn] = @Original_NaibuTorihikiKbn)) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KeikeiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KeikeiRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OutputKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_OutputKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NyusyukkinKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NyusyukkinKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KaikeiGyosyaCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KaikeiGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SeikyuNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SeikyuNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NyukinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NyukinNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyohizeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoKaikeiCD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoKaikeiCD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DenpyoDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DenpyoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiJidoKeisan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyohizeiJidoKeisan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataJigyoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataHojoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataHojoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataZeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKingaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KarikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyohizei" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KarikataSyohizei" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataJigyoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataHojoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataHojoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataSyoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataSyoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataZeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKingaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KashikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiGaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_SyohizeiGaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoSuji1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoSuji1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoSuji2" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoSuji2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Tekiyo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Tekiyo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NaibuTorihikiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NaibuTorihikiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[KaikeiRendoDtlTbl] ([KaikeiNo], [KeikeiRenban], [OutputKbn], [NyusyukkinKbn], [KaikeiGyosyaCd], [SeikyuNo], [SeikyuRenban], [NyukinNo], [HenkinRenban], [SyohizeiKbn], [RendoKaikeiCD], [DenpyoDt], [SyohizeiJidoKeisan], [KarikataJigyoCd], [KarikataKamokuCd], [KarikataKamokuNm], [KarikataHojoKamokuCd], [KarikataHojoKamokuNm], [KarikataSyoKamokuCd], [KarikataSyoKamokuNm], [KarikataZeiKbn], [KarikataKingaku], [KarikataSyohizei], [KashikataJigyoCd], [KashikataKamokuCd], [KashikataKamokuNm], [KashikataHojoKamokuCd], [KashikataHojoKamokuNm], [KashikataSyoKamokuCd], [KashikataSyoKamokuNm], [KashikataZeiKbn], [KashikataKingaku], [SyohizeiGaku], [RendoSuji1], [RendoSuji2], [Tekiyo], [NaibuTorihikiKbn], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@KaikeiNo, @KeikeiRenban, @OutputKbn, @NyusyukkinKbn, @KaikeiGyosyaCd, @SeikyuNo, @SeikyuRenban, @NyukinNo, @HenkinRenban, @SyohizeiKbn, @RendoKaikeiCD, @DenpyoDt, @SyohizeiJidoKeisan, @KarikataJigyoCd, @KarikataKamokuCd, @KarikataKamokuNm, @KarikataHojoKamokuCd, @KarikataHojoKamokuNm, @KarikataSyoKamokuCd, @KarikataSyoKamokuNm, @KarikataZeiKbn, @KarikataKingaku, @KarikataSyohizei, @KashikataJigyoCd, @KashikataKamokuCd, @KashikataKamokuNm, @KashikataHojoKamokuCd, @KashikataHojoKamokuNm, @KashikataSyoKamokuCd, @KashikataSyoKamokuNm, @KashikataZeiKbn, @KashikataKingaku, @SyohizeiGaku, @RendoSuji1, @RendoSuji2, @Tekiyo, @NaibuTorihikiKbn, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm);
+SELECT KaikeiNo, KeikeiRenban, OutputKbn, NyusyukkinKbn, KaikeiGyosyaCd, SeikyuNo, SeikyuRenban, NyukinNo, HenkinRenban, SyohizeiKbn, RendoKaikeiCD, DenpyoDt, SyohizeiJidoKeisan, KarikataJigyoCd, KarikataKamokuCd, KarikataKamokuNm, KarikataHojoKamokuCd, KarikataHojoKamokuNm, KarikataSyoKamokuCd, KarikataSyoKamokuNm, KarikataZeiKbn, KarikataKingaku, KarikataSyohizei, KashikataJigyoCd, KashikataKamokuCd, KashikataKamokuNm, KashikataHojoKamokuCd, KashikataHojoKamokuNm, KashikataSyoKamokuCd, KashikataSyoKamokuNm, KashikataZeiKbn, KashikataKingaku, SyohizeiGaku, RendoSuji1, RendoSuji2, Tekiyo, NaibuTorihikiKbn, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM KaikeiRendoDtlTbl WHERE (KaikeiNo = @KaikeiNo) AND (KeikeiRenban = @KeikeiRenban)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@KeikeiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KeikeiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@OutputKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NyusyukkinKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KaikeiGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SeikyuNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NyukinNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyohizeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoKaikeiCD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DenpyoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyohizeiJidoKeisan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KarikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KarikataSyohizei" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KashikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@SyohizeiGaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoSuji1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoSuji2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Tekiyo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NaibuTorihikiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT KaikeiNo, KeikeiRenban, OutputKbn, NyusyukkinKbn, KaikeiGyosyaCd, SeikyuNo, SeikyuRenban, NyukinNo, HenkinRenban, SyohizeiKbn, RendoKaikeiCD, DenpyoDt, SyohizeiJidoKeisan, KarikataJigyoCd, KarikataKamokuCd, KarikataKamokuNm, KarikataHojoKamokuCd, KarikataHojoKamokuNm, KarikataSyoKamokuCd, KarikataSyoKamokuNm, KarikataZeiKbn, KarikataKingaku, KarikataSyohizei, KashikataJigyoCd, KashikataKamokuCd, KashikataKamokuNm, KashikataHojoKamokuCd, KashikataHojoKamokuNm, KashikataSyoKamokuCd, KashikataSyoKamokuNm, KashikataZeiKbn, KashikataKingaku, SyohizeiGaku, RendoSuji1, RendoSuji2, Tekiyo, NaibuTorihikiKbn, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM dbo.KaikeiRendoDtlTbl</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[KaikeiRendoDtlTbl] SET [KaikeiNo] = @KaikeiNo, [KeikeiRenban] = @KeikeiRenban, [OutputKbn] = @OutputKbn, [NyusyukkinKbn] = @NyusyukkinKbn, [KaikeiGyosyaCd] = @KaikeiGyosyaCd, [SeikyuNo] = @SeikyuNo, [SeikyuRenban] = @SeikyuRenban, [NyukinNo] = @NyukinNo, [HenkinRenban] = @HenkinRenban, [SyohizeiKbn] = @SyohizeiKbn, [RendoKaikeiCD] = @RendoKaikeiCD, [DenpyoDt] = @DenpyoDt, [SyohizeiJidoKeisan] = @SyohizeiJidoKeisan, [KarikataJigyoCd] = @KarikataJigyoCd, [KarikataKamokuCd] = @KarikataKamokuCd, [KarikataKamokuNm] = @KarikataKamokuNm, [KarikataHojoKamokuCd] = @KarikataHojoKamokuCd, [KarikataHojoKamokuNm] = @KarikataHojoKamokuNm, [KarikataSyoKamokuCd] = @KarikataSyoKamokuCd, [KarikataSyoKamokuNm] = @KarikataSyoKamokuNm, [KarikataZeiKbn] = @KarikataZeiKbn, [KarikataKingaku] = @KarikataKingaku, [KarikataSyohizei] = @KarikataSyohizei, [KashikataJigyoCd] = @KashikataJigyoCd, [KashikataKamokuCd] = @KashikataKamokuCd, [KashikataKamokuNm] = @KashikataKamokuNm, [KashikataHojoKamokuCd] = @KashikataHojoKamokuCd, [KashikataHojoKamokuNm] = @KashikataHojoKamokuNm, [KashikataSyoKamokuCd] = @KashikataSyoKamokuCd, [KashikataSyoKamokuNm] = @KashikataSyoKamokuNm, [KashikataZeiKbn] = @KashikataZeiKbn, [KashikataKingaku] = @KashikataKingaku, [SyohizeiGaku] = @SyohizeiGaku, [RendoSuji1] = @RendoSuji1, [RendoSuji2] = @RendoSuji2, [Tekiyo] = @Tekiyo, [NaibuTorihikiKbn] = @NaibuTorihikiKbn, [InsertDt] = @InsertDt, [InsertUser] = @InsertUser, [InsertTarm] = @InsertTarm, [UpdateDt] = @UpdateDt, [UpdateUser] = @UpdateUser, [UpdateTarm] = @UpdateTarm WHERE (([KaikeiNo] = @Original_KaikeiNo) AND ([KeikeiRenban] = @Original_KeikeiRenban) AND ((@IsNull_OutputKbn = 1 AND [OutputKbn] IS NULL) OR ([OutputKbn] = @Original_OutputKbn)) AND ((@IsNull_NyusyukkinKbn = 1 AND [NyusyukkinKbn] IS NULL) OR ([NyusyukkinKbn] = @Original_NyusyukkinKbn)) AND ((@IsNull_KaikeiGyosyaCd = 1 AND [KaikeiGyosyaCd] IS NULL) OR ([KaikeiGyosyaCd] = @Original_KaikeiGyosyaCd)) AND ((@IsNull_SeikyuNo = 1 AND [SeikyuNo] IS NULL) OR ([SeikyuNo] = @Original_SeikyuNo)) AND ((@IsNull_SeikyuRenban = 1 AND [SeikyuRenban] IS NULL) OR ([SeikyuRenban] = @Original_SeikyuRenban)) AND ((@IsNull_NyukinNo = 1 AND [NyukinNo] IS NULL) OR ([NyukinNo] = @Original_NyukinNo)) AND ((@IsNull_HenkinRenban = 1 AND [HenkinRenban] IS NULL) OR ([HenkinRenban] = @Original_HenkinRenban)) AND ((@IsNull_SyohizeiKbn = 1 AND [SyohizeiKbn] IS NULL) OR ([SyohizeiKbn] = @Original_SyohizeiKbn)) AND ((@IsNull_RendoKaikeiCD = 1 AND [RendoKaikeiCD] IS NULL) OR ([RendoKaikeiCD] = @Original_RendoKaikeiCD)) AND ((@IsNull_DenpyoDt = 1 AND [DenpyoDt] IS NULL) OR ([DenpyoDt] = @Original_DenpyoDt)) AND ((@IsNull_SyohizeiJidoKeisan = 1 AND [SyohizeiJidoKeisan] IS NULL) OR ([SyohizeiJidoKeisan] = @Original_SyohizeiJidoKeisan)) AND ((@IsNull_KarikataJigyoCd = 1 AND [KarikataJigyoCd] IS NULL) OR ([KarikataJigyoCd] = @Original_KarikataJigyoCd)) AND ((@IsNull_KarikataKamokuCd = 1 AND [KarikataKamokuCd] IS NULL) OR ([KarikataKamokuCd] = @Original_KarikataKamokuCd)) AND ((@IsNull_KarikataKamokuNm = 1 AND [KarikataKamokuNm] IS NULL) OR ([KarikataKamokuNm] = @Original_KarikataKamokuNm)) AND ((@IsNull_KarikataHojoKamokuCd = 1 AND [KarikataHojoKamokuCd] IS NULL) OR ([KarikataHojoKamokuCd] = @Original_KarikataHojoKamokuCd)) AND ((@IsNull_KarikataHojoKamokuNm = 1 AND [KarikataHojoKamokuNm] IS NULL) OR ([KarikataHojoKamokuNm] = @Original_KarikataHojoKamokuNm)) AND ((@IsNull_KarikataSyoKamokuCd = 1 AND [KarikataSyoKamokuCd] IS NULL) OR ([KarikataSyoKamokuCd] = @Original_KarikataSyoKamokuCd)) AND ((@IsNull_KarikataSyoKamokuNm = 1 AND [KarikataSyoKamokuNm] IS NULL) OR ([KarikataSyoKamokuNm] = @Original_KarikataSyoKamokuNm)) AND ((@IsNull_KarikataZeiKbn = 1 AND [KarikataZeiKbn] IS NULL) OR ([KarikataZeiKbn] = @Original_KarikataZeiKbn)) AND ((@IsNull_KarikataKingaku = 1 AND [KarikataKingaku] IS NULL) OR ([KarikataKingaku] = @Original_KarikataKingaku)) AND ((@IsNull_KarikataSyohizei = 1 AND [KarikataSyohizei] IS NULL) OR ([KarikataSyohizei] = @Original_KarikataSyohizei)) AND ((@IsNull_KashikataJigyoCd = 1 AND [KashikataJigyoCd] IS NULL) OR ([KashikataJigyoCd] = @Original_KashikataJigyoCd)) AND ((@IsNull_KashikataKamokuCd = 1 AND [KashikataKamokuCd] IS NULL) OR ([KashikataKamokuCd] = @Original_KashikataKamokuCd)) AND ((@IsNull_KashikataKamokuNm = 1 AND [KashikataKamokuNm] IS NULL) OR ([KashikataKamokuNm] = @Original_KashikataKamokuNm)) AND ((@IsNull_KashikataHojoKamokuCd = 1 AND [KashikataHojoKamokuCd] IS NULL) OR ([KashikataHojoKamokuCd] = @Original_KashikataHojoKamokuCd)) AND ((@IsNull_KashikataHojoKamokuNm = 1 AND [KashikataHojoKamokuNm] IS NULL) OR ([KashikataHojoKamokuNm] = @Original_KashikataHojoKamokuNm)) AND ((@IsNull_KashikataSyoKamokuCd = 1 AND [KashikataSyoKamokuCd] IS NULL) OR ([KashikataSyoKamokuCd] = @Original_KashikataSyoKamokuCd)) AND ((@IsNull_KashikataSyoKamokuNm = 1 AND [KashikataSyoKamokuNm] IS NULL) OR ([KashikataSyoKamokuNm] = @Original_KashikataSyoKamokuNm)) AND ((@IsNull_KashikataZeiKbn = 1 AND [KashikataZeiKbn] IS NULL) OR ([KashikataZeiKbn] = @Original_KashikataZeiKbn)) AND ((@IsNull_KashikataKingaku = 1 AND [KashikataKingaku] IS NULL) OR ([KashikataKingaku] = @Original_KashikataKingaku)) AND ((@IsNull_SyohizeiGaku = 1 AND [SyohizeiGaku] IS NULL) OR ([SyohizeiGaku] = @Original_SyohizeiGaku)) AND ((@IsNull_RendoSuji1 = 1 AND [RendoSuji1] IS NULL) OR ([RendoSuji1] = @Original_RendoSuji1)) AND ((@IsNull_RendoSuji2 = 1 AND [RendoSuji2] IS NULL) OR ([RendoSuji2] = @Original_RendoSuji2)) AND ((@IsNull_Tekiyo = 1 AND [Tekiyo] IS NULL) OR ([Tekiyo] = @Original_Tekiyo)) AND ((@IsNull_NaibuTorihikiKbn = 1 AND [NaibuTorihikiKbn] IS NULL) OR ([NaibuTorihikiKbn] = @Original_NaibuTorihikiKbn)) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm));
+SELECT KaikeiNo, KeikeiRenban, OutputKbn, NyusyukkinKbn, KaikeiGyosyaCd, SeikyuNo, SeikyuRenban, NyukinNo, HenkinRenban, SyohizeiKbn, RendoKaikeiCD, DenpyoDt, SyohizeiJidoKeisan, KarikataJigyoCd, KarikataKamokuCd, KarikataKamokuNm, KarikataHojoKamokuCd, KarikataHojoKamokuNm, KarikataSyoKamokuCd, KarikataSyoKamokuNm, KarikataZeiKbn, KarikataKingaku, KarikataSyohizei, KashikataJigyoCd, KashikataKamokuCd, KashikataKamokuNm, KashikataHojoKamokuCd, KashikataHojoKamokuNm, KashikataSyoKamokuCd, KashikataSyoKamokuNm, KashikataZeiKbn, KashikataKingaku, SyohizeiGaku, RendoSuji1, RendoSuji2, Tekiyo, NaibuTorihikiKbn, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM KaikeiRendoDtlTbl WHERE (KaikeiNo = @KaikeiNo) AND (KeikeiRenban = @KeikeiRenban)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@KeikeiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KeikeiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@OutputKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NyusyukkinKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KaikeiGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SeikyuNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NyukinNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyohizeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoKaikeiCD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DenpyoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyohizeiJidoKeisan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KarikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KarikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KarikataSyohizei" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KashikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@KashikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@SyohizeiGaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoSuji1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RendoSuji2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Tekiyo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NaibuTorihikiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_KeikeiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KeikeiRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OutputKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_OutputKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="OutputKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NyusyukkinKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NyusyukkinKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyusyukkinKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KaikeiGyosyaCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KaikeiGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KaikeiGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SeikyuNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SeikyuNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SeikyuNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SeikyuRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SeikyuRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NyukinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NyukinNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NyukinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_HenkinRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HenkinRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyohizeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoKaikeiCD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoKaikeiCD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoKaikeiCD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DenpyoDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DenpyoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DenpyoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiJidoKeisan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyohizeiJidoKeisan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyohizeiJidoKeisan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataJigyoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataHojoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataHojoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataZeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KarikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KarikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataKingaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KarikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataKingaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KarikataSyohizei" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KarikataSyohizei" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KarikataSyohizei" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataJigyoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataJigyoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataJigyoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataHojoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataHojoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataHojoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataHojoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataHojoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataSyoKamokuCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataSyoKamokuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataSyoKamokuNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataSyoKamokuNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataSyoKamokuNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataZeiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KashikataZeiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KashikataZeiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_KashikataKingaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_KashikataKingaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="KashikataKingaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SyohizeiGaku" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_SyohizeiGaku" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="SyohizeiGaku" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoSuji1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoSuji1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RendoSuji2" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RendoSuji2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="RendoSuji2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Tekiyo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Tekiyo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Tekiyo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NaibuTorihikiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NaibuTorihikiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NaibuTorihikiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KaikeiNo" DataSetColumn="KaikeiNo" />
+              <Mapping SourceColumn="KeikeiRenban" DataSetColumn="KeikeiRenban" />
+              <Mapping SourceColumn="OutputKbn" DataSetColumn="OutputKbn" />
+              <Mapping SourceColumn="NyusyukkinKbn" DataSetColumn="NyusyukkinKbn" />
+              <Mapping SourceColumn="KaikeiGyosyaCd" DataSetColumn="KaikeiGyosyaCd" />
+              <Mapping SourceColumn="SeikyuNo" DataSetColumn="SeikyuNo" />
+              <Mapping SourceColumn="SeikyuRenban" DataSetColumn="SeikyuRenban" />
+              <Mapping SourceColumn="NyukinNo" DataSetColumn="NyukinNo" />
+              <Mapping SourceColumn="HenkinRenban" DataSetColumn="HenkinRenban" />
+              <Mapping SourceColumn="SyohizeiKbn" DataSetColumn="SyohizeiKbn" />
+              <Mapping SourceColumn="RendoKaikeiCD" DataSetColumn="RendoKaikeiCD" />
+              <Mapping SourceColumn="DenpyoDt" DataSetColumn="DenpyoDt" />
+              <Mapping SourceColumn="SyohizeiJidoKeisan" DataSetColumn="SyohizeiJidoKeisan" />
+              <Mapping SourceColumn="KarikataJigyoCd" DataSetColumn="KarikataJigyoCd" />
+              <Mapping SourceColumn="KarikataKamokuCd" DataSetColumn="KarikataKamokuCd" />
+              <Mapping SourceColumn="KarikataKamokuNm" DataSetColumn="KarikataKamokuNm" />
+              <Mapping SourceColumn="KarikataHojoKamokuCd" DataSetColumn="KarikataHojoKamokuCd" />
+              <Mapping SourceColumn="KarikataHojoKamokuNm" DataSetColumn="KarikataHojoKamokuNm" />
+              <Mapping SourceColumn="KarikataSyoKamokuCd" DataSetColumn="KarikataSyoKamokuCd" />
+              <Mapping SourceColumn="KarikataSyoKamokuNm" DataSetColumn="KarikataSyoKamokuNm" />
+              <Mapping SourceColumn="KarikataZeiKbn" DataSetColumn="KarikataZeiKbn" />
+              <Mapping SourceColumn="KarikataKingaku" DataSetColumn="KarikataKingaku" />
+              <Mapping SourceColumn="KarikataSyohizei" DataSetColumn="KarikataSyohizei" />
+              <Mapping SourceColumn="KashikataJigyoCd" DataSetColumn="KashikataJigyoCd" />
+              <Mapping SourceColumn="KashikataKamokuCd" DataSetColumn="KashikataKamokuCd" />
+              <Mapping SourceColumn="KashikataKamokuNm" DataSetColumn="KashikataKamokuNm" />
+              <Mapping SourceColumn="KashikataHojoKamokuCd" DataSetColumn="KashikataHojoKamokuCd" />
+              <Mapping SourceColumn="KashikataHojoKamokuNm" DataSetColumn="KashikataHojoKamokuNm" />
+              <Mapping SourceColumn="KashikataSyoKamokuCd" DataSetColumn="KashikataSyoKamokuCd" />
+              <Mapping SourceColumn="KashikataSyoKamokuNm" DataSetColumn="KashikataSyoKamokuNm" />
+              <Mapping SourceColumn="KashikataZeiKbn" DataSetColumn="KashikataZeiKbn" />
+              <Mapping SourceColumn="KashikataKingaku" DataSetColumn="KashikataKingaku" />
+              <Mapping SourceColumn="SyohizeiGaku" DataSetColumn="SyohizeiGaku" />
+              <Mapping SourceColumn="RendoSuji1" DataSetColumn="RendoSuji1" />
+              <Mapping SourceColumn="RendoSuji2" DataSetColumn="RendoSuji2" />
+              <Mapping SourceColumn="Tekiyo" DataSetColumn="Tekiyo" />
+              <Mapping SourceColumn="NaibuTorihikiKbn" DataSetColumn="NaibuTorihikiKbn" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByKaikeiNo" Modifier="Public" Name="DeleteByKaikeiNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByKaikeiNo">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM       KaikeiRendoDtlTbl
+WHERE                       (KaikeiNo = @Original_KaikeiNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_KaikeiNo" ColumnName="KaikeiNo" DataSourceName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Original_KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKaikeiNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKaikeiNo" GeneratorSourceName="FillByKaikeiNo" GetMethodModifier="Public" GetMethodName="GetDataByKaikeiNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKaikeiNo" UserSourceName="FillByKaikeiNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT KaikeiNo, KeikeiRenban, OutputKbn, NyusyukkinKbn, KaikeiGyosyaCd, SeikyuNo, SeikyuRenban, NyukinNo, HenkinRenban, SyohizeiKbn, RendoKaikeiCD, DenpyoDt, SyohizeiJidoKeisan, KarikataJigyoCd, KarikataKamokuCd, KarikataKamokuNm, KarikataHojoKamokuCd, KarikataHojoKamokuNm, KarikataSyoKamokuCd, KarikataSyoKamokuNm, KarikataZeiKbn, KarikataKingaku, KarikataSyohizei, KashikataJigyoCd, KashikataKamokuCd, KashikataKamokuNm, KashikataHojoKamokuCd, KashikataHojoKamokuNm, KashikataSyoKamokuCd, KashikataSyoKamokuNm, KashikataZeiKbn, KashikataKingaku, SyohizeiGaku, RendoSuji1, RendoSuji2, Tekiyo, NaibuTorihikiKbn, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM dbo.KaikeiRendoDtlTbl WHERE KaikeiNo = @KaikeiNo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KaikeiNo" ColumnName="KaikeiNo" DataSourceName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKey" GeneratorSourceName="FillByKey" GetMethodModifier="Public" GetMethodName="GetDataByKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKey" UserSourceName="FillByKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT KaikeiNo, KeikeiRenban, OutputKbn, NyusyukkinKbn, KaikeiGyosyaCd, SeikyuNo, SeikyuRenban, NyukinNo, HenkinRenban, SyohizeiKbn, RendoKaikeiCD, DenpyoDt, SyohizeiJidoKeisan, KarikataJigyoCd, KarikataKamokuCd, KarikataKamokuNm, KarikataHojoKamokuCd, KarikataHojoKamokuNm, KarikataSyoKamokuCd, KarikataSyoKamokuNm, KarikataZeiKbn, KarikataKingaku, KarikataSyohizei, KashikataJigyoCd, KashikataKamokuCd, KashikataKamokuNm, KashikataHojoKamokuCd, KashikataHojoKamokuNm, KashikataSyoKamokuCd, KashikataSyoKamokuNm, KashikataZeiKbn, KashikataKingaku, SyohizeiGaku, RendoSuji1, RendoSuji2, Tekiyo, NaibuTorihikiKbn, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM dbo.KaikeiRendoDtlTbl WHERE KaikeiNo = @KaikeiNo AND KeikeiRenban = @KeikeiRenban</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KaikeiNo" ColumnName="KaikeiNo" DataSourceName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="KeikeiRenban" ColumnName="KeikeiRenban" DataSourceName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@KeikeiRenban" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="KeikeiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KaikeiRendoTblExportCSVTableAdapter" GeneratorDataComponentClassName="KaikeiRendoTblExportCSVTableAdapter" Name="KaikeiRendoTblExportCSV" UserDataComponentName="KaikeiRendoTblExportCSVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+		krht.KaikeiNo,
+
+		krdt.RendoKaikeiCD,
+		krdt.DenpyoDt,
+		krdt.KeikeiRenban,
+		krdt.SyohizeiJidoKeisan,
+
+
+		krdt.KarikataJigyoCd,
+		krdt.KarikataKamokuCd,
+		krdt.KarikataKamokuNm,
+		krdt.KarikataHojoKamokuCd,
+		krdt.KarikataHojoKamokuNm,
+		krdt.KarikataSyoKamokuCd,
+		krdt.KarikataSyoKamokuNm,
+		krdt.KarikataZeiKbn,
+		krdt.KarikataKingaku,
+		krdt.KarikataSyohizei,
+		krdt.KashikataJigyoCd,
+		krdt.KashikataKamokuCd,
+		krdt.KashikataKamokuNm,
+		krdt.KashikataHojoKamokuCd,
+		krdt.KashikataHojoKamokuNm,
+		krdt.KashikataSyoKamokuCd,
+		krdt.KashikataSyoKamokuNm,
+		krdt.KashikataZeiKbn,
+		krdt.KashikataKingaku,
+		krdt.SyohizeiGaku,
+		krdt.RendoSuji1,
+		krdt.RendoSuji2,
+		krdt.Tekiyo,
+		krdt.NaibuTorihikiKbn,
+		krdt.OutputKbn
+
+
+FROM KaikeiRendoDtlTbl krdt INNER JOIN KaikeiRendoHdrTbl krht ON krdt.KaikeiNo = krht.KaikeiNo
+
+ORDER BY krdt.KeikeiRenban</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KaikeiNo" DataSetColumn="KaikeiNo" />
+              <Mapping SourceColumn="RendoKaikeiCD" DataSetColumn="RendoKaikeiCD" />
+              <Mapping SourceColumn="DenpyoDt" DataSetColumn="DenpyoDt" />
+              <Mapping SourceColumn="KeikeiRenban" DataSetColumn="KeikeiRenban" />
+              <Mapping SourceColumn="SyohizeiJidoKeisan" DataSetColumn="SyohizeiJidoKeisan" />
+              <Mapping SourceColumn="KarikataJigyoCd" DataSetColumn="KarikataJigyoCd" />
+              <Mapping SourceColumn="KarikataKamokuCd" DataSetColumn="KarikataKamokuCd" />
+              <Mapping SourceColumn="KarikataKamokuNm" DataSetColumn="KarikataKamokuNm" />
+              <Mapping SourceColumn="KarikataHojoKamokuCd" DataSetColumn="KarikataHojoKamokuCd" />
+              <Mapping SourceColumn="KarikataHojoKamokuNm" DataSetColumn="KarikataHojoKamokuNm" />
+              <Mapping SourceColumn="KarikataSyoKamokuCd" DataSetColumn="KarikataSyoKamokuCd" />
+              <Mapping SourceColumn="KarikataSyoKamokuNm" DataSetColumn="KarikataSyoKamokuNm" />
+              <Mapping SourceColumn="KarikataZeiKbn" DataSetColumn="KarikataZeiKbn" />
+              <Mapping SourceColumn="KarikataKingaku" DataSetColumn="KarikataKingaku" />
+              <Mapping SourceColumn="KarikataSyohizei" DataSetColumn="KarikataSyohizei" />
+              <Mapping SourceColumn="KashikataJigyoCd" DataSetColumn="KashikataJigyoCd" />
+              <Mapping SourceColumn="KashikataKamokuCd" DataSetColumn="KashikataKamokuCd" />
+              <Mapping SourceColumn="KashikataKamokuNm" DataSetColumn="KashikataKamokuNm" />
+              <Mapping SourceColumn="KashikataHojoKamokuCd" DataSetColumn="KashikataHojoKamokuCd" />
+              <Mapping SourceColumn="KashikataHojoKamokuNm" DataSetColumn="KashikataHojoKamokuNm" />
+              <Mapping SourceColumn="KashikataSyoKamokuCd" DataSetColumn="KashikataSyoKamokuCd" />
+              <Mapping SourceColumn="KashikataSyoKamokuNm" DataSetColumn="KashikataSyoKamokuNm" />
+              <Mapping SourceColumn="KashikataZeiKbn" DataSetColumn="KashikataZeiKbn" />
+              <Mapping SourceColumn="KashikataKingaku" DataSetColumn="KashikataKingaku" />
+              <Mapping SourceColumn="SyohizeiGaku" DataSetColumn="SyohizeiGaku" />
+              <Mapping SourceColumn="RendoSuji1" DataSetColumn="RendoSuji1" />
+              <Mapping SourceColumn="RendoSuji2" DataSetColumn="RendoSuji2" />
+              <Mapping SourceColumn="Tekiyo" DataSetColumn="Tekiyo" />
+              <Mapping SourceColumn="NaibuTorihikiKbn" DataSetColumn="NaibuTorihikiKbn" />
+              <Mapping SourceColumn="OutputKbn" DataSetColumn="OutputKbn" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByKaikeiNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKaikeiNo" GeneratorSourceName="FillByKaikeiNo" GetMethodModifier="Public" GetMethodName="GetDataByKaikeiNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKaikeiNo" UserSourceName="FillByKaikeiNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+		krht.KaikeiNo,
+
+		krdt.RendoKaikeiCD,
+		krdt.DenpyoDt,
+		krdt.KeikeiRenban,
+		krdt.SyohizeiJidoKeisan,
+
+
+		krdt.KarikataJigyoCd,
+		krdt.KarikataKamokuCd,
+		krdt.KarikataKamokuNm,
+		krdt.KarikataHojoKamokuCd,
+		krdt.KarikataHojoKamokuNm,
+		krdt.KarikataSyoKamokuCd,
+		krdt.KarikataSyoKamokuNm,
+		krdt.KarikataZeiKbn,
+		krdt.KarikataKingaku,
+		krdt.KarikataSyohizei,
+		krdt.KashikataJigyoCd,
+		krdt.KashikataKamokuCd,
+		krdt.KashikataKamokuNm,
+		krdt.KashikataHojoKamokuCd,
+		krdt.KashikataHojoKamokuNm,
+		krdt.KashikataSyoKamokuCd,
+		krdt.KashikataSyoKamokuNm,
+		krdt.KashikataZeiKbn,
+		krdt.KashikataKingaku,
+		krdt.SyohizeiGaku,
+		krdt.RendoSuji1,
+		krdt.RendoSuji2,
+		krdt.Tekiyo,
+		krdt.NaibuTorihikiKbn,
+		krdt.OutputKbn
+
+
+FROM KaikeiRendoDtlTbl krdt INNER JOIN KaikeiRendoHdrTbl krht ON krdt.KaikeiNo = krht.KaikeiNo
+
+WHERE krdt.KaikeiNo = @KaikeiNo
+
+ORDER BY krdt.KeikeiRenban</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="KaikeiNo" ColumnName="KaikeiNo" DataSourceName="FukjBizSystem.dbo.KaikeiRendoDtlTbl" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@KaikeiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="KaikeiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KaikeiRendoDtlTblDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KaikeiRendoDtlTblDataSet" msprop:Generator_UserDSName="KaikeiRendoDtlTblDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KaikeiRendoDtlTbl" msprop:Generator_TableClassName="KaikeiRendoDtlTblDataTable" msprop:Generator_TableVarName="tableKaikeiRendoDtlTbl" msprop:Generator_RowChangedName="KaikeiRendoDtlTblRowChanged" msprop:Generator_TablePropName="KaikeiRendoDtlTbl" msprop:Generator_RowDeletingName="KaikeiRendoDtlTblRowDeleting" msprop:Generator_RowChangingName="KaikeiRendoDtlTblRowChanging" msprop:Generator_RowEvHandlerName="KaikeiRendoDtlTblRowChangeEventHandler" msprop:Generator_RowDeletedName="KaikeiRendoDtlTblRowDeleted" msprop:Generator_RowClassName="KaikeiRendoDtlTblRow" msprop:Generator_UserTableName="KaikeiRendoDtlTbl" msprop:Generator_RowEvArgName="KaikeiRendoDtlTblRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KaikeiNo" msprop:Generator_ColumnVarNameInTable="columnKaikeiNo" msprop:Generator_ColumnPropNameInRow="KaikeiNo" msprop:Generator_ColumnPropNameInTable="KaikeiNoColumn" msprop:Generator_UserColumnName="KaikeiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeikeiRenban" msprop:Generator_ColumnVarNameInTable="columnKeikeiRenban" msprop:Generator_ColumnPropNameInRow="KeikeiRenban" msprop:Generator_ColumnPropNameInTable="KeikeiRenbanColumn" msprop:Generator_UserColumnName="KeikeiRenban" type="xs:int" />
+              <xs:element name="OutputKbn" msprop:Generator_ColumnVarNameInTable="columnOutputKbn" msprop:Generator_ColumnPropNameInRow="OutputKbn" msprop:Generator_ColumnPropNameInTable="OutputKbnColumn" msprop:Generator_UserColumnName="OutputKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NyusyukkinKbn" msprop:Generator_ColumnVarNameInTable="columnNyusyukkinKbn" msprop:Generator_ColumnPropNameInRow="NyusyukkinKbn" msprop:Generator_ColumnPropNameInTable="NyusyukkinKbnColumn" msprop:Generator_UserColumnName="NyusyukkinKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KaikeiGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnKaikeiGyosyaCd" msprop:Generator_ColumnPropNameInRow="KaikeiGyosyaCd" msprop:Generator_ColumnPropNameInTable="KaikeiGyosyaCdColumn" msprop:Generator_UserColumnName="KaikeiGyosyaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SeikyuNo" msprop:Generator_ColumnVarNameInTable="columnSeikyuNo" msprop:Generator_ColumnPropNameInRow="SeikyuNo" msprop:Generator_ColumnPropNameInTable="SeikyuNoColumn" msprop:Generator_UserColumnName="SeikyuNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SeikyuRenban" msprop:Generator_ColumnVarNameInTable="columnSeikyuRenban" msprop:Generator_ColumnPropNameInRow="SeikyuRenban" msprop:Generator_ColumnPropNameInTable="SeikyuRenbanColumn" msprop:Generator_UserColumnName="SeikyuRenban" type="xs:int" minOccurs="0" />
+              <xs:element name="NyukinNo" msprop:Generator_ColumnVarNameInTable="columnNyukinNo" msprop:Generator_ColumnPropNameInRow="NyukinNo" msprop:Generator_ColumnPropNameInTable="NyukinNoColumn" msprop:Generator_UserColumnName="NyukinNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HenkinRenban" msprop:Generator_ColumnVarNameInTable="columnHenkinRenban" msprop:Generator_ColumnPropNameInRow="HenkinRenban" msprop:Generator_ColumnPropNameInTable="HenkinRenbanColumn" msprop:Generator_UserColumnName="HenkinRenban" type="xs:int" minOccurs="0" />
+              <xs:element name="SyohizeiKbn" msprop:Generator_ColumnVarNameInTable="columnSyohizeiKbn" msprop:Generator_ColumnPropNameInRow="SyohizeiKbn" msprop:Generator_ColumnPropNameInTable="SyohizeiKbnColumn" msprop:Generator_UserColumnName="SyohizeiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RendoKaikeiCD" msprop:Generator_ColumnVarNameInTable="columnRendoKaikeiCD" msprop:Generator_ColumnPropNameInRow="RendoKaikeiCD" msprop:Generator_ColumnPropNameInTable="RendoKaikeiCDColumn" msprop:Generator_UserColumnName="RendoKaikeiCD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DenpyoDt" msprop:Generator_ColumnVarNameInTable="columnDenpyoDt" msprop:Generator_ColumnPropNameInRow="DenpyoDt" msprop:Generator_ColumnPropNameInTable="DenpyoDtColumn" msprop:Generator_UserColumnName="DenpyoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyohizeiJidoKeisan" msprop:Generator_ColumnVarNameInTable="columnSyohizeiJidoKeisan" msprop:Generator_ColumnPropNameInRow="SyohizeiJidoKeisan" msprop:Generator_ColumnPropNameInTable="SyohizeiJidoKeisanColumn" msprop:Generator_UserColumnName="SyohizeiJidoKeisan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataJigyoCd" msprop:Generator_ColumnVarNameInTable="columnKarikataJigyoCd" msprop:Generator_ColumnPropNameInRow="KarikataJigyoCd" msprop:Generator_ColumnPropNameInTable="KarikataJigyoCdColumn" msprop:Generator_UserColumnName="KarikataJigyoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataKamokuCdColumn" msprop:Generator_UserColumnName="KarikataKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataKamokuNmColumn" msprop:Generator_UserColumnName="KarikataKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataHojoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataHojoKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataHojoKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataHojoKamokuCdColumn" msprop:Generator_UserColumnName="KarikataHojoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataHojoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataHojoKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataHojoKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataHojoKamokuNmColumn" msprop:Generator_UserColumnName="KarikataHojoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataSyoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataSyoKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataSyoKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataSyoKamokuCdColumn" msprop:Generator_UserColumnName="KarikataSyoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataSyoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataSyoKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataSyoKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataSyoKamokuNmColumn" msprop:Generator_UserColumnName="KarikataSyoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataZeiKbn" msprop:Generator_ColumnVarNameInTable="columnKarikataZeiKbn" msprop:Generator_ColumnPropNameInRow="KarikataZeiKbn" msprop:Generator_ColumnPropNameInTable="KarikataZeiKbnColumn" msprop:Generator_UserColumnName="KarikataZeiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKingaku" msprop:Generator_ColumnVarNameInTable="columnKarikataKingaku" msprop:Generator_ColumnPropNameInRow="KarikataKingaku" msprop:Generator_ColumnPropNameInTable="KarikataKingakuColumn" msprop:Generator_UserColumnName="KarikataKingaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KarikataSyohizei" msprop:Generator_ColumnVarNameInTable="columnKarikataSyohizei" msprop:Generator_ColumnPropNameInRow="KarikataSyohizei" msprop:Generator_ColumnPropNameInTable="KarikataSyohizeiColumn" msprop:Generator_UserColumnName="KarikataSyohizei" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KashikataJigyoCd" msprop:Generator_ColumnVarNameInTable="columnKashikataJigyoCd" msprop:Generator_ColumnPropNameInRow="KashikataJigyoCd" msprop:Generator_ColumnPropNameInTable="KashikataJigyoCdColumn" msprop:Generator_UserColumnName="KashikataJigyoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataKamokuCdColumn" msprop:Generator_UserColumnName="KashikataKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataKamokuNmColumn" msprop:Generator_UserColumnName="KashikataKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataHojoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataHojoKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataHojoKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataHojoKamokuCdColumn" msprop:Generator_UserColumnName="KashikataHojoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataHojoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataHojoKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataHojoKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataHojoKamokuNmColumn" msprop:Generator_UserColumnName="KashikataHojoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataSyoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataSyoKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataSyoKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataSyoKamokuCdColumn" msprop:Generator_UserColumnName="KashikataSyoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataSyoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataSyoKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataSyoKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataSyoKamokuNmColumn" msprop:Generator_UserColumnName="KashikataSyoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataZeiKbn" msprop:Generator_ColumnVarNameInTable="columnKashikataZeiKbn" msprop:Generator_ColumnPropNameInRow="KashikataZeiKbn" msprop:Generator_ColumnPropNameInTable="KashikataZeiKbnColumn" msprop:Generator_UserColumnName="KashikataZeiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKingaku" msprop:Generator_ColumnVarNameInTable="columnKashikataKingaku" msprop:Generator_ColumnPropNameInRow="KashikataKingaku" msprop:Generator_ColumnPropNameInTable="KashikataKingakuColumn" msprop:Generator_UserColumnName="KashikataKingaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SyohizeiGaku" msprop:Generator_ColumnVarNameInTable="columnSyohizeiGaku" msprop:Generator_ColumnPropNameInRow="SyohizeiGaku" msprop:Generator_ColumnPropNameInTable="SyohizeiGakuColumn" msprop:Generator_UserColumnName="SyohizeiGaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RendoSuji1" msprop:Generator_ColumnVarNameInTable="columnRendoSuji1" msprop:Generator_ColumnPropNameInRow="RendoSuji1" msprop:Generator_ColumnPropNameInTable="RendoSuji1Column" msprop:Generator_UserColumnName="RendoSuji1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RendoSuji2" msprop:Generator_ColumnVarNameInTable="columnRendoSuji2" msprop:Generator_ColumnPropNameInRow="RendoSuji2" msprop:Generator_ColumnPropNameInTable="RendoSuji2Column" msprop:Generator_UserColumnName="RendoSuji2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="23" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tekiyo" msprop:Generator_ColumnVarNameInTable="columnTekiyo" msprop:Generator_ColumnPropNameInRow="Tekiyo" msprop:Generator_ColumnPropNameInTable="TekiyoColumn" msprop:Generator_UserColumnName="Tekiyo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NaibuTorihikiKbn" msprop:Generator_ColumnVarNameInTable="columnNaibuTorihikiKbn" msprop:Generator_ColumnPropNameInRow="NaibuTorihikiKbn" msprop:Generator_ColumnPropNameInTable="NaibuTorihikiKbnColumn" msprop:Generator_UserColumnName="NaibuTorihikiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KaikeiRendoTblExportCSV" msprop:Generator_TableClassName="KaikeiRendoTblExportCSVDataTable" msprop:Generator_TableVarName="tableKaikeiRendoTblExportCSV" msprop:Generator_RowChangedName="KaikeiRendoTblExportCSVRowChanged" msprop:Generator_TablePropName="KaikeiRendoTblExportCSV" msprop:Generator_RowDeletingName="KaikeiRendoTblExportCSVRowDeleting" msprop:Generator_RowChangingName="KaikeiRendoTblExportCSVRowChanging" msprop:Generator_RowEvHandlerName="KaikeiRendoTblExportCSVRowChangeEventHandler" msprop:Generator_RowDeletedName="KaikeiRendoTblExportCSVRowDeleted" msprop:Generator_RowClassName="KaikeiRendoTblExportCSVRow" msprop:Generator_UserTableName="KaikeiRendoTblExportCSV" msprop:Generator_RowEvArgName="KaikeiRendoTblExportCSVRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KaikeiNo" msprop:Generator_ColumnVarNameInTable="columnKaikeiNo" msprop:Generator_ColumnPropNameInRow="KaikeiNo" msprop:Generator_ColumnPropNameInTable="KaikeiNoColumn" msprop:Generator_UserColumnName="KaikeiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RendoKaikeiCD" msprop:Generator_ColumnVarNameInTable="columnRendoKaikeiCD" msprop:Generator_ColumnPropNameInRow="RendoKaikeiCD" msprop:Generator_ColumnPropNameInTable="RendoKaikeiCDColumn" msprop:Generator_UserColumnName="RendoKaikeiCD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DenpyoDt" msprop:Generator_ColumnVarNameInTable="columnDenpyoDt" msprop:Generator_ColumnPropNameInRow="DenpyoDt" msprop:Generator_ColumnPropNameInTable="DenpyoDtColumn" msprop:Generator_UserColumnName="DenpyoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeikeiRenban" msprop:Generator_ColumnVarNameInTable="columnKeikeiRenban" msprop:Generator_ColumnPropNameInRow="KeikeiRenban" msprop:Generator_ColumnPropNameInTable="KeikeiRenbanColumn" msprop:Generator_UserColumnName="KeikeiRenban" type="xs:int" minOccurs="0" />
+              <xs:element name="SyohizeiJidoKeisan" msprop:Generator_ColumnVarNameInTable="columnSyohizeiJidoKeisan" msprop:Generator_ColumnPropNameInRow="SyohizeiJidoKeisan" msprop:Generator_ColumnPropNameInTable="SyohizeiJidoKeisanColumn" msprop:Generator_UserColumnName="SyohizeiJidoKeisan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataJigyoCd" msprop:Generator_ColumnVarNameInTable="columnKarikataJigyoCd" msprop:Generator_ColumnPropNameInRow="KarikataJigyoCd" msprop:Generator_ColumnPropNameInTable="KarikataJigyoCdColumn" msprop:Generator_UserColumnName="KarikataJigyoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataKamokuCdColumn" msprop:Generator_UserColumnName="KarikataKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataKamokuNmColumn" msprop:Generator_UserColumnName="KarikataKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataHojoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataHojoKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataHojoKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataHojoKamokuCdColumn" msprop:Generator_UserColumnName="KarikataHojoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataHojoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataHojoKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataHojoKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataHojoKamokuNmColumn" msprop:Generator_UserColumnName="KarikataHojoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataSyoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKarikataSyoKamokuCd" msprop:Generator_ColumnPropNameInRow="KarikataSyoKamokuCd" msprop:Generator_ColumnPropNameInTable="KarikataSyoKamokuCdColumn" msprop:Generator_UserColumnName="KarikataSyoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataSyoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKarikataSyoKamokuNm" msprop:Generator_ColumnPropNameInRow="KarikataSyoKamokuNm" msprop:Generator_ColumnPropNameInTable="KarikataSyoKamokuNmColumn" msprop:Generator_UserColumnName="KarikataSyoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataZeiKbn" msprop:Generator_ColumnVarNameInTable="columnKarikataZeiKbn" msprop:Generator_ColumnPropNameInRow="KarikataZeiKbn" msprop:Generator_ColumnPropNameInTable="KarikataZeiKbnColumn" msprop:Generator_UserColumnName="KarikataZeiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KarikataKingaku" msprop:Generator_ColumnVarNameInTable="columnKarikataKingaku" msprop:Generator_ColumnPropNameInRow="KarikataKingaku" msprop:Generator_ColumnPropNameInTable="KarikataKingakuColumn" msprop:Generator_UserColumnName="KarikataKingaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KarikataSyohizei" msprop:Generator_ColumnVarNameInTable="columnKarikataSyohizei" msprop:Generator_ColumnPropNameInRow="KarikataSyohizei" msprop:Generator_ColumnPropNameInTable="KarikataSyohizeiColumn" msprop:Generator_UserColumnName="KarikataSyohizei" type="xs:decimal" minOccurs="0" />
+              <xs:element name="KashikataJigyoCd" msprop:Generator_ColumnVarNameInTable="columnKashikataJigyoCd" msprop:Generator_ColumnPropNameInRow="KashikataJigyoCd" msprop:Generator_ColumnPropNameInTable="KashikataJigyoCdColumn" msprop:Generator_UserColumnName="KashikataJigyoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataKamokuCdColumn" msprop:Generator_UserColumnName="KashikataKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataKamokuNmColumn" msprop:Generator_UserColumnName="KashikataKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataHojoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataHojoKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataHojoKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataHojoKamokuCdColumn" msprop:Generator_UserColumnName="KashikataHojoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataHojoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataHojoKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataHojoKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataHojoKamokuNmColumn" msprop:Generator_UserColumnName="KashikataHojoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataSyoKamokuCd" msprop:Generator_ColumnVarNameInTable="columnKashikataSyoKamokuCd" msprop:Generator_ColumnPropNameInRow="KashikataSyoKamokuCd" msprop:Generator_ColumnPropNameInTable="KashikataSyoKamokuCdColumn" msprop:Generator_UserColumnName="KashikataSyoKamokuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataSyoKamokuNm" msprop:Generator_ColumnVarNameInTable="columnKashikataSyoKamokuNm" msprop:Generator_ColumnPropNameInRow="KashikataSyoKamokuNm" msprop:Generator_ColumnPropNameInTable="KashikataSyoKamokuNmColumn" msprop:Generator_UserColumnName="KashikataSyoKamokuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataZeiKbn" msprop:Generator_ColumnVarNameInTable="columnKashikataZeiKbn" msprop:Generator_ColumnPropNameInRow="KashikataZeiKbn" msprop:Generator_ColumnPropNameInTable="KashikataZeiKbnColumn" msprop:Generator_UserColumnName="KashikataZeiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KashikataKingaku" msprop:Generator_ColumnVarNameInTable="columnKashikataKingaku" msprop:Generator_ColumnPropNameInRow="KashikataKingaku" msprop:Generator_ColumnPropNameInTable="KashikataKingakuColumn" msprop:Generator_UserColumnName="KashikataKingaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SyohizeiGaku" msprop:Generator_ColumnVarNameInTable="columnSyohizeiGaku" msprop:Generator_ColumnPropNameInRow="SyohizeiGaku" msprop:Generator_ColumnPropNameInTable="SyohizeiGakuColumn" msprop:Generator_UserColumnName="SyohizeiGaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RendoSuji1" msprop:Generator_ColumnVarNameInTable="columnRendoSuji1" msprop:Generator_ColumnPropNameInRow="RendoSuji1" msprop:Generator_ColumnPropNameInTable="RendoSuji1Column" msprop:Generator_UserColumnName="RendoSuji1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RendoSuji2" msprop:Generator_ColumnVarNameInTable="columnRendoSuji2" msprop:Generator_ColumnPropNameInRow="RendoSuji2" msprop:Generator_ColumnPropNameInTable="RendoSuji2Column" msprop:Generator_UserColumnName="RendoSuji2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="23" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tekiyo" msprop:Generator_ColumnVarNameInTable="columnTekiyo" msprop:Generator_ColumnPropNameInRow="Tekiyo" msprop:Generator_ColumnPropNameInTable="TekiyoColumn" msprop:Generator_UserColumnName="Tekiyo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NaibuTorihikiKbn" msprop:Generator_ColumnVarNameInTable="columnNaibuTorihikiKbn" msprop:Generator_ColumnPropNameInRow="NaibuTorihikiKbn" msprop:Generator_ColumnPropNameInTable="NaibuTorihikiKbnColumn" msprop:Generator_UserColumnName="NaibuTorihikiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OutputKbn" msprop:Generator_ColumnVarNameInTable="columnOutputKbn" msprop:Generator_ColumnPropNameInRow="OutputKbn" msprop:Generator_ColumnPropNameInTable="OutputKbnColumn" msprop:Generator_UserColumnName="OutputKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KaikeiRendoDtlTbl" />
+      <xs:field xpath="mstns:KaikeiNo" />
+      <xs:field xpath="mstns:KeikeiRenban" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

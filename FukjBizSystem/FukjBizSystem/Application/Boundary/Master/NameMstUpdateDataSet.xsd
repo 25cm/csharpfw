@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NameMstUpdateDataSet" targetNamespace="http://tempuri.org/NameMstUpdateDataSet.xsd" xmlns:mstns="http://tempuri.org/NameMstUpdateDataSet.xsd" xmlns="http://tempuri.org/NameMstUpdateDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NameMstUpdateDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="NameMstUpdateDataSet" msprop:Generator_UserDSName="NameMstUpdateDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NameMstUpdate" msprop:Generator_TableClassName="NameMstUpdateDataTable" msprop:Generator_TableVarName="tableNameMstUpdate" msprop:Generator_TablePropName="NameMstUpdate" msprop:Generator_RowDeletingName="NameMstUpdateRowDeleting" msprop:Generator_RowChangingName="NameMstUpdateRowChanging" msprop:Generator_RowEvHandlerName="NameMstUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="NameMstUpdateRowDeleted" msprop:Generator_UserTableName="NameMstUpdate" msprop:Generator_RowChangedName="NameMstUpdateRowChanged" msprop:Generator_RowEvArgName="NameMstUpdateRowChangeEvent" msprop:Generator_RowClassName="NameMstUpdateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NameCdNew" msprop:Generator_ColumnVarNameInTable="columnNameCdNew" msprop:Generator_ColumnPropNameInRow="NameCdNew" msprop:Generator_ColumnPropNameInTable="NameCdNewColumn" msprop:Generator_UserColumnName="NameCdNew" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="DeleteFlg" msprop:Generator_ColumnVarNameInTable="columnDeleteFlg" msprop:Generator_ColumnPropNameInRow="DeleteFlg" msprop:Generator_ColumnPropNameInTable="DeleteFlgColumn" msprop:Generator_UserColumnName="DeleteFlg" type="xs:string" minOccurs="0" />
+              <xs:element name="NameKbnNew" msprop:Generator_ColumnVarNameInTable="columnNameKbnNew" msprop:Generator_ColumnPropNameInRow="NameKbnNew" msprop:Generator_ColumnPropNameInTable="NameKbnNewColumn" msprop:Generator_UserColumnName="NameKbnNew" type="xs:string" minOccurs="0" />
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser" type="xs:string" minOccurs="0" />
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm" type="xs:string" minOccurs="0" />
+              <xs:element name="NameKbnOld" msprop:Generator_ColumnVarNameInTable="columnNameKbnOld" msprop:Generator_ColumnPropNameInRow="NameKbnOld" msprop:Generator_ColumnPropNameInTable="NameKbnOldColumn" msprop:Generator_UserColumnName="NameKbnOld" type="xs:string" minOccurs="0" />
+              <xs:element name="NameCdOld" msprop:Generator_ColumnVarNameInTable="columnNameCdOld" msprop:Generator_ColumnPropNameInRow="NameCdOld" msprop:Generator_ColumnPropNameInTable="NameCdOldColumn" msprop:Generator_UserColumnName="NameCdOld" type="xs:string" minOccurs="0" />
+              <xs:element name="IsUpdate" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="IsUpdate" msprop:Generator_ColumnVarNameInTable="columnIsUpdate" msprop:Generator_ColumnPropNameInTable="IsUpdateColumn" msprop:Generator_UserColumnName="IsUpdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameOld" msprop:Generator_ColumnVarNameInTable="columnNameOld" msprop:Generator_ColumnPropNameInRow="NameOld" msprop:Generator_ColumnPropNameInTable="NameOldColumn" msprop:Generator_UserColumnName="NameOld" type="xs:string" minOccurs="0" />
+              <xs:element name="DeleteFlgOld" msprop:Generator_ColumnVarNameInTable="columnDeleteFlgOld" msprop:Generator_ColumnPropNameInRow="DeleteFlgOld" msprop:Generator_ColumnPropNameInTable="DeleteFlgOldColumn" msprop:Generator_UserColumnName="DeleteFlgOld" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

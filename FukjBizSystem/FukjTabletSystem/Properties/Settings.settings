@@ -1,0 +1,58 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FukjTabletSystem.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="fukjTabletConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=C:\FukjTabletSystem\Database\fukjTablet.sdf;Password=fukj_1800;Persist Security Info=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;Microsoft.SqlServerCe.Client.3.5&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=C:\FukjTabletSystem\Database\fukjTablet.sdf;Password=fukj_1800;Persist Security Info=True</Value>
+    </Setting>
+    <Setting Name="fukjMDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\MapWorks\OVLFukjOverlay.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\MapWorks\OVLFukjOverlay.mdb</Value>
+    </Setting>
+    <Setting Name="DataPathSQLCE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\FukjTabletSystem\Database</Value>
+    </Setting>
+    <Setting Name="DataNameSQLCE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fukjTablet.sdf</Value>
+    </Setting>
+    <Setting Name="FileDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\FukjTabletSystem\File</Value>
+    </Setting>
+    <Setting Name="PrintDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\FukjTabletSystem\Print</Value>
+    </Setting>
+    <Setting Name="PrintFormatFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\FukjTabletSystem\PrintFormat</Value>
+    </Setting>
+    <Setting Name="HolidayFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\HolidayFile.xml</Value>
+    </Setting>
+    <Setting Name="ErrMsgFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\ErrMsgFile.xml</Value>
+    </Setting>
+    <Setting Name="GpsTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="GpsRefleshTimer" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="OnlineCheckEnable" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OnlineCheckAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">192.168.0.193</Value>
+    </Setting>
+    <Setting Name="RemakeMapLayer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

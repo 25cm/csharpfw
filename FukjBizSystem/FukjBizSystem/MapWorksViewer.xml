@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlInitial xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Save>true</Save>
+  <MapType>1</MapType>
+  <UseableMap>4325381</UseableMap>
+  <MapDrawMode>MDM_DRAW_1_PASS</MapDrawMode>
+  <ZoomInRate>200</ZoomInRate>
+  <ZoomOutRate>50</ZoomOutRate>
+  <DrawOverlayOnScroll>true</DrawOverlayOnScroll>
+  <ScrollPeriod>50</ScrollPeriod>
+  <ToolBar>true</ToolBar>
+  <StatusBar>true</StatusBar>
+  <Ruler>true</Ruler>
+  <Area>false</Area>
+  <KNo>9</KNo>
+  <X>502925201</X>
+  <Y>128375248</Y>
+  <MapScale>1000</MapScale>
+  <Workspace />
+</XmlInitial>

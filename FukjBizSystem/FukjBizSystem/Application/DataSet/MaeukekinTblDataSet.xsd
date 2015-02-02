@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MaeukekinTblDataSet" targetNamespace="http://tempuri.org/MaeukekinTblDataSet.xsd" xmlns:mstns="http://tempuri.org/MaeukekinTblDataSet.xsd" xmlns="http://tempuri.org/MaeukekinTblDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaeukekinTblTableAdapter" GeneratorDataComponentClassName="MaeukekinTblTableAdapter" Name="MaeukekinTbl" UserDataComponentName="MaeukekinTblTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.MaeukekinTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [MaeukekinTbl] WHERE (([MaeukekinSyogoNo1] = @Original_MaeukekinSyogoNo1) AND ([MaeukekinSyogoNo2] = @Original_MaeukekinSyogoNo2) AND ((@IsNull_MaeukekinKinyukikan = 1 AND [MaeukekinKinyukikan] IS NULL) OR ([MaeukekinKinyukikan] = @Original_MaeukekinKinyukikan)) AND ((@IsNull_MaeukekinNyukinDt = 1 AND [MaeukekinNyukinDt] IS NULL) OR ([MaeukekinNyukinDt] = @Original_MaeukekinNyukinDt)) AND ((@IsNull_MaeukekinNyukinAmt = 1 AND [MaeukekinNyukinAmt] IS NULL) OR ([MaeukekinNyukinAmt] = @Original_MaeukekinNyukinAmt)) AND ((@IsNull_MaeukekinFurikomininKana = 1 AND [MaeukekinFurikomininKana] IS NULL) OR ([MaeukekinFurikomininKana] = @Original_MaeukekinFurikomininKana)) AND ((@IsNull_MaeukekinFurikomininNm = 1 AND [MaeukekinFurikomininNm] IS NULL) OR ([MaeukekinFurikomininNm] = @Original_MaeukekinFurikomininNm)) AND ((@IsNull_MaeukekinBiko = 1 AND [MaeukekinBiko] IS NULL) OR ([MaeukekinBiko] = @Original_MaeukekinBiko)) AND ((@IsNull_MaeukekinUriageDt = 1 AND [MaeukekinUriageDt] IS NULL) OR ([MaeukekinUriageDt] = @Original_MaeukekinUriageDt)) AND ((@IsNull_MaeukekinTorisageDt = 1 AND [MaeukekinTorisageDt] IS NULL) OR ([MaeukekinTorisageDt] = @Original_MaeukekinTorisageDt)) AND ((@IsNull_MaeukekinKensaIraiHoteiKbn = 1 AND [MaeukekinKensaIraiHoteiKbn] IS NULL) OR ([MaeukekinKensaIraiHoteiKbn] = @Original_MaeukekinKensaIraiHoteiKbn)) AND ((@IsNull_MaeukekinKensaIraiHokenjoCd = 1 AND [MaeukekinKensaIraiHokenjoCd] IS NULL) OR ([MaeukekinKensaIraiHokenjoCd] = @Original_MaeukekinKensaIraiHokenjoCd)) AND ((@IsNull_MaeukekinKensaIraiNendo = 1 AND [MaeukekinKensaIraiNendo] IS NULL) OR ([MaeukekinKensaIraiNendo] = @Original_MaeukekinKensaIraiNendo)) AND ((@IsNull_MaeukekinKensaIraiRenban = 1 AND [MaeukekinKensaIraiRenban] IS NULL) OR ([MaeukekinKensaIraiRenban] = @Original_MaeukekinKensaIraiRenban)) AND ((@IsNull_MaeukekinKyoseiUriageAmt = 1 AND [MaeukekinKyoseiUriageAmt] IS NULL) OR ([MaeukekinKyoseiUriageAmt] = @Original_MaeukekinKyoseiUriageAmt)) AND ((@IsNull_MaeukekinKyoseiUriageFlg = 1 AND [MaeukekinKyoseiUriageFlg] IS NULL) OR ([MaeukekinKyoseiUriageFlg] = @Original_MaeukekinKyoseiUriageFlg)) AND ((@IsNull_MaeukekinNyukintoriatukaiDt = 1 AND [MaeukekinNyukintoriatukaiDt] IS NULL) OR ([MaeukekinNyukintoriatukaiDt] = @Original_MaeukekinNyukintoriatukaiDt)) AND ((@IsNull_MaeukekinIchibuHenkinDt = 1 AND [MaeukekinIchibuHenkinDt] IS NULL) OR ([MaeukekinIchibuHenkinDt] = @Original_MaeukekinIchibuHenkinDt)) AND ((@IsNull_MaeukekinIchibuHenkinAmt = 1 AND [MaeukekinIchibuHenkinAmt] IS NULL) OR ([MaeukekinIchibuHenkinAmt] = @Original_MaeukekinIchibuHenkinAmt)) AND ((@IsNull_MaeukekinZanAmt = 1 AND [MaeukekinZanAmt] IS NULL) OR ([MaeukekinZanAmt] = @Original_MaeukekinZanAmt)) AND ((@IsNull_MaeukekinJokasoHokenjoCd = 1 AND [MaeukekinJokasoHokenjoCd] IS NULL) OR ([MaeukekinJokasoHokenjoCd] = @Original_MaeukekinJokasoHokenjoCd)) AND ((@IsNull_MaeukekinJokasoTorokuNendo = 1 AND [MaeukekinJokasoTorokuNendo] IS NULL) OR ([MaeukekinJokasoTorokuNendo] = @Original_MaeukekinJokasoTorokuNendo)) AND ((@IsNull_MaeukekinJokasoRenban = 1 AND [MaeukekinJokasoRenban] IS NULL) OR ([MaeukekinJokasoRenban] = @Original_MaeukekinJokasoRenban)) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKinyukikan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKinyukikan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukinDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinNyukinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukinAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinNyukinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinFurikomininKana" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinFurikomininKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinFurikomininNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinFurikomininNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinBiko" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinBiko" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinUriageDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinUriageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinTorisageDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinTorisageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiNendo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinIchibuHenkinDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinIchibuHenkinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinZanAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinZanAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [MaeukekinTbl] ([MaeukekinSyogoNo1], [MaeukekinSyogoNo2], [MaeukekinKinyukikan], [MaeukekinNyukinDt], [MaeukekinNyukinAmt], [MaeukekinFurikomininKana], [MaeukekinFurikomininNm], [MaeukekinBiko], [MaeukekinUriageDt], [MaeukekinTorisageDt], [MaeukekinKensaIraiHoteiKbn], [MaeukekinKensaIraiHokenjoCd], [MaeukekinKensaIraiNendo], [MaeukekinKensaIraiRenban], [MaeukekinKyoseiUriageAmt], [MaeukekinKyoseiUriageFlg], [MaeukekinNyukintoriatukaiDt], [MaeukekinIchibuHenkinDt], [MaeukekinIchibuHenkinAmt], [MaeukekinZanAmt], [MaeukekinJokasoHokenjoCd], [MaeukekinJokasoTorokuNendo], [MaeukekinJokasoRenban], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@MaeukekinSyogoNo1, @MaeukekinSyogoNo2, @MaeukekinKinyukikan, @MaeukekinNyukinDt, @MaeukekinNyukinAmt, @MaeukekinFurikomininKana, @MaeukekinFurikomininNm, @MaeukekinBiko, @MaeukekinUriageDt, @MaeukekinTorisageDt, @MaeukekinKensaIraiHoteiKbn, @MaeukekinKensaIraiHokenjoCd, @MaeukekinKensaIraiNendo, @MaeukekinKensaIraiRenban, @MaeukekinKyoseiUriageAmt, @MaeukekinKyoseiUriageFlg, @MaeukekinNyukintoriatukaiDt, @MaeukekinIchibuHenkinDt, @MaeukekinIchibuHenkinAmt, @MaeukekinZanAmt, @MaeukekinJokasoHokenjoCd, @MaeukekinJokasoTorokuNendo, @MaeukekinJokasoRenban, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm);
+SELECT MaeukekinSyogoNo1, MaeukekinSyogoNo2, MaeukekinKinyukikan, MaeukekinNyukinDt, MaeukekinNyukinAmt, MaeukekinFurikomininKana, MaeukekinFurikomininNm, MaeukekinBiko, MaeukekinUriageDt, MaeukekinTorisageDt, MaeukekinKensaIraiHoteiKbn, MaeukekinKensaIraiHokenjoCd, MaeukekinKensaIraiNendo, MaeukekinKensaIraiRenban, MaeukekinKyoseiUriageAmt, MaeukekinKyoseiUriageFlg, MaeukekinNyukintoriatukaiDt, MaeukekinIchibuHenkinDt, MaeukekinIchibuHenkinAmt, MaeukekinZanAmt, MaeukekinJokasoHokenjoCd, MaeukekinJokasoTorokuNendo, MaeukekinJokasoRenban, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM MaeukekinTbl WHERE (MaeukekinSyogoNo1 = @MaeukekinSyogoNo1) AND (MaeukekinSyogoNo2 = @MaeukekinSyogoNo2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKinyukikan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinNyukinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinNyukinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinFurikomininKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinFurikomininNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinBiko" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinUriageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinTorisageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinIchibuHenkinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinZanAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  MaeukekinSyogoNo1
+  , MaeukekinSyogoNo2
+  , MaeukekinKinyukikan
+  , MaeukekinNyukinDt
+  , MaeukekinNyukinAmt
+  , MaeukekinFurikomininKana
+  , MaeukekinFurikomininNm
+  , MaeukekinBiko
+  , MaeukekinUriageDt
+  , MaeukekinTorisageDt
+  , MaeukekinKensaIraiHoteiKbn
+  , MaeukekinKensaIraiHokenjoCd
+  , MaeukekinKensaIraiNendo
+  , MaeukekinKensaIraiRenban
+  , MaeukekinKyoseiUriageAmt
+  , MaeukekinKyoseiUriageFlg
+  , MaeukekinNyukintoriatukaiDt
+  , MaeukekinIchibuHenkinDt
+  , MaeukekinIchibuHenkinAmt
+  , MaeukekinZanAmt
+  , MaeukekinJokasoHokenjoCd
+  , MaeukekinJokasoTorokuNendo
+  , MaeukekinJokasoRenban
+  , InsertDt
+  , InsertUser
+  , InsertTarm
+  , UpdateDt
+  , UpdateUser
+  , UpdateTarm 
+FROM
+  MaeukekinTbl
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [MaeukekinTbl] SET [MaeukekinSyogoNo1] = @MaeukekinSyogoNo1, [MaeukekinSyogoNo2] = @MaeukekinSyogoNo2, [MaeukekinKinyukikan] = @MaeukekinKinyukikan, [MaeukekinNyukinDt] = @MaeukekinNyukinDt, [MaeukekinNyukinAmt] = @MaeukekinNyukinAmt, [MaeukekinFurikomininKana] = @MaeukekinFurikomininKana, [MaeukekinFurikomininNm] = @MaeukekinFurikomininNm, [MaeukekinBiko] = @MaeukekinBiko, [MaeukekinUriageDt] = @MaeukekinUriageDt, [MaeukekinTorisageDt] = @MaeukekinTorisageDt, [MaeukekinKensaIraiHoteiKbn] = @MaeukekinKensaIraiHoteiKbn, [MaeukekinKensaIraiHokenjoCd] = @MaeukekinKensaIraiHokenjoCd, [MaeukekinKensaIraiNendo] = @MaeukekinKensaIraiNendo, [MaeukekinKensaIraiRenban] = @MaeukekinKensaIraiRenban, [MaeukekinKyoseiUriageAmt] = @MaeukekinKyoseiUriageAmt, [MaeukekinKyoseiUriageFlg] = @MaeukekinKyoseiUriageFlg, [MaeukekinNyukintoriatukaiDt] = @MaeukekinNyukintoriatukaiDt, [MaeukekinIchibuHenkinDt] = @MaeukekinIchibuHenkinDt, [MaeukekinIchibuHenkinAmt] = @MaeukekinIchibuHenkinAmt, [MaeukekinZanAmt] = @MaeukekinZanAmt, [MaeukekinJokasoHokenjoCd] = @MaeukekinJokasoHokenjoCd, [MaeukekinJokasoTorokuNendo] = @MaeukekinJokasoTorokuNendo, [MaeukekinJokasoRenban] = @MaeukekinJokasoRenban, [InsertDt] = @InsertDt, [InsertUser] = @InsertUser, [InsertTarm] = @InsertTarm, [UpdateDt] = @UpdateDt, [UpdateUser] = @UpdateUser, [UpdateTarm] = @UpdateTarm WHERE (([MaeukekinSyogoNo1] = @Original_MaeukekinSyogoNo1) AND ([MaeukekinSyogoNo2] = @Original_MaeukekinSyogoNo2) AND ((@IsNull_MaeukekinKinyukikan = 1 AND [MaeukekinKinyukikan] IS NULL) OR ([MaeukekinKinyukikan] = @Original_MaeukekinKinyukikan)) AND ((@IsNull_MaeukekinNyukinDt = 1 AND [MaeukekinNyukinDt] IS NULL) OR ([MaeukekinNyukinDt] = @Original_MaeukekinNyukinDt)) AND ((@IsNull_MaeukekinNyukinAmt = 1 AND [MaeukekinNyukinAmt] IS NULL) OR ([MaeukekinNyukinAmt] = @Original_MaeukekinNyukinAmt)) AND ((@IsNull_MaeukekinFurikomininKana = 1 AND [MaeukekinFurikomininKana] IS NULL) OR ([MaeukekinFurikomininKana] = @Original_MaeukekinFurikomininKana)) AND ((@IsNull_MaeukekinFurikomininNm = 1 AND [MaeukekinFurikomininNm] IS NULL) OR ([MaeukekinFurikomininNm] = @Original_MaeukekinFurikomininNm)) AND ((@IsNull_MaeukekinBiko = 1 AND [MaeukekinBiko] IS NULL) OR ([MaeukekinBiko] = @Original_MaeukekinBiko)) AND ((@IsNull_MaeukekinUriageDt = 1 AND [MaeukekinUriageDt] IS NULL) OR ([MaeukekinUriageDt] = @Original_MaeukekinUriageDt)) AND ((@IsNull_MaeukekinTorisageDt = 1 AND [MaeukekinTorisageDt] IS NULL) OR ([MaeukekinTorisageDt] = @Original_MaeukekinTorisageDt)) AND ((@IsNull_MaeukekinKensaIraiHoteiKbn = 1 AND [MaeukekinKensaIraiHoteiKbn] IS NULL) OR ([MaeukekinKensaIraiHoteiKbn] = @Original_MaeukekinKensaIraiHoteiKbn)) AND ((@IsNull_MaeukekinKensaIraiHokenjoCd = 1 AND [MaeukekinKensaIraiHokenjoCd] IS NULL) OR ([MaeukekinKensaIraiHokenjoCd] = @Original_MaeukekinKensaIraiHokenjoCd)) AND ((@IsNull_MaeukekinKensaIraiNendo = 1 AND [MaeukekinKensaIraiNendo] IS NULL) OR ([MaeukekinKensaIraiNendo] = @Original_MaeukekinKensaIraiNendo)) AND ((@IsNull_MaeukekinKensaIraiRenban = 1 AND [MaeukekinKensaIraiRenban] IS NULL) OR ([MaeukekinKensaIraiRenban] = @Original_MaeukekinKensaIraiRenban)) AND ((@IsNull_MaeukekinKyoseiUriageAmt = 1 AND [MaeukekinKyoseiUriageAmt] IS NULL) OR ([MaeukekinKyoseiUriageAmt] = @Original_MaeukekinKyoseiUriageAmt)) AND ((@IsNull_MaeukekinKyoseiUriageFlg = 1 AND [MaeukekinKyoseiUriageFlg] IS NULL) OR ([MaeukekinKyoseiUriageFlg] = @Original_MaeukekinKyoseiUriageFlg)) AND ((@IsNull_MaeukekinNyukintoriatukaiDt = 1 AND [MaeukekinNyukintoriatukaiDt] IS NULL) OR ([MaeukekinNyukintoriatukaiDt] = @Original_MaeukekinNyukintoriatukaiDt)) AND ((@IsNull_MaeukekinIchibuHenkinDt = 1 AND [MaeukekinIchibuHenkinDt] IS NULL) OR ([MaeukekinIchibuHenkinDt] = @Original_MaeukekinIchibuHenkinDt)) AND ((@IsNull_MaeukekinIchibuHenkinAmt = 1 AND [MaeukekinIchibuHenkinAmt] IS NULL) OR ([MaeukekinIchibuHenkinAmt] = @Original_MaeukekinIchibuHenkinAmt)) AND ((@IsNull_MaeukekinZanAmt = 1 AND [MaeukekinZanAmt] IS NULL) OR ([MaeukekinZanAmt] = @Original_MaeukekinZanAmt)) AND ((@IsNull_MaeukekinJokasoHokenjoCd = 1 AND [MaeukekinJokasoHokenjoCd] IS NULL) OR ([MaeukekinJokasoHokenjoCd] = @Original_MaeukekinJokasoHokenjoCd)) AND ((@IsNull_MaeukekinJokasoTorokuNendo = 1 AND [MaeukekinJokasoTorokuNendo] IS NULL) OR ([MaeukekinJokasoTorokuNendo] = @Original_MaeukekinJokasoTorokuNendo)) AND ((@IsNull_MaeukekinJokasoRenban = 1 AND [MaeukekinJokasoRenban] IS NULL) OR ([MaeukekinJokasoRenban] = @Original_MaeukekinJokasoRenban)) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm));
+SELECT MaeukekinSyogoNo1, MaeukekinSyogoNo2, MaeukekinKinyukikan, MaeukekinNyukinDt, MaeukekinNyukinAmt, MaeukekinFurikomininKana, MaeukekinFurikomininNm, MaeukekinBiko, MaeukekinUriageDt, MaeukekinTorisageDt, MaeukekinKensaIraiHoteiKbn, MaeukekinKensaIraiHokenjoCd, MaeukekinKensaIraiNendo, MaeukekinKensaIraiRenban, MaeukekinKyoseiUriageAmt, MaeukekinKyoseiUriageFlg, MaeukekinNyukintoriatukaiDt, MaeukekinIchibuHenkinDt, MaeukekinIchibuHenkinAmt, MaeukekinZanAmt, MaeukekinJokasoHokenjoCd, MaeukekinJokasoTorokuNendo, MaeukekinJokasoRenban, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM MaeukekinTbl WHERE (MaeukekinSyogoNo1 = @MaeukekinSyogoNo1) AND (MaeukekinSyogoNo2 = @MaeukekinSyogoNo2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKinyukikan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinNyukinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinNyukinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinFurikomininKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinFurikomininNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinBiko" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinUriageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinTorisageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinIchibuHenkinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@MaeukekinZanAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaeukekinJokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKinyukikan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKinyukikan" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKinyukikan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukinDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinNyukinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukinAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinNyukinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinNyukinAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinFurikomininKana" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinFurikomininKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininKana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinFurikomininNm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinFurikomininNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinFurikomininNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinBiko" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinBiko" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinBiko" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinUriageDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinUriageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinUriageDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinTorisageDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinTorisageDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinTorisageDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiNendo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKensaIraiRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinKyoseiUriageAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinKyoseiUriageFlg" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinKyoseiUriageFlg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinNyukintoriatukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinNyukintoriatukaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinIchibuHenkinDt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinIchibuHenkinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinIchibuHenkinAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinIchibuHenkinAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinZanAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_MaeukekinZanAmt" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="MaeukekinZanAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoTorokuNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoTorokuNendo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaeukekinJokasoRenban" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaeukekinJokasoRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaeukekinJokasoRenban" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaeukekinSyogoNo1" DataSetColumn="MaeukekinSyogoNo1" />
+              <Mapping SourceColumn="MaeukekinSyogoNo2" DataSetColumn="MaeukekinSyogoNo2" />
+              <Mapping SourceColumn="MaeukekinKinyukikan" DataSetColumn="MaeukekinKinyukikan" />
+              <Mapping SourceColumn="MaeukekinNyukinDt" DataSetColumn="MaeukekinNyukinDt" />
+              <Mapping SourceColumn="MaeukekinNyukinAmt" DataSetColumn="MaeukekinNyukinAmt" />
+              <Mapping SourceColumn="MaeukekinFurikomininKana" DataSetColumn="MaeukekinFurikomininKana" />
+              <Mapping SourceColumn="MaeukekinFurikomininNm" DataSetColumn="MaeukekinFurikomininNm" />
+              <Mapping SourceColumn="MaeukekinBiko" DataSetColumn="MaeukekinBiko" />
+              <Mapping SourceColumn="MaeukekinUriageDt" DataSetColumn="MaeukekinUriageDt" />
+              <Mapping SourceColumn="MaeukekinTorisageDt" DataSetColumn="MaeukekinTorisageDt" />
+              <Mapping SourceColumn="MaeukekinKensaIraiHoteiKbn" DataSetColumn="MaeukekinKensaIraiHoteiKbn" />
+              <Mapping SourceColumn="MaeukekinKensaIraiHokenjoCd" DataSetColumn="MaeukekinKensaIraiHokenjoCd" />
+              <Mapping SourceColumn="MaeukekinKensaIraiNendo" DataSetColumn="MaeukekinKensaIraiNendo" />
+              <Mapping SourceColumn="MaeukekinKensaIraiRenban" DataSetColumn="MaeukekinKensaIraiRenban" />
+              <Mapping SourceColumn="MaeukekinKyoseiUriageAmt" DataSetColumn="MaeukekinKyoseiUriageAmt" />
+              <Mapping SourceColumn="MaeukekinKyoseiUriageFlg" DataSetColumn="MaeukekinKyoseiUriageFlg" />
+              <Mapping SourceColumn="MaeukekinNyukintoriatukaiDt" DataSetColumn="MaeukekinNyukintoriatukaiDt" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinDt" DataSetColumn="MaeukekinIchibuHenkinDt" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinAmt" DataSetColumn="MaeukekinIchibuHenkinAmt" />
+              <Mapping SourceColumn="MaeukekinZanAmt" DataSetColumn="MaeukekinZanAmt" />
+              <Mapping SourceColumn="MaeukekinJokasoHokenjoCd" DataSetColumn="MaeukekinJokasoHokenjoCd" />
+              <Mapping SourceColumn="MaeukekinJokasoTorokuNendo" DataSetColumn="MaeukekinJokasoTorokuNendo" />
+              <Mapping SourceColumn="MaeukekinJokasoRenban" DataSetColumn="MaeukekinJokasoRenban" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByKey" Modifier="Public" Name="DeleteByKey" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByKey">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE 
+FROM
+  MaeukekinTbl 
+WHERE
+  (MaeukekinSyogoNo1 = @MaeukekinSyogoNo1) 
+  AND (MaeukekinSyogoNo2 = @MaeukekinSyogoNo2)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo1" ColumnName="MaeukekinSyogoNo1" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo2" ColumnName="MaeukekinSyogoNo2" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.MaeukekinTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKensaIraiKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKensaIraiKey" GeneratorSourceName="FillByKensaIraiKey" GetMethodModifier="Public" GetMethodName="GetDataByKensaIraiKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKensaIraiKey" UserSourceName="FillByKensaIraiKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT InsertDt, InsertTarm, InsertUser, MaeukekinBiko, MaeukekinFurikomininKana, MaeukekinFurikomininNm, MaeukekinIchibuHenkinAmt, MaeukekinIchibuHenkinDt, MaeukekinJokasoHokenjoCd, MaeukekinJokasoRenban, MaeukekinJokasoTorokuNendo, MaeukekinKensaIraiHokenjoCd, MaeukekinKensaIraiHoteiKbn, MaeukekinKensaIraiNendo, MaeukekinKensaIraiRenban, MaeukekinKinyukikan, MaeukekinKyoseiUriageAmt, MaeukekinKyoseiUriageFlg, MaeukekinNyukinAmt, MaeukekinNyukinDt, MaeukekinNyukintoriatukaiDt, MaeukekinSyogoNo1, MaeukekinSyogoNo2, MaeukekinTorisageDt, MaeukekinUriageDt, MaeukekinZanAmt, UpdateDt, UpdateTarm, UpdateUser FROM MaeukekinTbl WHERE (MaeukekinKensaIraiHoteiKbn = @KensaIraiHoteiKbn) AND (MaeukekinKensaIraiHokenjoCd = @KensaIraiHokenjoCd) AND (MaeukekinKensaIraiNendo = @KensaIraiNendo) AND (MaeukekinKensaIraiRenban = @KensaIraiRenban)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiHoteiKbn" ColumnName="MaeukekinKensaIraiHoteiKbn" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@KensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiHokenjoCd" ColumnName="MaeukekinKensaIraiHokenjoCd" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@KensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiNendo" ColumnName="MaeukekinKensaIraiNendo" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiRenban" ColumnName="MaeukekinKensaIraiRenban" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@KensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.MaeukekinTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKey" GeneratorSourceName="FillByKey" GetMethodModifier="Public" GetMethodName="GetDataByKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKey" UserSourceName="FillByKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT InsertDt, InsertTarm, InsertUser, MaeukekinBiko, MaeukekinFurikomininKana, MaeukekinFurikomininNm, MaeukekinIchibuHenkinAmt, MaeukekinIchibuHenkinDt, MaeukekinJokasoHokenjoCd, MaeukekinJokasoRenban, MaeukekinJokasoTorokuNendo, MaeukekinKensaIraiHokenjoCd, MaeukekinKensaIraiHoteiKbn, MaeukekinKensaIraiNendo, MaeukekinKensaIraiRenban, MaeukekinKinyukikan, MaeukekinKyoseiUriageAmt, MaeukekinKyoseiUriageFlg, MaeukekinNyukinAmt, MaeukekinNyukinDt, MaeukekinNyukintoriatukaiDt, MaeukekinSyogoNo1, MaeukekinSyogoNo2, MaeukekinTorisageDt, MaeukekinUriageDt, MaeukekinZanAmt, UpdateDt, UpdateTarm, UpdateUser FROM MaeukekinTbl WHERE (MaeukekinSyogoNo1 = @MaeukekinSyogoNo1) AND (MaeukekinSyogoNo2 = @MaeukekinSyogoNo2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo1" ColumnName="MaeukekinSyogoNo1" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo2" ColumnName="MaeukekinSyogoNo2" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.MaeukekinTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySyogoNoNyukinDt" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySyogoNoNyukinDt" GeneratorSourceName="FillBySyogoNoNyukinDt" GetMethodModifier="Public" GetMethodName="GetDataBySyogoNoNyukinDt" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySyogoNoNyukinDt" UserSourceName="FillBySyogoNoNyukinDt">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT InsertDt, InsertTarm, InsertUser, MaeukekinBiko, MaeukekinFurikomininKana, MaeukekinFurikomininNm, MaeukekinIchibuHenkinAmt, MaeukekinIchibuHenkinDt, MaeukekinJokasoHokenjoCd, MaeukekinJokasoRenban, MaeukekinJokasoTorokuNendo, MaeukekinKensaIraiHokenjoCd, MaeukekinKensaIraiHoteiKbn, MaeukekinKensaIraiNendo, MaeukekinKensaIraiRenban, MaeukekinKinyukikan, MaeukekinKyoseiUriageAmt, MaeukekinKyoseiUriageFlg, MaeukekinNyukinAmt, MaeukekinNyukinDt, MaeukekinNyukintoriatukaiDt, MaeukekinSyogoNo1, MaeukekinSyogoNo2, MaeukekinTorisageDt, MaeukekinUriageDt, MaeukekinZanAmt, UpdateDt, UpdateTarm, UpdateUser FROM MaeukekinTbl WHERE (MaeukekinSyogoNo1 = @MaeukekinSyogoNo1) AND (MaeukekinSyogoNo2 = @MaeukekinSyogoNo2) AND (MaeukekinNyukinDt = @MaeukekinNyukinDt)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo1" ColumnName="MaeukekinSyogoNo1" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="MaeukekinSyogoNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaeukekinSyogoNo2" ColumnName="MaeukekinSyogoNo2" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@MaeukekinSyogoNo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="MaeukekinSyogoNo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="MaeukekinNyukinDt" ColumnName="MaeukekinNyukinDt" DataSourceName="FukjBizSystem.dbo.MaeukekinTbl" DataTypeServer="nvarchar(8)" DbType="String" Direction="Input" ParameterName="@MaeukekinNyukinDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="8" SourceColumn="MaeukekinNyukinDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaeukekinTblKensakuTableAdapter" GeneratorDataComponentClassName="MaeukekinTblKensakuTableAdapter" Name="MaeukekinTblKensaku" UserDataComponentName="MaeukekinTblKensakuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  MaeukekinTbl.MaeukekinSyogoNo1
+  , MaeukekinTbl.MaeukekinSyogoNo2
+  , MaeukekinTbl.MaeukekinNyukinDt
+  , CONCAT( 
+    SUBSTRING(MaeukekinTbl.MaeukekinNyukinDt, 0, 5)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinNyukinDt, 5, 2)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinNyukinDt, 7, 2)
+  ) AS MaeukekinNyukinDtCol
+  , MaeukekinTbl.MaeukekinNyukinAmt
+  , MaeukekinTbl.MaeukekinFurikomininNm
+  , MaeukekinTbl.MaeukekinFurikomininKana
+  , MaeukekinTbl.MaeukekinBiko
+  , MaeukekinTbl.MaeukekinUriageDt
+  , CONCAT( 
+    SUBSTRING(MaeukekinTbl.MaeukekinUriageDt, 0, 5)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinUriageDt, 5, 2)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinUriageDt, 7, 2)
+  ) AS MaeukekinUriageDtCol
+  , MaeukekinTbl.MaeukekinTorisageDt
+  , CONCAT( 
+    SUBSTRING(MaeukekinTbl.MaeukekinTorisageDt, 0, 5)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinTorisageDt, 5, 2)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinTorisageDt, 7, 2)
+  ) AS MaeukekinTorisageDtCol
+  , MaeukekinTbl.MaeukekinKensaIraiHoteiKbn
+  , MaeukekinTbl.MaeukekinKensaIraiHokenjoCd
+  , MaeukekinTbl.MaeukekinKensaIraiNendo
+  , MaeukekinTbl.MaeukekinKensaIraiRenban
+  , MaeukekinTbl.MaeukekinKyoseiUriageAmt
+  , MaeukekinTbl.MaeukekinKyoseiUriageFlg
+  , MaeukekinTbl.MaeukekinNyukintoriatukaiDt
+  , CONCAT( 
+    SUBSTRING(MaeukekinTbl.MaeukekinNyukintoriatukaiDt, 0, 5)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinNyukintoriatukaiDt, 5, 2)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinNyukintoriatukaiDt, 7, 2)
+  ) AS MaeukekinNyukintoriatukaiDtCol
+  , MaeukekinTbl.MaeukekinIchibuHenkinDt
+  , CONCAT( 
+    SUBSTRING(MaeukekinTbl.MaeukekinIchibuHenkinDt, 0, 5)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinIchibuHenkinDt, 5, 2)
+    , '/'
+    , SUBSTRING(MaeukekinTbl.MaeukekinIchibuHenkinDt, 7, 2)
+  ) AS MaeukekinIchibuHenkinDtCol
+  , MaeukekinTbl.MaeukekinIchibuHenkinAmt
+  , MaeukekinTbl.MaeukekinZanAmt
+  , MaeukekinTbl.MaeukekinJokasoHokenjoCd
+  , MaeukekinTbl.MaeukekinJokasoTorokuNendo
+  , MaeukekinTbl.MaeukekinJokasoRenban
+  , NameMst.Name 
+FROM
+  MaeukekinTbl 
+  INNER JOIN NameMst 
+    ON NameMst.NameCd = MaeukekinTbl.MaeukekinKinyukikan 
+    AND NameMst.NameKbn = '006' 
+WHERE
+  1 = 1 
+ORDER BY
+  MaeukekinTbl.MaeukekinSyogoNo1
+  , MaeukekinTbl.MaeukekinSyogoNo2
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaeukekinSyogoNo1" DataSetColumn="MaeukekinSyogoNo1" />
+              <Mapping SourceColumn="MaeukekinSyogoNo2" DataSetColumn="MaeukekinSyogoNo2" />
+              <Mapping SourceColumn="MaeukekinNyukinDt" DataSetColumn="MaeukekinNyukinDt" />
+              <Mapping SourceColumn="MaeukekinNyukinDtCol" DataSetColumn="MaeukekinNyukinDtCol" />
+              <Mapping SourceColumn="MaeukekinNyukinAmt" DataSetColumn="MaeukekinNyukinAmt" />
+              <Mapping SourceColumn="MaeukekinFurikomininNm" DataSetColumn="MaeukekinFurikomininNm" />
+              <Mapping SourceColumn="MaeukekinFurikomininKana" DataSetColumn="MaeukekinFurikomininKana" />
+              <Mapping SourceColumn="MaeukekinBiko" DataSetColumn="MaeukekinBiko" />
+              <Mapping SourceColumn="MaeukekinUriageDt" DataSetColumn="MaeukekinUriageDt" />
+              <Mapping SourceColumn="MaeukekinUriageDtCol" DataSetColumn="MaeukekinUriageDtCol" />
+              <Mapping SourceColumn="MaeukekinTorisageDt" DataSetColumn="MaeukekinTorisageDt" />
+              <Mapping SourceColumn="MaeukekinTorisageDtCol" DataSetColumn="MaeukekinTorisageDtCol" />
+              <Mapping SourceColumn="MaeukekinKensaIraiHoteiKbn" DataSetColumn="MaeukekinKensaIraiHoteiKbn" />
+              <Mapping SourceColumn="MaeukekinKensaIraiHokenjoCd" DataSetColumn="MaeukekinKensaIraiHokenjoCd" />
+              <Mapping SourceColumn="MaeukekinKensaIraiNendo" DataSetColumn="MaeukekinKensaIraiNendo" />
+              <Mapping SourceColumn="MaeukekinKensaIraiRenban" DataSetColumn="MaeukekinKensaIraiRenban" />
+              <Mapping SourceColumn="MaeukekinKyoseiUriageAmt" DataSetColumn="MaeukekinKyoseiUriageAmt" />
+              <Mapping SourceColumn="MaeukekinKyoseiUriageFlg" DataSetColumn="MaeukekinKyoseiUriageFlg" />
+              <Mapping SourceColumn="MaeukekinNyukintoriatukaiDt" DataSetColumn="MaeukekinNyukintoriatukaiDt" />
+              <Mapping SourceColumn="MaeukekinNyukintoriatukaiDtCol" DataSetColumn="MaeukekinNyukintoriatukaiDtCol" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinDt" DataSetColumn="MaeukekinIchibuHenkinDt" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinDtCol" DataSetColumn="MaeukekinIchibuHenkinDtCol" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinAmt" DataSetColumn="MaeukekinIchibuHenkinAmt" />
+              <Mapping SourceColumn="MaeukekinZanAmt" DataSetColumn="MaeukekinZanAmt" />
+              <Mapping SourceColumn="MaeukekinJokasoHokenjoCd" DataSetColumn="MaeukekinJokasoHokenjoCd" />
+              <Mapping SourceColumn="MaeukekinJokasoTorokuNendo" DataSetColumn="MaeukekinJokasoTorokuNendo" />
+              <Mapping SourceColumn="MaeukekinJokasoRenban" DataSetColumn="MaeukekinJokasoRenban" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaeukekinNyukinTableAdapter" GeneratorDataComponentClassName="MaeukekinNyukinTableAdapter" Name="MaeukekinNyukin" UserDataComponentName="MaeukekinNyukinTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystemMehara3.dbo.MaeukekinTbl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKensaIraiKey" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByKensaIraiKey" GeneratorSourceName="FillByKensaIraiKey" GetMethodModifier="Public" GetMethodName="GetDataByKensaIraiKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByKensaIraiKey" UserSourceName="FillByKensaIraiKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      MaeukekinNyukinAmt, CASE WHEN isdate(MaeukekinNyukinDt) = 0 THEN '' ELSE CONVERT(varchar(10), CONVERT(datetime, MaeukekinNyukinDt), 
+                                      111) END AS MaeukekinNyukinDt, MaeukekinBiko, CASE WHEN isdate(MaeukekinIchibuHenkinDt) = 0 THEN '' ELSE CONVERT(varchar(10), 
+                                      CONVERT(datetime, MaeukekinIchibuHenkinDt), 111) END AS MaeukekinIchibuHenkinDt, MaeukekinIchibuHenkinAmt
+FROM                         MaeukekinTbl
+WHERE                       (MaeukekinKensaIraiHoteiKbn = @KensaIraiHoteiKbn) AND (MaeukekinKensaIraiHokenjoCd = @KensaIraiHokenjoCd) AND 
+                                      (MaeukekinKensaIraiNendo = @KensaIraiNendo) AND (MaeukekinKensaIraiRenban = @KensaIraiRenban)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiHoteiKbn" ColumnName="MaeukekinKensaIraiHoteiKbn" DataSourceName="FukjBizSystemMehara3.dbo.MaeukekinTbl" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@KensaIraiHoteiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="MaeukekinKensaIraiHoteiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiHokenjoCd" ColumnName="MaeukekinKensaIraiHokenjoCd" DataSourceName="FukjBizSystemMehara3.dbo.MaeukekinTbl" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@KensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="MaeukekinKensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiNendo" ColumnName="MaeukekinKensaIraiNendo" DataSourceName="FukjBizSystemMehara3.dbo.MaeukekinTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="MaeukekinKensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiRenban" ColumnName="MaeukekinKensaIraiRenban" DataSourceName="FukjBizSystemMehara3.dbo.MaeukekinTbl" DataTypeServer="nvarchar(6)" DbType="String" Direction="Input" ParameterName="@KensaIraiRenban" Precision="0" ProviderType="NVarChar" Scale="0" Size="6" SourceColumn="MaeukekinKensaIraiRenban" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaeukekinNyukinAmt" DataSetColumn="MaeukekinNyukinAmt" />
+              <Mapping SourceColumn="MaeukekinNyukinDt" DataSetColumn="MaeukekinNyukinDt" />
+              <Mapping SourceColumn="MaeukekinBiko" DataSetColumn="MaeukekinBiko" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinDt" DataSetColumn="MaeukekinIchibuHenkinDt" />
+              <Mapping SourceColumn="MaeukekinIchibuHenkinAmt" DataSetColumn="MaeukekinIchibuHenkinAmt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MaeukekinTblDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MaeukekinTblDataSet" msprop:Generator_UserDSName="MaeukekinTblDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MaeukekinTbl" msprop:Generator_TableClassName="MaeukekinTblDataTable" msprop:Generator_TableVarName="tableMaeukekinTbl" msprop:Generator_RowChangedName="MaeukekinTblRowChanged" msprop:Generator_TablePropName="MaeukekinTbl" msprop:Generator_RowDeletingName="MaeukekinTblRowDeleting" msprop:Generator_RowChangingName="MaeukekinTblRowChanging" msprop:Generator_RowEvHandlerName="MaeukekinTblRowChangeEventHandler" msprop:Generator_RowDeletedName="MaeukekinTblRowDeleted" msprop:Generator_RowClassName="MaeukekinTblRow" msprop:Generator_UserTableName="MaeukekinTbl" msprop:Generator_RowEvArgName="MaeukekinTblRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaeukekinSyogoNo1" msprop:Generator_ColumnVarNameInTable="columnMaeukekinSyogoNo1" msprop:Generator_ColumnPropNameInRow="MaeukekinSyogoNo1" msprop:Generator_ColumnPropNameInTable="MaeukekinSyogoNo1Column" msprop:Generator_UserColumnName="MaeukekinSyogoNo1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinSyogoNo2" msprop:Generator_ColumnVarNameInTable="columnMaeukekinSyogoNo2" msprop:Generator_ColumnPropNameInRow="MaeukekinSyogoNo2" msprop:Generator_ColumnPropNameInTable="MaeukekinSyogoNo2Column" msprop:Generator_UserColumnName="MaeukekinSyogoNo2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKinyukikan" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKinyukikan" msprop:Generator_ColumnPropNameInRow="MaeukekinKinyukikan" msprop:Generator_ColumnPropNameInTable="MaeukekinKinyukikanColumn" msprop:Generator_UserColumnName="MaeukekinKinyukikan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinDt" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinDtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinAmtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinFurikomininKana" msprop:Generator_ColumnVarNameInTable="columnMaeukekinFurikomininKana" msprop:Generator_ColumnPropNameInRow="MaeukekinFurikomininKana" msprop:Generator_ColumnPropNameInTable="MaeukekinFurikomininKanaColumn" msprop:Generator_UserColumnName="MaeukekinFurikomininKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinFurikomininNm" msprop:Generator_ColumnVarNameInTable="columnMaeukekinFurikomininNm" msprop:Generator_ColumnPropNameInRow="MaeukekinFurikomininNm" msprop:Generator_ColumnPropNameInTable="MaeukekinFurikomininNmColumn" msprop:Generator_UserColumnName="MaeukekinFurikomininNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinBiko" msprop:Generator_ColumnVarNameInTable="columnMaeukekinBiko" msprop:Generator_ColumnPropNameInRow="MaeukekinBiko" msprop:Generator_ColumnPropNameInTable="MaeukekinBikoColumn" msprop:Generator_UserColumnName="MaeukekinBiko" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinUriageDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinUriageDt" msprop:Generator_ColumnPropNameInRow="MaeukekinUriageDt" msprop:Generator_ColumnPropNameInTable="MaeukekinUriageDtColumn" msprop:Generator_UserColumnName="MaeukekinUriageDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinTorisageDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinTorisageDt" msprop:Generator_ColumnPropNameInRow="MaeukekinTorisageDt" msprop:Generator_ColumnPropNameInTable="MaeukekinTorisageDtColumn" msprop:Generator_UserColumnName="MaeukekinTorisageDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiHoteiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiNendo" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiNendoColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiRenban" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiRenban" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiRenbanColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKyoseiUriageAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKyoseiUriageAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinKyoseiUriageAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinKyoseiUriageAmtColumn" msprop:Generator_UserColumnName="MaeukekinKyoseiUriageAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinKyoseiUriageFlg" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKyoseiUriageFlg" msprop:Generator_ColumnPropNameInRow="MaeukekinKyoseiUriageFlg" msprop:Generator_ColumnPropNameInTable="MaeukekinKyoseiUriageFlgColumn" msprop:Generator_UserColumnName="MaeukekinKyoseiUriageFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukintoriatukaiDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukintoriatukaiDt" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukintoriatukaiDt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukintoriatukaiDtColumn" msprop:Generator_UserColumnName="MaeukekinNyukintoriatukaiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinDt" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinDtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinAmtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinZanAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinZanAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinZanAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinZanAmtColumn" msprop:Generator_UserColumnName="MaeukekinZanAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinJokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoHokenjoCd" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoHokenjoCdColumn" msprop:Generator_UserColumnName="MaeukekinJokasoHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinJokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoTorokuNendo" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoTorokuNendoColumn" msprop:Generator_UserColumnName="MaeukekinJokasoTorokuNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinJokasoRenban" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoRenban" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoRenban" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoRenbanColumn" msprop:Generator_UserColumnName="MaeukekinJokasoRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MaeukekinTblKensaku" msprop:Generator_TableClassName="MaeukekinTblKensakuDataTable" msprop:Generator_TableVarName="tableMaeukekinTblKensaku" msprop:Generator_RowChangedName="MaeukekinTblKensakuRowChanged" msprop:Generator_TablePropName="MaeukekinTblKensaku" msprop:Generator_RowDeletingName="MaeukekinTblKensakuRowDeleting" msprop:Generator_RowChangingName="MaeukekinTblKensakuRowChanging" msprop:Generator_RowEvHandlerName="MaeukekinTblKensakuRowChangeEventHandler" msprop:Generator_RowDeletedName="MaeukekinTblKensakuRowDeleted" msprop:Generator_RowClassName="MaeukekinTblKensakuRow" msprop:Generator_UserTableName="MaeukekinTblKensaku" msprop:Generator_RowEvArgName="MaeukekinTblKensakuRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaeukekinSyogoNo1" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinSyogoNo1" msprop:Generator_ColumnVarNameInTable="columnMaeukekinSyogoNo1" msprop:Generator_ColumnPropNameInTable="MaeukekinSyogoNo1Column" msprop:Generator_UserColumnName="MaeukekinSyogoNo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinSyogoNo2" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinSyogoNo2" msprop:Generator_ColumnVarNameInTable="columnMaeukekinSyogoNo2" msprop:Generator_ColumnPropNameInTable="MaeukekinSyogoNo2Column" msprop:Generator_UserColumnName="MaeukekinSyogoNo2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukinDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinDtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukinDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinDtCol" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinDtCol" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinDtColColumn" msprop:Generator_UserColumnName="MaeukekinNyukinDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinAmtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinFurikomininNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinFurikomininNm" msprop:Generator_ColumnVarNameInTable="columnMaeukekinFurikomininNm" msprop:Generator_ColumnPropNameInTable="MaeukekinFurikomininNmColumn" msprop:Generator_UserColumnName="MaeukekinFurikomininNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinFurikomininKana" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinFurikomininKana" msprop:Generator_ColumnVarNameInTable="columnMaeukekinFurikomininKana" msprop:Generator_ColumnPropNameInTable="MaeukekinFurikomininKanaColumn" msprop:Generator_UserColumnName="MaeukekinFurikomininKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinBiko" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinBiko" msprop:Generator_ColumnVarNameInTable="columnMaeukekinBiko" msprop:Generator_ColumnPropNameInTable="MaeukekinBikoColumn" msprop:Generator_UserColumnName="MaeukekinBiko" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinUriageDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinUriageDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinUriageDt" msprop:Generator_ColumnPropNameInTable="MaeukekinUriageDtColumn" msprop:Generator_UserColumnName="MaeukekinUriageDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinUriageDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinUriageDtCol" msprop:Generator_ColumnVarNameInTable="columnMaeukekinUriageDtCol" msprop:Generator_ColumnPropNameInTable="MaeukekinUriageDtColColumn" msprop:Generator_UserColumnName="MaeukekinUriageDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinTorisageDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinTorisageDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinTorisageDt" msprop:Generator_ColumnPropNameInTable="MaeukekinTorisageDtColumn" msprop:Generator_UserColumnName="MaeukekinTorisageDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinTorisageDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinTorisageDtCol" msprop:Generator_ColumnVarNameInTable="columnMaeukekinTorisageDtCol" msprop:Generator_ColumnPropNameInTable="MaeukekinTorisageDtColColumn" msprop:Generator_UserColumnName="MaeukekinTorisageDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiHoteiKbn" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiHoteiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiHokenjoCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiNendo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiNendo" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiNendoColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKensaIraiRenban" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinKensaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKensaIraiRenban" msprop:Generator_ColumnPropNameInTable="MaeukekinKensaIraiRenbanColumn" msprop:Generator_UserColumnName="MaeukekinKensaIraiRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinKyoseiUriageAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKyoseiUriageAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinKyoseiUriageAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinKyoseiUriageAmtColumn" msprop:Generator_UserColumnName="MaeukekinKyoseiUriageAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinKyoseiUriageFlg" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinKyoseiUriageFlg" msprop:Generator_ColumnVarNameInTable="columnMaeukekinKyoseiUriageFlg" msprop:Generator_ColumnPropNameInTable="MaeukekinKyoseiUriageFlgColumn" msprop:Generator_UserColumnName="MaeukekinKyoseiUriageFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukintoriatukaiDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukintoriatukaiDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukintoriatukaiDt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukintoriatukaiDtColumn" msprop:Generator_UserColumnName="MaeukekinNyukintoriatukaiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinNyukintoriatukaiDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukintoriatukaiDtCol" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukintoriatukaiDtCol" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukintoriatukaiDtColColumn" msprop:Generator_UserColumnName="MaeukekinNyukintoriatukaiDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinDtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinDtCol" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinDtCol" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinDtColColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinAmtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinZanAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinZanAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinZanAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinZanAmtColumn" msprop:Generator_UserColumnName="MaeukekinZanAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinJokasoHokenjoCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoHokenjoCd" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoHokenjoCdColumn" msprop:Generator_UserColumnName="MaeukekinJokasoHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinJokasoTorokuNendo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoTorokuNendo" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoTorokuNendo" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoTorokuNendoColumn" msprop:Generator_UserColumnName="MaeukekinJokasoTorokuNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinJokasoRenban" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinJokasoRenban" msprop:Generator_ColumnVarNameInTable="columnMaeukekinJokasoRenban" msprop:Generator_ColumnPropNameInTable="MaeukekinJokasoRenbanColumn" msprop:Generator_UserColumnName="MaeukekinJokasoRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MaeukekinNyukin" msprop:Generator_TableClassName="MaeukekinNyukinDataTable" msprop:Generator_TableVarName="tableMaeukekinNyukin" msprop:Generator_TablePropName="MaeukekinNyukin" msprop:Generator_RowDeletingName="MaeukekinNyukinRowDeleting" msprop:Generator_RowChangingName="MaeukekinNyukinRowChanging" msprop:Generator_RowEvHandlerName="MaeukekinNyukinRowChangeEventHandler" msprop:Generator_RowDeletedName="MaeukekinNyukinRowDeleted" msprop:Generator_UserTableName="MaeukekinNyukin" msprop:Generator_RowChangedName="MaeukekinNyukinRowChanged" msprop:Generator_RowEvArgName="MaeukekinNyukinRowChangeEvent" msprop:Generator_RowClassName="MaeukekinNyukinRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaeukekinNyukinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinAmtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaeukekinNyukinDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinNyukinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinNyukinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinNyukinDtColumn" msprop:Generator_UserColumnName="MaeukekinNyukinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinBiko" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinBiko" msprop:Generator_ColumnVarNameInTable="columnMaeukekinBiko" msprop:Generator_ColumnPropNameInTable="MaeukekinBikoColumn" msprop:Generator_UserColumnName="MaeukekinBiko" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinDt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinDt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinDtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnVarNameInTable="columnMaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInRow="MaeukekinIchibuHenkinAmt" msprop:Generator_ColumnPropNameInTable="MaeukekinIchibuHenkinAmtColumn" msprop:Generator_UserColumnName="MaeukekinIchibuHenkinAmt" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MaeukekinTbl" />
+      <xs:field xpath="mstns:MaeukekinSyogoNo1" />
+      <xs:field xpath="mstns:MaeukekinSyogoNo2" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

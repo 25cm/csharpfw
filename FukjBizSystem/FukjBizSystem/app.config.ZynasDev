@@ -1,0 +1,107 @@
+﻿<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <section name="log4net" type=" log4net.Config.Log4NetConfigurationSectionHandler,log4net"/>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="FukjBizSystem.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+    </sectionGroup>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+      <section name="FukjBizSystem.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+
+ <connectionStrings>
+  <add name="FukjBizSystem.Properties.Settings.FukjBizSystemConnectionString"
+   connectionString="Data Source=192.168.0.193;Initial Catalog=fukjBizSystem;Persist Security Info=True;User ID=sa;Password=fukj_1800"
+   providerName="System.Data.SqlClient" />
+ </connectionStrings>
+
+  <log4net>
+    <!-- ログ出力先の定義 -->
+    <appender name="TraceAppender" type="log4net.Appender.RollingFileAppender">
+      <!-- ログファイル -->
+      <file value="C:\FukjBizSystem\Log\Trace_"/>
+      <!-- 追加モードで書込み -->
+      <appendToFile value="true"/>
+      <!-- ログファイル保存数 -->
+      <maxSizeRollBackups value="10"/>
+      <!-- ログファイルの最大サイズ -->
+      <maximumFileSize value="5MB"/>
+      <!-- 日単位でファイル作成 -->
+      <rollingStyle value="date"/>
+      <staticLogFileName value="false"/>
+      <datePattern value="yyyyMMdd&quot;.log&quot;"/>
+      <!-- ログの書式 -->
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/>
+      </layout>
+    </appender>
+    <root>
+      <!-- すべてのログレベルを出力 -->
+      <level value="ALL"/>
+
+      <!-- どのログ出力先を使用するか -->
+      <appender-ref ref="TraceAppender"/>
+    </root>
+  </log4net>
+
+  <applicationSettings>
+    <FukjBizSystem.Properties.Settings>
+      <setting name="HolidayFile" serializeAs="String">
+        <value>.\HolidayFile.xml</value>
+      </setting>
+      <setting name="ErrMsgFile" serializeAs="String">
+        <value>.\ErrMsgFile.xml</value>
+      </setting>
+      <setting name="ScenarioMode" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="PrintDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\Print</value>
+      </setting>
+      <setting name="PrintFormatFolder" serializeAs="String">
+        <value>C:\FukjBizSystem\PrintFormat\</value>
+      </setting>
+      <setting name="PrinterSettingFile" serializeAs="String">
+        <value>C:\FukjBizSystem\Printer.xml</value>
+      </setting>
+      <setting name="SystemName" serializeAs="String">
+        <value>浄化槽基幹システム</value>
+      </setting>
+      <setting name="InputCheckFileFolder" serializeAs="String">
+        <value>D:\</value>
+      </setting>
+      <setting name="InputCheckFileNm" serializeAs="String">
+        <value>HOS.xlsm</value>
+      </setting>
+    </FukjBizSystem.Properties.Settings>
+  </applicationSettings>
+  <userSettings>
+    <FukjBizSystem.Properties.Settings>
+      <setting name="RyosyuFormatFile" serializeAs="String">
+        <value>領収書.xlsx</value>
+      </setting>
+      <setting name="SaisuiinShomeishoFormatFile" serializeAs="String">
+        <value>指定採水員証明書.xlsx</value>
+      </setting>
+      <setting name="SaisuiinShiteishoFormatFile" serializeAs="String">
+        <value>指定採水員指定書.xlsx</value>
+      </setting>
+      <setting name="SealImage" serializeAs="String">
+        <value>seal.png</value>
+      </setting>
+      <setting name="KaiinJouhouKakuninshoFormatFile" serializeAs="String">
+        <value>会員情報確認書.xlsx</value>
+      </setting>
+      <setting name="JukoMoshikomishoShutsuryokuFormatFile" serializeAs="String">
+        <value>指定採水員指定講習会受講申込書.xlsx</value>
+      </setting>
+      <setting name="HoshoNoFormatFile" serializeAs="String">
+        <value>保証登録申請書.xlsx</value>
+      </setting>
+      <setting name="SealTackFormatFile" serializeAs="String">
+        <value>タックシール.xlsx</value>
+      </setting>
+    </FukjBizSystem.Properties.Settings>
+  </userSettings>
+</configuration>

@@ -1,0 +1,686 @@
+/////////////////////////////////////////////////////////
+//  JobUtility.scp
+//  Ver 1.03
+//  2004/03/10
+/////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+//							履歴操作パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package LOG
+	
+	btvDataId = 1 				//= LogRecord:RecordCount()  
+	btvFieldId = 0 				//フィールドインデックス
+	btvCount					//
+	btvMaxlen					//ログデータ最大長
+	
+	logMode = "modifylog"		//修正モード("modifylog") or 通常モード("normalinput")
+	logDispStyle = "normallog"	//ユーザ指定表示("normallog") or リスト表示("listlog")
+	
+	btvJointTempdata 			//連結テンポラリデータ
+	btvTempdata 				//テンポラリデータ
+	
+	recidx						//レコード番号
+	
+	stuckData[32]				//退避データ
+	stuckNum					//退避データ（ログ項目数）
+
+
+	//------------------------------------------------
+	//データ退避
+	Method push_logdata()
+		i
+	Begin
+		stuckNum = LogRecord:fieldNum
+		// GetData
+		For i = 1 to LogRecord:fieldNum
+			stuckData[i-1] = LogRecord:GetData(i)
+		Next
+	EndMethod
+
+
+	//------------------------------------------------
+	//データ復帰
+	Method pop_logdata()
+		i
+	Begin
+		LogRecord:fieldNum = stuckNum
+		// SetData
+		For i = 1 to LogRecord:fieldNum
+			LogRecord:SetData(i, stuckData[i-1])
+		Next
+	EndMethod
+
+
+	//------------------------------------------------
+	//履歴情報初期化
+	Method init_log()
+		
+	Begin
+		btvCount = UTL:utlMakeFixedNumEx(LogRecord:recordCount,3)
+		btvMaxlen = UTL:utlGetMaxLogLength()
+		If btvDataId > LogRecord:recordCount  Then
+			btvDataId = LogRecord:recordCount 
+		EndIf
+	EndMethod
+
+
+	//------------------------------------------------
+	//履歴表示メインメソッド
+	Method log_main()
+		btvRet
+		btvRet2
+		btvLogKeycode		// ログ表示画面戻り値
+		i
+	Begin
+		
+		//データ退避
+		push_logdata()
+		
+		btvDataId = LogRecord:recordCount
+		If btvDataId == 0 Then
+			Handy:ShowMessageBox("履歴データがありません ","confirm")
+			return ()
+		EndIf
+		
+		init_log()
+		
+		btvFieldId = 0
+		
+		While 1
+			
+			If LogRecord:Read(btvDataId) is false Then
+				Handy:ShowMessageBox("履歴データがありません ","confirm")
+				Wbreak
+			EndIf
+			
+			btvLogKeycode = select_mode()
+			
+			Select Case btvLogKeycode
+			
+			Case "ENT"
+				btvRet = utlLogConfirmMessageBox()
+				
+				If (btvRet == 1) Then
+					If logDispStyle eq "normallog" Then
+						logDispStyle = "listlog"
+					Else
+						logDispStyle = "normallog"
+					EndIf
+				ElseIf (btvRet == 2) Then
+					btvRet2 = Handy:ShowMessageBox("このレコードを修正しますか?","yesno|no")
+					If btvRet2 is true Then
+						recidx = LogRecord:Read(btvDataId)
+						ModifyLog()
+						init_log()
+					EndIf
+				ElseIf (btvRet == 3) Then
+					btvRet2 = Handy:ShowMessageBox("このレコードを削除してもよいですか？","yesno|no")
+					If btvRet2 is true Then
+						recidx = LogRecord:Read(btvDataId)
+						LogRecord:Delete(recidx) 
+						init_log()
+					EndIf
+				EndIf
+				
+			Case "BS","C"
+				Wbreak
+			
+			Case Else
+			
+			End Select
+		Wend
+		
+		//データ復帰
+		pop_logdata()
+		
+		return()
+	
+	End Method
+
+
+	//------------------------------------------------
+	//履歴表示選択
+	Method select_mode()
+		btvLogKeycode
+	Begin
+	
+		If logDispStyle eq "normallog" Then
+			btvLogKeycode = print_normallog()
+		ElseIf logDispStyle eq "listlog" Then
+			btvLogKeycode = utlPrintLogList(btvDataId,btvMaxlen)
+		EndIf
+		return(btvLogKeycode)
+	EndMethod
+
+
+	//------------------------------------------------
+	//履歴表示(通常)
+	Method print_normallog()
+		btvTitle			// タイトル
+		btvLogKeycode		// ビューア戻り値
+		btvRet
+		btvDispLine			// ビューア表示範囲
+	Begin
+		
+		LogRecord:Read(btvDataId) 
+		
+		//----------------------
+		btvRet = UTL_INTERFACE:disp_normallog()
+		If (btvRet is nil) Then
+		EndIf
+		//----------------------
+		
+		With Screen
+			If (:fontSize == 12) Then  
+				btvTitle = "履歴表示     " 
+			Else 
+				btvTitle = "履歴表示" 
+			EndIf
+		EndWith
+
+		btvTitle = btvTitle &  UTL:utlMakeFixedNumEx(btvDataId,3) & "/" & btvCount
+		
+		With Screen
+			btvDispLine = 960 / ( :fontSize + :fontGapy ) 
+		EndWith
+		btvLogKeycode = Screen:Viewer(btvTitle, 1, btvDispLine, 1)//Statusによって第2引数を変更
+
+		Select Case btvLogKeycode
+				
+		Case "RIGHT"
+			btvDataId = btvDataId + 1
+			If btvDataId > LogRecord:recordCount Then
+				btvDataId = 1
+			EndIf
+			
+		Case "LEFT"
+			btvDataId = btvDataId -1
+			If btvDataId < 1 Then
+				btvDataId = LogRecord:recordCount
+			EndIf
+			
+		Case Else
+				
+		End Select
+		
+		LogRecord:Read(btvDataId)
+		return (btvLogKeycode)
+		
+	End Method
+
+
+	//------------------------------------------------
+	// ログ修正
+	Method ModifyLog()
+		keyRes = "retry"
+		logIndex
+		msgpos				// １行メッセージ表示位置
+	Begin
+		
+		logMode = "modifylog"
+		logIndex = 1
+		
+		While ( logIndex <= LogRecord:fieldNum )
+			
+			//UTL_INTERFACE:disp_modify(logIndex)
+			UTL_INTERFACE:disp_modifyEx(logIndex,nil)//ver1.2.0.0 追加
+			
+			btvJointTempdata = "" 
+				
+			While 1
+				
+				keyRes = UTL_INTERFACE:modify_input(logIndex)
+				
+				Select Case keyRes
+				Case "next"
+					
+					UTL_INTERFACE:disp_modifyEx(logIndex,true)//ver1.2.0.0 追加
+					btvJointTempdata = btvJointTempdata & btvTempdata 
+					
+					LogRecord:SetData(logIndex,btvJointTempdata)
+					logIndex = logIndex + 1
+					Wbreak
+
+				Case "return1step"
+					logIndex = logIndex - 1
+					If logIndex < 1 Then 
+						logIndex = 1
+					EndIf
+					Wbreak
+					
+				Case "retry"
+ 				Case Else
+				End Select
+				
+			Wend
+			
+		Wend
+		
+		If Screen:status is true Then
+			msgpos = 12
+		Else
+			msgpos = 14
+		EndIf
+		If UTL:OneLineMessageBox(msgpos) is true Then 
+			ModifyWithSort(btvDataId)
+		EndIf
+		logMode = "normalinput"
+		
+	End Method
+
+
+	//------------------------------------------------
+	//履歴修正(ソートも行う)
+	Method ModifyWithSort(curId)
+		i
+	Begin
+	
+		LogRecord:Modify(recidx)
+		
+		//以下の4行をコメントアウトすると、レコードの並び替えをしない代わりに、
+		//レコードの記録領域を節約し、かつ、処理速度を向上させることができます。
+		For i = curId + 1  to LogRecord:recordCount
+			recidx = LogRecord:Read(curId)
+			LogRecord:Modify(recidx)
+		Next
+		
+		return()
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//リスト表示
+	Method utlPrintLogList(DataId,btvMaxlen)
+		i
+		j
+		strRecord		// 表示レコード文字列
+		st				// 表示先頭レコードインデックス
+		ed				// 表示最後尾レコードインデックス
+		Keycode
+		status_flag		// ステータスON:1 ステータスOFF:0
+	Begin
+	
+		btvDataId = DataId
+	
+		TEMP_MEMORY:push_Screen()
+
+		With Screen
+			:update = false 
+			:Clear()
+			:reverse = false //:status = true
+			:font = 1 :fontSize = 12 :fontGapx =0 :fontGapy = 1
+			
+			:posx = 1 :posy = 1 
+			:OutputText("履歴一覧     全" & UTL:utlMakeFixedNumEx(btvCount,3) & "件")
+			:DrawLine(2,15,115,15,"black")
+			
+			If :status is false Then 
+				status_flag = 1 
+			Else 
+				status_flag = 0
+			EndIf
+			
+			// 表示するレコードを決める
+			st = btvDataId - 2 
+			ed = btvDataId + 2 + status_flag
+			If st < 1 Then
+				st = 1	ed = 5 + status_flag
+			EndIf			
+			
+			If ed > LogRecord:recordCount Then
+				ed = LogRecord:recordCount
+				st = LogRecord:recordCount - 4 -status_flag
+				If st < 1 Then
+					st = 1	
+				EndIf
+			EndIf
+			 
+			// 表示
+			:posy = 4
+			For i = st to ed
+				LogRecord:Read(i)
+				strRecord = UTL:utlFormatLogHeader(LogRecord:header,LogRecord:separator,0)
+				For j = 1  to LogRecord:fieldNum
+					If strRecord.length + LogRecord:GetData(j).length > 125 Then
+						Fbreak
+					EndIf
+					strRecord = strRecord & "," & LogRecord:GetData(j)
+				Next
+				
+				strRecord = strRecord.Mid(btvFieldId, 126)
+				
+				:reverse = (i == btvDataId) // 選択レコードは反転 true/false
+				:OutputText(strRecord)
+				:posy = :posy + 2
+			Next
+			
+			:update = true
+		EndWith
+		
+		Keycode = Handy:KeyWait()
+		
+		Select Case Keycode
+					
+		Case "DOWN"
+			btvDataId = btvDataId + 1
+			If btvDataId > LogRecord:recordCount Then
+				btvDataId = LogRecord:recordCount
+			EndIf
+			
+		Case "UP"
+			btvDataId = btvDataId -1
+			If btvDataId < 1 Then
+				btvDataId = 1
+			EndIf
+			
+		Case "RIGHT"
+			btvFieldId = btvFieldId + 1
+			If btvFieldId > btvMaxlen Then
+				btvFieldId = btvMaxlen 
+			EndIf
+			
+		Case "LEFT"
+			btvFieldId = btvFieldId -1
+			If btvFieldId < 0 Then
+				btvFieldId = 0
+			EndIf
+			
+		Case Else
+			
+		End Select
+		
+		TEMP_MEMORY:pop_Screen()
+		return(	Keycode )
+				
+	End Method
+
+
+	//------------------------------------------------
+	//履歴修正用の入力関数
+	Method utlModifyLogData(x, y, column, rev, font, area, logIndex )
+		Keycode
+	Begin
+		//全てのバーコードを読めるように設定
+		BCR:Initialize()
+		BCR:timeOut = 50 // 100[msec]単位
+		JAN:enable     = true
+		CODE39:enable  = true
+		EAN128:enable  = true
+		CODE128:enable = true
+		ITF:enable     = true
+		NW7:enable     = true
+		CODE93:enable  = true
+		TOF:enable     = true
+		COOP:enable    = true
+
+		With InputString
+			:posx = x
+			:posy = y
+			:multiColumn = column 
+			:font = font
+			:reverse = rev 
+			:inputAreaSize = area
+			
+			:minLength = 0 :maxLength = 126
+			:enableKeyInput = true :shift = 0
+			:scanMode = 1		
+			
+			:data = LogRecord:GetData(logIndex) // 初期値設定
+			
+			Keycode = :Exec()
+			
+			
+			If ( Keycode eq "ENT" or Keycode eq "TRG" ) Then
+				LOG:btvTempdata = :data
+			EndIf
+			
+		EndWith
+		
+		return (Keycode)
+		
+	End Method
+
+
+	//------------------------------------------------
+	//ファイル名の日付指定
+	Method utlSetLogFileName( drvNo, strAdd, hh, mm )
+		strDate			// 現在日付
+		strTime			// 現在時刻
+		tmpHH			// 時
+		tmpMM			// 分
+		tmpDay			// 日
+		strNewDate		// 新日付
+		strNewName		// ファイル名
+	Begin
+		strDate = Handy:date
+		tmpDay = strDate.mid(8,2)
+		
+		strTime = Handy:time 
+		tmpHH = strTime.mid(0,2)
+		tmpMM = strTime.mid(3,2)
+		
+		//0:00-11:59
+		If ( (0 <= hh) and (hh <= 11) ) Then
+			If ( ( tmpHH < hh ) or (( tmpHH == hh ) and ( tmpMM < mm )) ) Then
+				strDate = Utility:AddDate( strDate, -1 )
+			EndIf
+		//12:00-23:59
+		ElseIf( (12 <= hh) and (hh <= 23) ) Then
+			If ( ( tmpHH > hh ) or (( tmpHH == hh ) and ( tmpMM >= mm )) ) Then
+				strDate = Utility:AddDate( strDate, 1 )
+			EndIf
+		EndIf
+		
+		strNewDate = strDate.mid(2,2) & strDate.mid(5,2) & strDate.mid(8,2)  
+		strNewName = drvNo & ":" & strNewDate & strAdd
+		
+		LogRecord:name = strNewName
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//履歴確認メッセージボックス
+	Method utlLogConfirmMessageBox()
+		key
+		ret
+		selection = 1		// 選択項目1:表示切替 2:修正 3:削除
+		reverse[3]			// 反転属性
+		disp = ""			// 表示文字列
+		
+	Begin
+	
+		TEMP_MEMORY:push_Screen()
+
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = 12	:fontGapy = 1	:fontGapx = 0			
+			disp = "履歴データ   " & UTL:utlMakeFixedNumEx(btvDataId,3) & "/" & UTL:utlMakeFixedNumEx(btvCount,3)
+			:posx = 1	:posy = 1	:OutputText(disp)
+			:posx = 3	:posy = 5	:OutputText("処理内容を")
+			:posx = 3	:posy = 7	:OutputText("選択してください")
+			:posx = 1	:posy = 9	:OutputText("(        /    /    )")
+			:update = true
+		EndWith
+		
+		While 1 
+			Select Case selection
+				Case 1
+					reverse[0] = true reverse[1] = false reverse[2] = false
+				Case 2
+					reverse[0] = false reverse[1] = true reverse[2] = false
+				Case 3
+					reverse[0] = false reverse[1] = false reverse[2] = true
+				Case Else
+					selection = 1
+					reverse[0] = true reverse[1] = false reverse[2] = false
+			End Select
+			
+			With Screen
+				:update = false
+				:reverse = reverse[0]
+				:posx = 2 	:posy = 9	:OutputText("表示切替")
+				:reverse = reverse[1]
+				:posx = 11 	:posy = 9	:OutputText("修正")
+				:reverse = reverse[2]
+				:posx = 16	:posy = 9	:OutputText("削除")
+				:update = true
+			EndWith
+			
+			key = Handy:KeyWait()
+			Select Case key
+				Case "ENT"
+					ret = selection   Wbreak
+				Case "C","BS" 
+					ret = 0   Wbreak 
+				Case "RIGHT"
+					selection = selection + 1
+					If (selection > 3) Then
+						selection = 1
+					EndIf
+				Case "LEFT"
+					selection = selection - 1
+					If (selection < 1) Then
+						selection = 3
+					EndIf
+				Case Else
+					Wcontinue
+			End Select
+		Wend
+		
+		TEMP_MEMORY:pop_Screen()
+		return (ret)
+		
+	EndMethod
+
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//					マスターファイル操作パッケージ						//
+//////////////////////////////////////////////////////////////////////////
+Package MST
+	
+	btvMstRecNum = 0	// マスタ検索数
+	btvMstRecPos = 0	// 現在表示レコード
+
+	//------------------------------------------------
+	//作業リスト表示
+	Method mst_main(keynum)
+		btvRet
+		btvRet2
+		btvKeynum_tmp		// キー項目数テンポラリ
+		btvKeycode
+		btvTitle			// タイトル
+		btvDispLine			// ビューア表示範囲
+	Begin
+
+		btvKeynum_tmp = Master:keyNum
+
+		If ( keynum == 0 or Master:keyNum <= keynum ) Then 
+			//Handy:ShowMessageBox("抽出が完了していません","confirm") //return(-1)
+			Master:keyNum = 0
+		Else
+			Master:keyNum = keynum
+		EndIf
+
+		btvMstRecNum = Master:GetCount(false)
+		
+		btvMstRecPos = 0
+		btvRet = Master:GetAt(btvMstRecPos)
+		If btvRet is false Then 
+			Handy:ShowMessageBox("マスタファイルを確認して下さい","confirm")
+			return ( -1 )
+		EndIf
+		UTL_INTERFACE:disp_sagyou_list()
+		
+		While 1
+			btvTitle = "作業リスト表示      "
+			With Screen
+				btvDispLine = 960 / ( :fontSize + :fontGapy ) 
+			EndWith
+			btvKeycode = Screen:Viewer(btvTitle,1,btvDispLine,1)	//Statusによって第2引数を変更
+
+			Select Case btvKeycode
+			Case "RIGHT"
+				btvMstRecPos = btvMstRecPos + 1
+				If btvMstRecPos > btvMstRecNum-1 Then
+					btvMstRecPos = 0
+				EndIf
+			Case "LEFT"
+				btvMstRecPos = btvMstRecPos -1
+				If btvMstRecPos < 0 Then
+					btvMstRecPos = btvMstRecNum-1
+				EndIf
+			Case "ENT"
+				Wbreak
+			Case "C"
+				Wbreak
+			Case "BS"
+				Wbreak
+			Case Else
+			End Select
+			
+			btvRet = Master:GetAt(btvMstRecPos)
+			If btvRet is false Then 
+				Handy:ShowMessageBox("マスタファイルを確認して下さい","confirm")
+				return ( -1 )
+			EndIf
+			UTL_INTERFACE:disp_sagyou_list()
+		Wend
+		
+		//If keynum > 0 Then
+			Master:keyNum = btvKeynum_tmp
+		//EndIf
+		
+		btvMstRecNum = 0
+		btvMstRecPos = 0
+		
+		return(0)
+		
+	End Method
+	
+	
+	//------------------------------------------------
+	//指示データの取得メソッド
+	Method mstGetDirective( keynum )
+		btvKeynum_tmp		// キー項目数テンポラリ
+		btvRet
+	Begin
+		
+		//キーが1より小さいときは無効を返して終了。
+		If ( keynum < 1 ) Then 
+			btvRet = "*****"  return ( btvRet )
+		EndIf
+		
+		//キーの退避とセット
+		btvKeynum_tmp = Master:keyNum
+		If Master:keyNum > keynum  Then 
+			Master:keyNum = keynum
+		Else
+			If Master:keyNum <= 0 Then 
+				Master:keyNum = 0 
+			Else 
+				Master:keyNum = Master:keyNum - 1
+			EndIf
+		EndIf
+		
+		//マスタからデータ取得
+		Master:GetFirst(nil, false)
+		btvRet = Master:GetData(keynum)
+		
+		//キーの復帰
+		Master:keyNum = btvKeynum_tmp
+		
+		return ( btvRet )
+		
+	End Method
+	
+
+EndPackage
+

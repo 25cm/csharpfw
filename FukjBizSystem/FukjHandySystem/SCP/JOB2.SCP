@@ -1,0 +1,721 @@
+/********************************************************************************
+ファイル名	：	JOB2.scp
+バージョン	：	Ver.1.00
+作成日付	：	2002/11/11
+動作説明	：	BT-500アプリケーション
+
+注意		：	本プログラムを修正した場合
+				弊社サポートの対象外となります
+********************************************************************************/
+
+
+
+Include "Lib\Utility"
+Include "Lib\JobUtility"
+Include "Lib\prtUtility"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+	
+Begin
+	// --初期設定--
+	// ログファイル設定
+	LogRecord:name = "3:logdat10.txt"         //Alt
+
+	LogRecord:separator = "\t"
+	LogRecord:fieldNum = 2
+	
+	// ステータス表示設定
+	Screen:status = true
+	
+	// Lキー，Rキー割付け 
+	Handy:leftKey = "L"
+	Handy:rightKey = "TRG"
+	
+	//フォント設定
+	With Screen
+		:fontSize = 12 :fontGapx = 0 :fontGapy = 1 
+	EndWith
+	
+	// --処理開始--
+	JOB:job_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("アプリケーションに問題が発生しました("&System:error&")", "ok" )
+End Method
+
+
+/////////////////////////////////////////////////////////
+//法定受付に関連するPackage
+/////////////////////////////////////////////////////////
+Package JOB
+	m_btvCurrent = "sagyou1"	// カレント作業番号
+	
+	//---------------------------------------------------
+	// メインメソッド
+	Method job_main()
+		
+		btvRet = ""
+	Begin
+		
+		LOG:logMode = "normalinput"
+		
+		While 1
+			Select Case m_btvCurrent
+			Case "sagyou1"
+				btvRet = SAGYOU1:sagyou_main()
+			Case "sagyou2"
+				btvRet = SAGYOU2:sagyou_main()
+			Case "sagyou_end"
+				m_btvCurrent = "sagyou2"
+				// ログファイルへの記録
+				LogRecord:fieldNum = 2                           //Alt
+				If ( LogRecord:Append() is false ) Then 
+					Handy:ShowMessageBox( "ログの書き込みに失敗しました。", "confirm" )
+				EndIf
+				Wcontinue
+			Case Else
+				m_btvCurrent = "sagyou1"
+			End Select
+			
+			
+			//ループ判定処理 (次ループ準備)
+			If btvRet eq "returntop" Then 
+				Wbreak
+			ElseIf btvRet eq "sagyouNG_Retry" Then 
+				//特に何もしない
+			ElseIf btvRet eq "sagyouNG_Skip" Then 
+				m_btvCurrent = "sagyou2"//ループ先頭へ
+			ElseIf btvRet eq "retry" Then 
+				//特に何もしない
+			Else
+				m_btvCurrent = btvRet
+			EndIf
+
+		Wend
+
+		m_btvCurrent = "sagyou1"
+		System:Load(System:arg1, System:arg2, System:arg1, 0,0)
+		Return (0)
+
+	End Method
+
+
+
+	//---------------------------------------------------
+	// 入力判定メソッド
+	Method input_loop(btvKeycode)
+		btvRet
+	Begin
+		
+		Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "C"
+			Return ("return1step")
+		Case "TRG"
+			read_OK()
+			Return ("next")
+		Case "ERR_BCR_INPUT"
+			read_NG()
+			Return ("retry")
+		Case "ERR_RANGE_UPPER"
+		Case "ERR_RANGE_LOWER"
+		Case Else
+			If LOG:logMode eq "modifylog" Then 
+				Return ("retry") // 履歴修正時はここまで
+			EndIf
+		End Select
+		
+		
+		// 履歴修正でない時は以下も調べる
+		Select Case btvKeycode
+		Case "F1"    		       
+                            Return ("returntop") //Add
+		Case "F2"			 //割り付けなし
+		Case "F3"			 //履歴表示/修正
+			LOG:log_main()           //Add
+			Return ("retry")         //Add
+		Case "L"			 //Fメニュー表示
+		//Dell	UTL:utlDispFuncMenu()   
+		//Dell	Return ("retry")        
+                        Return ("returntop")     //Add
+		Case "R"			 //トリガキーに設定されています→"TRG"
+		Case Else
+			Return ("retry")
+		End Select
+		
+		Return ("retry")
+
+	End Method
+	
+	//---------------------------------------------------
+	// 照合OK時のデバイス動作設定
+	Method read_OK()
+	Begin
+		
+		With Buzzer
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :pitch = 7 
+		EndWith
+		
+		With Led
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :color = "green"
+		EndWith
+
+		Buzzer:Exec()
+		Led:Exec()
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 読み取りNG時のデバイス動作設定
+	Method read_NG()
+	Begin
+		
+		With Buzzer
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false :pitch = 7 
+		EndWith
+		
+		With Led
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false :color = "red"
+		EndWith
+
+		With Vibration
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false
+		EndWith
+
+		Buzzer:Exec()
+		Led:Exec()
+		Vibration:Exec()
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 照合NG時のデバイス動作設定
+	Method syougou_NG()
+	Begin
+		
+		With Buzzer
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false :pitch = 7 
+		EndWith
+		
+		With Led
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false :color = "orange"
+		EndWith
+
+		With Vibration
+			:onTime = 15 :offTime = 0 :loopCount = 1 :synchronization =false
+		EndWith
+
+		Buzzer:Exec()
+		Led:Exec()
+		Vibration:Exec()
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 履歴印刷メソッド
+	Method print_history()
+		btvRet
+	Begin
+		btvRet = false
+		If ( LogRecord:recordCount >=1 ) Then 
+			btvRet = LogRecord:Read(LogRecord:recordCount)
+		EndIf
+		
+		If ( btvRet is false ) Then 
+			Handy:ShowMessageBox( "ログデータの取得に失敗しました。", "confirm" )
+			Return ()
+		EndIf
+		
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText("履歴印刷を")
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText("実行します")
+			:update = true
+		EndWith
+		
+		With UTL_PRT
+			:Initialize( "2:test.prt" )
+			:Move_Up( 1 ) // 履歴印刷モード
+			:posy = 0// 一覧の先頭座標
+			If ( :PrintHistory() is true ) Then 
+				:Move_Down( 1 ) // 履歴印刷モード
+				btvRet = :Exec()
+			Else
+				btvRet = false
+			EndIf
+			
+			If btvRet is false Then 
+				Handy:ShowMessageBox( "印刷に失敗しました。", "confirm" )
+			EndIf
+			While ( Handy:ShowMessageBox("再印刷しますか？", "yesno|no") is true )
+				btvRet = :Exec()
+				If btvRet is false Then 
+					Handy:ShowMessageBox( "印刷に失敗しました。", "confirm" )
+				EndIf
+			Wend
+
+		EndWith
+
+	End Method
+
+	//---------------------------------------------------
+	// ログファイル削除    Add
+	Method Log_Del()
+		btvRet
+		recordHandle
+		A_Suu1
+		A_Suu2
+		A_Suu3
+		A_RCount
+		A_Msg
+	Begin
+		A_Suu1 = 0
+		A_Suu2 = 0
+		A_Suu3 = 0
+		A_Msg = ""
+		A_RCount = LogRecord:recordCount
+
+		While  True
+
+			A_Suu1 = A_Suu1 +  1
+			If  A_Suu1 >  A_RCount   Then
+			    A_Msg = "Clear End"
+			    Wbreak
+			EndIf
+
+			A_Suu2 = 1
+			recordHandle = LogRecord:Read(A_Suu2)
+			IF ( recordHandle is false  )  Then
+				A_Msg = "Read Error"
+				Wbreak
+			EndIf
+
+			LogRecord:Delete(recordHandle)
+		Wend
+
+	End Method
+	
+EndPackage
+
+
+/////////////////////////////////////////////////////////
+//開始№入力に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU1
+
+	btvData = ""
+	btvEachInput = ""
+	btvTempdata
+	btvTimes = 1
+	logIndex = 1
+	xcount = -1           //Add
+     
+	Method sagyou_main()
+		btvRet
+		btvLastsagyou = "sagyou1"
+		btvNextsagyou = "sagyou2"
+		
+	Begin
+		
+		disp_normal()
+		
+		While 1
+			btvRet = wait_input()
+			
+			If btvRet eq "next" Then 
+				btvTempdata = btvEachInput
+				disp_result()
+				//      JOB:Log_Del()                                //Add  Dell
+                                FileSystem:Format(4)                         //Add  
+				Wbreak // 入力ループから抜ける         
+			ElseIf btvRet eq "return1step" Then 
+				Return (btvLastsagyou) // ひとつ戻る
+			ElseIf btvRet eq "retry" Then 
+				Return ("retry") // 作業のリトライ
+			Else
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		btvData = btvTempdata
+	//DEL	LogRecord:SetData(logIndex,btvTempdata)
+		
+		Return (btvNextsagyou)
+		
+	End Method
+	
+
+
+	//---------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		
+		BCR:timeOut = 50// 100[msec]単位
+		
+		With InputString
+			:posx = 13 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 6
+			:maxLength = 5
+			:minLength = 1
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			If LOG:logMode eq "modifylog" Then 
+				:data = LogRecord:GetData(logIndex)
+				:enableKeyInput = 1
+				btvKeycode = :Exec()
+				LOG:btvTempdata = :data
+			Else
+				btvKeycode = :Exec()
+				btvEachInput=:data
+			EndIf
+			
+		EndWith
+		
+		btvRet = JOB:input_loop(btvKeycode)
+		
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+		btvDisp
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 5 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText("★9条受付★")
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText("開始№：")
+			:update = true
+		EndWith
+
+	End Method
+
+	//---------------------------------------------------
+	// 入力結果画面 表示メソッド
+	Method disp_result()
+		btvDisp
+	Begin
+		
+		// 該当する表示項目がありません
+
+	End Method
+
+	//---------------------------------------------------
+	// 照合NG時動作
+	Method disp_syougouNG()
+		btvDisp
+	Begin
+		
+		JOB:syougou_NG()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 6 :multiColumn = 1 :reverse = false :font = 4 :OutputText("照合エラー")
+			:update = true
+		EndWith
+		
+		Handy:KeyWait()
+		
+	End Method
+
+EndPackage
+
+/////////////////////////////////////////////////////////
+//設置者コード読込に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU2
+
+	btvData = ""
+	btvEachInput = ""
+	btvTempdata
+	btvTimes = 1                
+	logIndex = 1                 //Alt 
+	A_Setti = ""                 //Add
+	ycount = 0                   //Add
+	zcount = 0                   //Add
+	Dsp_Count = 0                //Add
+	A_Flg = 0                    //Add
+
+	Method sagyou_main()
+		btvRet
+		btvLastsagyou = "sagyou1"
+		btvNextsagyou = "sagyou_end"
+		Out_Setti = ""
+		Out_Irai = ""
+	Begin
+		If  A_Flg ==  0   Then                                                //Add
+
+			SAGYOU1:xcount = SAGYOU1:xcount + 1                                //Add
+			ycount         = SAGYOU1:xcount + SAGYOU1:btvData                  //Add
+			zcount         = SAGYOU1:xcount + 1                                //Add
+
+		EndIf                                                                 //Add
+
+		disp_normal()
+
+		While 1
+			A_Flg = 1
+			btvRet = wait_input()
+			
+			If btvRet eq "next" Then 
+				btvTempdata = btvEachInput
+				disp_result()
+				If btvEachInput.length == 10 Or btvEachInput.length == 14 Then                   //Add
+				//IF btvEachInput.length == 10   Then                   //Add
+				   A_Flg = 0                                          //Add
+				Else                                                  //Add
+				   Return ("retry")                                   //Add
+				EndIf                                                 //Add
+
+				Wbreak // 入力ループから抜ける
+
+			ElseIf btvRet eq "return1step" Then 
+				Return (btvLastsagyou) // ひとつ戻る
+			ElseIf btvRet eq "retry" Then 
+				Return ("retry") // 作業のリトライ
+			Else
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		btvData = btvTempdata
+		LogRecord:SetData(1,btvTempdata)
+
+//Add
+		A_Setti = btvTempdata
+		Out_Setti = btvTempdata.Mid(0,10)
+
+		Select  Case   ycount.length
+
+		Case  1 
+		      Out_Irai = "0000" &  ycount
+		Case  2 
+		      Out_Irai = "000" &  ycount
+		Case  3 
+		      Out_Irai = "00" &  ycount
+		Case  4 
+		      Out_Irai = "0" &  ycount
+		Case  5 
+		      Out_Irai =   ycount
+		Case  Else 
+		      Out_Irai =   ycount
+
+		End    Select
+
+		LogRecord:SetData(2,Out_Irai)
+//Add
+		Return (btvNextsagyou)
+		
+	End Method
+	
+
+
+	//---------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		
+		BCR:timeOut = 50// 100[msec]単位
+		
+		With ITF
+			:enable = true :useCD = false :includeCD = true 
+			If ( :max > 4 ) Then  :min = 4 :max = 50  Else  :max = 50 :min = 4  EndIf
+		EndWith
+		
+		With CODE128
+			:enable = true :useCD = true :includeCD = false 
+			If ( :max > 4 ) Then  :min = 4 :max = 50  Else  :max = 50 :min = 4  EndIf
+		EndWith
+		
+		With InputString
+			:posx = 5 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 15
+			:maxLength = 14
+			:minLength = 1
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			If LOG:logMode eq "modifylog" Then 
+				:data = LogRecord:GetData(logIndex)
+				:enableKeyInput = 1
+				btvKeycode = :Exec()
+				LOG:btvTempdata = :data
+			Else
+				btvKeycode = :Exec()
+				btvEachInput=:data
+
+			EndIf
+
+		EndWith
+		
+		btvRet = JOB:input_loop(btvKeycode)
+
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+		btvDisp
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 5 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText("★9条受付★")
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText("開始№：")
+			:posx = 1 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText("依頼№：")
+			:posx = 1 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText("設置者：")
+			:posx = 9 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText(A_Setti)              //Add
+
+			:posx = 3 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText("(")
+			:posx = 19 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText(")")
+			
+			If LOG:logMode eq "modifylog" Then 
+				If SAGYOU1:logIndex > 0 Then btvDisp = LogRecord:GetData(SAGYOU1:logIndex)
+				Else btvDisp = "" EndIf
+			Else
+				btvDisp = SAGYOU1:btvData
+			EndIf
+			
+			:posx = 11 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(btvDisp.Left(5))
+			:posx = 9 :posy = 5 :multiColumn = 1 :reverse = false :font = 2 :OutputText(ycount)               //Add
+			
+			:posx = 1 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText("件数：")
+			:posx = 11 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText(SAGYOU1:xcount)     //Add
+			:update = true
+		EndWith
+
+	End Method
+
+	//---------------------------------------------------
+	// 入力結果画面 表示メソッド
+	Method disp_result()
+		btvDisp
+	Begin
+		
+		Dsp_Count = ycount
+
+	End Method
+
+	//---------------------------------------------------
+	// 照合NG時動作
+	Method disp_syougouNG()
+		btvDisp
+	Begin
+		
+		JOB:syougou_NG()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 6 :multiColumn = 1 :reverse = false :font = 4 :OutputText("照合エラー")
+			:update = true
+		EndWith
+		
+		Handy:KeyWait()
+		
+	End Method
+
+EndPackage
+
+
+/////////////////////////////////////////////////////////
+// 外部インターフェイスメソッド
+/////////////////////////////////////////////////////////
+Package UTL_INTERFACE
+	// ---履歴関係---
+	//---------------------------------------------------
+	// 履歴画面表示メソッド
+	Method disp_normallog()
+		btvDisp
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:update = true
+		EndWith
+
+		Catch
+			Handy:ShowMessageBox( "ログファイルが不正です。", "confirm" )
+	End Method
+
+	//---------------------------------------------------
+	// 履歴修正メソッド
+	Method disp_modifyEx(logSelect, logDispResult)
+	Begin
+
+		Select Case logSelect
+		Case 1
+			If ( logDispResult is true ) Then SAGYOU1:disp_result() Else SAGYOU1:disp_normal() EndIf
+		Case 2
+			If ( logDispResult is true ) Then SAGYOU2:disp_result() Else SAGYOU2:disp_normal() EndIf
+		Case Else
+		End Select
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 履歴修正入力メソッド
+	Method modify_input(logSelect)
+	Begin
+		
+		Select Case logSelect
+		Case 1
+			Return ( SAGYOU1:wait_input() )
+		Case 2
+			Return ( SAGYOU2:wait_input() )
+		Case Else
+		End Select
+		
+		Return (1)
+	End Method
+	
+	//---------------------------------------------------
+	// 作業リスト表示メソッド
+	Method disp_sagyou_list()
+		btvDisp
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:update = true
+		EndWith
+
+	End Method
+
+	//---------------------------------------------------
+	// 入力回数取得メソッド
+	Method get_InputTimes(times)
+	Begin
+		Select Case times
+		Case 1
+			Return ( SAGYOU1:btvTimes )
+		Case 2
+			Return ( SAGYOU2:btvTimes )
+		Case Else
+		End Select
+		
+		Return (1)
+	End Method
+	
+EndPackage
+

@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ShokenHanteiDataSet" targetNamespace="http://tempuri.org/ShokenHanteiDataSet.xsd" xmlns:mstns="http://tempuri.org/ShokenHanteiDataSet.xsd" xmlns="http://tempuri.org/ShokenHanteiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="fukjTabletConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="fukjTabletConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjTabletSystem.Properties.Settings.GlobalReference.Default.fukjTabletConnectionString" Provider="Microsoft.SqlServerCe.Client.3.5" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ShokenHanteiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ShokenHanteiDataSet" msprop:Generator_UserDSName="ShokenHanteiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TaniSochiGroupMst" msprop:Generator_TableClassName="TaniSochiGroupMstDataTable" msprop:Generator_TableVarName="tableTaniSochiGroupMst" msprop:Generator_TablePropName="TaniSochiGroupMst" msprop:Generator_RowDeletingName="TaniSochiGroupMstRowDeleting" msprop:Generator_RowChangingName="TaniSochiGroupMstRowChanging" msprop:Generator_RowEvHandlerName="TaniSochiGroupMstRowChangeEventHandler" msprop:Generator_RowDeletedName="TaniSochiGroupMstRowDeleted" msprop:Generator_UserTableName="TaniSochiGroupMst" msprop:Generator_RowChangedName="TaniSochiGroupMstRowChanged" msprop:Generator_RowEvArgName="TaniSochiGroupMstRowChangeEvent" msprop:Generator_RowClassName="TaniSochiGroupMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TaniSochiGroupCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiGroupCd" msprop:Generator_ColumnPropNameInRow="TaniSochiGroupCd" msprop:Generator_ColumnPropNameInTable="TaniSochiGroupCdColumn" msprop:Generator_UserColumnName="TaniSochiGroupCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiGroupNm" msprop:Generator_ColumnVarNameInTable="columnTaniSochiGroupNm" msprop:Generator_ColumnPropNameInRow="TaniSochiGroupNm" msprop:Generator_ColumnPropNameInTable="TaniSochiGroupNmColumn" msprop:Generator_UserColumnName="TaniSochiGroupNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RowIndex" msprop:Generator_ColumnVarNameInTable="columnRowIndex" msprop:Generator_ColumnPropNameInRow="RowIndex" msprop:Generator_ColumnPropNameInTable="RowIndexColumn" msprop:Generator_UserColumnName="RowIndex" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaniSochiKensaKomokuMst" msprop:Generator_TableClassName="TaniSochiKensaKomokuMstDataTable" msprop:Generator_TableVarName="tableTaniSochiKensaKomokuMst" msprop:Generator_TablePropName="TaniSochiKensaKomokuMst" msprop:Generator_RowDeletingName="TaniSochiKensaKomokuMstRowDeleting" msprop:Generator_RowChangingName="TaniSochiKensaKomokuMstRowChanging" msprop:Generator_RowEvHandlerName="TaniSochiKensaKomokuMstRowChangeEventHandler" msprop:Generator_RowDeletedName="TaniSochiKensaKomokuMstRowDeleted" msprop:Generator_UserTableName="TaniSochiKensaKomokuMst" msprop:Generator_RowChangedName="TaniSochiKensaKomokuMstRowChanged" msprop:Generator_RowEvArgName="TaniSochiKensaKomokuMstRowChangeEvent" msprop:Generator_RowClassName="TaniSochiKensaKomokuMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaTaniSochiGroupCd" msprop:Generator_ColumnVarNameInTable="columnKensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInRow="KensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInTable="KensaTaniSochiGroupCdColumn" msprop:Generator_UserColumnName="KensaTaniSochiGroupCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaKomokuCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaKomokuCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaKomokuCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaKomokuNm" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaKomokuNm" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaKomokuNm" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaKomokuNmColumn" msprop:Generator_UserColumnName="TaniSochiKensaKomokuNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaniSochiKensaJokyoMst" msprop:Generator_TableClassName="TaniSochiKensaJokyoMstDataTable" msprop:Generator_TableVarName="tableTaniSochiKensaJokyoMst" msprop:Generator_TablePropName="TaniSochiKensaJokyoMst" msprop:Generator_RowDeletingName="TaniSochiKensaJokyoMstRowDeleting" msprop:Generator_RowChangingName="TaniSochiKensaJokyoMstRowChanging" msprop:Generator_RowEvHandlerName="TaniSochiKensaJokyoMstRowChangeEventHandler" msprop:Generator_RowDeletedName="TaniSochiKensaJokyoMstRowDeleted" msprop:Generator_UserTableName="TaniSochiKensaJokyoMst" msprop:Generator_RowChangedName="TaniSochiKensaJokyoMstRowChanged" msprop:Generator_RowEvArgName="TaniSochiKensaJokyoMstRowChangeEvent" msprop:Generator_RowClassName="TaniSochiKensaJokyoMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaTaniSochiGroupCd" msprop:Generator_ColumnVarNameInTable="columnKensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInRow="KensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInTable="KensaTaniSochiGroupCdColumn" msprop:Generator_UserColumnName="KensaTaniSochiGroupCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaKomokuCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaKomokuCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaKomokuCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaJokyoCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaJokyoCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaJokyoCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaJokyoCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaJokyoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaJokyoNm" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaJokyoNm" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaJokyoNm" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaJokyoNmColumn" msprop:Generator_UserColumnName="TaniSochiKensaJokyoNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaniSochiKensaJokyoTeidoMst" msprop:Generator_TableClassName="TaniSochiKensaJokyoTeidoMstDataTable" msprop:Generator_TableVarName="tableTaniSochiKensaJokyoTeidoMst" msprop:Generator_TablePropName="TaniSochiKensaJokyoTeidoMst" msprop:Generator_RowDeletingName="TaniSochiKensaJokyoTeidoMstRowDeleting" msprop:Generator_RowChangingName="TaniSochiKensaJokyoTeidoMstRowChanging" msprop:Generator_RowEvHandlerName="TaniSochiKensaJokyoTeidoMstRowChangeEventHandler" msprop:Generator_RowDeletedName="TaniSochiKensaJokyoTeidoMstRowDeleted" msprop:Generator_UserTableName="TaniSochiKensaJokyoTeidoMst" msprop:Generator_RowChangedName="TaniSochiKensaJokyoTeidoMstRowChanged" msprop:Generator_RowEvArgName="TaniSochiKensaJokyoTeidoMstRowChangeEvent" msprop:Generator_RowClassName="TaniSochiKensaJokyoTeidoMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaTaniSochiGroupCd" msprop:Generator_ColumnVarNameInTable="columnKensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInRow="KensaTaniSochiGroupCd" msprop:Generator_ColumnPropNameInTable="KensaTaniSochiGroupCdColumn" msprop:Generator_UserColumnName="KensaTaniSochiGroupCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaKomokuCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaKomokuCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaKomokuCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaKomokuCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaJokyoCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaJokyoCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaJokyoCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaJokyoCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaJokyoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaJokyoTeidoCd" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaJokyoTeidoCd" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaJokyoTeidoCd" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaJokyoTeidoCdColumn" msprop:Generator_UserColumnName="TaniSochiKensaJokyoTeidoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiKensaJokyoTeidoNm" msprop:Generator_ColumnVarNameInTable="columnTaniSochiKensaJokyoTeidoNm" msprop:Generator_ColumnPropNameInRow="TaniSochiKensaJokyoTeidoNm" msprop:Generator_ColumnPropNameInTable="TaniSochiKensaJokyoTeidoNmColumn" msprop:Generator_UserColumnName="TaniSochiKensaJokyoTeidoNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SentakuShokenKbn" msprop:Generator_ColumnVarNameInTable="columnSentakuShokenKbn" msprop:Generator_ColumnPropNameInRow="SentakuShokenKbn" msprop:Generator_ColumnPropNameInTable="SentakuShokenKbnColumn" msprop:Generator_UserColumnName="SentakuShokenKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SentakuShokenCd" msprop:Generator_ColumnVarNameInTable="columnSentakuShokenCd" msprop:Generator_ColumnPropNameInRow="SentakuShokenCd" msprop:Generator_ColumnPropNameInTable="SentakuShokenCdColumn" msprop:Generator_UserColumnName="SentakuShokenCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ShokenMst" msprop:Generator_TableClassName="ShokenMstDataTable" msprop:Generator_TableVarName="tableShokenMst" msprop:Generator_TablePropName="ShokenMst" msprop:Generator_RowDeletingName="ShokenMstRowDeleting" msprop:Generator_RowChangingName="ShokenMstRowChanging" msprop:Generator_RowEvHandlerName="ShokenMstRowChangeEventHandler" msprop:Generator_RowDeletedName="ShokenMstRowDeleted" msprop:Generator_UserTableName="ShokenMst" msprop:Generator_RowChangedName="ShokenMstRowChanged" msprop:Generator_RowEvArgName="ShokenMstRowChangeEvent" msprop:Generator_RowClassName="ShokenMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShokenKbn" msprop:Generator_ColumnVarNameInTable="columnShokenKbn" msprop:Generator_ColumnPropNameInRow="ShokenKbn" msprop:Generator_ColumnPropNameInTable="ShokenKbnColumn" msprop:Generator_UserColumnName="ShokenKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCd" msprop:Generator_ColumnVarNameInTable="columnShokenCd" msprop:Generator_ColumnPropNameInRow="ShokenCd" msprop:Generator_ColumnPropNameInTable="ShokenCdColumn" msprop:Generator_UserColumnName="ShokenCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenJuyodo" msprop:Generator_ColumnVarNameInTable="columnShokenJuyodo" msprop:Generator_ColumnPropNameInRow="ShokenJuyodo" msprop:Generator_ColumnPropNameInTable="ShokenJuyodoColumn" msprop:Generator_UserColumnName="ShokenJuyodo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHyokiJun" msprop:Generator_ColumnVarNameInTable="columnShokenHyokiJun" msprop:Generator_ColumnPropNameInRow="ShokenHyokiJun" msprop:Generator_ColumnPropNameInTable="ShokenHyokiJunColumn" msprop:Generator_UserColumnName="ShokenHyokiJun">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHandan" msprop:Generator_ColumnVarNameInTable="columnShokenHandan" msprop:Generator_ColumnPropNameInRow="ShokenHandan" msprop:Generator_ColumnPropNameInTable="ShokenHandanColumn" msprop:Generator_UserColumnName="ShokenHandan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenWd" msprop:Generator_ColumnVarNameInTable="columnShokenWd" msprop:Generator_ColumnPropNameInRow="ShokenWd" msprop:Generator_ColumnPropNameInTable="ShokenWdColumn" msprop:Generator_UserColumnName="ShokenWd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenWdRyaku" msprop:Generator_ColumnVarNameInTable="columnShokenWdRyaku" msprop:Generator_ColumnPropNameInRow="ShokenWdRyaku" msprop:Generator_ColumnPropNameInTable="ShokenWdRyakuColumn" msprop:Generator_UserColumnName="ShokenWdRyaku">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHantei" msprop:Generator_ColumnVarNameInTable="columnShokenHantei" msprop:Generator_ColumnPropNameInRow="ShokenHantei" msprop:Generator_ColumnPropNameInTable="ShokenHanteiColumn" msprop:Generator_UserColumnName="ShokenHantei">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenBiko" msprop:Generator_ColumnVarNameInTable="columnShokenBiko" msprop:Generator_ColumnPropNameInRow="ShokenBiko" msprop:Generator_ColumnPropNameInTable="ShokenBikoColumn" msprop:Generator_UserColumnName="ShokenBiko">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHokokuLevel" msprop:Generator_ColumnVarNameInTable="columnShokenHokokuLevel" msprop:Generator_ColumnPropNameInRow="ShokenHokokuLevel" msprop:Generator_ColumnPropNameInTable="ShokenHokokuLevelColumn" msprop:Generator_UserColumnName="ShokenHokokuLevel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenShitekiKbn" msprop:Generator_ColumnVarNameInTable="columnShokenShitekiKbn" msprop:Generator_ColumnPropNameInRow="ShokenShitekiKbn" msprop:Generator_ColumnPropNameInTable="ShokenShitekiKbnColumn" msprop:Generator_UserColumnName="ShokenShitekiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenShitekiNo" msprop:Generator_ColumnVarNameInTable="columnShokenShitekiNo" msprop:Generator_ColumnPropNameInRow="ShokenShitekiNo" msprop:Generator_ColumnPropNameInTable="ShokenShitekiNoColumn" msprop:Generator_UserColumnName="ShokenShitekiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenDojiCheckKomoku" msprop:Generator_ColumnVarNameInTable="columnShokenDojiCheckKomoku" msprop:Generator_ColumnPropNameInRow="ShokenDojiCheckKomoku" msprop:Generator_ColumnPropNameInTable="ShokenDojiCheckKomokuColumn" msprop:Generator_UserColumnName="ShokenDojiCheckKomoku">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenDojiCheckHandan" msprop:Generator_ColumnVarNameInTable="columnShokenDojiCheckHandan" msprop:Generator_ColumnPropNameInRow="ShokenDojiCheckHandan" msprop:Generator_ColumnPropNameInTable="ShokenDojiCheckHandanColumn" msprop:Generator_UserColumnName="ShokenDojiCheckHandan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenFollowFlg" msprop:Generator_ColumnVarNameInTable="columnShokenFollowFlg" msprop:Generator_ColumnPropNameInRow="ShokenFollowFlg" msprop:Generator_ColumnPropNameInTable="ShokenFollowFlgColumn" msprop:Generator_UserColumnName="ShokenFollowFlg">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenTaishoKensaBitMask" msprop:Generator_ColumnVarNameInTable="columnShokenTaishoKensaBitMask" msprop:Generator_ColumnPropNameInRow="ShokenTaishoKensaBitMask" msprop:Generator_ColumnPropNameInTable="ShokenTaishoKensaBitMaskColumn" msprop:Generator_UserColumnName="ShokenTaishoKensaBitMask" type="xs:int" />
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TaniSochiGroupMst" />
+      <xs:field xpath="mstns:RowIndex" />
+    </xs:unique>
+    <xs:unique name="TaniSochiKensaKomokuMst_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TaniSochiKensaKomokuMst" />
+      <xs:field xpath="mstns:KensaTaniSochiGroupCd" />
+      <xs:field xpath="mstns:TaniSochiKensaKomokuCd" />
+    </xs:unique>
+    <xs:unique name="TaniSochiKensaJokyoMst_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TaniSochiKensaJokyoMst" />
+      <xs:field xpath="mstns:KensaTaniSochiGroupCd" />
+      <xs:field xpath="mstns:TaniSochiKensaKomokuCd" />
+      <xs:field xpath="mstns:TaniSochiKensaJokyoCd" />
+    </xs:unique>
+    <xs:unique name="TaniSochiKensaJokyoTeidoMst_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TaniSochiKensaJokyoTeidoMst" />
+      <xs:field xpath="mstns:KensaTaniSochiGroupCd" />
+      <xs:field xpath="mstns:TaniSochiKensaKomokuCd" />
+      <xs:field xpath="mstns:TaniSochiKensaJokyoCd" />
+      <xs:field xpath="mstns:TaniSochiKensaJokyoTeidoCd" />
+    </xs:unique>
+    <xs:unique name="ShokenMst_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ShokenMst" />
+      <xs:field xpath="mstns:ShokenKbn" />
+      <xs:field xpath="mstns:ShokenCd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CenterKeikokuDataSet" targetNamespace="http://tempuri.org/CenterKeikokuDataSet.xsd" xmlns:mstns="http://tempuri.org/CenterKeikokuDataSet.xsd" xmlns="http://tempuri.org/CenterKeikokuDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CenterKeikokuDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CenterKeikokuDataSet" msprop:Generator_UserDSName="CenterKeikokuDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CenterKeikokuList" msprop:Generator_TableClassName="CenterKeikokuListDataTable" msprop:Generator_TableVarName="tableCenterKeikokuList" msprop:Generator_TablePropName="CenterKeikokuList" msprop:Generator_RowDeletingName="CenterKeikokuListRowDeleting" msprop:Generator_RowChangingName="CenterKeikokuListRowChanging" msprop:Generator_RowEvHandlerName="CenterKeikokuListRowChangeEventHandler" msprop:Generator_RowDeletedName="CenterKeikokuListRowDeleted" msprop:Generator_UserTableName="CenterKeikokuList" msprop:Generator_RowChangedName="CenterKeikokuListRowChanged" msprop:Generator_RowEvArgName="CenterKeikokuListRowChangeEvent" msprop:Generator_RowClassName="CenterKeikokuListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TantoshaCd" msdata:Caption="KensaIraiKensaTantoshaCd" msprop:Generator_ColumnVarNameInTable="columnTantoshaCd" msprop:Generator_ColumnPropNameInRow="TantoshaCd" msprop:Generator_ColumnPropNameInTable="TantoshaCdColumn" msprop:Generator_UserColumnName="TantoshaCd" type="xs:string" />
+              <xs:element name="TantoshaName" msdata:Caption="KensaIraiKensaTantoshaCd" msprop:Generator_ColumnVarNameInTable="columnTantoshaName" msprop:Generator_ColumnPropNameInRow="TantoshaName" msprop:Generator_ColumnPropNameInTable="TantoshaNameColumn" msprop:Generator_UserColumnName="TantoshaName" type="xs:string" minOccurs="0" />
+              <xs:element name="Mikanryo" msprop:Generator_ColumnVarNameInTable="columnMikanryo" msprop:Generator_ColumnPropNameInRow="Mikanryo" msprop:Generator_ColumnPropNameInTable="MikanryoColumn" msprop:Generator_UserColumnName="Mikanryo" type="xs:int" minOccurs="0" />
+              <xs:element name="Mijisshi7Jo3_4" msprop:Generator_ColumnVarNameInTable="columnMijisshi7Jo3_4" msprop:Generator_ColumnPropNameInRow="Mijisshi7Jo3_4" msprop:Generator_ColumnPropNameInTable="Mijisshi7Jo3_4Column" msprop:Generator_UserColumnName="Mijisshi7Jo3_4" type="xs:int" minOccurs="0" />
+              <xs:element name="Mijisshi7Jo5_6" msprop:Generator_ColumnVarNameInTable="columnMijisshi7Jo5_6" msprop:Generator_ColumnPropNameInRow="Mijisshi7Jo5_6" msprop:Generator_ColumnPropNameInTable="Mijisshi7Jo5_6Column" msprop:Generator_UserColumnName="Mijisshi7Jo5_6" type="xs:int" minOccurs="0" />
+              <xs:element name="Mijisshi7Jo7Ijo" msprop:Generator_ColumnVarNameInTable="columnMijisshi7Jo7Ijo" msprop:Generator_ColumnPropNameInRow="Mijisshi7Jo7Ijo" msprop:Generator_ColumnPropNameInTable="Mijisshi7Jo7IjoColumn" msprop:Generator_UserColumnName="Mijisshi7Jo7Ijo" type="xs:int" minOccurs="0" />
+              <xs:element name="Mijisshi" msprop:Generator_ColumnVarNameInTable="columnMijisshi" msprop:Generator_ColumnPropNameInRow="Mijisshi" msprop:Generator_ColumnPropNameInTable="MijisshiColumn" msprop:Generator_UserColumnName="Mijisshi" type="xs:int" minOccurs="0" />
+              <xs:element name="Horyu7Jo" msprop:Generator_ColumnVarNameInTable="columnHoryu7Jo" msprop:Generator_ColumnPropNameInRow="Horyu7Jo" msprop:Generator_ColumnPropNameInTable="Horyu7JoColumn" msprop:Generator_UserColumnName="Horyu7Jo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Miwariate7JoList" msprop:Generator_TableClassName="Miwariate7JoListDataTable" msprop:Generator_TableVarName="tableMiwariate7JoList" msprop:Generator_RowChangedName="Miwariate7JoListRowChanged" msprop:Generator_TablePropName="Miwariate7JoList" msprop:Generator_RowDeletingName="Miwariate7JoListRowDeleting" msprop:Generator_RowChangingName="Miwariate7JoListRowChanging" msprop:Generator_RowEvHandlerName="Miwariate7JoListRowChangeEventHandler" msprop:Generator_RowDeletedName="Miwariate7JoListRowDeleted" msprop:Generator_RowClassName="Miwariate7JoListRow" msprop:Generator_UserTableName="Miwariate7JoList" msprop:Generator_RowEvArgName="Miwariate7JoListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KeikokuCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKeikokuCount" msprop:Generator_ColumnPropNameInRow="KeikokuCount" msprop:Generator_ColumnPropNameInTable="KeikokuCountColumn" msprop:Generator_UserColumnName="KeikokuCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Miwariate11JoList" msprop:Generator_TableClassName="Miwariate11JoListDataTable" msprop:Generator_TableVarName="tableMiwariate11JoList" msprop:Generator_RowChangedName="Miwariate11JoListRowChanged" msprop:Generator_TablePropName="Miwariate11JoList" msprop:Generator_RowDeletingName="Miwariate11JoListRowDeleting" msprop:Generator_RowChangingName="Miwariate11JoListRowChanging" msprop:Generator_RowEvHandlerName="Miwariate11JoListRowChangeEventHandler" msprop:Generator_RowDeletedName="Miwariate11JoListRowDeleted" msprop:Generator_RowClassName="Miwariate11JoListRow" msprop:Generator_UserTableName="Miwariate11JoList" msprop:Generator_RowEvArgName="Miwariate11JoListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KeikokuCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKeikokuCount" msprop:Generator_ColumnPropNameInRow="KeikokuCount" msprop:Generator_ColumnPropNameInTable="KeikokuCountColumn" msprop:Generator_UserColumnName="KeikokuCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CenterKeikokuList" />
+      <xs:field xpath="mstns:TantoshaCd" />
+    </xs:unique>
+    <xs:unique name="Miwariate11JoList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Miwariate11JoList" />
+      <xs:field xpath="mstns:KensaIraiNendo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

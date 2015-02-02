@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<configuration>
+<configSections>
+    <section name="log4net" type=" log4net.Config.Log4NetConfigurationSectionHandler,log4net"/>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+        <section name="FukjTabletSystem.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+</configSections>
+<connectionStrings>
+    <add name="FukjTabletSystem.Properties.Settings.OVLFukjOverlayConnectionString"
+        connectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\MapWorks\OVLFukjOverlay.mdb"
+        providerName="System.Data.OleDb" />
+    <add name="FukjTabletSystem.Properties.Settings.fukjTabletConnectionString"
+        connectionString="Data Source=C:\FukjTabletSystem\Database\fukjTablet_20141119.sdf;Password=fukj_1800;Persist Security Info=True"
+        providerName="Microsoft.SqlServerCe.Client.3.5" />
+    <add name="FukjBizSystem.Properties.Settings.FukjBizSystemConnectionString"
+     connectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=FukjBizSystem;Persist Security Info=True;User ID=sa;Password=fukj_1800"
+     providerName="System.Data.SqlClient" />
+    <add name="FukjBizSystem.Properties.Settings.FukjBizSystemConnectionString1"
+      connectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=FukjBizSystem;Persist Security Info=True;User ID=sa;Password=fukj_1800"
+      providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+  <log4net>
+    <!-- ログ出力先の定義 -->
+    <appender name="TraceAppender" type="log4net.Appender.RollingFileAppender">
+      <!-- ログファイル -->
+      <file value="C:\FukjTabletSystem\Log\Trace_"/>
+      <!-- 追加モードで書込み -->
+      <appendToFile value="true"/>
+      <!-- ログファイル保存数 -->
+      <maxSizeRollBackups value="10"/>
+      <!-- ログファイルの最大サイズ -->
+      <maximumFileSize value="5MB"/>
+      <!-- 日単位でファイル作成 -->
+      <rollingStyle value="date"/>
+      <staticLogFileName value="false"/>
+      <datePattern value="yyyyMMdd&quot;.log&quot;"/>
+      <!-- ログの書式 -->
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/>
+      </layout>
+    </appender>
+    <root>
+      <!-- すべてのログレベルを出力 -->
+      <level value="ALL"/>
+
+      <!-- どのログ出力先を使用するか -->
+      <appender-ref ref="TraceAppender"/>
+    </root>
+  </log4net>
+  
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup>
+  <applicationSettings>
+    <FukjTabletSystem.Properties.Settings>
+      <setting name="DataPathSQLCE" serializeAs="String">
+        <value>C:\FukjTabletSystem\Database</value>
+      </setting>
+      <setting name="DataNameSQLCE" serializeAs="String">
+        <value>fukjTablet_20141119.sdf</value>
+      </setting>
+      <setting name="FileDirectory" serializeAs="String">
+        <value>C:\FukjTabletSystem\File</value>
+      </setting>
+      <setting name="PrintDirectory" serializeAs="String">
+        <value>C:\FukjTabletSystem\Print</value>
+      </setting>
+      <setting name="PrintFormatFolder" serializeAs="String">
+        <value>C:\FukjTabletSystem\PrintFormat</value>
+      </setting>
+      <setting name="HolidayFile" serializeAs="String">
+        <value>.\HolidayFile.xml</value>
+      </setting>
+      <setting name="ErrMsgFile" serializeAs="String">
+        <value>.\ErrMsgFile.xml</value>
+      </setting>
+      <setting name="GpsTimeout" serializeAs="String">
+        <value>10</value>
+      </setting>
+      <setting name="GpsRefleshTimer" serializeAs="String">
+        <value>5000</value>
+      </setting>
+      <setting name="OnlineCheckEnable" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="OnlineCheckAddress" serializeAs="String">
+        <value>localhost</value>
+      </setting>
+    </FukjTabletSystem.Properties.Settings>
+  </applicationSettings>
+</configuration>

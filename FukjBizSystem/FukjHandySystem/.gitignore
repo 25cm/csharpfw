@@ -1,0 +1,7 @@
+/emu/*
+/SCP/*.map
+/SCP/*.mpx
+/SCP/*.bak
+/sb3info.ini
+/*.sb3
+/TmApp_KAPL.dll

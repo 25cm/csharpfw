@@ -1,0 +1,11 @@
+c:\users\datnt\documents\visual studio 2010\Projects\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\UriageShukeiBatch.exe
+c:\users\datnt\documents\visual studio 2010\Projects\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\UriageShukeiBatch.pdb
+c:\users\datnt\documents\visual studio 2010\Projects\UriageShukeiBatch\UriageShukeiBatch\obj\x86\Debug\UriageShukeiBatch.exe
+c:\users\datnt\documents\visual studio 2010\Projects\UriageShukeiBatch\UriageShukeiBatch\obj\x86\Debug\UriageShukeiBatch.pdb
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\UriageShukeiBatch.exe
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\UriageShukeiBatch.pdb
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\log4net.dll
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\obj\x86\Debug\UriageShukeiBatch.csprojResolveAssemblyReference.cache
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\obj\x86\Debug\UriageShukeiBatch.exe
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\obj\x86\Debug\UriageShukeiBatch.pdb
+D:\PROJECT\Johkasou\source\fj_biz-system\FukjBizSystem\UriageShukeiBatch\UriageShukeiBatch\bin\Debug\UriageShukeiBatch.exe.config

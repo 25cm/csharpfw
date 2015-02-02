@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YachoDataSet" targetNamespace="http://tempuri.org/YachoDataSet.xsd" xmlns:mstns="http://tempuri.org/YachoDataSet.xsd" xmlns="http://tempuri.org/YachoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YachoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="YachoDataSet" msprop:Generator_UserDSName="YachoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YachoTorikomi" msprop:Generator_TableClassName="YachoTorikomiDataTable" msprop:Generator_TableVarName="tableYachoTorikomi" msprop:Generator_TablePropName="YachoTorikomi" msprop:Generator_RowDeletingName="YachoTorikomiRowDeleting" msprop:Generator_RowChangingName="YachoTorikomiRowChanging" msprop:Generator_RowEvHandlerName="YachoTorikomiRowChangeEventHandler" msprop:Generator_RowDeletedName="YachoTorikomiRowDeleted" msprop:Generator_UserTableName="YachoTorikomi" msprop:Generator_RowChangedName="YachoTorikomiRowChanged" msprop:Generator_RowEvArgName="YachoTorikomiRowChangeEvent" msprop:Generator_RowClassName="YachoTorikomiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SuishitsuKensaIraiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SuishitsuKensaIraiNo" msprop:Generator_ColumnVarNameInTable="columnSuishitsuKensaIraiNo" msprop:Generator_ColumnPropNameInTable="SuishitsuKensaIraiNoColumn" msprop:Generator_UserColumnName="SuishitsuKensaIraiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KekkaValue" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="KekkaValue" msprop:Generator_ColumnVarNameInTable="columnKekkaValue" msprop:Generator_ColumnPropNameInTable="KekkaValueColumn" msprop:Generator_UserColumnName="KekkaValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Hani" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Hani" msprop:Generator_ColumnVarNameInTable="columnHani" msprop:Generator_ColumnPropNameInTable="HaniColumn" msprop:Generator_UserColumnName="Hani" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ondo" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="Ondo" msprop:Generator_ColumnVarNameInTable="columnOndo" msprop:Generator_ColumnPropNameInTable="OndoColumn" msprop:Generator_UserColumnName="Ondo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TorikomiKekka" msprop:Generator_ColumnVarNameInTable="columnTorikomiKekka" msprop:Generator_ColumnPropNameInRow="TorikomiKekka" msprop:Generator_ColumnPropNameInTable="TorikomiKekkaColumn" msprop:Generator_UserColumnName="TorikomiKekka" type="xs:string" minOccurs="0" />
+              <xs:element name="ErrorContent" msprop:Generator_ColumnVarNameInTable="columnErrorContent" msprop:Generator_ColumnPropNameInRow="ErrorContent" msprop:Generator_ColumnPropNameInTable="ErrorContentColumn" msprop:Generator_UserColumnName="ErrorContent" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiHokenjo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjo" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjo" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoColumn" msprop:Generator_UserColumnName="KensaIraiHokenjo" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiRenban" msprop:Generator_ColumnVarNameInTable="columnKensaIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiRenban" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiHoteiKbn" type="xs:string" minOccurs="0" />
+              <xs:element name="RowNumber" msprop:Generator_ColumnVarNameInTable="columnRowNumber" msprop:Generator_ColumnPropNameInRow="RowNumber" msprop:Generator_ColumnPropNameInTable="RowNumberColumn" msprop:Generator_UserColumnName="RowNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiNo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNo" msprop:Generator_ColumnPropNameInRow="KensaIraiNo" msprop:Generator_ColumnPropNameInTable="KensaIraiNoColumn" msprop:Generator_UserColumnName="KensaIraiNo" type="xs:string" minOccurs="0" />
+              <xs:element name="HaniNm" msprop:Generator_ColumnVarNameInTable="columnHaniNm" msprop:Generator_ColumnPropNameInRow="HaniNm" msprop:Generator_ColumnPropNameInTable="HaniNmColumn" msprop:Generator_UserColumnName="HaniNm" type="xs:string" minOccurs="0" />
+              <xs:element name="SuishitsuKekkaNm" msprop:Generator_ColumnVarNameInTable="columnSuishitsuKekkaNm" msprop:Generator_ColumnPropNameInRow="SuishitsuKekkaNm" msprop:Generator_ColumnPropNameInTable="SuishitsuKekkaNmColumn" msprop:Generator_UserColumnName="SuishitsuKekkaNm" type="xs:string" minOccurs="0" />
+              <xs:element name="KensaIraiHoteiKbnNm" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHoteiKbnNm" msprop:Generator_ColumnPropNameInRow="KensaIraiHoteiKbnNm" msprop:Generator_ColumnPropNameInTable="KensaIraiHoteiKbnNmColumn" msprop:Generator_UserColumnName="KensaIraiHoteiKbnNm" type="xs:string" minOccurs="0" />
+              <xs:element name="KekkaCd" msprop:Generator_ColumnVarNameInTable="columnKekkaCd" msprop:Generator_ColumnPropNameInRow="KekkaCd" msprop:Generator_ColumnPropNameInTable="KekkaCdColumn" msprop:Generator_UserColumnName="KekkaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

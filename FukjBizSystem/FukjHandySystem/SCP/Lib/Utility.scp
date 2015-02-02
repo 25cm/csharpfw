@@ -1,0 +1,1330 @@
+/////////////////////////////////////////////////////////
+//  Utility.scp
+//  Ver 1.05
+//  2003/11/12
+/////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+//						ユーティリティパッケージ						//
+//////////////////////////////////////////////////////////////////////////
+Package	UTL
+
+	//---------------------------------------------------
+	//Fメニュー
+	Method utlDispFuncMenu()
+		btvItem1	// メニュー項目1
+		btvItem2	// メニュー項目2
+		btvMenupos	// メニュー選択位置
+	Begin
+		btvItem1 = "1.端末設定|2.ファイル|3.履歴表示･編集|4.トップ画面に戻る"
+		btvItem2 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("Fメニュー",btvItem1,btvItem2,nil,nil,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				utlSetTerm()
+			Case 2
+				utlFileMenu()
+			Case 3
+				LOG:log_main()
+			Case 4
+				System:Load("App",0,0,0,0)
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+	EndMethod
+
+
+	//------------------------------------------------
+	//ファイル操作メニュ－
+	Method utlFileMenu()
+		btvItem1	// メニュー項目1
+		btvItem2	// メニュー項目2
+		btvMenupos	// メニュー選択位置
+	Begin
+		btvItem1 = "1.ファイル一覧表示|2.不要ファイル削除|3.ログ送信|4.マスタ受信"
+		btvItem2 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("ファイル",btvItem1,btvItem2,nil,nil,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				utlDispFileList()
+			Case 2
+				utlDeleteNonUsedFile()
+			Case 3
+				utlSendAllLog(7)
+			Case 4
+				utlReceiveMaster()
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+	EndMethod
+
+
+	//------------------------------------------------
+	//ファイル一覧表示
+	Method utlDispFileList()
+		driveno = 1	// ドライブ番号
+		filename	// ファイル名
+	Begin
+		filename = FileList:filelist("ファイル一覧", driveno)
+	EndMethod
+
+
+	//------------------------------------------------
+	//不要ファイル削除(引数リスト以外のファイルを削除)
+	Method utlDeleteNonUsedFile()
+		i
+		findflg = false		// ファイル検索フラグ
+		ret
+		filename
+	Begin
+
+		If FileSystem:FindFirst("2:_FILE.LST") is false Then return() EndIf
+		File2:Initialize()
+		File2:name = "2:_FILE.LST"
+
+		If ( Handy:ShowMessageBox("不要なファイルを削除します。よろしいですか？","yesno|no") is false ) Then
+			return()
+		EndIf
+
+		For  i = 0 to 1
+			If i == 0 Then ret = FileSystem:FindFirst("1:")
+			Else ret = FileSystem:FindFirst("2:")
+			EndIf
+			While ret is true
+				File2:currentPos = 0
+
+				findflg = false
+				While 1		// ファイルリストループ
+					filename = File2:Gets(126)
+					If filename is nil Then Wbreak EndIf
+					If filename.length < 3 Then Wbreak EndIf
+					If filename.left(1) ne "<" Then
+						filename = filename.remove("\r")
+						filename = filename.remove("\n")
+
+						If filename.toUpper eq FileSystem:findFileName.toUpper Then	// 大文字であることを期待
+							findflg = true
+							Wbreak
+						EndIf
+					EndIf
+				Wend
+				If findflg is false Then
+					FileSystem:Delete(FileSystem:findFileName)
+					If i == 0 Then ret = FileSystem:FindFirst("1:")	// 削除した後はもう一度最初から検索
+					Else ret = FileSystem:FindFirst("2:")
+					EndIf
+				Else
+					ret = FileSystem:FindNext()
+				EndIf
+
+			Wend
+		Next
+		File2:Initialize()
+
+		Handy:ShowMessageBox("ファイル削除が完了しました","confirm")
+
+	EndMethod
+
+
+	//------------------------------------------------
+	//作業リスト表示
+	Method utlDispSagyouList()
+	Begin
+		Handy:ShowMessageBox("作業リスト","ok")
+	EndMethod
+
+
+	//------------------------------------------------
+	//全ログ送信(driveselect :  3:ドライブ3、4:ドライブ4、7:ドライブ3,4)
+	Method utlSendAllLog(driveselect)
+		ret
+	Begin
+		With Screen
+			:Clear()
+			:posx = 1	:posy = 1	:reverse = false	:font = 1	:OutputText("ログファイルを")
+			:posx = 1	:posy = 3	:reverse = false	:font = 1	:OutputText("送信します")
+		EndWith
+
+		// PCとの接続
+		While 1
+			ret = Comm:Connect()
+			If ret Then
+				Wbreak
+			EndIf
+
+			If Comm:error eq "TIMEOUT" Then
+				If ( Handy:ShowMessageBox("タイムアウトしました。再試行しますか？","yesno|yes") is false ) Then
+					return()
+				EndIf
+			ElseIf Comm:error eq "CANCELED" Then
+				Handy:ShowMessageBox("キャンセルされました。","confirm")
+				return()
+			Else
+				Handy:ShowMessageBox("接続できませんでした。","confirm")
+				return()
+			EndIf
+		Wend
+
+		// ログファイル送信
+		If ( driveselect == 3 or driveselect == 7 ) Then
+			If Not Comm:PutLogFiles(3) Then
+				Comm:Disconnect()
+				Handy:ShowMessageBox("ドライブ3の送信に失敗しました","confirm")
+				return()
+			EndIf
+		EndIf
+
+		If ( driveselect == 4 or driveselect == 7 ) Then
+			If Not Comm:PutLogFiles(4) Then
+				Comm:Disconnect()
+				Handy:ShowMessageBox("ドライブ3の送信に失敗しました","confirm")
+				return()
+			EndIf
+		EndIf
+
+		// PCとの切断
+		Comm:Disconnect()
+
+		Handy:ShowMessageBox("送信完了","confirm")
+
+	EndMethod
+
+
+	//------------------------------------------------
+	//マスタ受信
+	Method utlReceiveMaster()
+		ret
+		i
+		tmpKeyNum
+		filename
+		filename2
+		sfilename			// 置き換えマスターファイル名
+		pcname				// PC側ファイル名
+		fcnt = 0			// リストファイル表題行数
+		getflg = 0		// 受信成功フラグ
+		retcode = false
+	Begin
+
+		If FileSystem:FindFirst("2:_FILE.LST") is false Then 
+			Handy:ShowMessageBox("受信ファイルリストの取得に失敗しました。","confirm")
+			return(retcode) 
+		EndIf
+		File2:Initialize()
+		File2:name = "2:_FILE.LST"
+
+		// PCとの接続
+		While 1
+			ret = Comm:Connect()
+			If ret is false Then
+				If Comm:error eq "TIMEOUT" Then
+					If ( Handy:ShowMessageBox("タイムアウトしました。再試行しますか？","yesno|yes") is false ) Then
+						return(retcode)
+					EndIf
+				ElseIf Comm:error eq "CANCELED" Then
+					Handy:ShowMessageBox("キャンセルされました。","ok")
+					return(retcode)
+				Else
+					Handy:ShowMessageBox("接続できませんでした。","ok")
+					return(retcode)
+				EndIf
+			Else
+				Wbreak
+			EndIf
+		Wend
+		
+		// 検索ファイルはここでクローズさせる
+		sfilename = Search:name
+		Search:Initialize()
+		Search:name = sfilename
+		sfilename = Search2:name
+		Search2:Initialize()
+		Search2:name = sfilename
+		
+		While 1		// ファイルリストループ
+			filename = File2:Gets(126)
+			If filename is nil Then Wbreak EndIf
+			If filename.length < 3 Then Wbreak EndIf
+
+			If fcnt == 2 Then		// マスターファイルカテゴリ
+				filename = filename.remove("\r")
+				filename = filename.remove("\n")
+				
+				//Handy:ShowMessageBox(filename,"ok")
+				
+				pcname = filename.right(filename.length-2)
+				ret = Comm:GetFile(pcname, filename)
+				//getflg = true//ver1.1.0.0
+				If ret is false Then
+					getflg = 2//ver1.2.0.0
+					Handy:ShowMessageBox("ファイル受信に失敗しました\n[" & filename & "]", "ok")
+				Else
+					getflg = 1//ver1.2.0.0
+					// MTPファイル削除
+					filename2 = "2" & filename.mid(1,20)
+					filename2 = filename2.left(filename2.find(".",0)) & ".MTP"
+
+					tmpKeyNum = Master:keyNum
+					Master:keyNum = 0
+					If Master:GetCount(true) is false Then
+						// オープンしていない
+					Else
+						Master:Close()
+						retcode = true
+					EndIf
+					Master:keyNum = tmpKeyNum
+					FileSystem:Delete(filename2)
+				EndIf
+
+			EndIf
+			If filename.left(1) eq "<" Then fcnt = fcnt + 1 EndIf
+		Wend
+		File2:Initialize()
+		
+		// PCとの切断
+		Comm:Disconnect()
+		
+		//If getflg is true Then//ver1.1.0.0
+		If getflg == 1 Then//ver1.2.0.0
+			Handy:ShowMessageBox("受信完了","ok")
+		ElseIf getflg == 0 Then//ver1.2.0.0
+			Handy:ShowMessageBox("マスターファイルがありません","ok")//ver1.2.0.0
+		EndIf
+		
+		return( retcode )
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末設定
+	Method utlSetTerm()
+		btvItem1	// メニュー項目1
+		btvItem2	// メニュー項目2
+		btvMenupos	// メニュー選択位置
+	Begin
+		btvItem1 = "1.端末ID|2.ブザー音量|3.コントラスト|4.キークリック音"
+		btvItem2 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("端末設定",btvItem1,btvItem2,nil,nil,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				ShowTermIDWindow("端末ID")
+			Case 2
+				ShowBuzzerWindow("ブザー音量")
+			Case 3
+				Handy:ShowContrastDialog("コントラスト")
+			Case 4
+				Handy:ShowClickVolumeDialog("キークリック音")
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末ID入力画面
+	Method ShowTermIDWindow(title)
+		ret
+	Begin
+		
+		TEMP_MEMORY:push_Screen()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = 12	:fontGapy = 1	:fontGapx = 0
+			:posx = 1	:posy = 1	:OutputText(title)
+			:posx = 1	:posy = 3	:OutputText("端末IDを")
+			:posx = 1	:posy = 5	:OutputText("入力してください")
+			:posx = 1	:posy = 9	:OutputText("ID:")
+			:DrawLine(1,12,119,12,"black")
+			:update = true
+		EndWith
+
+		While 1
+			With InputDecimal
+				:reverse = false
+				:font = 1
+				:posx = 4	:posy = 9
+				:minValue = 1	:maxValue = 65534
+				:inputAreaSize = 7
+				:data = Handy:id
+				ret = :Exec()
+				If ret eq "ENT" Then
+					Handy:id = :data
+					Handy:ShowMessageBox("設定しました","confirm")
+					Wbreak
+				ElseIf ret eq "C" or ret eq "BS" Then
+					Wbreak
+				ElseIf ret eq "ERR_RANGE_UPPER" or ret eq "ERR_RANGE_LOWER" Then
+					Handy:ShowMessageBox("範囲外です。\n(1-65534)","confirm")
+				ElseIf ret is False Then
+					Handy:ShowMessageBox("入力失敗。","confirm")
+					Wbreak
+				EndIf
+				:Initialize()
+			EndWith
+		Wend
+		
+		TEMP_MEMORY:pop_Screen()
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//ブザー音量設定画面
+	Method ShowBuzzerWindow(title)
+		
+	Begin
+	
+		//退避
+		TEMP_MEMORY:push_Screen()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = 12	:fontGapy = 1	:fontGapx = 0
+			:posx = 1	:posy = 1	:OutputText(title)
+			:posx = 1	:posy = 3	:OutputText("ブザー音量を")
+			:posx = 1	:posy = 5	:OutputText("入力してください")
+			:posx = 1	:posy = 7	:OutputText("0:消 1:小 2:中 3:大")
+			:posx = 1	:posy = 9	:OutputText("音量:")
+			:DrawLine(1,12,119,12,"black")
+			:update = true
+		EndWith
+		
+		While 1
+			With InputDecimal
+				:reverse = false
+				:font = 1
+				:posx = 6 :posy = 9
+				:maxValue = 3 :minValue = 0
+				:decimal = 0
+				If Buzzer:volume is nil Then
+					:data = 0
+				Else
+					:data = Buzzer:volume
+				EndIf
+				If :Exec() eq "ENT" Then
+					If :data == 0 Then
+						Buzzer:volume = nil
+					Else 
+						Buzzer:volume = :data
+					EndIf
+					Handy:ShowMessageBox("設定しました","confirm")
+					Wbreak
+				EndIf
+				
+			EndWith
+		Wend
+		
+		//復帰
+		TEMP_MEMORY:pop_Screen()
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//置き換えマスター処理
+	Method utlReplace(drvfilename, scrstr, start, charnum )
+		btvRet
+		btvTmp
+		btvStrSearch	// 検索キー文字列
+		idx = 0
+		len = 0
+		scrlen			// 検索キー文字列長さ
+	Begin
+		
+		If ( (start.isDigit is false) or (charnum.isDigit is false) ) Then
+			//start, charnum が数値でなければ抜ける
+			btvRet = "*****"
+			return( btvRet )
+		EndIf
+
+		//置換対象範囲
+		//scrstr をstart　charnumで切り出す
+		If ( start == 0 ) Then  
+			btvStrSearch = scrstr
+		Else
+			scrlen = scrstr.length
+			If ( scrlen < start ) Then //開始位置が文字数以上のとき
+				btvStrSearch = ""
+			ElseIf( scrlen < start + charnum -1 ) Then //置換対象の終端位置が文字数以上のとき
+				btvStrSearch = scrstr.mid( start - 1, scrlen - start + 1 )
+			Else 
+				btvStrSearch = scrstr.mid( start - 1, charnum )
+			EndIf
+		EndIf
+
+		With Search
+			:Initialize() :name = drvfilename
+			btvTmp = :GetFirst(1, btvStrSearch)
+		EndWith
+		
+		If (btvTmp is nil) Then
+			//Handy:ShowMessageBox("置き換えマスタを確認してください。","confirm")
+			btvRet = "*****"
+		Else
+			idx = btvTmp.find( ",", idx )
+			If ( idx is nil ) Then
+				//Handy:ShowMessageBox("置き換えマスタを確認してください。","confirm")
+				btvRet = "*****"
+			Else
+				len = btvTmp.length 
+				len = len - idx - 1
+				If ( len > 0 ) Then 
+					btvRet = btvTmp.mid( idx + 1, len )
+				Else
+					btvRet = "*****"
+				EndIf
+			EndIf
+		EndIf
+		
+		return( btvRet )
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//文字数制限つきの文字連結
+	Method utlStrCatEx( data1, data2 )
+		len1			// 先文字列長
+		len2			// 後文字列長
+		ret = ""
+		MAXLEN = 126
+	Begin
+		len1 = data1.length
+		len2 = data2.length
+
+		If ( len1 >= MAXLEN ) Then 
+			ret = data1.mid( 0, MAXLEN )
+			return ( ret )
+		EndIf
+
+		If ( len1 + len2 <= MAXLEN ) Then
+			ret = data1 & data2
+		Else
+			ret = data1 & data2.mid( 0, MAXLEN - len1 )
+		EndIf
+
+		return ( ret )
+
+	EndMethod
+
+
+	//------------------------------------------------
+	//数値でない場合0に変換する InputDecimal初期値用
+	Method utlDigitCheck(checkdata)
+		
+	Begin
+		
+		If (checkdata.isDigit) Then 
+			return (checkdata)
+		Else
+			return ("000")
+		EndIf
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//桁数限定の照合
+	Method utlCompareLimitedRange(cfdata,indata,cfSpos,inSpos,len)
+		//[引数]照合対象データ,入力データ,照合対象開始位置,入力データ開始位置,照合文字数
+		Ret
+		cf_ret		// 照合文字列１
+		in_ret		// 照合文字列２
+	Begin
+		
+		cf_ret = cfdata.mid(cfSpos-1,len)
+		in_ret = indata.mid(inSpos-1,len)
+
+		If cf_ret eq in_ret Then
+			return (true)
+		Else
+			return (false)
+		EndIf
+
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末データの文字列整形(端末ID、ログファイルフォーマット限定)
+	Method utlTermIDStyle(data,style)
+	Begin
+		return ( utlTermIDStyle2(data.mid(14,5),style) )
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末データの文字列整形(端末ID)
+	Method utlTermIDStyle2(data,style)
+		Ret
+		strtmp
+		strId
+	Begin
+		strtmp = "00000" & data
+		strId = strtmp.right(5)
+
+		Select Case style
+				Case "00001"
+					Ret = strId
+				Case "#00001"
+					Ret = "#" & strId
+				Case "No.00001"
+					Ret = "No." & strId
+				Case Else
+					Ret = strId
+		End Select
+		return (Ret)
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末データの文字列整形（日付）
+	Method utlDateStyle(DATE,style) // "yyyy/mm/dd"
+		tmpRet = ""		// 日付文字列
+	Begin		
+		//DATE.mid(0,8)
+		
+		//styleを次のように変更
+		//style       "yyyy/mm/dd" , "yy/mm/dd" , "yyyy/mm" , "yy/mm" , "mm/dd" , "yy年mm月" , "mm月dd日"
+
+		If DATE is nil Then
+			return (tmpRet)
+		EndIf
+
+		Select Case style
+				Case "yyyy/mm/dd"
+					tmpRet = DATE.mid(0,4) & "/" & DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yy/mm/dd"
+					tmpRet = DATE.mid(2,2) & "/" & DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yyyy/mm"
+					tmpRet = DATE.mid(0,4) & "/" & DATE.mid(4,2)
+				Case "yy/mm" 
+					tmpRet = DATE.mid(2,2) & "/" & DATE.mid(4,2)
+				Case "mm/dd"
+					tmpRet = DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yy年mm月"
+					tmpRet = DATE.mid(2,2) & "年" & DATE.mid(4,2) & "月"
+				Case "mm月dd日" 
+					tmpRet = DATE.mid(4,2) & "月" & DATE.mid(6,2) & "日" 
+				Case Else
+					tmpRet = DATE
+		End Select
+		return (tmpRet)
+	EndMethod
+
+
+	//------------------------------------------------
+	//端末データの文字列整形（時間）
+	Method utlTimeStyle(data,style) // "hh:mm:ss"
+	Begin
+		return ( utlTimeStyle2(data.mid(8,6),style) )
+	EndMethod
+	
+	Method utlTimeStyle2(data,style) // "hh:mm:ss"
+		Ret
+	Begin
+	//styleを次のように変更
+	//style  "hh:mm:ss" , "hh:mm" , "mm:ss" , "hh時mm分ss秒" , "hh時mm分" , "mm分ss秒"
+
+		Select Case style 
+				Case "hh:mm:ss"
+					Ret = data.mid(0,2) & ":" & data.mid(2,2) & ":" & data.mid(4,2)
+				Case "hh:mm"
+					Ret = data.mid(0,2) & ":" & data.mid(2,2)
+				Case "mm:ss"
+					Ret = data.mid(2,2) & ":" & data.mid(4,2)
+				Case "hh時mm分ss秒" 
+					Ret = data.mid(0,2) & "時" & data.mid(2,2) & "分" & data.mid(4,2) & "秒"
+				Case "hh時mm分"
+					Ret = data.mid(0,2) & "時" & data.mid(2,2) & "分"
+				Case "mm分ss秒"
+					Ret = data.mid(2,2) & "分" & data.mid(4,2) & "秒"
+				Case Else
+					Ret = data
+		End Select
+		return (Ret)
+	EndMethod
+
+
+	//------------------------------------------------
+	//マスタファイルのイニシャルチェック
+	Method utlInitialMasterCheck( tmpMstFile )
+		mstRet
+		msttemp		// キー項目数退避変数
+	Begin	
+		
+		msttemp = Master:keyNum
+		Master:keyNum = 0
+		mstRet = Master:GetFirst(nil, false)
+		Master:keyNum = msttemp
+		If (mstRet is false) Then 
+			
+			//Handy:ShowMessageBox("全ての項目がチェック済みです","yesno|no")
+			
+
+			If ( Handy:ShowMessageBox("マスタファイルを受信しますか？", "yesno|no") is true )  Then 
+				
+					//マスタ処理終了
+					Master:Close()
+					 //マスタ受信
+					utlReceiveMaster()	
+					//MTPファイルを削除
+					////If ( FileSystem:FindFirst(tmpMstFile) is true )  Then 
+					//	FileSystem:Delete(tmpMstFile)
+					//EndIf
+			//Else
+			EndIf
+					//トップメニューへ戻る
+					System:Load("App",0,0,0,0)
+			//EndIf		
+			
+			return (true)
+		EndIf
+		return (true)
+	EndMethod
+
+
+	//------------------------------------------------
+	// n桁以下の数値の前に空白を足して桁数をそろえる
+	Method utlMakeFixedNum(data,n)
+		i
+		strData
+	Begin
+		strData = data
+		If data.length < n Then
+			For i = 1 to n - data.length 
+				strData = " " & strData
+			Next
+		EndIf
+		return (strData)
+		
+	EndMethod
+	
+	//------------------------------------------------
+	// utlMakeFixedNumの拡張　n桁以上の数値は下ｎ桁の文字列にする。
+	Method utlMakeFixedNumEx(data,n)
+		i
+		strData
+	Begin
+		strData = data
+		If data.length < n Then
+			For i = 1 to n - data.length 
+				strData = " " & strData
+			Next
+		ElseIf data.length > n Then
+				strData = strData.Right(n)
+		EndIf
+		
+		return (strData)
+		
+	EndMethod
+
+	//------------------------------------------------
+	// 文字列dataの長さを len で指定した長さにする
+	// 後ろに空白を足す
+	Method fix_length(len,data)
+		i
+		strdata
+	Begin
+	
+		strdata = data
+		If data.length < len Then
+			For i = 1 to len - data.length
+				strdata = strdata & " "
+			Next
+		ElseIf	data.length > len Then
+			strdata = data.Left(len)
+		EndIf
+		
+		return (strdata)
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//ログデータ整形
+	Method utlFixedFormat( strdata, len, treatment )
+		strRet = ""
+		strADD = ""
+		i
+	Begin
+		
+		strRet = strdata
+		
+		If ( strdata.length < len ) Then //指定よりも短い
+			
+			If ( treatment eq "number" ) then 
+				//符号
+				strADD = "0"
+				If strdata.mid(0,1) eq "-" Then
+					strADD = "-"
+					strdata = strdata.mid(1,len) 
+				EndIf
+				//0付加
+				For i = 1 to len - strdata.length - 1
+					strADD = strADD & "0"//ゼロ
+				Next				
+				strRet = strADD & strdata
+			ElseIf ( treatment eq "string" ) then
+				For i = 1 to len - strdata.length
+					strADD = strADD & " "//スペース
+				Next
+				strRet = strdata & strADD
+			EndIf
+			
+		ElseIf ( strdata.length > len ) Then
+			
+			If ( treatment eq "number" ) then 
+				strRet = strdata.left( len )
+			ElseIf ( treatment eq "string" ) then
+				strRet = strdata.left( len )
+			EndIf			
+			
+		EndIf
+				
+		return (strRet)
+	EndMethod
+
+
+	//------------------------------------------------
+	//１ラインメッセージボックス
+	Method OneLineMessageBox(pos_y)
+		key
+		yesreverse = true	// メッセージボックス戻り値
+		ret
+		
+	Begin
+		
+		TEMP_MEMORY:push_Screen()
+		
+		With Screen
+			
+			:update = false
+			:reverse = false
+			:font = 1	:fontSize = 12	:fontGapx = 0	:fontGapy = 1
+			:posx = 1	:posy = pos_y	:OutputText("ＯＫ？(      ／    )")
+			:update = true
+		EndWith
+		
+		While 1 
+			With Screen
+				:update = false
+				:reverse = yesreverse
+				:posx = 8 	:posy = pos_y	:OutputText("ＹＥＳ")
+				:reverse = not yesreverse
+				:posx = 16	:posy = pos_y	:OutputText("ＮＯ")
+				:update = true
+			EndWith
+			
+			key = Handy:KeyWait()
+			Select Case key
+				Case "ENT"
+					ret = yesreverse
+					Wbreak
+				Case "C","BS" 
+					ret = false
+					Wbreak
+				Case "RIGHT"
+					yesreverse = false
+				Case "LEFT"
+					yesreverse = true
+				Case Else
+					Wcontinue
+			End Select
+		Wend
+		
+		TEMP_MEMORY:pop_Screen()
+		
+		return ( ret )
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//ログデータ取得
+	Method utlGetLogData(recidx,fldidx)
+		i
+		res
+		strdata		// 戻り値
+	Begin
+	
+		res = LogRecord:Read(recidx)
+		
+		if ( res is false ) then
+			recidx = 0
+		endif
+		
+		strdata = LogRecord:GetData(fldidx)
+		
+		return (strdata)
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//ログレコード取得
+	Method utlGetLogRecord(recidx)
+		i
+		res
+		sepa		// セパレータ
+		flddata		// 項目データ
+		strdata
+	Begin
+	
+		res = LogRecord:Read(recidx)
+		
+		if ( recidx is false ) then
+			recidx = 0
+		endif
+		
+		sepa = LogRecord:separator
+		
+		strdata = LogRecord:GetData(0)
+		
+		For i = 1 to LogRecord:fieldNum-1
+			flddata = LogRecord:GetData(i)
+			strdata = strdata & sepa & flddata
+		Next
+		
+		return (strdata)
+		
+	EndMethod
+
+
+	//------------------------------------------------
+	//日付フォーマット整形(ログデータ)
+	Method utlFormatYYYYMMDD(YMD)
+		strResult
+	Begin
+		strResult = YMD.Left(4) & "/" 
+		strResult = strResult & YMD.Mid(4,2) & "/"
+		strResult = strResult & YMD.Right(2) 
+		return(strResult)
+	EndMethod
+
+
+	//------------------------------------------------
+	//時刻フォーマット整形(ログデータ)
+	Method utlFormatTime(hhmm,ss)
+		strResult		
+	Begin
+		strResult = hhmm.Left(2) & ":" 
+		strResult = strResult & hhmm.Right(2) & ":"
+		strResult = strResult & ss 
+		return(strResult)	
+	EndMethod
+
+
+	//------------------------------------------------
+	//ログヘッダフォーマット整形
+	Method utlFormatLogHeader(header1,sepa,type)
+		ymd				// 年月日
+		hm				// 時分
+		s				// 秒
+		termID			// 端末ID
+		strResult
+		strtmp
+	Begin
+		strtmp = header1
+
+		ymd = strtmp.mid(0,8)
+		hm  = strtmp.mid(8,4)
+		s   = strtmp.mid(12,2)
+		termID = strtmp.mid(14,5)
+		
+		If type == 0 Then
+			strResult = utlFormatYYYYMMDD(ymd) & ","
+			strResult = strResult & utlFormatTime(hm,s) 
+		ElseIf type == 1 Then
+			strResult = utlFormatYYYYMMDD(ymd) 
+		ElseIf type == 2 Then
+			strResult = utlFormatTime(hm,s) 
+		ElseIf type == 3 Then
+			strResult = termID 
+		EndIf
+
+		return(strResult)
+	EndMethod
+
+
+	//------------------------------------------------
+	//ログ最大長取得
+	Method utlGetMaxLogLength()
+		i
+		j
+		maxlen = 0	// 最大長
+		strRecord
+		strtmp
+	Begin
+	
+		For i = 1 to LogRecord:recordCount
+			LogRecord:Read(i)
+			strtmp = LogRecord:header
+			
+			If ( strtmp is nil ) Then 
+				//Handy:ShowMessageBox("LogRecord failse","yesno|no")
+			Else
+				//Handy:ShowMessageBox(strtmp,"yesno|no")
+			EndIf
+			
+			strRecord = UTL:utlFormatLogHeader(strtmp,LogRecord:separator,0)
+			maxlen = 126
+			For j = 1  to LogRecord:fieldNum
+				strRecord = strRecord & "\t" & LogRecord:GetData(j)
+			Next
+			
+			maxlen = strRecord.length
+			
+		Next
+		return (maxlen)
+	Catch
+		return (maxlen)
+		
+	End Method
+
+
+	//--------------------------------------------------------------------
+	// 固定文字列用dec2char
+	//	引数
+	//		val       : 入力データ
+	//		decnum    : 小数以下桁数(0-3)
+	//		outlength : 出力桁数
+	//	戻り値
+	//		変換文字列
+	//--------------------------------------------------------------------
+	Method utl_dec2char_fix( val, decnum, outlength)
+		val_tmp
+		val_tmp2
+		val_tmp3
+		sp = "0"		// 埋め草
+		decpos			// 小数点位置(右から)
+	Begin
+		If ( decnum < 0 or 3 < decnum ) Then return("") EndIf
+		If ( outlength < 1 ) Then return("") EndIf
+
+		val = val*1000
+		If ( val < 0 ) Then val_tmp = 0 - val
+		Else val_tmp = val
+		EndIf
+		val_tmp = "000" & val_tmp
+		val_tmp2 = val_tmp.left(val_tmp.length - 3) & "." & val_tmp.right(3)
+
+		decpos = 3 - decnum
+		If decnum == 0 Then decpos = 4 EndIf
+		val_tmp2 = val_tmp2.left(val_tmp2.length - decpos)
+
+		val_tmp = sp.repeat(outlength)
+		If ( val < 0 ) Then
+			If ( val_tmp2.length < (outlength-1) ) Then
+				val_tmp3 = "-" & val_tmp.mid(1, (outlength-1) - val_tmp2.length) & val_tmp2
+			Else
+				val_tmp3 = "-" & val_tmp2.mid(val_tmp2.length - (outlength-1), (outlength-1))
+			EndIf
+		Else
+			If ( val_tmp2.length < outlength ) Then
+				val_tmp3 = val_tmp.left(outlength - val_tmp2.length) & val_tmp2
+			Else
+				val_tmp3 = val_tmp2.mid(val_tmp2.length - outlength, outlength)
+			EndIf
+		EndIf
+
+		return (val_tmp3)
+	EndMethod
+
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//							FileListパッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package FileList
+
+	//---------------------------------------------------
+	// ファイルリスト表示
+	//  引数
+	//   title   : (文字列型)タイトル文字列(右端2バイトはドライブ名称で使用します "1:")
+	//   driveno : (整数型)初期表示ドライブ(1-4)
+	//  戻り値
+	//   選択ファイル名(ENT押下時) C押下では""が戻ります
+	//---------------------------------------------------
+	Method filelist( title, driveno )
+		ret
+		fileName[100]	// ファイル名(1-100まで)
+		fileName2[28]	// ファイル名(101-128まで)
+		fileNum			// 処理ファイル数
+		lastPage		// 最終表示ページ数
+		curPage			// 現在のページ
+		curPage_Pos		// 現在のページの先頭ファイルインデックス
+		curPos			// 現在のファイルインデックス
+		curDrv = 1		// 現在のドライブ番号
+		chgDrv = true	// ドライブ変更判定フラグ
+		tmpnum
+		tmpstr
+		outstr
+		i
+	Begin
+
+		If ( driveno < 1 or 4 < driveno ) Then return ("") EndIf
+
+		TEMP_MEMORY:push_Screen()
+		Screen:status = false
+		Screen:fontSize = 12
+		Screen:fontGapx = 0
+		Screen:fontGapy = 1
+		curDrv = driveno
+		While 1
+			If ( chgDrv is true ) Then
+				// タイトル表示
+				Screen:update = false
+				Screen:Clear()
+				filelist_printpos(title, 1, 1)
+				filelist_printpos(curDrv & ":", 19, 1)
+				filelist_printpos("F1:INF F2:DRV", 1, 14)
+				// 破線表示
+				filelist_drawline(16)
+
+				// ドライブからファイル取得
+				chgDrv = false	fileNum = 0
+				curPos = 0		curPage_Pos = 0		curPage = 0
+				ret = FileSystem:FindFirst( curDrv & ":" )
+				While (ret is true)
+					tmpstr = FileSystem:findFileName.Right(FileSystem:findFileName.length-2)
+					If ( fileNum < 100 ) Then fileName[fileNum] = tmpstr
+					Else fileName2[fileNum-100] = tmpstr EndIf
+
+					fileNum = fileNum + 1
+					If ( curDrv == 3 or curDrv == 4 ) Then
+						fileName[0] = "ログファイル"
+						Wbreak
+					EndIf
+					ret = FileSystem:FindNext()
+				Wend
+				Screen:update = true
+			EndIf
+
+			// ページ計算
+			tmpnum = curPos / 5  curPage = tmpnum.toInt
+			curPage_Pos = curPos % 5
+			tmpnum = ((fileNum-1) / 5) lastPage = tmpnum.toInt
+			If ( fileNum > 0 ) Then
+				If ( curPos < 100 ) Then outstr = curDrv & ":" & fileName[curPos]
+				Else outstr = curDrv & ":" & fileName2[100-curPos] EndIf
+			Else
+				outstr = curDrv & ":"
+			EndIf
+
+			// ファイル表示
+			For i = 0 to 4
+				If (curPage*5 + i + 1 > fileNum) Then
+					filelist_printpos("                    ", 1, (4 + i*2))
+				Else
+					If (i == curPage_Pos) Then Screen:reverse = true
+					Else Screen:reverse = false EndIf
+					If ( i < 100 ) Then tmpstr = fileName[curPage*5 + i]
+					Else tmpstr = fileName2[curPage*5 + i - 100] EndIf
+					filelist_printpos(tmpstr & "                    ", 1, (4 + i*2))
+					Screen:reverse = false
+				EndIf
+			Next
+
+			// キー操作
+			ret = Handy:KeyWait()
+			If ( ret eq "UP" ) Then
+				If ( curPos == 0 ) Then
+					curPos = fileNum - 1
+				Else
+					curPos = curPos - 1
+				EndIf
+			ElseIf ( ret eq "DOWN" ) Then
+				If ( curPos == fileNum - 1 ) Then
+					curPos = 0
+				Else
+					curPos = curPos + 1
+				EndIf
+			ElseIf ( ret eq "LEFT" ) Then
+				If ( curPos < 5 ) Then
+					tmpnum = (lastPage * 5) + (curPage_Pos)
+					If ( tmpnum > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = tmpnum EndIf
+				Else
+					curPos = curPos - 5
+				EndIf
+			ElseIf ( ret eq "RIGHT" ) Then
+				If ( curPage == lastPage ) Then
+					curPos = curPage_Pos
+				Else
+					If ( curPos + 5 > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = curPos + 5 EndIf
+				EndIf
+			ElseIf ( ret eq "F1" ) Then
+				// ドライブ情報
+				If ( fileNum > 0 ) Then
+					filelist_viewinfo(outstr, curDrv)
+					chgDrv = true
+				EndIf
+			ElseIf ( ret eq "F2" ) Then
+				If ( curDrv == 4 ) Then curDrv = 1
+				Else curDrv = curDrv + 1 EndIf
+				chgDrv = true
+			ElseIf ( ret eq "BS" or ret eq "C" ) Then
+				outstr = ""
+				Wbreak
+			ElseIf ( ret eq "ENT" ) Then
+				Wbreak
+			EndIf
+		Wend
+
+		Screen:Clear()
+		TEMP_MEMORY:pop_Screen()
+
+		return (outstr)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// ファイル情報表示
+	Method filelist_viewinfo(filename, driveno)
+		tmpstr
+		ret
+		lastStatus			// 直前のステータス情報
+	Begin
+		lastStatus = Screen:status
+		Screen:status = true
+		Screen:update = false
+
+		filelist_printpos("  ファイル情報      ", 1, 4)
+		filelist_printpos("                    ", 1, 6)
+		filelist_printpos("                    ", 1, 8)
+		filelist_printpos("                    ", 1, 10)
+		filelist_printpos("C:戻る              ", 1, 12)
+
+		If ( driveno <> 3 and driveno <> 4 ) Then
+			filelist_printpos(filename, (20 - filename.length)/2+1, 6)
+			ret = FileSystem:FindFirst( filename )
+			If ( ret is not false ) Then
+				tmpstr = FileSystem:findFileSize & " byte"
+				filelist_printpos(tmpstr, (20 - tmpstr.length)/2+1, 8)
+				tmpstr = FileSystem:findDate.Right(FileSystem:findDate.length-2) & " " & FileSystem:findTime
+				filelist_printpos(tmpstr, (20 - tmpstr.length)/2+1, 10)
+			EndIf
+		Else
+			ret = FileSystem:FindFirst( driveno & ":" )
+			If ( ret is not false ) Then
+				filelist_printpos("    ログファイル", 1, 6)
+				tmpstr = FileSystem:findFileSize & " byte"
+				filelist_printpos(tmpstr, (20 - tmpstr.length)/2+1, 8)
+			EndIf
+		EndIf
+
+		Screen:update = true
+		While 1
+			ret = Handy:KeyWait()
+			If ( ret eq "C" or ret eq "BS" or ret eq "ENT" ) Then
+				Wbreak
+			EndIf
+		Wend
+
+		Screen:status = lastStatus
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 位置指定文字列表示
+	Method filelist_printpos(strmsg, x, y)
+	Begin
+		Screen:posx = x		Screen:posy = y
+		Screen:OutputText(strmsg)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 破線描画
+	Method filelist_drawline(y)
+		x1
+		x2
+		i
+	Begin
+		For i = 0 to 119 Step 4
+			Screen:DrawLine(i, y, i+1, y, "black")
+		Next
+	EndMethod
+
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//						情報一時保存パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package	TEMP_MEMORY
+
+	// 一時保存情報
+	tempUpdate
+	tempReverse
+	tempFont
+	tempFontSize
+	tempFontGapx
+	tempFontGapy
+	tempPosx
+	tempPosy
+	tempStatus
+
+	//---------------------------------------------------
+	// 退避
+	Method push_Screen()
+	Begin
+		//退避
+		With Screen
+			
+			tempUpdate	= :update
+			tempReverse	= :reverse
+			tempFont	= :font
+			tempFontSize= :fontSize
+			tempFontGapx= :fontGapx
+			tempFontGapy= :fontGapy
+			tempPosx	= :posx
+			tempPosy	= :posy
+			tempStatus	= :status
+		EndWith
+		
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 復帰
+	Method pop_Screen()
+	Begin
+		
+		//復帰
+		With Screen
+			:update 	= tempUpdate
+			:reverse	= tempReverse
+			:font		= tempFont
+			:fontSize	= tempFontSize
+			:fontGapx	= tempFontGapx
+			:fontGapy	= tempFontGapy
+			:posx 		= tempPosx
+			:posy 		= tempPosy
+			If ( :status is false or tempStatus is false ) Then
+				:status		= tempStatus
+			EndIf
+		EndWith
+		
+	EndMethod
+	
+EndPackage
+
+

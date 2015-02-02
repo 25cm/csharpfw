@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="IkoJokyoShukeiWrkDataSet" targetNamespace="http://tempuri.org/IkoJokyoShukeiWrkDataSet.xsd" xmlns:mstns="http://tempuri.org/IkoJokyoShukeiWrkDataSet.xsd" xmlns="http://tempuri.org/IkoJokyoShukeiWrkDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Kensa7To11JoIkoJokyoTableAdapter" GeneratorDataComponentClassName="Kensa7To11JoIkoJokyoTableAdapter" Name="Kensa7To11JoIkoJokyo" UserDataComponentName="Kensa7To11JoIkoJokyoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+		ijsw.KensaIraiHokenjoCd,
+		ijsw.JokasoGenChikuCd,
+		ijsw.KensaIraiNendo,
+		hm.HokenjoNm,
+		cm.ChikuNm,
+		ijsw.Kensa7JoJisshiCnt,
+		ijsw.IkoSumiCnt,
+		CONVERT(DECIMAL, ijsw.IkoSumiCnt) / CONVERT(DECIMAL, ijsw.Kensa7JoJisshiCnt) AS AvgValue
+FROM IkoJokyoShukeiWrk ijsw
+
+LEFT OUTER JOIN HokenjoMst hm ON hm.HokenjoCd = ijsw.KensaIraiHokenjoCd
+LEFT OUTER JOIN ChikuMst cm ON cm.ChikuCd = ijsw.JokasoGenChikuCd
+
+ORDER BY ijsw.KensaIraiHokenjoCd,
+		ijsw.JokasoGenChikuCd,
+		ijsw.KensaIraiNendo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="JokasoGenChikuCd" DataSetColumn="JokasoGenChikuCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="HokenjoNm" DataSetColumn="HokenjoNm" />
+              <Mapping SourceColumn="ChikuNm" DataSetColumn="ChikuNm" />
+              <Mapping SourceColumn="Kensa7JoJisshiCnt" DataSetColumn="Kensa7JoJisshiCnt" />
+              <Mapping SourceColumn="IkoSumiCnt" DataSetColumn="IkoSumiCnt" />
+              <Mapping SourceColumn="AvgValue" DataSetColumn="AvgValue" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Kensa7JoKanryoTableAdapter" GeneratorDataComponentClassName="Kensa7JoKanryoTableAdapter" Name="Kensa7JoKanryo" UserDataComponentName="Kensa7JoKanryoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByKensaNendo" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByKensaNendo" GeneratorSourceName="FillByKensaNendo" GetMethodModifier="Public" GetMethodName="GetDataByKensaNendo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByKensaNendo" UserSourceName="FillByKensaNendo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+		kit.KensaIraiHokenjoCd,
+		jdm.JokasoGenChikuCd,
+		kit.KensaIraiNendo,
+		COUNT(*) AS Cnt
+		
+
+
+FROM KensaIraiTbl kit 
+INNER JOIN JokasoDaichoMst jdm ON jdm.JokasoHokenjoCd = kit.KensaIraiJokasoHokenjoCd
+								AND jdm.JokasoTorokuNendo = kit.KensaIraiJokasoTorokuNendo
+								AND jdm.JokasoRenban = kit.KensaIraiJokasoRenban
+
+WHERE kit.KensaIraiHoteiKbn = '1'
+		AND ISNULL(kit.KensaIraiKensaNen, '') &lt;&gt; ''
+		AND ISNULL(kit.KensaIraiKensaTsuki, '') &lt;&gt; ''
+		AND ISNULL(kit.KensaIraiKensaBi, '') &lt;&gt; ''
+		AND kit.KensaIraiNendo = @KensaIraiNendo
+
+
+GROUP BY kit.KensaIraiHokenjoCd,
+		 jdm.JokasoGenChikuCd,
+		 kit.KensaIraiNendo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KensaIraiNendo" ColumnName="KensaIraiNendo" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="KensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="JokasoGenChikuCd" DataSetColumn="JokasoGenChikuCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="Cnt" DataSetColumn="Cnt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Kensa11JoKanryoTableAdapter" GeneratorDataComponentClassName="Kensa11JoKanryoTableAdapter" Name="Kensa11JoKanryo" UserDataComponentName="Kensa11JoKanryoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByKensaNendo" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByKensaNendo" GeneratorSourceName="FillByKensaNendo" GetMethodModifier="Public" GetMethodName="GetDataByKensaNendo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByKensaNendo" UserSourceName="FillByKensaNendo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+		kit.KensaIraiHokenjoCd,
+		jdm.JokasoGenChikuCd,
+		kit.KensaIraiNendo,
+		COUNT(*) AS Cnt
+		
+
+
+FROM KensaIraiTbl kit 
+INNER JOIN JokasoDaichoMst jdm ON jdm.JokasoHokenjoCd = kit.KensaIraiJokasoHokenjoCd
+								AND jdm.JokasoTorokuNendo = kit.KensaIraiJokasoTorokuNendo
+								AND jdm.JokasoRenban = kit.KensaIraiJokasoRenban
+
+WHERE kit.KensaIraiHoteiKbn = '1'
+		AND ISNULL(kit.KensaIraiKensaNen, '') &lt;&gt; ''
+		AND ISNULL(kit.KensaIraiKensaTsuki, '') &lt;&gt; ''
+		AND ISNULL(kit.KensaIraiKensaBi, '') &lt;&gt; ''
+AND EXISTS (
+		SELECT	KensaIraiHoteiKbn
+		FROM	KensaIraiTbl
+		WHERE	KensaIraiHoteiKbn &gt;= '2'
+		AND	jdm.JokasoHokenjoCd  = KensaIraiJokasoHokenjoCd
+		AND	jdm.JokasoTorokuNendo = KensaIraiJokasoTorokuNendo
+		AND	jdm.JokasoRenban = KensaIraiJokasoRenban
+	)		
+		AND kit.KensaIraiNendo = @KensaIraiNendo
+
+
+
+GROUP BY kit.KensaIraiHokenjoCd,
+		 jdm.JokasoGenChikuCd,
+		 kit.KensaIraiNendo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KensaIraiNendo" ColumnName="KensaIraiNendo" DataSourceName="FukjBizSystem.dbo.KensaIraiTbl" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="KensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="JokasoGenChikuCd" DataSetColumn="JokasoGenChikuCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="Cnt" DataSetColumn="Cnt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IkoJokyoShukeiWrkTableAdapter" GeneratorDataComponentClassName="IkoJokyoShukeiWrkTableAdapter" Name="IkoJokyoShukeiWrk" UserDataComponentName="IkoJokyoShukeiWrkTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[IkoJokyoShukeiWrk] ([KensaIraiHokenjoCd], [JokasoGenChikuCd], [KensaIraiNendo], [Kensa7JoJisshiCnt], [IkoSumiCnt], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@KensaIraiHokenjoCd, @JokasoGenChikuCd, @KensaIraiNendo, @Kensa7JoJisshiCnt, @IkoSumiCnt, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@JokasoGenChikuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="JokasoGenChikuCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Kensa7JoJisshiCnt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Kensa7JoJisshiCnt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IkoSumiCnt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IkoSumiCnt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT KensaIraiHokenjoCd, JokasoGenChikuCd, KensaIraiNendo, Kensa7JoJisshiCnt, IkoSumiCnt, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM dbo.IkoJokyoShukeiWrk</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KensaIraiHokenjoCd" DataSetColumn="KensaIraiHokenjoCd" />
+              <Mapping SourceColumn="JokasoGenChikuCd" DataSetColumn="JokasoGenChikuCd" />
+              <Mapping SourceColumn="KensaIraiNendo" DataSetColumn="KensaIraiNendo" />
+              <Mapping SourceColumn="Kensa7JoJisshiCnt" DataSetColumn="Kensa7JoJisshiCnt" />
+              <Mapping SourceColumn="IkoSumiCnt" DataSetColumn="IkoSumiCnt" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM       IkoJokyoShukeiWrk</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByCond" Modifier="Public" Name="UpdateByCond" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateByCond">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE                    IkoJokyoShukeiWrk
+SET                              IkoSumiCnt = @IkoSumiCnt, UpdateDt = @UpdateDt, UpdateUser = @UpdateUser, UpdateTarm = @UpdateTarm
+WHERE                       (KensaIraiHokenjoCd = @KensaIraiHokenjoCd) AND (JokasoGenChikuCd = @JokasoGenChikuCd) AND (KensaIraiNendo = @KensaIraiNendo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="IkoSumiCnt" ColumnName="IkoSumiCnt" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IkoSumiCnt" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IkoSumiCnt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UpdateDt" ColumnName="UpdateDt" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UpdateUser" ColumnName="UpdateUser" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UpdateTarm" ColumnName="UpdateTarm" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiHokenjoCd" ColumnName="KensaIraiHokenjoCd" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="@KensaIraiHokenjoCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="2" SourceColumn="KensaIraiHokenjoCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="JokasoGenChikuCd" ColumnName="JokasoGenChikuCd" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@JokasoGenChikuCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="JokasoGenChikuCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="KensaIraiNendo" ColumnName="KensaIraiNendo" DataSourceName="FukjBizSystem.dbo.IkoJokyoShukeiWrk" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@KensaIraiNendo" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="KensaIraiNendo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="IkoJokyoShukeiWrkDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="IkoJokyoShukeiWrkDataSet" msprop:Generator_UserDSName="IkoJokyoShukeiWrkDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Kensa7To11JoIkoJokyo" msprop:Generator_TableClassName="Kensa7To11JoIkoJokyoDataTable" msprop:Generator_TableVarName="tableKensa7To11JoIkoJokyo" msprop:Generator_RowChangedName="Kensa7To11JoIkoJokyoRowChanged" msprop:Generator_TablePropName="Kensa7To11JoIkoJokyo" msprop:Generator_RowDeletingName="Kensa7To11JoIkoJokyoRowDeleting" msprop:Generator_RowChangingName="Kensa7To11JoIkoJokyoRowChanging" msprop:Generator_RowEvHandlerName="Kensa7To11JoIkoJokyoRowChangeEventHandler" msprop:Generator_RowDeletedName="Kensa7To11JoIkoJokyoRowDeleted" msprop:Generator_RowClassName="Kensa7To11JoIkoJokyoRow" msprop:Generator_UserTableName="Kensa7To11JoIkoJokyo" msprop:Generator_RowEvArgName="Kensa7To11JoIkoJokyoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHokenjoCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoGenChikuCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JokasoGenChikuCd" msprop:Generator_ColumnVarNameInTable="columnJokasoGenChikuCd" msprop:Generator_ColumnPropNameInTable="JokasoGenChikuCdColumn" msprop:Generator_UserColumnName="JokasoGenChikuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HokenjoNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="HokenjoNm" msprop:Generator_ColumnVarNameInTable="columnHokenjoNm" msprop:Generator_ColumnPropNameInTable="HokenjoNmColumn" msprop:Generator_UserColumnName="HokenjoNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="24" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChikuNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ChikuNm" msprop:Generator_ColumnVarNameInTable="columnChikuNm" msprop:Generator_ColumnPropNameInTable="ChikuNmColumn" msprop:Generator_UserColumnName="ChikuNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kensa7JoJisshiCnt" msprop:Generator_ColumnVarNameInTable="columnKensa7JoJisshiCnt" msprop:Generator_ColumnPropNameInRow="Kensa7JoJisshiCnt" msprop:Generator_ColumnPropNameInTable="Kensa7JoJisshiCntColumn" msprop:Generator_UserColumnName="Kensa7JoJisshiCnt" type="xs:int" minOccurs="0" />
+              <xs:element name="IkoSumiCnt" msprop:Generator_ColumnVarNameInTable="columnIkoSumiCnt" msprop:Generator_ColumnPropNameInRow="IkoSumiCnt" msprop:Generator_ColumnPropNameInTable="IkoSumiCntColumn" msprop:Generator_UserColumnName="IkoSumiCnt" type="xs:int" minOccurs="0" />
+              <xs:element name="AvgValue" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAvgValue" msprop:Generator_ColumnPropNameInRow="AvgValue" msprop:Generator_ColumnPropNameInTable="AvgValueColumn" msprop:Generator_UserColumnName="AvgValue" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Kensa7JoKanryo" msprop:Generator_TableClassName="Kensa7JoKanryoDataTable" msprop:Generator_TableVarName="tableKensa7JoKanryo" msprop:Generator_TablePropName="Kensa7JoKanryo" msprop:Generator_RowDeletingName="Kensa7JoKanryoRowDeleting" msprop:Generator_RowChangingName="Kensa7JoKanryoRowChanging" msprop:Generator_RowEvHandlerName="Kensa7JoKanryoRowChangeEventHandler" msprop:Generator_RowDeletedName="Kensa7JoKanryoRowDeleted" msprop:Generator_UserTableName="Kensa7JoKanryo" msprop:Generator_RowChangedName="Kensa7JoKanryoRowChanged" msprop:Generator_RowEvArgName="Kensa7JoKanryoRowChangeEvent" msprop:Generator_RowClassName="Kensa7JoKanryoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoGenChikuCd" msprop:Generator_ColumnVarNameInTable="columnJokasoGenChikuCd" msprop:Generator_ColumnPropNameInRow="JokasoGenChikuCd" msprop:Generator_ColumnPropNameInTable="JokasoGenChikuCdColumn" msprop:Generator_UserColumnName="JokasoGenChikuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCnt" msprop:Generator_ColumnPropNameInRow="Cnt" msprop:Generator_ColumnPropNameInTable="CntColumn" msprop:Generator_UserColumnName="Cnt" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Kensa11JoKanryo" msprop:Generator_TableClassName="Kensa11JoKanryoDataTable" msprop:Generator_TableVarName="tableKensa11JoKanryo" msprop:Generator_TablePropName="Kensa11JoKanryo" msprop:Generator_RowDeletingName="Kensa11JoKanryoRowDeleting" msprop:Generator_RowChangingName="Kensa11JoKanryoRowChanging" msprop:Generator_RowEvHandlerName="Kensa11JoKanryoRowChangeEventHandler" msprop:Generator_RowDeletedName="Kensa11JoKanryoRowDeleted" msprop:Generator_UserTableName="Kensa11JoKanryo" msprop:Generator_RowChangedName="Kensa11JoKanryoRowChanged" msprop:Generator_RowEvArgName="Kensa11JoKanryoRowChangeEvent" msprop:Generator_RowClassName="Kensa11JoKanryoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoGenChikuCd" msprop:Generator_ColumnVarNameInTable="columnJokasoGenChikuCd" msprop:Generator_ColumnPropNameInRow="JokasoGenChikuCd" msprop:Generator_ColumnPropNameInTable="JokasoGenChikuCdColumn" msprop:Generator_UserColumnName="JokasoGenChikuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCnt" msprop:Generator_ColumnPropNameInRow="Cnt" msprop:Generator_ColumnPropNameInTable="CntColumn" msprop:Generator_UserColumnName="Cnt" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IkoJokyoShukeiWrk" msprop:Generator_TableClassName="IkoJokyoShukeiWrkDataTable" msprop:Generator_TableVarName="tableIkoJokyoShukeiWrk" msprop:Generator_RowChangedName="IkoJokyoShukeiWrkRowChanged" msprop:Generator_TablePropName="IkoJokyoShukeiWrk" msprop:Generator_RowDeletingName="IkoJokyoShukeiWrkRowDeleting" msprop:Generator_RowChangingName="IkoJokyoShukeiWrkRowChanging" msprop:Generator_RowEvHandlerName="IkoJokyoShukeiWrkRowChangeEventHandler" msprop:Generator_RowDeletedName="IkoJokyoShukeiWrkRowDeleted" msprop:Generator_RowClassName="IkoJokyoShukeiWrkRow" msprop:Generator_UserTableName="IkoJokyoShukeiWrk" msprop:Generator_RowEvArgName="IkoJokyoShukeiWrkRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnKensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JokasoGenChikuCd" msprop:Generator_ColumnVarNameInTable="columnJokasoGenChikuCd" msprop:Generator_ColumnPropNameInRow="JokasoGenChikuCd" msprop:Generator_ColumnPropNameInTable="JokasoGenChikuCdColumn" msprop:Generator_UserColumnName="JokasoGenChikuCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiNendo" msprop:Generator_ColumnVarNameInTable="columnKensaIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kensa7JoJisshiCnt" msprop:Generator_ColumnVarNameInTable="columnKensa7JoJisshiCnt" msprop:Generator_ColumnPropNameInRow="Kensa7JoJisshiCnt" msprop:Generator_ColumnPropNameInTable="Kensa7JoJisshiCntColumn" msprop:Generator_UserColumnName="Kensa7JoJisshiCnt" type="xs:int" minOccurs="0" />
+              <xs:element name="IkoSumiCnt" msprop:Generator_ColumnVarNameInTable="columnIkoSumiCnt" msprop:Generator_ColumnPropNameInRow="IkoSumiCnt" msprop:Generator_ColumnPropNameInTable="IkoSumiCntColumn" msprop:Generator_UserColumnName="IkoSumiCnt" type="xs:int" minOccurs="0" />
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

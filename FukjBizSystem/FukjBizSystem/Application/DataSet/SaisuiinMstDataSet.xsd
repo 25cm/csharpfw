@@ -1,0 +1,1420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SaisuiinMstDataSet" targetNamespace="http://tempuri.org/SaisuiinMstDataSet.xsd" xmlns:mstns="http://tempuri.org/SaisuiinMstDataSet.xsd" xmlns="http://tempuri.org/SaisuiinMstDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaisuiinShomeishoHakkoKensakuTableAdapter" GeneratorDataComponentClassName="SaisuiinShomeishoHakkoKensakuTableAdapter" Name="SaisuiinShomeishoHakkoKensaku" UserDataComponentName="SaisuiinShomeishoHakkoKensakuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      sm.SaisuiinCd, sm.UpdateDt, sm.SaisuiinShiteiNo, gm.GyoshaNm, sm.SaisuiinNm, sm.SaisuiinAdr, sm.SaisuiinSeinegappi, 
+                                      (CASE WHEN isdate(sm.SaisuiinSyutokuDt) = 0 THEN '' ELSE CONVERT(char(10), CONVERT(datetime, sm.SaisuiinSyutokuDt), 111) END) 
+                                      AS SaisuiinSyutokuDt, CONVERT(CHAR(10), CONVERT(datetime, sm.JukoDt), 111) AS JukoDt, CONVERT(CHAR(10), CONVERT(datetime, 
+                                      sm.SaisuiinYukokigenDt), 111) AS SaisuiinYukokigenDt
+FROM                         SaisuiinMst AS sm LEFT OUTER JOIN
+                                      GyoshaMst AS gm ON sm.SyozokuGyosyaCd = gm.GyoshaCd</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinShiteiNo" DataSetColumn="SaisuiinShiteiNo" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="SaisuiinAdr" DataSetColumn="SaisuiinAdr" />
+              <Mapping SourceColumn="SaisuiinSeinegappi" DataSetColumn="SaisuiinSeinegappi" />
+              <Mapping SourceColumn="JukoDt" DataSetColumn="JukoDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="SaisuiinSyutokuDt" DataSetColumn="SaisuiinSyutokuDt" />
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaisuiinMstTableAdapter" GeneratorDataComponentClassName="SaisuiinMstTableAdapter" Name="SaisuiinMst" UserDataComponentName="SaisuiinMstTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.SaisuiinMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [SaisuiinMst] WHERE (([SaisuiinCd] = @Original_SaisuiinCd) AND ([SaisuiinNm] = @Original_SaisuiinNm) AND ([SaisuiinKana] = @Original_SaisuiinKana) AND ([SyozokuGyosyaCd] = @Original_SyozokuGyosyaCd) AND ([SaisuiinShiteiNo] = @Original_SaisuiinShiteiNo) AND ([SaisuiinSyutokuDt] = @Original_SaisuiinSyutokuDt) AND ([JukoDt] = @Original_JukoDt) AND ([ZenkaiJukoDt] = @Original_ZenkaiJukoDt) AND ([SaisuiinYukokigenDt] = @Original_SaisuiinYukokigenDt) AND ([SaisuiinZipCd] = @Original_SaisuiinZipCd) AND ([SaisuiinAdr] = @Original_SaisuiinAdr) AND ([SaisuiinTelNo] = @Original_SaisuiinTelNo) AND ([SaisuiinSeinegappi] = @Original_SaisuiinSeinegappi) AND ([KanrishiNo] = @Original_KanrishiNo) AND ([KanrishiSyutokuDt] = @Original_KanrishiSyutokuDt) AND ([SaisuiinTorikeshiDt] = @Original_SaisuiinTorikeshiDt) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinKana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyozokuGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyozokuGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinShiteiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinShiteiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_JukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="JukoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ZenkaiJukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ZenkaiJukoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinYukokigenDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinYukokigenDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinZipCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinZipCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinAdr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinAdr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinTelNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTelNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinSeinegappi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSeinegappi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KanrishiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KanrishiSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinTorikeshiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTorikeshiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [SaisuiinMst] ([SaisuiinCd], [SaisuiinNm], [SaisuiinKana], [SyozokuGyosyaCd], [SaisuiinShiteiNo], [SaisuiinSyutokuDt], [JukoDt], [ZenkaiJukoDt], [SaisuiinYukokigenDt], [SaisuiinZipCd], [SaisuiinAdr], [SaisuiinTelNo], [SaisuiinSeinegappi], [KanrishiNo], [KanrishiSyutokuDt], [SaisuiinTorikeshiDt], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@SaisuiinCd, @SaisuiinNm, @SaisuiinKana, @SyozokuGyosyaCd, @SaisuiinShiteiNo, @SaisuiinSyutokuDt, @JukoDt, @ZenkaiJukoDt, @SaisuiinYukokigenDt, @SaisuiinZipCd, @SaisuiinAdr, @SaisuiinTelNo, @SaisuiinSeinegappi, @KanrishiNo, @KanrishiSyutokuDt, @SaisuiinTorikeshiDt, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm);
+SELECT SaisuiinCd, SaisuiinNm, SaisuiinKana, SyozokuGyosyaCd, SaisuiinShiteiNo, SaisuiinSyutokuDt, JukoDt, ZenkaiJukoDt, SaisuiinYukokigenDt, SaisuiinZipCd, SaisuiinAdr, SaisuiinTelNo, SaisuiinSeinegappi, KanrishiNo, KanrishiSyutokuDt, SaisuiinTorikeshiDt, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM SaisuiinMst WHERE (SaisuiinCd = @SaisuiinCd)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinKana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyozokuGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyozokuGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinShiteiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinShiteiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@JukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="JukoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ZenkaiJukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ZenkaiJukoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinYukokigenDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinYukokigenDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinZipCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinZipCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinAdr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinAdr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinTelNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinSeinegappi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSeinegappi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KanrishiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KanrishiSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinTorikeshiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTorikeshiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  SaisuiinCd
+  , SaisuiinNm
+  , SaisuiinKana
+  , SyozokuGyosyaCd
+  , SaisuiinShiteiNo
+  , SaisuiinSyutokuDt
+  , JukoDt
+  , ZenkaiJukoDt
+  , SaisuiinYukokigenDt
+  , SaisuiinZipCd
+  , SaisuiinAdr
+  , SaisuiinTelNo
+  , SaisuiinSeinegappi
+  , KanrishiNo
+  , KanrishiSyutokuDt
+  , SaisuiinTorikeshiDt
+  , InsertDt
+  , InsertUser
+  , InsertTarm
+  , UpdateDt
+  , UpdateUser
+  , UpdateTarm 
+FROM
+  SaisuiinMst 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [SaisuiinMst] SET [SaisuiinCd] = @SaisuiinCd, [SaisuiinNm] = @SaisuiinNm, [SaisuiinKana] = @SaisuiinKana, [SyozokuGyosyaCd] = @SyozokuGyosyaCd, [SaisuiinShiteiNo] = @SaisuiinShiteiNo, [SaisuiinSyutokuDt] = @SaisuiinSyutokuDt, [JukoDt] = @JukoDt, [ZenkaiJukoDt] = @ZenkaiJukoDt, [SaisuiinYukokigenDt] = @SaisuiinYukokigenDt, [SaisuiinZipCd] = @SaisuiinZipCd, [SaisuiinAdr] = @SaisuiinAdr, [SaisuiinTelNo] = @SaisuiinTelNo, [SaisuiinSeinegappi] = @SaisuiinSeinegappi, [KanrishiNo] = @KanrishiNo, [KanrishiSyutokuDt] = @KanrishiSyutokuDt, [SaisuiinTorikeshiDt] = @SaisuiinTorikeshiDt, [InsertDt] = @InsertDt, [InsertUser] = @InsertUser, [InsertTarm] = @InsertTarm, [UpdateDt] = @UpdateDt, [UpdateUser] = @UpdateUser, [UpdateTarm] = @UpdateTarm WHERE (([SaisuiinCd] = @Original_SaisuiinCd) AND ([SaisuiinNm] = @Original_SaisuiinNm) AND ([SaisuiinKana] = @Original_SaisuiinKana) AND ([SyozokuGyosyaCd] = @Original_SyozokuGyosyaCd) AND ([SaisuiinShiteiNo] = @Original_SaisuiinShiteiNo) AND ([SaisuiinSyutokuDt] = @Original_SaisuiinSyutokuDt) AND ([JukoDt] = @Original_JukoDt) AND ([ZenkaiJukoDt] = @Original_ZenkaiJukoDt) AND ([SaisuiinYukokigenDt] = @Original_SaisuiinYukokigenDt) AND ([SaisuiinZipCd] = @Original_SaisuiinZipCd) AND ([SaisuiinAdr] = @Original_SaisuiinAdr) AND ([SaisuiinTelNo] = @Original_SaisuiinTelNo) AND ([SaisuiinSeinegappi] = @Original_SaisuiinSeinegappi) AND ([KanrishiNo] = @Original_KanrishiNo) AND ([KanrishiSyutokuDt] = @Original_KanrishiSyutokuDt) AND ([SaisuiinTorikeshiDt] = @Original_SaisuiinTorikeshiDt) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm));
+SELECT SaisuiinCd, SaisuiinNm, SaisuiinKana, SyozokuGyosyaCd, SaisuiinShiteiNo, SaisuiinSyutokuDt, JukoDt, ZenkaiJukoDt, SaisuiinYukokigenDt, SaisuiinZipCd, SaisuiinAdr, SaisuiinTelNo, SaisuiinSeinegappi, KanrishiNo, KanrishiSyutokuDt, SaisuiinTorikeshiDt, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM SaisuiinMst WHERE (SaisuiinCd = @SaisuiinCd)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinKana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SyozokuGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyozokuGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinShiteiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinShiteiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@JukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="JukoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ZenkaiJukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ZenkaiJukoDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinYukokigenDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinYukokigenDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinZipCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinZipCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinAdr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinAdr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinTelNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinSeinegappi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSeinegappi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KanrishiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KanrishiSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SaisuiinTorikeshiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTorikeshiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinKana" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinKana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SyozokuGyosyaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SyozokuGyosyaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinShiteiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinShiteiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_JukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="JukoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ZenkaiJukoDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ZenkaiJukoDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinYukokigenDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinYukokigenDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinZipCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinZipCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinAdr" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinAdr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinTelNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTelNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinSeinegappi" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinSeinegappi" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KanrishiNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KanrishiSyutokuDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KanrishiSyutokuDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinTorikeshiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SaisuiinTorikeshiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="SaisuiinKana" DataSetColumn="SaisuiinKana" />
+              <Mapping SourceColumn="SyozokuGyosyaCd" DataSetColumn="SyozokuGyosyaCd" />
+              <Mapping SourceColumn="SaisuiinShiteiNo" DataSetColumn="SaisuiinShiteiNo" />
+              <Mapping SourceColumn="SaisuiinSyutokuDt" DataSetColumn="SaisuiinSyutokuDt" />
+              <Mapping SourceColumn="JukoDt" DataSetColumn="JukoDt" />
+              <Mapping SourceColumn="ZenkaiJukoDt" DataSetColumn="ZenkaiJukoDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="SaisuiinZipCd" DataSetColumn="SaisuiinZipCd" />
+              <Mapping SourceColumn="SaisuiinAdr" DataSetColumn="SaisuiinAdr" />
+              <Mapping SourceColumn="SaisuiinTelNo" DataSetColumn="SaisuiinTelNo" />
+              <Mapping SourceColumn="SaisuiinSeinegappi" DataSetColumn="SaisuiinSeinegappi" />
+              <Mapping SourceColumn="KanrishiNo" DataSetColumn="KanrishiNo" />
+              <Mapping SourceColumn="KanrishiSyutokuDt" DataSetColumn="KanrishiSyutokuDt" />
+              <Mapping SourceColumn="SaisuiinTorikeshiDt" DataSetColumn="SaisuiinTorikeshiDt" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByKey" Modifier="Public" Name="DeleteByKey" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByKey">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE 
+FROM
+  SaisuiinMst 
+WHERE
+  (SaisuiinCd = @Original_SaisuiinCd)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_SaisuiinCd" ColumnName="SaisuiinCd" DataSourceName="FukjBizSystem.dbo.SaisuiinMst" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Original_SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.SaisuiinMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKey" GeneratorSourceName="FillByKey" GetMethodModifier="Public" GetMethodName="GetDataByKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKey" UserSourceName="FillByKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  SaisuiinCd
+  , SaisuiinNm
+  , SaisuiinKana
+  , SyozokuGyosyaCd
+  , SaisuiinShiteiNo
+  , SaisuiinSyutokuDt
+  , JukoDt
+  , ZenkaiJukoDt
+  , SaisuiinYukokigenDt
+  , SaisuiinZipCd
+  , SaisuiinAdr
+  , SaisuiinTelNo
+  , SaisuiinSeinegappi
+  , KanrishiNo
+  , KanrishiSyutokuDt
+  , SaisuiinTorikeshiDt
+  , InsertDt
+  , InsertUser
+  , InsertTarm
+  , UpdateDt
+  , UpdateUser
+  , UpdateTarm 
+FROM
+  SaisuiinMst 
+WHERE
+  (SaisuiinCd = @SaisuiinCd) 
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SaisuiinCd" ColumnName="SaisuiinCd" DataSourceName="FukjBizSystem.dbo.SaisuiinMst" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaisuiinMstKensakuTableAdapter" GeneratorDataComponentClassName="SaisuiinMstKensakuTableAdapter" Name="SaisuiinMstKensaku" UserDataComponentName="SaisuiinMstKensakuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  sm.SaisuiinCd
+  , sm.SaisuiinNm
+  , gm.GyoshaCd
+  , gm.GyoshaNm
+  , sm.SaisuiinKana
+  , sm.SyozokuGyosyaCd
+  , sm.SaisuiinShiteiNo
+  , ( 
+    CASE 
+      WHEN ISDATE(sm.JukoDt) = 0 
+      then '' 
+      ELSE CONVERT(CHAR (10), CONVERT(DATETIME, sm.JukoDt), 111) 
+      END
+  ) AS JukoDt
+  , CONVERT( 
+    CHAR (10)
+    , CONVERT(DATETIME, sm.SaisuiinSyutokuDt)
+    , 111
+  ) as SaisuiinSyutokuDt
+  , ( 
+    CASE 
+      WHEN ISDATE(sm.ZenkaiJukoDt) = 0 
+      then '' 
+      ELSE CONVERT( 
+        CHAR (10)
+        , CONVERT(DATETIME, sm.ZenkaiJukoDt)
+        , 111
+      ) 
+      END
+  ) AS ZenkaiJukoDt
+  , CONVERT( 
+    CHAR (10)
+    , CONVERT(DATETIME, sm.SaisuiinYukokigenDt)
+    , 111
+  ) as SaisuiinYukokigenDt
+  , sm.SaisuiinZipCd
+  , sm.SaisuiinAdr
+  , sm.SaisuiinTelNo
+  , CONVERT( 
+    CHAR (10)
+    , CONVERT(DATETIME, sm.SaisuiinSeinegappi)
+    , 111
+  ) as SaisuiinSeinegappi
+  , sm.KanrishiNo
+  , CONVERT( 
+    CHAR (10)
+    , CONVERT(DATETIME, sm.KanrishiSyutokuDt)
+    , 111
+  ) as KanrishiSyutokuDt
+  , ( 
+    CASE 
+      WHEN ISDATE(sm.SaisuiinTorikeshiDt) = 0 
+      then '' 
+      ELSE CONVERT( 
+        CHAR (10)
+        , CONVERT(DATETIME, sm.SaisuiinTorikeshiDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinTorikeshiDt 
+FROM
+  SaisuiinMst sm 
+  LEFT OUTER JOIN GyoshaMst gm 
+    ON sm.SyozokuGyosyaCd = gm.GyoshaCd 
+WHERE
+  1 = 1 
+ORDER BY
+  sm.SaisuiinCd
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="GyoshaCd" DataSetColumn="GyoshaCd" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="SaisuiinKana" DataSetColumn="SaisuiinKana" />
+              <Mapping SourceColumn="SyozokuGyosyaCd" DataSetColumn="SyozokuGyosyaCd" />
+              <Mapping SourceColumn="SaisuiinShiteiNo" DataSetColumn="SaisuiinShiteiNo" />
+              <Mapping SourceColumn="JukoDt" DataSetColumn="JukoDt" />
+              <Mapping SourceColumn="SaisuiinSyutokuDt" DataSetColumn="SaisuiinSyutokuDt" />
+              <Mapping SourceColumn="ZenkaiJukoDt" DataSetColumn="ZenkaiJukoDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="SaisuiinZipCd" DataSetColumn="SaisuiinZipCd" />
+              <Mapping SourceColumn="SaisuiinAdr" DataSetColumn="SaisuiinAdr" />
+              <Mapping SourceColumn="SaisuiinTelNo" DataSetColumn="SaisuiinTelNo" />
+              <Mapping SourceColumn="SaisuiinSeinegappi" DataSetColumn="SaisuiinSeinegappi" />
+              <Mapping SourceColumn="KanrishiNo" DataSetColumn="KanrishiNo" />
+              <Mapping SourceColumn="KanrishiSyutokuDt" DataSetColumn="KanrishiSyutokuDt" />
+              <Mapping SourceColumn="SaisuiinTorikeshiDt" DataSetColumn="SaisuiinTorikeshiDt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="JyukoYoteishaListTableAdapter" GeneratorDataComponentClassName="JyukoYoteishaListTableAdapter" Name="JyukoYoteishaList" UserDataComponentName="JyukoYoteishaListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  SaisuiinMst.SaisuiinCd
+  , SaisuiinMst.SaisuiinNm
+  , SaisuiinMst.SyozokuGyosyaCd
+  , SaisuiinMst.SaisuiinAdr
+  , SaisuiinMst.SaisuiinShiteiNo
+  , SaisuiinMst.KanrishiNo
+  , SaisuiinMst.SaisuiinKana
+  , SaisuiinMst.ZenkaiJukoDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.ZenkaiJukoDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.ZenkaiJukoDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.ZenkaiJukoDt, 7, 2)
+  ) AS ZenkaiJukoDtCol
+  , SaisuiinMst.SaisuiinYukokigenDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 7, 2)
+  ) AS SaisuiinYukokigenDtCol
+  , SaisuiinMst.SaisuiinSeinegappi
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.SaisuiinSeinegappi, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinSeinegappi, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinSeinegappi, 7, 2)
+  ) AS SaisuiinSeinegappiCol
+  , SaisuiinMst.KanrishiSyutokuDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.KanrishiSyutokuDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.KanrishiSyutokuDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.KanrishiSyutokuDt, 7, 2)
+  ) AS KanrishiSyutokuDtCol
+  , GyoshaMst.GyoshaNm
+  , GyoshaMst.DaihyoshaNm
+  , GyoshaMst.GyoshaAdr 
+FROM
+  SaisuiinMst 
+  LEFT OUTER JOIN GyoshaMst 
+    ON GyoshaMst.GyoshaCd = SaisuiinMst.SyozokuGyosyaCd 
+ORDER BY
+  SaisuiinMst.SaisuiinCd
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="SyozokuGyosyaCd" DataSetColumn="SyozokuGyosyaCd" />
+              <Mapping SourceColumn="SaisuiinAdr" DataSetColumn="SaisuiinAdr" />
+              <Mapping SourceColumn="SaisuiinShiteiNo" DataSetColumn="SaisuiinShiteiNo" />
+              <Mapping SourceColumn="KanrishiNo" DataSetColumn="KanrishiNo" />
+              <Mapping SourceColumn="SaisuiinKana" DataSetColumn="SaisuiinKana" />
+              <Mapping SourceColumn="ZenkaiJukoDt" DataSetColumn="ZenkaiJukoDt" />
+              <Mapping SourceColumn="ZenkaiJukoDtCol" DataSetColumn="ZenkaiJukoDtCol" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDtCol" DataSetColumn="SaisuiinYukokigenDtCol" />
+              <Mapping SourceColumn="SaisuiinSeinegappi" DataSetColumn="SaisuiinSeinegappi" />
+              <Mapping SourceColumn="SaisuiinSeinegappiCol" DataSetColumn="SaisuiinSeinegappiCol" />
+              <Mapping SourceColumn="KanrishiSyutokuDt" DataSetColumn="KanrishiSyutokuDt" />
+              <Mapping SourceColumn="KanrishiSyutokuDtCol" DataSetColumn="KanrishiSyutokuDtCol" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="DaihyoshaNm" DataSetColumn="DaihyoshaNm" />
+              <Mapping SourceColumn="GyoshaAdr" DataSetColumn="GyoshaAdr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaisuiinInfoListTableAdapter" GeneratorDataComponentClassName="SaisuiinInfoListTableAdapter" Name="SaisuiinInfoList" UserDataComponentName="SaisuiinInfoListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select
+  SaisuiinMst.SaisuiinCd
+  , SaisuiinMst.SaisuiinNm
+  , SaisuiinMst.SyozokuGyosyaCd
+  , SaisuiinMst.JukoDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.JukoDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.JukoDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.JukoDt, 7, 2)
+  ) AS JukoDtCol
+  , SaisuiinMst.SaisuiinSyutokuDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.SaisuiinSyutokuDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinSyutokuDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinSyutokuDt, 7, 2)
+  ) AS SaisuiinSyutokuDtCol
+  , SaisuiinMst.SaisuiinYukokigenDt
+  , CONCAT( 
+    SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 0, 5)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 5, 2)
+    , '/'
+    , SUBSTRING(SaisuiinMst.SaisuiinYukokigenDt, 7, 2)
+  ) AS SaisuiinYukokigenDtCol
+  , GyoshaMst.GyoshaNm
+  , SaisuiinMst.UpdateDt 
+from
+  SaisuiinMst 
+  left outer join GyoshaMst 
+    on GyoshaMst.GyoshaCd = SaisuiinMst.SyozokuGyosyaCd
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="SyozokuGyosyaCd" DataSetColumn="SyozokuGyosyaCd" />
+              <Mapping SourceColumn="JukoDt" DataSetColumn="JukoDt" />
+              <Mapping SourceColumn="JukoDtCol" DataSetColumn="JukoDtCol" />
+              <Mapping SourceColumn="SaisuiinSyutokuDt" DataSetColumn="SaisuiinSyutokuDt" />
+              <Mapping SourceColumn="SaisuiinSyutokuDtCol" DataSetColumn="SaisuiinSyutokuDtCol" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDtCol" DataSetColumn="SaisuiinYukokigenDtCol" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaisuiinInfoShosaiTableAdapter" GeneratorDataComponentClassName="SaisuiinInfoShosaiTableAdapter" Name="SaisuiinInfoShosai" UserDataComponentName="SaisuiinInfoShosaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  sm.SaisuiinCd
+  , gm.GyoshaNm
+  , sm.SyozokuGyosyaCd
+  , sm.SaisuiinNm
+  , sm.SaisuiinKana
+  , sm.SaisuiinZipCd
+  , sm.SaisuiinAdr
+  , sm.SaisuiinTelNo
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinSeinegappi) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinSeinegappi)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinSeinegappi
+  , sm.KanrishiNo
+  , ( 
+    CASE 
+      WHEN isdate(sm.KanrishiSyutokuDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.KanrishiSyutokuDt)
+        , 111
+      ) 
+      END
+  ) AS KanrishiSyutokuDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.JukoDt) = 0 
+      THEN '' 
+      ELSE CONVERT(char (10), CONVERT(datetime, sm.JukoDt), 111) 
+      END
+  ) AS JukoDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinSyutokuDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinSyutokuDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinSyutokuDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinYukokigenDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinYukokigenDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinYukokigenDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.ZenkaiJukoDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.ZenkaiJukoDt)
+        , 111
+      ) 
+      END
+  ) AS ZenkaiJukoDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinTorikeshiDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinTorikeshiDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinTorikeshiDt 
+FROM
+  SaisuiinMst AS sm 
+  LEFT OUTER JOIN GyoshaMst AS gm 
+    ON sm.SyozokuGyosyaCd = gm.GyoshaCd 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaisuiinCd" DataSetColumn="SaisuiinCd" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="SyozokuGyosyaCd" DataSetColumn="SyozokuGyosyaCd" />
+              <Mapping SourceColumn="SaisuiinNm" DataSetColumn="SaisuiinNm" />
+              <Mapping SourceColumn="SaisuiinKana" DataSetColumn="SaisuiinKana" />
+              <Mapping SourceColumn="SaisuiinZipCd" DataSetColumn="SaisuiinZipCd" />
+              <Mapping SourceColumn="SaisuiinAdr" DataSetColumn="SaisuiinAdr" />
+              <Mapping SourceColumn="SaisuiinTelNo" DataSetColumn="SaisuiinTelNo" />
+              <Mapping SourceColumn="SaisuiinSeinegappi" DataSetColumn="SaisuiinSeinegappi" />
+              <Mapping SourceColumn="KanrishiNo" DataSetColumn="KanrishiNo" />
+              <Mapping SourceColumn="KanrishiSyutokuDt" DataSetColumn="KanrishiSyutokuDt" />
+              <Mapping SourceColumn="JukoDt" DataSetColumn="JukoDt" />
+              <Mapping SourceColumn="SaisuiinSyutokuDt" DataSetColumn="SaisuiinSyutokuDt" />
+              <Mapping SourceColumn="SaisuiinYukokigenDt" DataSetColumn="SaisuiinYukokigenDt" />
+              <Mapping SourceColumn="ZenkaiJukoDt" DataSetColumn="ZenkaiJukoDt" />
+              <Mapping SourceColumn="SaisuiinTorikeshiDt" DataSetColumn="SaisuiinTorikeshiDt" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySaisuiinCd" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySaisuiinCd" GeneratorSourceName="FillBySaisuiinCd" GetMethodModifier="Public" GetMethodName="GetDataBySaisuiinCd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySaisuiinCd" UserSourceName="FillBySaisuiinCd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  sm.SaisuiinCd
+  , gm.GyoshaNm
+  , sm.SyozokuGyosyaCd
+  , sm.SaisuiinNm
+  , sm.SaisuiinKana
+  , sm.SaisuiinZipCd
+  , sm.SaisuiinAdr
+  , sm.SaisuiinTelNo
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinSeinegappi) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinSeinegappi)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinSeinegappi
+  , sm.KanrishiNo
+  , ( 
+    CASE 
+      WHEN isdate(sm.KanrishiSyutokuDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.KanrishiSyutokuDt)
+        , 111
+      ) 
+      END
+  ) AS KanrishiSyutokuDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.JukoDt) = 0 
+      THEN '' 
+      ELSE CONVERT(char (10), CONVERT(datetime, sm.JukoDt), 111) 
+      END
+  ) AS JukoDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinSyutokuDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinSyutokuDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinSyutokuDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinYukokigenDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinYukokigenDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinYukokigenDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.ZenkaiJukoDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.ZenkaiJukoDt)
+        , 111
+      ) 
+      END
+  ) AS ZenkaiJukoDt
+  , ( 
+    CASE 
+      WHEN isdate(sm.SaisuiinTorikeshiDt) = 0 
+      THEN '' 
+      ELSE CONVERT( 
+        char (10)
+        , CONVERT(datetime, sm.SaisuiinTorikeshiDt)
+        , 111
+      ) 
+      END
+  ) AS SaisuiinTorikeshiDt 
+FROM
+  SaisuiinMst AS sm 
+  LEFT OUTER JOIN GyoshaMst AS gm 
+    ON sm.SyozokuGyosyaCd = gm.GyoshaCd 
+WHERE
+  (sm.SaisuiinCd = @SaisuiinCd)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="SaisuiinCd" ColumnName="SaisuiinCd" DataSourceName="FukjBizSystem.dbo.SaisuiinMst" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@SaisuiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="SaisuiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SaisuiinMstDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SaisuiinMstDataSet" msprop:Generator_UserDSName="SaisuiinMstDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SaisuiinShomeishoHakkoKensaku" msprop:Generator_TableClassName="SaisuiinShomeishoHakkoKensakuDataTable" msprop:Generator_TableVarName="tableSaisuiinShomeishoHakkoKensaku" msprop:Generator_RowChangedName="SaisuiinShomeishoHakkoKensakuRowChanged" msprop:Generator_TablePropName="SaisuiinShomeishoHakkoKensaku" msprop:Generator_RowDeletingName="SaisuiinShomeishoHakkoKensakuRowDeleting" msprop:Generator_RowChangingName="SaisuiinShomeishoHakkoKensakuRowChanging" msprop:Generator_RowEvHandlerName="SaisuiinShomeishoHakkoKensakuRowChangeEventHandler" msprop:Generator_RowDeletedName="SaisuiinShomeishoHakkoKensakuRowDeleted" msprop:Generator_RowClassName="SaisuiinShomeishoHakkoKensakuRow" msprop:Generator_UserTableName="SaisuiinShomeishoHakkoKensaku" msprop:Generator_RowEvArgName="SaisuiinShomeishoHakkoKensakuRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinShiteiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinShiteiNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinShiteiNo" msprop:Generator_ColumnPropNameInTable="SaisuiinShiteiNoColumn" msprop:Generator_UserColumnName="SaisuiinShiteiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinAdr" msprop:Generator_ColumnVarNameInTable="columnSaisuiinAdr" msprop:Generator_ColumnPropNameInTable="SaisuiinAdrColumn" msprop:Generator_UserColumnName="SaisuiinAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappi" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappi" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappi" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JukoDt" msprop:Generator_ColumnVarNameInTable="columnJukoDt" msprop:Generator_ColumnPropNameInTable="JukoDtColumn" msprop:Generator_UserColumnName="JukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SaisuiinMst" msprop:Generator_TableClassName="SaisuiinMstDataTable" msprop:Generator_TableVarName="tableSaisuiinMst" msprop:Generator_RowChangedName="SaisuiinMstRowChanged" msprop:Generator_TablePropName="SaisuiinMst" msprop:Generator_RowDeletingName="SaisuiinMstRowDeleting" msprop:Generator_RowChangingName="SaisuiinMstRowChanging" msprop:Generator_RowEvHandlerName="SaisuiinMstRowChangeEventHandler" msprop:Generator_RowDeletedName="SaisuiinMstRowDeleted" msprop:Generator_RowClassName="SaisuiinMstRow" msprop:Generator_UserTableName="SaisuiinMst" msprop:Generator_RowEvArgName="SaisuiinMstRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinKana" msprop:Generator_ColumnVarNameInTable="columnSaisuiinKana" msprop:Generator_ColumnPropNameInRow="SaisuiinKana" msprop:Generator_ColumnPropNameInTable="SaisuiinKanaColumn" msprop:Generator_UserColumnName="SaisuiinKana">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyozokuGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnSyozokuGyosyaCd" msprop:Generator_ColumnPropNameInRow="SyozokuGyosyaCd" msprop:Generator_ColumnPropNameInTable="SyozokuGyosyaCdColumn" msprop:Generator_UserColumnName="SyozokuGyosyaCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinShiteiNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinShiteiNo" msprop:Generator_ColumnPropNameInRow="SaisuiinShiteiNo" msprop:Generator_ColumnPropNameInTable="SaisuiinShiteiNoColumn" msprop:Generator_UserColumnName="SaisuiinShiteiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDt" msprop:Generator_ColumnVarNameInTable="columnJukoDt" msprop:Generator_ColumnPropNameInRow="JukoDt" msprop:Generator_ColumnPropNameInTable="JukoDtColumn" msprop:Generator_UserColumnName="JukoDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZenkaiJukoDt" msprop:Generator_ColumnVarNameInTable="columnZenkaiJukoDt" msprop:Generator_ColumnPropNameInRow="ZenkaiJukoDt" msprop:Generator_ColumnPropNameInTable="ZenkaiJukoDtColumn" msprop:Generator_UserColumnName="ZenkaiJukoDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinZipCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinZipCd" msprop:Generator_ColumnPropNameInRow="SaisuiinZipCd" msprop:Generator_ColumnPropNameInTable="SaisuiinZipCdColumn" msprop:Generator_UserColumnName="SaisuiinZipCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinAdr" msprop:Generator_ColumnVarNameInTable="columnSaisuiinAdr" msprop:Generator_ColumnPropNameInRow="SaisuiinAdr" msprop:Generator_ColumnPropNameInTable="SaisuiinAdrColumn" msprop:Generator_UserColumnName="SaisuiinAdr">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTelNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTelNo" msprop:Generator_ColumnPropNameInRow="SaisuiinTelNo" msprop:Generator_ColumnPropNameInTable="SaisuiinTelNoColumn" msprop:Generator_UserColumnName="SaisuiinTelNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappi" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappi" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappi" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiNo" msprop:Generator_ColumnVarNameInTable="columnKanrishiNo" msprop:Generator_ColumnPropNameInRow="KanrishiNo" msprop:Generator_ColumnPropNameInTable="KanrishiNoColumn" msprop:Generator_UserColumnName="KanrishiNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnKanrishiSyutokuDt" msprop:Generator_ColumnPropNameInRow="KanrishiSyutokuDt" msprop:Generator_ColumnPropNameInTable="KanrishiSyutokuDtColumn" msprop:Generator_UserColumnName="KanrishiSyutokuDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTorikeshiDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTorikeshiDt" msprop:Generator_ColumnPropNameInRow="SaisuiinTorikeshiDt" msprop:Generator_ColumnPropNameInTable="SaisuiinTorikeshiDtColumn" msprop:Generator_UserColumnName="SaisuiinTorikeshiDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SaisuiinMstKensaku" msprop:Generator_TableClassName="SaisuiinMstKensakuDataTable" msprop:Generator_TableVarName="tableSaisuiinMstKensaku" msprop:Generator_RowChangedName="SaisuiinMstKensakuRowChanged" msprop:Generator_TablePropName="SaisuiinMstKensaku" msprop:Generator_RowDeletingName="SaisuiinMstKensakuRowDeleting" msprop:Generator_RowChangingName="SaisuiinMstKensakuRowChanging" msprop:Generator_RowEvHandlerName="SaisuiinMstKensakuRowChangeEventHandler" msprop:Generator_RowDeletedName="SaisuiinMstKensakuRowDeleted" msprop:Generator_RowClassName="SaisuiinMstKensakuRow" msprop:Generator_UserTableName="SaisuiinMstKensaku" msprop:Generator_RowEvArgName="SaisuiinMstKensakuRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaCd" msprop:Generator_ColumnVarNameInTable="columnGyoshaCd" msprop:Generator_ColumnPropNameInTable="GyoshaCdColumn" msprop:Generator_UserColumnName="GyoshaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinKana" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinKana" msprop:Generator_ColumnVarNameInTable="columnSaisuiinKana" msprop:Generator_ColumnPropNameInTable="SaisuiinKanaColumn" msprop:Generator_UserColumnName="SaisuiinKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyozokuGyosyaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SyozokuGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnSyozokuGyosyaCd" msprop:Generator_ColumnPropNameInTable="SyozokuGyosyaCdColumn" msprop:Generator_UserColumnName="SyozokuGyosyaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinShiteiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinShiteiNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinShiteiNo" msprop:Generator_ColumnPropNameInTable="SaisuiinShiteiNoColumn" msprop:Generator_UserColumnName="SaisuiinShiteiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JukoDt" msprop:Generator_ColumnVarNameInTable="columnJukoDt" msprop:Generator_ColumnPropNameInTable="JukoDtColumn" msprop:Generator_UserColumnName="JukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZenkaiJukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ZenkaiJukoDt" msprop:Generator_ColumnVarNameInTable="columnZenkaiJukoDt" msprop:Generator_ColumnPropNameInTable="ZenkaiJukoDtColumn" msprop:Generator_UserColumnName="ZenkaiJukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinZipCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinZipCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinZipCd" msprop:Generator_ColumnPropNameInTable="SaisuiinZipCdColumn" msprop:Generator_UserColumnName="SaisuiinZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinAdr" msprop:Generator_ColumnVarNameInTable="columnSaisuiinAdr" msprop:Generator_ColumnPropNameInTable="SaisuiinAdrColumn" msprop:Generator_UserColumnName="SaisuiinAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTelNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinTelNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTelNo" msprop:Generator_ColumnPropNameInTable="SaisuiinTelNoColumn" msprop:Generator_UserColumnName="SaisuiinTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappi" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappi" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappi" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiNo" msprop:Generator_ColumnVarNameInTable="columnKanrishiNo" msprop:Generator_ColumnPropNameInTable="KanrishiNoColumn" msprop:Generator_UserColumnName="KanrishiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnKanrishiSyutokuDt" msprop:Generator_ColumnPropNameInTable="KanrishiSyutokuDtColumn" msprop:Generator_UserColumnName="KanrishiSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTorikeshiDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinTorikeshiDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTorikeshiDt" msprop:Generator_ColumnPropNameInTable="SaisuiinTorikeshiDtColumn" msprop:Generator_UserColumnName="SaisuiinTorikeshiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="JyukoYoteishaList" msprop:Generator_TableClassName="JyukoYoteishaListDataTable" msprop:Generator_TableVarName="tableJyukoYoteishaList" msprop:Generator_RowChangedName="JyukoYoteishaListRowChanged" msprop:Generator_TablePropName="JyukoYoteishaList" msprop:Generator_RowDeletingName="JyukoYoteishaListRowDeleting" msprop:Generator_RowChangingName="JyukoYoteishaListRowChanging" msprop:Generator_RowEvHandlerName="JyukoYoteishaListRowChangeEventHandler" msprop:Generator_RowDeletedName="JyukoYoteishaListRowDeleted" msprop:Generator_RowClassName="JyukoYoteishaListRow" msprop:Generator_UserTableName="JyukoYoteishaList" msprop:Generator_RowEvArgName="JyukoYoteishaListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyozokuGyosyaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SyozokuGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnSyozokuGyosyaCd" msprop:Generator_ColumnPropNameInTable="SyozokuGyosyaCdColumn" msprop:Generator_UserColumnName="SyozokuGyosyaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinAdr" msprop:Generator_ColumnVarNameInTable="columnSaisuiinAdr" msprop:Generator_ColumnPropNameInTable="SaisuiinAdrColumn" msprop:Generator_UserColumnName="SaisuiinAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinShiteiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinShiteiNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinShiteiNo" msprop:Generator_ColumnPropNameInTable="SaisuiinShiteiNoColumn" msprop:Generator_UserColumnName="SaisuiinShiteiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiNo" msprop:Generator_ColumnVarNameInTable="columnKanrishiNo" msprop:Generator_ColumnPropNameInTable="KanrishiNoColumn" msprop:Generator_UserColumnName="KanrishiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinKana" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinKana" msprop:Generator_ColumnVarNameInTable="columnSaisuiinKana" msprop:Generator_ColumnPropNameInTable="SaisuiinKanaColumn" msprop:Generator_UserColumnName="SaisuiinKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZenkaiJukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ZenkaiJukoDt" msprop:Generator_ColumnVarNameInTable="columnZenkaiJukoDt" msprop:Generator_ColumnPropNameInTable="ZenkaiJukoDtColumn" msprop:Generator_UserColumnName="ZenkaiJukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZenkaiJukoDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ZenkaiJukoDtCol" msprop:Generator_ColumnVarNameInTable="columnZenkaiJukoDtCol" msprop:Generator_ColumnPropNameInTable="ZenkaiJukoDtColColumn" msprop:Generator_UserColumnName="ZenkaiJukoDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDtCol" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDtCol" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappi" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappi" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappi" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappiCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappiCol" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappiCol" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappiCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnKanrishiSyutokuDt" msprop:Generator_ColumnPropNameInTable="KanrishiSyutokuDtColumn" msprop:Generator_UserColumnName="KanrishiSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiSyutokuDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiSyutokuDtCol" msprop:Generator_ColumnVarNameInTable="columnKanrishiSyutokuDtCol" msprop:Generator_ColumnPropNameInTable="KanrishiSyutokuDtColColumn" msprop:Generator_UserColumnName="KanrishiSyutokuDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DaihyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnDaihyoshaNm" msprop:Generator_ColumnPropNameInTable="DaihyoshaNmColumn" msprop:Generator_UserColumnName="DaihyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaAdr" msprop:Generator_ColumnVarNameInTable="columnGyoshaAdr" msprop:Generator_ColumnPropNameInTable="GyoshaAdrColumn" msprop:Generator_UserColumnName="GyoshaAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SaisuiinInfoList" msprop:Generator_TableClassName="SaisuiinInfoListDataTable" msprop:Generator_TableVarName="tableSaisuiinInfoList" msprop:Generator_RowChangedName="SaisuiinInfoListRowChanged" msprop:Generator_TablePropName="SaisuiinInfoList" msprop:Generator_RowDeletingName="SaisuiinInfoListRowDeleting" msprop:Generator_RowChangingName="SaisuiinInfoListRowChanging" msprop:Generator_RowEvHandlerName="SaisuiinInfoListRowChangeEventHandler" msprop:Generator_RowDeletedName="SaisuiinInfoListRowDeleted" msprop:Generator_RowClassName="SaisuiinInfoListRow" msprop:Generator_UserTableName="SaisuiinInfoList" msprop:Generator_RowEvArgName="SaisuiinInfoListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyozokuGyosyaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SyozokuGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnSyozokuGyosyaCd" msprop:Generator_ColumnPropNameInTable="SyozokuGyosyaCdColumn" msprop:Generator_UserColumnName="SyozokuGyosyaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JukoDt" msprop:Generator_ColumnVarNameInTable="columnJukoDt" msprop:Generator_ColumnPropNameInTable="JukoDtColumn" msprop:Generator_UserColumnName="JukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JukoDtCol" msprop:Generator_ColumnVarNameInTable="columnJukoDtCol" msprop:Generator_ColumnPropNameInTable="JukoDtColColumn" msprop:Generator_UserColumnName="JukoDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDtCol" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDtCol" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDtCol" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDtCol" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDtCol" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDtCol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SaisuiinInfoShosai" msprop:Generator_TableClassName="SaisuiinInfoShosaiDataTable" msprop:Generator_TableVarName="tableSaisuiinInfoShosai" msprop:Generator_RowChangedName="SaisuiinInfoShosaiRowChanged" msprop:Generator_TablePropName="SaisuiinInfoShosai" msprop:Generator_RowDeletingName="SaisuiinInfoShosaiRowDeleting" msprop:Generator_RowChangingName="SaisuiinInfoShosaiRowChanging" msprop:Generator_RowEvHandlerName="SaisuiinInfoShosaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SaisuiinInfoShosaiRowDeleted" msprop:Generator_RowClassName="SaisuiinInfoShosaiRow" msprop:Generator_UserTableName="SaisuiinInfoShosai" msprop:Generator_RowEvArgName="SaisuiinInfoShosaiRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaisuiinCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinCd" msprop:Generator_ColumnPropNameInTable="SaisuiinCdColumn" msprop:Generator_UserColumnName="SaisuiinCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SyozokuGyosyaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SyozokuGyosyaCd" msprop:Generator_ColumnVarNameInTable="columnSyozokuGyosyaCd" msprop:Generator_ColumnPropNameInTable="SyozokuGyosyaCdColumn" msprop:Generator_UserColumnName="SyozokuGyosyaCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinNm" msprop:Generator_ColumnVarNameInTable="columnSaisuiinNm" msprop:Generator_ColumnPropNameInTable="SaisuiinNmColumn" msprop:Generator_UserColumnName="SaisuiinNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinKana" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinKana" msprop:Generator_ColumnVarNameInTable="columnSaisuiinKana" msprop:Generator_ColumnPropNameInTable="SaisuiinKanaColumn" msprop:Generator_UserColumnName="SaisuiinKana" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinZipCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinZipCd" msprop:Generator_ColumnVarNameInTable="columnSaisuiinZipCd" msprop:Generator_ColumnPropNameInTable="SaisuiinZipCdColumn" msprop:Generator_UserColumnName="SaisuiinZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinAdr" msprop:Generator_ColumnVarNameInTable="columnSaisuiinAdr" msprop:Generator_ColumnPropNameInTable="SaisuiinAdrColumn" msprop:Generator_UserColumnName="SaisuiinAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTelNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinTelNo" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTelNo" msprop:Generator_ColumnPropNameInTable="SaisuiinTelNoColumn" msprop:Generator_UserColumnName="SaisuiinTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSeinegappi" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSeinegappi" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSeinegappi" msprop:Generator_ColumnPropNameInTable="SaisuiinSeinegappiColumn" msprop:Generator_UserColumnName="SaisuiinSeinegappi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiNo" msprop:Generator_ColumnVarNameInTable="columnKanrishiNo" msprop:Generator_ColumnPropNameInTable="KanrishiNoColumn" msprop:Generator_UserColumnName="KanrishiNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KanrishiSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="KanrishiSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnKanrishiSyutokuDt" msprop:Generator_ColumnPropNameInTable="KanrishiSyutokuDtColumn" msprop:Generator_UserColumnName="KanrishiSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JukoDt" msprop:Generator_ColumnVarNameInTable="columnJukoDt" msprop:Generator_ColumnPropNameInTable="JukoDtColumn" msprop:Generator_UserColumnName="JukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinSyutokuDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinSyutokuDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinSyutokuDt" msprop:Generator_ColumnPropNameInTable="SaisuiinSyutokuDtColumn" msprop:Generator_UserColumnName="SaisuiinSyutokuDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinYukokigenDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinYukokigenDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinYukokigenDt" msprop:Generator_ColumnPropNameInTable="SaisuiinYukokigenDtColumn" msprop:Generator_UserColumnName="SaisuiinYukokigenDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZenkaiJukoDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ZenkaiJukoDt" msprop:Generator_ColumnVarNameInTable="columnZenkaiJukoDt" msprop:Generator_ColumnPropNameInTable="ZenkaiJukoDtColumn" msprop:Generator_UserColumnName="ZenkaiJukoDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaisuiinTorikeshiDt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SaisuiinTorikeshiDt" msprop:Generator_ColumnVarNameInTable="columnSaisuiinTorikeshiDt" msprop:Generator_ColumnPropNameInTable="SaisuiinTorikeshiDtColumn" msprop:Generator_UserColumnName="SaisuiinTorikeshiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SaisuiinMst" />
+      <xs:field xpath="mstns:SaisuiinCd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,361 @@
+/////////////////////////////////////////////////////////
+//  prtUtility.scp
+//  Ver 1.08
+//  2004/03/17
+/////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+//						印刷関連操作パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package UTL_PRT
+
+	//---------------------------------------------------
+	// プロパティ
+	curPos = 0			// 現在位置(Y座標)
+	fileName = ""		// 送信コマンドファイル名
+	posx = 0			// 基準位置からの相対座標
+	posy = 0			// 基準位置からの相対座標
+	reverse = false		// 反転属性
+	font = 1			// 倍率(1:等倍 2:横倍角 3:縦倍角 4:４倍角)
+
+	bcType = 0			// BC種別(1:UPC-E,2:JAN13,3:JAN8,4:CODE39,5:ITF,6:NW-7,7:CODE128)
+	bcNarrow = 3		// ナロー幅(2,3,4ドット) (CODE39,ITF,NW-7)
+	bcWide = 1			// ワイド幅(0:小 1:中 2:大) (CODE39,ITF,NW-7)
+	bcStartChar = "A"	// スタートキャラ(A-D,a-d) (NW-7)
+	bcStopChar = "A"	// ストップキャラ(A-D,a-d) (NW-7)
+	bcPrintStr = true	// 文字列印字(true:する false:しない)
+	//---------------------------------------------------
+
+	textmax_x = 32		// テキスト最大表示数(横)
+	textmax_y = 32		// テキスト最大表示数(縦)
+
+
+	//---------------------------------------------------
+	// 数値→HEX変換(2桁限定(0-255) 0未満は"00"、256以上は"ff"を返します)
+	Method num2hex(num)
+		str = ""	// 戻り値
+	Begin
+		if num > 255 then return ("ff") endif
+		if num < 0 then return ("00") endif
+		str = num.Hex(false)
+		if str.length == 3 then
+			str = "0" & str.mid(2, str.length)
+		else
+			str = str.mid(2, str.length)
+		endif
+		return (str)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 初期処理(プロパティ初期化、印刷初期設定コマンド保存)
+	Method Initialize(prtfName)
+	Begin
+		// プロパティ初期化
+		posx = 0			// 基準位置からの相対座標
+		posy = 0			// 基準位置からの相対座標
+		reverse = false		// 反転属性
+		font = 1			// 倍率(1:等倍 2:横倍角 3:縦倍角 4:４倍角)
+		bcType = 0
+		bcNarrow = 3
+		bcWide = 1
+		bcStartChar = "A"
+		bcStopChar = "A"
+		bcPrintStr = true
+
+		fileName = prtfName
+		File:name = fileName
+		File:Write("124601", "create")	// 24ドットフォント
+		File:Write("1b30", "append")	// 行間スペース４ドット
+		File:Write("1b2000", "append")	// 文字間スペース０ドット
+		curPos = 0
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 印刷実行
+	Method Exec()
+		ret
+	Begin
+		File:Initialize()
+		ret = Printer:SendCommand( fileName )
+		return (ret)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 文字列印刷コマンド保存
+	Method SetCmd_STR(str)
+		str_h		// 印字高さ
+		strtmp
+		val = 0
+		val_old = 0
+		str_w		// 印字文字列長さ(文字折り返し判定用)
+	Begin
+		File:name = fileName
+		str_h = 24 + 4
+
+		// Y移動
+		val = posy - curPos
+		while 1
+			val_old = val
+			if val >= 0 Then
+				File:Write("1b4a" & num2hex(val), "append")		// 下方へ移動
+				if val >= 255 Then val = val - 255 endif
+			Else
+				File:Write("1b6a" & num2hex(0-val), "append")	// 上方へ移動
+				if val <= -255 Then val = val + 255 endif
+			EndIf
+			If (val_old == val) Then wbreak EndIf
+		wend
+
+		// X移動
+		val = (posx - (posx mod 12)) / 12
+		strtmp = " ".repeat(val)
+		File:Puts(strtmp, "append")	// 文字列
+		str_w = val + str.length
+
+		// 属性変更
+		If font == 2 or font == 4 Then				// 横倍
+			File:Write("1b5701", "append")
+			str_w = str_w + str.length
+		EndIf
+		If font == 3 or font == 4 Then				// 縦倍
+			File:Write("1b7701", "append")
+			str_h = str_h + 24
+		EndIf
+		If reverse is true Then File:Write("1b4901", "append") EndIf					// 反転
+
+		If str_w > textmax_x Then
+			str_h = str_h * 2
+		EndIf
+
+		// 文字列印刷
+		File:Puts(str, "append")	// 文字列
+		File:Write("0d", "append")	// 改行
+
+		// 属性を戻す
+		If font == 2 or font == 4 Then File:Write("1b5700", "append") EndIf		// 横倍解除
+		If font == 3 or font == 4 Then File:Write("1b7700", "append") EndIf		// 縦倍解除
+		If reverse is true Then File:Write("1b4900", "append") EndIf			// 反転解除
+
+		curPos = posy + str_h
+		return (0)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// ビットマップ印刷コマンド保存
+	Method SetCmd_BMP(bmpfilename, bmptmpfilename, bmpheight)
+		strtmp
+		val = 0
+		val_old = 0
+		ret
+	Begin
+		val = posy - curPos
+		while 1
+			val_old = val
+			if val >= 0 Then
+				File:Write("1b4a" & num2hex(val), "append")		// 下方へ移動
+				if val >= 255 Then val = val - 255 endif
+			Else
+				File:Write("1b6a" & num2hex(0-val), "append")	// 上方へ移動
+				if val <= -255 Then val = val + 255 endif
+			EndIf
+			If (val_old == val) Then wbreak EndIf
+		wend
+
+		FileSystem:Delete(bmptmpfilename)
+		if Printer:CreateBMPCommand(bmpfilename, bmptmpfilename, posx, 1) is true Then
+			// ビットマップ印刷コマンド結合
+			ret = FileSystem:Delete("2:__BMP.TMP")
+			ret = FileSystem:Cat(fileName, bmptmpfilename, "2:__BMP.TMP")
+			ret = FileSystem:Delete(fileName)
+			ret = FileSystem:Rename("2:__BMP.TMP",fileName)
+			ret = FileSystem:Delete(bmptmpfilename)
+		EndIf
+		curPos = posy + bmpheight
+		return (0)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// バーコード印刷コマンド保存
+	Method SetCmd_BCR(data, height)
+		str_h = 0		// バーコード高さ
+		strtmp
+		val = 0
+		val_old = 0
+		widetmp = 0		// ワイド幅
+	Begin
+
+		// パラメータチェック
+		If height < 0 or 255 < height Then return (-1) EndIf
+		If bcType == 1 Then				// UPC-E
+			If data.length == 8 Then
+				data = data.Left(7)
+			ElseIf data.length <> 7 Then
+				return (-1)
+			EndIf
+		ElseIf bcType == 2 Then			// JAN13
+			If data.length == 13 Then
+				data = data.Left(12)
+			ElseIf data.length <> 12 Then
+				return (-1)
+			EndIf
+		ElseIf bcType == 3 Then			// JAN8
+			If data.length == 8 Then
+				data = data.Left(7)
+			ElseIf data.length <> 7 Then
+				return (-1)
+			EndIf
+		ElseIf bcType == 4 or bcType == 5 or bcType == 6 Then	// CODE39,ITF,NW-7
+			If bcNarrow < 2 or 4 < bcNarrow Then return (-1) EndIf
+			If bcWide < 0 or 2 < bcWide Then return (-1) EndIf
+		ElseIf bcType == 7 Then			// CODE128
+		Else
+			return (-1)
+		EndIf
+
+		val = posy - curPos
+
+		while 1
+			val_old = val
+			if val >= 0 Then
+				File:Write("1b4a" & num2hex(val), "append")		// 下方へ移動
+				if val >= 255 Then val = val - 255 endif
+			Else
+				File:Write("1b6a" & num2hex(0-val), "append")	// 上方へ移動
+				if val <= -255 Then val = val + 255 endif
+			EndIf
+			If (val_old == val) Then wbreak EndIf
+		wend
+
+		File:Write("1d58" & num2hex(posx) & "00", "append")		// 位置設定
+
+		File:Write("1d68" & num2hex(height), "append")		// 高さ設定
+		If bcType == 4 or bcType == 5 or bcType == 6 Then	// CODE39,ITF,NW-7
+
+			// ワイド幅計算
+			If bcNarrow == 2 Then
+				If bcWide == 0 Then widetmp = 4
+				ElseIf bcWide == 1 Then widetmp = 5
+				Else widetmp = 6
+				EndIf
+			ElseIf bcNarrow == 3 Then
+				If bcWide == 0 Then widetmp = 6
+				ElseIf bcWide == 1 Then widetmp = 8
+				Else widetmp = 9
+				EndIf
+			Else
+				If bcWide == 0 Then widetmp = 8
+				ElseIf bcWide == 1 Then widetmp = 10
+				Else widetmp = 12
+				EndIf
+			EndIf
+			File:Write("1d78" & num2hex(bcNarrow) & num2hex(widetmp), "append")	// ナローワイド設定
+		EndIf
+		If bcPrintStr is true Then
+			File:Write("1d4802", "append") 					// データ文字列印字
+			str_h = 20	// データ文字列高さ
+		Else
+			File:Write("1d4800", "append")
+		EndIf
+
+		// バーコード印字
+		File:Write("1d6b" & num2hex(bcType+(16*3)), "append")
+		If bcType == 6 Then	// NW-7
+			File:Puts(bcStartChar.left(1), "append")
+		EndIf
+		If bcType == 7 Then	// CODE128
+			File:Puts("h", "append")		// CODE Bで始める
+		EndIf
+		File:Puts(data, "append")
+		If bcType == 6 Then	// NW-7
+			File:Puts(bcStopChar.left(1), "append")
+		EndIf
+		File:Write("00", "append")
+
+		curPos = posy + height + str_h
+		return (0)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 紙送り処理(上方) mode 0:ラベル印刷 1:履歴印刷
+	Method Move_Up(mode)
+	Begin
+		If mode == 0 Then
+			File:Write("127000","append")		// 紙無しエラー無効
+			File:Write("1b6a60","append")		// 用紙逆送り
+			File:Write("126d018001","append")	// マーク位置検出
+			File:Write("127e7800","append")		// 印字濃度を上げる
+		Else
+			File:Write("127001","append")		// 紙無しエラー有効
+			File:Write("1b6a10","append")		// 用紙逆送り
+		EndIf
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 紙送り処理(下方) mode 0:ラベル印刷 1:履歴印刷
+	Method Move_Down(mode)
+	Begin
+		If mode == 0 Then
+			File:Write("127e6400","append")		// 印字濃度を元に戻す
+			File:Write("126d018001","append")	// マーク位置検出
+			File:Write("1b4a40","append")		// 用紙順送り
+		Else
+			File:Write("1b4a60","append")		// 用紙順送り
+		EndIf
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 履歴印刷コマンド保存
+	Method PrintHistory()
+		cnt
+		totalNum = 0		// 合計数量
+		strRecord			// 印字文字列
+		tmpNum
+		tmpTypeUnknown
+	Begin
+		SetCmd_STR("\r\n")
+		For cnt = 1 To LogRecord:recordCount
+			If LogRecord:Read(cnt) is false Then Fbreak EndIf
+
+			strRecord = UTL:fix_length(20, LogRecord:GetData(LogRecord:fieldNum-1))
+			
+			
+			tmpTypeUnknown = LogRecord:GetData(LogRecord:fieldNum)
+			If( tmpTypeUnknown.isDigit is false ) Then 
+				tmpNum = 0
+			Else
+				tmpNum = tmpTypeUnknown.toInt	// 前ゼロを除去する為に一旦数値に変換する
+			EndIf
+			
+			
+			If tmpNum < -999 Then
+				strRecord = strRecord & "  x  -" & UTL:utlMakeFixedNumEx(0-tmpNum,3)&"\r\n"	// -符号を付ける
+			Else
+				strRecord = strRecord & "  x  " & UTL:utlMakeFixedNumEx(tmpNum,4)&"\r\n"
+			EndIf
+
+			If LogRecord:GetData(LogRecord:fieldNum).isDigit Then
+				totalNum = totalNum + LogRecord:GetData(LogRecord:fieldNum)
+			EndIf
+			File:Puts(strRecord,"append")
+
+		Next
+		File:Puts("数量合計             "&UTL:utlMakeFixedNumEx(totalNum,8)&"\r\n","append" )
+		File:Puts("件数合計             "&UTL:utlMakeFixedNumEx(LogRecord:recordCount,8)&"件\r\n","append" )
+		return (true)
+	Catch
+		Handy:ShowMessageBox("不正なログデータです","confirm")
+		return (false)
+	EndMethod
+
+
+EndPackage
+

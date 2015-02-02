@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="YoshiMstUpdateDataSet" targetNamespace="http://tempuri.org/YoshiMstUpdateDataSet.xsd" xmlns:mstns="http://tempuri.org/YoshiMstUpdateDataSet.xsd" xmlns="http://tempuri.org/YoshiMstUpdateDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="YoshiMstUpdateDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="YoshiMstUpdateDataSet" msprop:Generator_UserDSName="YoshiMstUpdateDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YoshiMstUpdate" msprop:Generator_TableClassName="YoshiMstUpdateDataTable" msprop:Generator_TableVarName="tableYoshiMstUpdate" msprop:Generator_RowChangedName="YoshiMstUpdateRowChanged" msprop:Generator_TablePropName="YoshiMstUpdate" msprop:Generator_RowDeletingName="YoshiMstUpdateRowDeleting" msprop:Generator_RowChangingName="YoshiMstUpdateRowChanging" msprop:Generator_RowEvHandlerName="YoshiMstUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="YoshiMstUpdateRowDeleted" msprop:Generator_RowClassName="YoshiMstUpdateRow" msprop:Generator_UserTableName="YoshiMstUpdate" msprop:Generator_RowEvArgName="YoshiMstUpdateRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="YoshiCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="YoshiCd" msprop:Generator_ColumnVarNameInTable="columnYoshiCd" msprop:Generator_ColumnPropNameInTable="YoshiCdColumn" msprop:Generator_UserColumnName="YoshiCd" type="xs:string" minOccurs="0" />
+              <xs:element name="YoshiNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="YoshiNm" msprop:Generator_ColumnVarNameInTable="columnYoshiNm" msprop:Generator_ColumnPropNameInTable="YoshiNmColumn" msprop:Generator_UserColumnName="YoshiNm" type="xs:string" minOccurs="0" />
+              <xs:element name="YoshiKaiinUp" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiKaiinUp" msprop:Generator_ColumnVarNameInTable="columnYoshiKaiinUp" msprop:Generator_ColumnPropNameInTable="YoshiKaiinUpColumn" msprop:Generator_UserColumnName="YoshiKaiinUp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiHiKaiinUp" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiHiKaiinUp" msprop:Generator_ColumnVarNameInTable="columnYoshiHiKaiinUp" msprop:Generator_ColumnPropNameInTable="YoshiHiKaiinUpColumn" msprop:Generator_UserColumnName="YoshiHiKaiinUp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiKaiinSetKakaku" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiKaiinSetKakaku" msprop:Generator_ColumnVarNameInTable="columnYoshiKaiinSetKakaku" msprop:Generator_ColumnPropNameInTable="YoshiKaiinSetKakakuColumn" msprop:Generator_UserColumnName="YoshiKaiinSetKakaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiHiKaiinSetKakaku" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiHiKaiinSetKakaku" msprop:Generator_ColumnVarNameInTable="columnYoshiHiKaiinSetKakaku" msprop:Generator_ColumnPropNameInTable="YoshiHiKaiinSetKakakuColumn" msprop:Generator_UserColumnName="YoshiHiKaiinSetKakaku" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiSetBusu" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiSetBusu" msprop:Generator_ColumnVarNameInTable="columnYoshiSetBusu" msprop:Generator_ColumnPropNameInTable="YoshiSetBusuColumn" msprop:Generator_UserColumnName="YoshiSetBusu" type="xs:int" minOccurs="0" />
+              <xs:element name="IsUpdate" msprop:Generator_ColumnVarNameInTable="columnIsUpdate" msprop:Generator_ColumnPropNameInRow="IsUpdate" msprop:Generator_ColumnPropNameInTable="IsUpdateColumn" msprop:Generator_UserColumnName="IsUpdate" type="xs:string" minOccurs="0" />
+              <xs:element name="YoshiCdOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiCdOriginal" msprop:Generator_ColumnPropNameInRow="YoshiCdOriginal" msprop:Generator_ColumnPropNameInTable="YoshiCdOriginalColumn" msprop:Generator_UserColumnName="YoshiCdOriginal" type="xs:string" minOccurs="0" />
+              <xs:element name="YoshiNmOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiNmOriginal" msprop:Generator_ColumnPropNameInRow="YoshiNmOriginal" msprop:Generator_ColumnPropNameInTable="YoshiNmOriginalColumn" msprop:Generator_UserColumnName="YoshiNmOriginal" type="xs:string" minOccurs="0" />
+              <xs:element name="YoshiKaiinUpOriginal" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiKaiinUpOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiKaiinUpOriginal" msprop:Generator_ColumnPropNameInTable="YoshiKaiinUpOriginalColumn" msprop:Generator_UserColumnName="YoshiKaiinUpOriginal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiHiKaiinUpOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiHiKaiinUpOriginal" msprop:Generator_ColumnPropNameInRow="YoshiHiKaiinUpOriginal" msprop:Generator_ColumnPropNameInTable="YoshiHiKaiinUpOriginalColumn" msprop:Generator_UserColumnName="YoshiHiKaiinUpOriginal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiKaiinSetKakakuOriginal" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiKaiinSetKakakuOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiKaiinSetKakakuOriginal" msprop:Generator_ColumnPropNameInTable="YoshiKaiinSetKakakuOriginalColumn" msprop:Generator_UserColumnName="YoshiKaiinSetKakakuOriginal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiHiKaiinSetKakakuOriginal" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiHiKaiinSetKakakuOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiHiKaiinSetKakakuOriginal" msprop:Generator_ColumnPropNameInTable="YoshiHiKaiinSetKakakuOriginalColumn" msprop:Generator_UserColumnName="YoshiHiKaiinSetKakakuOriginal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YoshiSetBusuOriginal" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="YoshiSetBusuOriginal" msprop:Generator_ColumnVarNameInTable="columnYoshiSetBusuOriginal" msprop:Generator_ColumnPropNameInTable="YoshiSetBusuOriginalColumn" msprop:Generator_UserColumnName="YoshiSetBusuOriginal" type="xs:int" minOccurs="0" />
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsertUser" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser" type="xs:string" minOccurs="0" />
+              <xs:element name="InsertTarm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateUser" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdateTarm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

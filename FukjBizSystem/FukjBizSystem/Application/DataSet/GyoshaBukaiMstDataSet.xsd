@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GyoshaBukaiMstDataSet" targetNamespace="http://tempuri.org/GyoshaBukaiMstDataSet.xsd" xmlns:mstns="http://tempuri.org/GyoshaBukaiMstDataSet.xsd" xmlns="http://tempuri.org/GyoshaBukaiMstDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KaiinListTableAdapter" GeneratorDataComponentClassName="KaiinListTableAdapter" Name="KaiinList" UserDataComponentName="KaiinListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      Tbl.GyoshaCd, Tbl.GyoshaNm, Tbl.BukaiNyukaiDt1, Tbl.BukaiTaikaiDt1, Tbl.BukaiNyukaiDt2, Tbl.BukaiTaikaiDt2, Tbl.BukaiNyukaiDt3, Tbl.BukaiTaikaiDt3, 
+                                      Tbl.BukaiNyukaiDt4, Tbl.BukaiTaikaiDt4, GyoshaMst.GyoshaZipCd, GyoshaMst.GyoshaAdr, GyoshaMst.GyoshaTelNo, GyoshaMst.GyoshaFaxNo, 
+                                      GyoshaMst.DaihyoshaNm
+FROM                         (SELECT                      gm.GyoshaCd, MAX(gm.GyoshaNm) AS GyoshaNm, CASE WHEN isnull(MAX(gbm.BukaiNyukaiDt1), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiNyukaiDt1), 0, 5), '/', substring(MAX(gbm.BukaiNyukaiDt1), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiNyukaiDt1), 7, 2)) END AS BukaiNyukaiDt1, CASE WHEN isnull(MAX(gbm.BukaiTaikaiDt1), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiTaikaiDt1), 0, 5), '/', substring(MAX(gbm.BukaiTaikaiDt1), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiTaikaiDt1), 7, 2)) END AS BukaiTaikaiDt1, CASE WHEN isnull(MAX(gbm.BukaiNyukaiDt2), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiNyukaiDt2), 0, 5), '/', substring(MAX(gbm.BukaiNyukaiDt2), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiNyukaiDt2), 7, 2)) END AS BukaiNyukaiDt2, CASE WHEN isnull(MAX(gbm.BukaiTaikaiDt2), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiTaikaiDt2), 0, 5), '/', substring(MAX(gbm.BukaiTaikaiDt2), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiTaikaiDt2), 7, 2)) END AS BukaiTaikaiDt2, CASE WHEN isnull(MAX(gbm.BukaiNyukaiDt3), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiNyukaiDt3), 0, 5), '/', substring(MAX(gbm.BukaiNyukaiDt3), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiNyukaiDt3), 7, 2)) END AS BukaiNyukaiDt3, CASE WHEN isnull(MAX(gbm.BukaiTaikaiDt3), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiTaikaiDt3), 0, 5), '/', substring(MAX(gbm.BukaiTaikaiDt3), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiTaikaiDt3), 7, 2)) END AS BukaiTaikaiDt3, CASE WHEN isnull(MAX(gbm.BukaiNyukaiDt4), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiNyukaiDt4), 0, 5), '/', substring(MAX(gbm.BukaiNyukaiDt4), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiNyukaiDt4), 7, 2)) END AS BukaiNyukaiDt4, CASE WHEN isnull(MAX(gbm.BukaiTaikaiDt4), '') 
+                                                                              = '' THEN '' ELSE concat(substring(MAX(gbm.BukaiTaikaiDt4), 0, 5), '/', substring(MAX(gbm.BukaiTaikaiDt4), 5, 2), '/', 
+                                                                              substring(MAX(gbm.BukaiTaikaiDt4), 7, 2)) END AS BukaiTaikaiDt4
+                                        FROM                         GyoshaMst AS gm INNER JOIN
+                                                                                  (SELECT                      BukaiGyoshaCd, CASE BukaiKbn WHEN 1 THEN BukaiNyukaiDt ELSE '' END AS BukaiNyukaiDt1, 
+                                                                                                                              CASE BukaiKbn WHEN 1 THEN BukaiTaikaiDt ELSE '' END AS BukaiTaikaiDt1, 
+                                                                                                                              CASE BukaiKbn WHEN 2 THEN BukaiNyukaiDt ELSE '' END AS BukaiNyukaiDt2, 
+                                                                                                                              CASE BukaiKbn WHEN 2 THEN BukaiTaikaiDt ELSE '' END AS BukaiTaikaiDt2, 
+                                                                                                                              CASE BukaiKbn WHEN 3 THEN BukaiNyukaiDt ELSE '' END AS BukaiNyukaiDt3, 
+                                                                                                                              CASE BukaiKbn WHEN 3 THEN BukaiTaikaiDt ELSE '' END AS BukaiTaikaiDt3, 
+                                                                                                                              CASE BukaiKbn WHEN 4 THEN BukaiNyukaiDt ELSE '' END AS BukaiNyukaiDt4, 
+                                                                                                                              CASE BukaiKbn WHEN 4 THEN BukaiTaikaiDt ELSE '' END AS BukaiTaikaiDt4
+                                                                                        FROM                         GyoshaBukaiMst) AS gbm ON gm.GyoshaCd = gbm.BukaiGyoshaCd
+                                        WHERE                       (1 = 1)
+                                        GROUP BY              gm.GyoshaCd) AS Tbl INNER JOIN
+                                      GyoshaMst ON GyoshaMst.GyoshaCd = Tbl.GyoshaCd</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GyoshaCd" DataSetColumn="GyoshaCd" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="BukaiNyukaiDt1" DataSetColumn="BukaiNyukaiDt1" />
+              <Mapping SourceColumn="BukaiTaikaiDt1" DataSetColumn="BukaiTaikaiDt1" />
+              <Mapping SourceColumn="BukaiNyukaiDt2" DataSetColumn="BukaiNyukaiDt2" />
+              <Mapping SourceColumn="BukaiTaikaiDt2" DataSetColumn="BukaiTaikaiDt2" />
+              <Mapping SourceColumn="BukaiNyukaiDt3" DataSetColumn="BukaiNyukaiDt3" />
+              <Mapping SourceColumn="BukaiTaikaiDt3" DataSetColumn="BukaiTaikaiDt3" />
+              <Mapping SourceColumn="BukaiNyukaiDt4" DataSetColumn="BukaiNyukaiDt4" />
+              <Mapping SourceColumn="BukaiTaikaiDt4" DataSetColumn="BukaiTaikaiDt4" />
+              <Mapping SourceColumn="GyoshaZipCd" DataSetColumn="GyoshaZipCd" />
+              <Mapping SourceColumn="GyoshaAdr" DataSetColumn="GyoshaAdr" />
+              <Mapping SourceColumn="GyoshaTelNo" DataSetColumn="GyoshaTelNo" />
+              <Mapping SourceColumn="GyoshaFaxNo" DataSetColumn="GyoshaFaxNo" />
+              <Mapping SourceColumn="DaihyoshaNm" DataSetColumn="DaihyoshaNm" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KaiinPrintInfoTableAdapter" GeneratorDataComponentClassName="KaiinPrintInfoTableAdapter" Name="KaiinPrintInfo" UserDataComponentName="KaiinPrintInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  HoteiKanriMst.JimukyokuDaihyoshaNm,
+		GyoshaMst.GyoshaAdr,
+		GyoshaMst.GyoshaNm,
+		GyoshaMst.DaihyoshaNm,
+		GyoshaMst.GyoshaTelNo,
+		GyoshaMst.GyoshaFaxNo,
+		GyoshaBukaiMst.BukaiKbn,
+		GyoshaBukaiMst.BukaiNyukaiDt,
+		GyoshaBukaiMst.BukaiTaikaiDt,
+		GyoshaBukaiMst.BukaiSetsubishiDaihyoshaNm,
+		GyoshaBukaiMst.BukaiMenJoNo,
+
+		SUBSTRING(CONCAT(
+			CASE WHEN ISNULL(hm1.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm1.HokenjoNm) END,
+			CASE WHEN ISNULL(hm2.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm2.HokenjoNm) END,
+			CASE WHEN ISNULL(hm3.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm3.HokenjoNm) END,
+			CASE WHEN ISNULL(hm4.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm4.HokenjoNm) END,
+			CASE WHEN ISNULL(hm5.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm5.HokenjoNm) END,
+			CASE WHEN ISNULL(hm6.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm6.HokenjoNm) END,
+			CASE WHEN ISNULL(hm7.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm7.HokenjoNm) END,
+			CASE WHEN ISNULL(hm8.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm8.HokenjoNm) END,
+			CASE WHEN ISNULL(hm9.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm9.HokenjoNm) END,
+			CASE WHEN ISNULL(hm10.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm10.HokenjoNm) END,
+			CASE WHEN ISNULL(hm11.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm11.HokenjoNm) END,
+			CASE WHEN ISNULL(hm12.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm12.HokenjoNm) END,
+			CASE WHEN ISNULL(hm13.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm13.HokenjoNm) END,
+			CASE WHEN ISNULL(hm14.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm14.HokenjoNm) END,
+			CASE WHEN ISNULL(hm15.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm15.HokenjoNm) END
+
+		), 2, 400) AS BukaiKankeiHokenjo,
+
+		SUBSTRING(CONCAT(
+			CASE WHEN ISNULL(cm1.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm1.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm2.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm2.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm3.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm3.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm4.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm4.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm5.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm5.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm6.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm6.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm7.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm7.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm8.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm8.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm9.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm9.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm10.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm10.ChikuRyakusho) END
+
+		), 2, 150) AS BukaiTantoShichoson,
+
+		HoteiKanriMst.JimukyokuFaxNo
+
+FROM 
+	HoteiKanriMst, 
+	GyoshaMst LEFT OUTER JOIN GyoshaBukaiMst ON GyoshaMst.GyoshaCd = GyoshaBukaiMst.BukaiGyoshaCd
+	
+	/* JOIN HokenjoMst */
+	LEFT OUTER JOIN HokenjoMst hm1 ON GyoshaBukaiMst.BukaiKankeiHokenjo1 = hm1.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm2 ON GyoshaBukaiMst.BukaiKankeiHokenjo2 = hm2.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm3 ON GyoshaBukaiMst.BukaiKankeiHokenjo3 = hm3.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm4 ON GyoshaBukaiMst.BukaiKankeiHokenjo4 = hm4.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm5 ON GyoshaBukaiMst.BukaiKankeiHokenjo5 = hm5.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm6 ON GyoshaBukaiMst.BukaiKankeiHokenjo6 = hm6.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm7 ON GyoshaBukaiMst.BukaiKankeiHokenjo7 = hm7.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm8 ON GyoshaBukaiMst.BukaiKankeiHokenjo8 = hm8.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm9 ON GyoshaBukaiMst.BukaiKankeiHokenjo9 = hm9.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm10 ON GyoshaBukaiMst.BukaiKankeiHokenjo10 = hm10.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm11 ON GyoshaBukaiMst.BukaiKankeiHokenjo11 = hm11.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm12 ON GyoshaBukaiMst.BukaiKankeiHokenjo12 = hm12.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm13 ON GyoshaBukaiMst.BukaiKankeiHokenjo13 = hm13.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm14 ON GyoshaBukaiMst.BukaiKankeiHokenjo14 = hm14.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm15 ON GyoshaBukaiMst.BukaiKankeiHokenjo15 = hm15.HokenjoCd
+
+	/* JOIN ChikuMst */
+	LEFT OUTER JOIN ChikuMst cm1 ON GyoshaBukaiMst.BukaiTantoShichoson1 = cm1.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm2 ON GyoshaBukaiMst.BukaiTantoShichoson2 = cm2.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm3 ON GyoshaBukaiMst.BukaiTantoShichoson3 = cm3.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm4 ON GyoshaBukaiMst.BukaiTantoShichoson4 = cm4.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm5 ON GyoshaBukaiMst.BukaiTantoShichoson5 = cm5.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm6 ON GyoshaBukaiMst.BukaiTantoShichoson6 = cm6.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm7 ON GyoshaBukaiMst.BukaiTantoShichoson7 = cm7.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm8 ON GyoshaBukaiMst.BukaiTantoShichoson8 = cm8.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm9 ON GyoshaBukaiMst.BukaiTantoShichoson9 = cm9.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm10 ON GyoshaBukaiMst.BukaiTantoShichoson10 = cm10.ChikuCd</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="JimukyokuDaihyoshaNm" DataSetColumn="JimukyokuDaihyoshaNm" />
+              <Mapping SourceColumn="GyoshaAdr" DataSetColumn="GyoshaAdr" />
+              <Mapping SourceColumn="GyoshaNm" DataSetColumn="GyoshaNm" />
+              <Mapping SourceColumn="DaihyoshaNm" DataSetColumn="DaihyoshaNm" />
+              <Mapping SourceColumn="GyoshaTelNo" DataSetColumn="GyoshaTelNo" />
+              <Mapping SourceColumn="GyoshaFaxNo" DataSetColumn="GyoshaFaxNo" />
+              <Mapping SourceColumn="BukaiKbn" DataSetColumn="BukaiKbn" />
+              <Mapping SourceColumn="BukaiNyukaiDt" DataSetColumn="BukaiNyukaiDt" />
+              <Mapping SourceColumn="BukaiTaikaiDt" DataSetColumn="BukaiTaikaiDt" />
+              <Mapping SourceColumn="BukaiSetsubishiDaihyoshaNm" DataSetColumn="BukaiSetsubishiDaihyoshaNm" />
+              <Mapping SourceColumn="BukaiMenJoNo" DataSetColumn="BukaiMenJoNo" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo" DataSetColumn="BukaiKankeiHokenjo" />
+              <Mapping SourceColumn="BukaiTantoShichoson" DataSetColumn="BukaiTantoShichoson" />
+              <Mapping SourceColumn="JimukyokuFaxNo" DataSetColumn="JimukyokuFaxNo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGyoshaCd" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGyoshaCd" GeneratorSourceName="FillByGyoshaCd" GetMethodModifier="Public" GetMethodName="GetDataByGyoshaCd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGyoshaCd" UserSourceName="FillByGyoshaCd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  HoteiKanriMst.JimukyokuDaihyoshaNm,
+		GyoshaMst.GyoshaAdr,
+		GyoshaMst.GyoshaNm,
+		GyoshaMst.DaihyoshaNm,
+		GyoshaMst.GyoshaTelNo,
+		GyoshaMst.GyoshaFaxNo,
+		GyoshaBukaiMst.BukaiKbn,
+		GyoshaBukaiMst.BukaiNyukaiDt,
+		GyoshaBukaiMst.BukaiTaikaiDt,
+		GyoshaBukaiMst.BukaiSetsubishiDaihyoshaNm,
+		GyoshaBukaiMst.BukaiMenJoNo,
+
+		SUBSTRING(CONCAT(
+			CASE WHEN ISNULL(hm1.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm1.HokenjoNm) END,
+			CASE WHEN ISNULL(hm2.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm2.HokenjoNm) END,
+			CASE WHEN ISNULL(hm3.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm3.HokenjoNm) END,
+			CASE WHEN ISNULL(hm4.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm4.HokenjoNm) END,
+			CASE WHEN ISNULL(hm5.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm5.HokenjoNm) END,
+			CASE WHEN ISNULL(hm6.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm6.HokenjoNm) END,
+			CASE WHEN ISNULL(hm7.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm7.HokenjoNm) END,
+			CASE WHEN ISNULL(hm8.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm8.HokenjoNm) END,
+			CASE WHEN ISNULL(hm9.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm9.HokenjoNm) END,
+			CASE WHEN ISNULL(hm10.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm10.HokenjoNm) END,
+			CASE WHEN ISNULL(hm11.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm11.HokenjoNm) END,
+			CASE WHEN ISNULL(hm12.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm12.HokenjoNm) END,
+			CASE WHEN ISNULL(hm13.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm13.HokenjoNm) END,
+			CASE WHEN ISNULL(hm14.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm14.HokenjoNm) END,
+			CASE WHEN ISNULL(hm15.HokenjoNm, '') = '' THEN '' ELSE CONCAT('、', hm15.HokenjoNm) END
+
+		), 2, 400) AS BukaiKankeiHokenjo,
+
+		SUBSTRING(CONCAT(
+			CASE WHEN ISNULL(cm1.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm1.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm2.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm2.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm3.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm3.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm4.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm4.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm5.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm5.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm6.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm6.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm7.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm7.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm8.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm8.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm9.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm9.ChikuRyakusho) END,
+			CASE WHEN ISNULL(cm10.ChikuRyakusho, '') = '' THEN '' ELSE CONCAT('、', cm10.ChikuRyakusho) END
+
+		), 2, 150) AS BukaiTantoShichoson,
+
+		HoteiKanriMst.JimukyokuFaxNo
+
+FROM 
+	HoteiKanriMst, 
+	GyoshaMst LEFT OUTER JOIN GyoshaBukaiMst ON GyoshaMst.GyoshaCd = GyoshaBukaiMst.BukaiGyoshaCd
+	
+	/* JOIN HokenjoMst */
+	LEFT OUTER JOIN HokenjoMst hm1 ON GyoshaBukaiMst.BukaiKankeiHokenjo1 = hm1.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm2 ON GyoshaBukaiMst.BukaiKankeiHokenjo2 = hm2.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm3 ON GyoshaBukaiMst.BukaiKankeiHokenjo3 = hm3.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm4 ON GyoshaBukaiMst.BukaiKankeiHokenjo4 = hm4.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm5 ON GyoshaBukaiMst.BukaiKankeiHokenjo5 = hm5.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm6 ON GyoshaBukaiMst.BukaiKankeiHokenjo6 = hm6.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm7 ON GyoshaBukaiMst.BukaiKankeiHokenjo7 = hm7.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm8 ON GyoshaBukaiMst.BukaiKankeiHokenjo8 = hm8.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm9 ON GyoshaBukaiMst.BukaiKankeiHokenjo9 = hm9.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm10 ON GyoshaBukaiMst.BukaiKankeiHokenjo10 = hm10.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm11 ON GyoshaBukaiMst.BukaiKankeiHokenjo11 = hm11.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm12 ON GyoshaBukaiMst.BukaiKankeiHokenjo12 = hm12.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm13 ON GyoshaBukaiMst.BukaiKankeiHokenjo13 = hm13.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm14 ON GyoshaBukaiMst.BukaiKankeiHokenjo14 = hm14.HokenjoCd
+	LEFT OUTER JOIN HokenjoMst hm15 ON GyoshaBukaiMst.BukaiKankeiHokenjo15 = hm15.HokenjoCd
+
+	/* JOIN ChikuMst */
+	LEFT OUTER JOIN ChikuMst cm1 ON GyoshaBukaiMst.BukaiTantoShichoson1 = cm1.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm2 ON GyoshaBukaiMst.BukaiTantoShichoson2 = cm2.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm3 ON GyoshaBukaiMst.BukaiTantoShichoson3 = cm3.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm4 ON GyoshaBukaiMst.BukaiTantoShichoson4 = cm4.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm5 ON GyoshaBukaiMst.BukaiTantoShichoson5 = cm5.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm6 ON GyoshaBukaiMst.BukaiTantoShichoson6 = cm6.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm7 ON GyoshaBukaiMst.BukaiTantoShichoson7 = cm7.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm8 ON GyoshaBukaiMst.BukaiTantoShichoson8 = cm8.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm9 ON GyoshaBukaiMst.BukaiTantoShichoson9 = cm9.ChikuCd
+	LEFT OUTER JOIN ChikuMst cm10 ON GyoshaBukaiMst.BukaiTantoShichoson10 = cm10.ChikuCd
+
+
+WHERE HoteiKanriMst.JimukyokuKbn = '0' AND GyoshaBukaiMst.BukaiGyoshaCd = @GyoshaCd
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="GyoshaCd" ColumnName="BukaiGyoshaCd" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@GyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GyoshaBukaiMstTableAdapter" GeneratorDataComponentClassName="GyoshaBukaiMstTableAdapter" Name="GyoshaBukaiMst" UserDataComponentName="GyoshaBukaiMstTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.GyoshaBukaiMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[GyoshaBukaiMst] WHERE (([BukaiGyoshaCd] = @Original_BukaiGyoshaCd) AND ([BukaiKbn] = @Original_BukaiKbn) AND ([BukaiKaiinCd] = @Original_BukaiKaiinCd) AND ([BukaiNyukaiDt] = @Original_BukaiNyukaiDt) AND ([BukaiTaikaiDt] = @Original_BukaiTaikaiDt) AND ([BukaiSetsubishiDaihyoshaNm] = @Original_BukaiSetsubishiDaihyoshaNm) AND ([BukaiMenJoNo] = @Original_BukaiMenJoNo) AND ([BukaiKankeiHokenjo1] = @Original_BukaiKankeiHokenjo1) AND ([BukaiKankeiHokenjo2] = @Original_BukaiKankeiHokenjo2) AND ([BukaiKankeiHokenjo3] = @Original_BukaiKankeiHokenjo3) AND ([BukaiKankeiHokenjo4] = @Original_BukaiKankeiHokenjo4) AND ([BukaiKankeiHokenjo5] = @Original_BukaiKankeiHokenjo5) AND ([BukaiKankeiHokenjo6] = @Original_BukaiKankeiHokenjo6) AND ([BukaiKankeiHokenjo7] = @Original_BukaiKankeiHokenjo7) AND ([BukaiKankeiHokenjo8] = @Original_BukaiKankeiHokenjo8) AND ([BukaiKankeiHokenjo9] = @Original_BukaiKankeiHokenjo9) AND ([BukaiKankeiHokenjo10] = @Original_BukaiKankeiHokenjo10) AND ([BukaiKankeiHokenjo11] = @Original_BukaiKankeiHokenjo11) AND ([BukaiKankeiHokenjo12] = @Original_BukaiKankeiHokenjo12) AND ([BukaiKankeiHokenjo13] = @Original_BukaiKankeiHokenjo13) AND ([BukaiKankeiHokenjo14] = @Original_BukaiKankeiHokenjo14) AND ([BukaiKankeiHokenjo15] = @Original_BukaiKankeiHokenjo15) AND ([BukaiTantoShichoson1] = @Original_BukaiTantoShichoson1) AND ([BukaiTantoShichoson2] = @Original_BukaiTantoShichoson2) AND ([BukaiTantoShichoson3] = @Original_BukaiTantoShichoson3) AND ([BukaiTantoShichoson4] = @Original_BukaiTantoShichoson4) AND ([BukaiTantoShichoson5] = @Original_BukaiTantoShichoson5) AND ([BukaiTantoShichoson6] = @Original_BukaiTantoShichoson6) AND ([BukaiTantoShichoson7] = @Original_BukaiTantoShichoson7) AND ([BukaiTantoShichoson8] = @Original_BukaiTantoShichoson8) AND ([BukaiTantoShichoson9] = @Original_BukaiTantoShichoson9) AND ([BukaiTantoShichoson10] = @Original_BukaiTantoShichoson10) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKaiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKaiinCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiNyukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiNyukaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTaikaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTaikaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiSetsubishiDaihyoshaNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiSetsubishiDaihyoshaNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiMenJoNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiMenJoNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo5" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo6" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo7" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo8" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo9" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo10" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo11" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo11" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo12" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo12" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo13" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo13" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo14" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo14" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo15" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo15" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson5" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson6" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson7" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson8" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson9" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson10" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[GyoshaBukaiMst] ([BukaiGyoshaCd], [BukaiKbn], [BukaiKaiinCd], [BukaiNyukaiDt], [BukaiTaikaiDt], [BukaiSetsubishiDaihyoshaNm], [BukaiMenJoNo], [BukaiKankeiHokenjo1], [BukaiKankeiHokenjo2], [BukaiKankeiHokenjo3], [BukaiKankeiHokenjo4], [BukaiKankeiHokenjo5], [BukaiKankeiHokenjo6], [BukaiKankeiHokenjo7], [BukaiKankeiHokenjo8], [BukaiKankeiHokenjo9], [BukaiKankeiHokenjo10], [BukaiKankeiHokenjo11], [BukaiKankeiHokenjo12], [BukaiKankeiHokenjo13], [BukaiKankeiHokenjo14], [BukaiKankeiHokenjo15], [BukaiTantoShichoson1], [BukaiTantoShichoson2], [BukaiTantoShichoson3], [BukaiTantoShichoson4], [BukaiTantoShichoson5], [BukaiTantoShichoson6], [BukaiTantoShichoson7], [BukaiTantoShichoson8], [BukaiTantoShichoson9], [BukaiTantoShichoson10], [InsertDt], [InsertUser], [InsertTarm], [UpdateDt], [UpdateUser], [UpdateTarm]) VALUES (@BukaiGyoshaCd, @BukaiKbn, @BukaiKaiinCd, @BukaiNyukaiDt, @BukaiTaikaiDt, @BukaiSetsubishiDaihyoshaNm, @BukaiMenJoNo, @BukaiKankeiHokenjo1, @BukaiKankeiHokenjo2, @BukaiKankeiHokenjo3, @BukaiKankeiHokenjo4, @BukaiKankeiHokenjo5, @BukaiKankeiHokenjo6, @BukaiKankeiHokenjo7, @BukaiKankeiHokenjo8, @BukaiKankeiHokenjo9, @BukaiKankeiHokenjo10, @BukaiKankeiHokenjo11, @BukaiKankeiHokenjo12, @BukaiKankeiHokenjo13, @BukaiKankeiHokenjo14, @BukaiKankeiHokenjo15, @BukaiTantoShichoson1, @BukaiTantoShichoson2, @BukaiTantoShichoson3, @BukaiTantoShichoson4, @BukaiTantoShichoson5, @BukaiTantoShichoson6, @BukaiTantoShichoson7, @BukaiTantoShichoson8, @BukaiTantoShichoson9, @BukaiTantoShichoson10, @InsertDt, @InsertUser, @InsertTarm, @UpdateDt, @UpdateUser, @UpdateTarm);
+SELECT BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM GyoshaBukaiMst WHERE (BukaiGyoshaCd = @BukaiGyoshaCd) AND (BukaiKbn = @BukaiKbn)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKaiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKaiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiNyukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiNyukaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTaikaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTaikaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiSetsubishiDaihyoshaNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiSetsubishiDaihyoshaNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiMenJoNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiMenJoNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo6" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo7" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo11" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo11" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo12" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo12" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo13" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo13" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo14" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo14" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo15" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo15" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson6" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson7" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM dbo.GyoshaBukaiMst</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[GyoshaBukaiMst] SET [BukaiGyoshaCd] = @BukaiGyoshaCd, [BukaiKbn] = @BukaiKbn, [BukaiKaiinCd] = @BukaiKaiinCd, [BukaiNyukaiDt] = @BukaiNyukaiDt, [BukaiTaikaiDt] = @BukaiTaikaiDt, [BukaiSetsubishiDaihyoshaNm] = @BukaiSetsubishiDaihyoshaNm, [BukaiMenJoNo] = @BukaiMenJoNo, [BukaiKankeiHokenjo1] = @BukaiKankeiHokenjo1, [BukaiKankeiHokenjo2] = @BukaiKankeiHokenjo2, [BukaiKankeiHokenjo3] = @BukaiKankeiHokenjo3, [BukaiKankeiHokenjo4] = @BukaiKankeiHokenjo4, [BukaiKankeiHokenjo5] = @BukaiKankeiHokenjo5, [BukaiKankeiHokenjo6] = @BukaiKankeiHokenjo6, [BukaiKankeiHokenjo7] = @BukaiKankeiHokenjo7, [BukaiKankeiHokenjo8] = @BukaiKankeiHokenjo8, [BukaiKankeiHokenjo9] = @BukaiKankeiHokenjo9, [BukaiKankeiHokenjo10] = @BukaiKankeiHokenjo10, [BukaiKankeiHokenjo11] = @BukaiKankeiHokenjo11, [BukaiKankeiHokenjo12] = @BukaiKankeiHokenjo12, [BukaiKankeiHokenjo13] = @BukaiKankeiHokenjo13, [BukaiKankeiHokenjo14] = @BukaiKankeiHokenjo14, [BukaiKankeiHokenjo15] = @BukaiKankeiHokenjo15, [BukaiTantoShichoson1] = @BukaiTantoShichoson1, [BukaiTantoShichoson2] = @BukaiTantoShichoson2, [BukaiTantoShichoson3] = @BukaiTantoShichoson3, [BukaiTantoShichoson4] = @BukaiTantoShichoson4, [BukaiTantoShichoson5] = @BukaiTantoShichoson5, [BukaiTantoShichoson6] = @BukaiTantoShichoson6, [BukaiTantoShichoson7] = @BukaiTantoShichoson7, [BukaiTantoShichoson8] = @BukaiTantoShichoson8, [BukaiTantoShichoson9] = @BukaiTantoShichoson9, [BukaiTantoShichoson10] = @BukaiTantoShichoson10, [InsertDt] = @InsertDt, [InsertUser] = @InsertUser, [InsertTarm] = @InsertTarm, [UpdateDt] = @UpdateDt, [UpdateUser] = @UpdateUser, [UpdateTarm] = @UpdateTarm WHERE (([BukaiGyoshaCd] = @Original_BukaiGyoshaCd) AND ([BukaiKbn] = @Original_BukaiKbn) AND ([BukaiKaiinCd] = @Original_BukaiKaiinCd) AND ([BukaiNyukaiDt] = @Original_BukaiNyukaiDt) AND ([BukaiTaikaiDt] = @Original_BukaiTaikaiDt) AND ([BukaiSetsubishiDaihyoshaNm] = @Original_BukaiSetsubishiDaihyoshaNm) AND ([BukaiMenJoNo] = @Original_BukaiMenJoNo) AND ([BukaiKankeiHokenjo1] = @Original_BukaiKankeiHokenjo1) AND ([BukaiKankeiHokenjo2] = @Original_BukaiKankeiHokenjo2) AND ([BukaiKankeiHokenjo3] = @Original_BukaiKankeiHokenjo3) AND ([BukaiKankeiHokenjo4] = @Original_BukaiKankeiHokenjo4) AND ([BukaiKankeiHokenjo5] = @Original_BukaiKankeiHokenjo5) AND ([BukaiKankeiHokenjo6] = @Original_BukaiKankeiHokenjo6) AND ([BukaiKankeiHokenjo7] = @Original_BukaiKankeiHokenjo7) AND ([BukaiKankeiHokenjo8] = @Original_BukaiKankeiHokenjo8) AND ([BukaiKankeiHokenjo9] = @Original_BukaiKankeiHokenjo9) AND ([BukaiKankeiHokenjo10] = @Original_BukaiKankeiHokenjo10) AND ([BukaiKankeiHokenjo11] = @Original_BukaiKankeiHokenjo11) AND ([BukaiKankeiHokenjo12] = @Original_BukaiKankeiHokenjo12) AND ([BukaiKankeiHokenjo13] = @Original_BukaiKankeiHokenjo13) AND ([BukaiKankeiHokenjo14] = @Original_BukaiKankeiHokenjo14) AND ([BukaiKankeiHokenjo15] = @Original_BukaiKankeiHokenjo15) AND ([BukaiTantoShichoson1] = @Original_BukaiTantoShichoson1) AND ([BukaiTantoShichoson2] = @Original_BukaiTantoShichoson2) AND ([BukaiTantoShichoson3] = @Original_BukaiTantoShichoson3) AND ([BukaiTantoShichoson4] = @Original_BukaiTantoShichoson4) AND ([BukaiTantoShichoson5] = @Original_BukaiTantoShichoson5) AND ([BukaiTantoShichoson6] = @Original_BukaiTantoShichoson6) AND ([BukaiTantoShichoson7] = @Original_BukaiTantoShichoson7) AND ([BukaiTantoShichoson8] = @Original_BukaiTantoShichoson8) AND ([BukaiTantoShichoson9] = @Original_BukaiTantoShichoson9) AND ([BukaiTantoShichoson10] = @Original_BukaiTantoShichoson10) AND ([InsertDt] = @Original_InsertDt) AND ([InsertUser] = @Original_InsertUser) AND ([InsertTarm] = @Original_InsertTarm) AND ([UpdateDt] = @Original_UpdateDt) AND ([UpdateUser] = @Original_UpdateUser) AND ([UpdateTarm] = @Original_UpdateTarm));
+SELECT BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm FROM GyoshaBukaiMst WHERE (BukaiGyoshaCd = @BukaiGyoshaCd) AND (BukaiKbn = @BukaiKbn)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKaiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKaiinCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiNyukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiNyukaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTaikaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTaikaiDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiSetsubishiDaihyoshaNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiSetsubishiDaihyoshaNm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiMenJoNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiMenJoNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo6" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo7" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo11" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo11" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo12" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo12" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo13" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo13" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo14" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo14" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiKankeiHokenjo15" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo15" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson6" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson7" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson9" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BukaiTantoShichoson10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKaiinCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKaiinCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiNyukaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiNyukaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTaikaiDt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTaikaiDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiSetsubishiDaihyoshaNm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiSetsubishiDaihyoshaNm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiMenJoNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiMenJoNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo5" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo6" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo7" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo8" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo9" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo10" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo11" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo11" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo12" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo12" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo13" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo13" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo14" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo14" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiKankeiHokenjo15" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiKankeiHokenjo15" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson3" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson4" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson5" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson5" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson6" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson6" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson7" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson7" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson8" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson8" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson9" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson9" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BukaiTantoShichoson10" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BukaiTantoShichoson10" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InsertDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InsertDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_InsertTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="InsertTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDt" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUser" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateTarm" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateTarm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BukaiGyoshaCd" DataSetColumn="BukaiGyoshaCd" />
+              <Mapping SourceColumn="BukaiKbn" DataSetColumn="BukaiKbn" />
+              <Mapping SourceColumn="BukaiKaiinCd" DataSetColumn="BukaiKaiinCd" />
+              <Mapping SourceColumn="BukaiNyukaiDt" DataSetColumn="BukaiNyukaiDt" />
+              <Mapping SourceColumn="BukaiTaikaiDt" DataSetColumn="BukaiTaikaiDt" />
+              <Mapping SourceColumn="BukaiSetsubishiDaihyoshaNm" DataSetColumn="BukaiSetsubishiDaihyoshaNm" />
+              <Mapping SourceColumn="BukaiMenJoNo" DataSetColumn="BukaiMenJoNo" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo1" DataSetColumn="BukaiKankeiHokenjo1" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo2" DataSetColumn="BukaiKankeiHokenjo2" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo3" DataSetColumn="BukaiKankeiHokenjo3" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo4" DataSetColumn="BukaiKankeiHokenjo4" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo5" DataSetColumn="BukaiKankeiHokenjo5" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo6" DataSetColumn="BukaiKankeiHokenjo6" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo7" DataSetColumn="BukaiKankeiHokenjo7" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo8" DataSetColumn="BukaiKankeiHokenjo8" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo9" DataSetColumn="BukaiKankeiHokenjo9" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo10" DataSetColumn="BukaiKankeiHokenjo10" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo11" DataSetColumn="BukaiKankeiHokenjo11" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo12" DataSetColumn="BukaiKankeiHokenjo12" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo13" DataSetColumn="BukaiKankeiHokenjo13" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo14" DataSetColumn="BukaiKankeiHokenjo14" />
+              <Mapping SourceColumn="BukaiKankeiHokenjo15" DataSetColumn="BukaiKankeiHokenjo15" />
+              <Mapping SourceColumn="BukaiTantoShichoson1" DataSetColumn="BukaiTantoShichoson1" />
+              <Mapping SourceColumn="BukaiTantoShichoson2" DataSetColumn="BukaiTantoShichoson2" />
+              <Mapping SourceColumn="BukaiTantoShichoson3" DataSetColumn="BukaiTantoShichoson3" />
+              <Mapping SourceColumn="BukaiTantoShichoson4" DataSetColumn="BukaiTantoShichoson4" />
+              <Mapping SourceColumn="BukaiTantoShichoson5" DataSetColumn="BukaiTantoShichoson5" />
+              <Mapping SourceColumn="BukaiTantoShichoson6" DataSetColumn="BukaiTantoShichoson6" />
+              <Mapping SourceColumn="BukaiTantoShichoson7" DataSetColumn="BukaiTantoShichoson7" />
+              <Mapping SourceColumn="BukaiTantoShichoson8" DataSetColumn="BukaiTantoShichoson8" />
+              <Mapping SourceColumn="BukaiTantoShichoson9" DataSetColumn="BukaiTantoShichoson9" />
+              <Mapping SourceColumn="BukaiTantoShichoson10" DataSetColumn="BukaiTantoShichoson10" />
+              <Mapping SourceColumn="InsertDt" DataSetColumn="InsertDt" />
+              <Mapping SourceColumn="InsertUser" DataSetColumn="InsertUser" />
+              <Mapping SourceColumn="InsertTarm" DataSetColumn="InsertTarm" />
+              <Mapping SourceColumn="UpdateDt" DataSetColumn="UpdateDt" />
+              <Mapping SourceColumn="UpdateUser" DataSetColumn="UpdateUser" />
+              <Mapping SourceColumn="UpdateTarm" DataSetColumn="UpdateTarm" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByGyoshaCd" Modifier="Public" Name="DeleteByGyoshaCd" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByGyoshaCd">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM       GyoshaBukaiMst
+WHERE                       (BukaiGyoshaCd = @Original_BukaiGyoshaCd)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_BukaiGyoshaCd" ColumnName="BukaiGyoshaCd" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@Original_BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.GyoshaBukaiMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByGyoshaCd" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGyoshaCd" GeneratorSourceName="FillByGyoshaCd" GetMethodModifier="Public" GetMethodName="GetDataByGyoshaCd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGyoshaCd" UserSourceName="FillByGyoshaCd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, 
+                                      BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, 
+                                      BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, 
+                                      BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, 
+                                      BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, 
+                                      InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm
+FROM                         GyoshaBukaiMst
+WHERE                       (BukaiGyoshaCd = @GyoshaCd)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="GyoshaCd" ColumnName="BukaiGyoshaCd" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@GyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.GyoshaBukaiMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByKey" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByKey" GeneratorSourceName="FillByKey" GetMethodModifier="Public" GetMethodName="GetDataByKey" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByKey" UserSourceName="FillByKey">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, 
+                                      BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, 
+                                      BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, 
+                                      BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, 
+                                      BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, 
+                                      InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm
+FROM                         GyoshaBukaiMst
+WHERE                       (BukaiGyoshaCd = @BukaiGyoshaCd) AND (BukaiKbn = @BukaiKbn)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BukaiGyoshaCd" ColumnName="BukaiGyoshaCd" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@BukaiGyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BukaiKbn" ColumnName="BukaiKbn" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(1)" DbType="String" Direction="Input" ParameterName="@BukaiKbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="1" SourceColumn="BukaiKbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="FukjBizSystemConnectionString (Settings)" DbObjectName="FukjBizSystem.dbo.GyoshaBukaiMst" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillKaiinHantei" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataKaiinHantei" GeneratorSourceName="FillKaiinHantei" GetMethodModifier="Public" GetMethodName="GetDataKaiinHantei" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataKaiinHantei" UserSourceName="FillKaiinHantei">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      BukaiGyoshaCd, BukaiKbn, BukaiKaiinCd, BukaiNyukaiDt, BukaiTaikaiDt, BukaiSetsubishiDaihyoshaNm, BukaiMenJoNo, BukaiKankeiHokenjo1, 
+                                      BukaiKankeiHokenjo2, BukaiKankeiHokenjo3, BukaiKankeiHokenjo4, BukaiKankeiHokenjo5, BukaiKankeiHokenjo6, BukaiKankeiHokenjo7, 
+                                      BukaiKankeiHokenjo8, BukaiKankeiHokenjo9, BukaiKankeiHokenjo10, BukaiKankeiHokenjo11, BukaiKankeiHokenjo12, BukaiKankeiHokenjo13, 
+                                      BukaiKankeiHokenjo14, BukaiKankeiHokenjo15, BukaiTantoShichoson1, BukaiTantoShichoson2, BukaiTantoShichoson3, BukaiTantoShichoson4, 
+                                      BukaiTantoShichoson5, BukaiTantoShichoson6, BukaiTantoShichoson7, BukaiTantoShichoson8, BukaiTantoShichoson9, BukaiTantoShichoson10, InsertDt, 
+                                      InsertUser, InsertTarm, UpdateDt, UpdateUser, UpdateTarm
+FROM                         GyoshaBukaiMst
+WHERE                       (BukaiGyoshaCd = @GyoshaCd) AND (BukaiNyukaiDt &lt;&gt; '') AND (BukaiTaikaiDt = '')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="GyoshaCd" ColumnName="BukaiGyoshaCd" DataSourceName="FukjBizSystem.dbo.GyoshaBukaiMst" DataTypeServer="nvarchar(4)" DbType="String" Direction="Input" ParameterName="@GyoshaCd" Precision="0" ProviderType="NVarChar" Scale="0" Size="4" SourceColumn="BukaiGyoshaCd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GyoshaBukaiMstDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="GyoshaBukaiMstDataSet" msprop:Generator_UserDSName="GyoshaBukaiMstDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KaiinList" msprop:Generator_TableClassName="KaiinListDataTable" msprop:Generator_TableVarName="tableKaiinList" msprop:Generator_RowChangedName="KaiinListRowChanged" msprop:Generator_TablePropName="KaiinList" msprop:Generator_RowDeletingName="KaiinListRowDeleting" msprop:Generator_RowChangingName="KaiinListRowChanging" msprop:Generator_RowEvHandlerName="KaiinListRowChangeEventHandler" msprop:Generator_RowDeletedName="KaiinListRowDeleted" msprop:Generator_RowClassName="KaiinListRow" msprop:Generator_UserTableName="KaiinList" msprop:Generator_RowEvArgName="KaiinListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GyoshaCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaCd" msprop:Generator_ColumnVarNameInTable="columnGyoshaCd" msprop:Generator_ColumnPropNameInTable="GyoshaCdColumn" msprop:Generator_UserColumnName="GyoshaCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt1" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt1" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt1" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDt1Column" msprop:Generator_UserColumnName="BukaiNyukaiDt1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt1" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt1" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt1" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDt1Column" msprop:Generator_UserColumnName="BukaiTaikaiDt1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt2" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt2" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt2" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDt2Column" msprop:Generator_UserColumnName="BukaiNyukaiDt2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt2" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt2" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt2" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDt2Column" msprop:Generator_UserColumnName="BukaiTaikaiDt2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt3" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt3" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt3" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDt3Column" msprop:Generator_UserColumnName="BukaiNyukaiDt3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt3" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt3" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt3" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDt3Column" msprop:Generator_UserColumnName="BukaiTaikaiDt3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt4" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt4" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt4" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDt4Column" msprop:Generator_UserColumnName="BukaiNyukaiDt4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt4" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt4" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt4" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDt4Column" msprop:Generator_UserColumnName="BukaiTaikaiDt4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaZipCd" msprop:Generator_ColumnVarNameInTable="columnGyoshaZipCd" msprop:Generator_ColumnPropNameInRow="GyoshaZipCd" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="GyoshaZipCdColumn" msprop:Generator_UserColumnName="GyoshaZipCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaAdr" msprop:Generator_ColumnVarNameInTable="columnGyoshaAdr" msprop:Generator_ColumnPropNameInRow="GyoshaAdr" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="GyoshaAdrColumn" msprop:Generator_UserColumnName="GyoshaAdr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaTelNo" msprop:Generator_ColumnVarNameInTable="columnGyoshaTelNo" msprop:Generator_ColumnPropNameInRow="GyoshaTelNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="GyoshaTelNoColumn" msprop:Generator_UserColumnName="GyoshaTelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaFaxNo" msprop:Generator_ColumnVarNameInTable="columnGyoshaFaxNo" msprop:Generator_ColumnPropNameInRow="GyoshaFaxNo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="GyoshaFaxNoColumn" msprop:Generator_UserColumnName="GyoshaFaxNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnDaihyoshaNm" msprop:Generator_ColumnPropNameInRow="DaihyoshaNm" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="DaihyoshaNmColumn" msprop:Generator_UserColumnName="DaihyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KaiinPrintInfo" msprop:Generator_TableClassName="KaiinPrintInfoDataTable" msprop:Generator_TableVarName="tableKaiinPrintInfo" msprop:Generator_RowChangedName="KaiinPrintInfoRowChanged" msprop:Generator_TablePropName="KaiinPrintInfo" msprop:Generator_RowDeletingName="KaiinPrintInfoRowDeleting" msprop:Generator_RowChangingName="KaiinPrintInfoRowChanging" msprop:Generator_RowEvHandlerName="KaiinPrintInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KaiinPrintInfoRowDeleted" msprop:Generator_RowClassName="KaiinPrintInfoRow" msprop:Generator_UserTableName="KaiinPrintInfo" msprop:Generator_RowEvArgName="KaiinPrintInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JimukyokuDaihyoshaNm" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JimukyokuDaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnJimukyokuDaihyoshaNm" msprop:Generator_ColumnPropNameInTable="JimukyokuDaihyoshaNmColumn" msprop:Generator_UserColumnName="JimukyokuDaihyoshaNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaAdr" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaAdr" msprop:Generator_ColumnVarNameInTable="columnGyoshaAdr" msprop:Generator_ColumnPropNameInTable="GyoshaAdrColumn" msprop:Generator_UserColumnName="GyoshaAdr">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaNm" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaNm" msprop:Generator_ColumnVarNameInTable="columnGyoshaNm" msprop:Generator_ColumnPropNameInTable="GyoshaNmColumn" msprop:Generator_UserColumnName="GyoshaNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DaihyoshaNm" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnDaihyoshaNm" msprop:Generator_ColumnPropNameInTable="DaihyoshaNmColumn" msprop:Generator_UserColumnName="DaihyoshaNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaTelNo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaTelNo" msprop:Generator_ColumnVarNameInTable="columnGyoshaTelNo" msprop:Generator_ColumnPropNameInTable="GyoshaTelNoColumn" msprop:Generator_UserColumnName="GyoshaTelNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GyoshaFaxNo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="GyoshaFaxNo" msprop:Generator_ColumnVarNameInTable="columnGyoshaFaxNo" msprop:Generator_ColumnPropNameInTable="GyoshaFaxNoColumn" msprop:Generator_UserColumnName="GyoshaFaxNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKbn" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiKbn" msprop:Generator_ColumnVarNameInTable="columnBukaiKbn" msprop:Generator_ColumnPropNameInTable="BukaiKbnColumn" msprop:Generator_UserColumnName="BukaiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDtColumn" msprop:Generator_UserColumnName="BukaiNyukaiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDtColumn" msprop:Generator_UserColumnName="BukaiTaikaiDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiSetsubishiDaihyoshaNm" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiSetsubishiDaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnBukaiSetsubishiDaihyoshaNm" msprop:Generator_ColumnPropNameInTable="BukaiSetsubishiDaihyoshaNmColumn" msprop:Generator_UserColumnName="BukaiSetsubishiDaihyoshaNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiMenJoNo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiMenJoNo" msprop:Generator_ColumnVarNameInTable="columnBukaiMenJoNo" msprop:Generator_ColumnPropNameInTable="BukaiMenJoNoColumn" msprop:Generator_UserColumnName="BukaiMenJoNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjoColumn" msprop:Generator_UserColumnName="BukaiKankeiHokenjo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichosonColumn" msprop:Generator_UserColumnName="BukaiTantoShichoson" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JimukyokuFaxNo" msdata:ReadOnly="true" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="JimukyokuFaxNo" msprop:Generator_ColumnVarNameInTable="columnJimukyokuFaxNo" msprop:Generator_ColumnPropNameInTable="JimukyokuFaxNoColumn" msprop:Generator_UserColumnName="JimukyokuFaxNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GyoshaBukaiMst" msprop:Generator_TableClassName="GyoshaBukaiMstDataTable" msprop:Generator_TableVarName="tableGyoshaBukaiMst" msprop:Generator_TablePropName="GyoshaBukaiMst" msprop:Generator_RowDeletingName="GyoshaBukaiMstRowDeleting" msprop:Generator_RowChangingName="GyoshaBukaiMstRowChanging" msprop:Generator_RowEvHandlerName="GyoshaBukaiMstRowChangeEventHandler" msprop:Generator_RowDeletedName="GyoshaBukaiMstRowDeleted" msprop:Generator_UserTableName="GyoshaBukaiMst" msprop:Generator_RowChangedName="GyoshaBukaiMstRowChanged" msprop:Generator_RowEvArgName="GyoshaBukaiMstRowChangeEvent" msprop:Generator_RowClassName="GyoshaBukaiMstRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BukaiGyoshaCd" msprop:Generator_ColumnVarNameInTable="columnBukaiGyoshaCd" msprop:Generator_ColumnPropNameInRow="BukaiGyoshaCd" msprop:Generator_ColumnPropNameInTable="BukaiGyoshaCdColumn" msprop:Generator_UserColumnName="BukaiGyoshaCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKbn" msprop:Generator_ColumnVarNameInTable="columnBukaiKbn" msprop:Generator_ColumnPropNameInRow="BukaiKbn" msprop:Generator_ColumnPropNameInTable="BukaiKbnColumn" msprop:Generator_UserColumnName="BukaiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKaiinCd" msprop:Generator_ColumnVarNameInTable="columnBukaiKaiinCd" msprop:Generator_ColumnPropNameInRow="BukaiKaiinCd" msprop:Generator_ColumnPropNameInTable="BukaiKaiinCdColumn" msprop:Generator_UserColumnName="BukaiKaiinCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiNyukaiDt" msprop:Generator_ColumnVarNameInTable="columnBukaiNyukaiDt" msprop:Generator_ColumnPropNameInRow="BukaiNyukaiDt" msprop:Generator_ColumnPropNameInTable="BukaiNyukaiDtColumn" msprop:Generator_UserColumnName="BukaiNyukaiDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTaikaiDt" msprop:Generator_ColumnVarNameInTable="columnBukaiTaikaiDt" msprop:Generator_ColumnPropNameInRow="BukaiTaikaiDt" msprop:Generator_ColumnPropNameInTable="BukaiTaikaiDtColumn" msprop:Generator_UserColumnName="BukaiTaikaiDt">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiSetsubishiDaihyoshaNm" msprop:Generator_ColumnVarNameInTable="columnBukaiSetsubishiDaihyoshaNm" msprop:Generator_ColumnPropNameInRow="BukaiSetsubishiDaihyoshaNm" msprop:Generator_ColumnPropNameInTable="BukaiSetsubishiDaihyoshaNmColumn" msprop:Generator_UserColumnName="BukaiSetsubishiDaihyoshaNm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiMenJoNo" msprop:Generator_ColumnVarNameInTable="columnBukaiMenJoNo" msprop:Generator_ColumnPropNameInRow="BukaiMenJoNo" msprop:Generator_ColumnPropNameInTable="BukaiMenJoNoColumn" msprop:Generator_UserColumnName="BukaiMenJoNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo1" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo1" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo1" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo1Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo2" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo2" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo2" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo2Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo3" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo3" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo3" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo3Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo3">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo4" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo4" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo4" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo4Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo4">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo5" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo5" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo5" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo5Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo5">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo6" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo6" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo6" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo6Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo6">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo7" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo7" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo7" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo7Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo7">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo8" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo8" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo8" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo8Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo8">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo9" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo9" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo9" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo9Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo9">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo10" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo10" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo10" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo10Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo10">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo11" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo11" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo11" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo11Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo11">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo12" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo12" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo12" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo12Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo12">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo13" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo13" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo13" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo13Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo13">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo14" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo14" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo14" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo14Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo14">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiKankeiHokenjo15" msprop:Generator_ColumnVarNameInTable="columnBukaiKankeiHokenjo15" msprop:Generator_ColumnPropNameInRow="BukaiKankeiHokenjo15" msprop:Generator_ColumnPropNameInTable="BukaiKankeiHokenjo15Column" msprop:Generator_UserColumnName="BukaiKankeiHokenjo15">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson1" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson1" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson1" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson1Column" msprop:Generator_UserColumnName="BukaiTantoShichoson1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson2" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson2" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson2" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson2Column" msprop:Generator_UserColumnName="BukaiTantoShichoson2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson3" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson3" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson3" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson3Column" msprop:Generator_UserColumnName="BukaiTantoShichoson3">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson4" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson4" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson4" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson4Column" msprop:Generator_UserColumnName="BukaiTantoShichoson4">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson5" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson5" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson5" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson5Column" msprop:Generator_UserColumnName="BukaiTantoShichoson5">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson6" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson6" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson6" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson6Column" msprop:Generator_UserColumnName="BukaiTantoShichoson6">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson7" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson7" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson7" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson7Column" msprop:Generator_UserColumnName="BukaiTantoShichoson7">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson8" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson8" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson8" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson8Column" msprop:Generator_UserColumnName="BukaiTantoShichoson8">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson9" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson9" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson9" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson9Column" msprop:Generator_UserColumnName="BukaiTantoShichoson9">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BukaiTantoShichoson10" msprop:Generator_ColumnVarNameInTable="columnBukaiTantoShichoson10" msprop:Generator_ColumnPropNameInRow="BukaiTantoShichoson10" msprop:Generator_ColumnPropNameInTable="BukaiTantoShichoson10Column" msprop:Generator_UserColumnName="BukaiTantoShichoson10">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GyoshaBukaiMst" />
+      <xs:field xpath="mstns:BukaiGyoshaCd" />
+      <xs:field xpath="mstns:BukaiKbn" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

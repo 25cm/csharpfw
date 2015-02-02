@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13672596-FDA4-4C66-8A43-74D64836A854}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zynas.Framework</RootNamespace>
+    <AssemblyName>Zynas.Framework</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="Core\Base\Boundary\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Base\Boundary\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Base\BusinessLogic\BaseExcelPrintBusinessLogic.cs" />
+    <Compile Include="Core\Base\BusinessLogic\BaseStdUpdateDataBusinessLogic2.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseStdDeleteDataAccess.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseStdUpdateDataAccess2.cs" />
+    <Compile Include="Core\Common\BusinessLogic\Print\BaseSection.cs" />
+    <Compile Include="Core\Common\BusinessLogic\Print\ExcelBind.cs" />
+    <Compile Include="Core\Common\BusinessLogic\Print\MSExcel\MSExcelBind.cs" />
+    <Compile Include="Core\Common\BusinessLogic\Print\MSExcel\MSExcelUtility.cs" />
+    <Compile Include="Core\Common\BusinessLogic\Print\PrintHelper.cs" />
+    <Compile Include="Core\Common\DataAccess\FilteredAdapterUtility.cs" />
+    <Compile Include="Core\Common\DataAccess\QueryBuilder.cs" />
+    <Compile Include="Core\Common\DataAccess\QueryBuilderUtility.cs" />
+    <Compile Include="Core\Generic\BusinessLogic\StdGetData.cs" />
+    <Compile Include="Core\Generic\BusinessLogic\StdFilteredGetData.cs" />
+    <Compile Include="Core\Base\BusinessLogic\BaseStdGetDataForUpdateBusinessLogic.cs" />
+    <Compile Include="Core\Base\Common\TransactionManagerCe.cs" />
+    <Compile Include="Core\Base\Common\TransactionManagerMdb.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseDataAccessCe.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseDataAccessMdb.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseStdSelectDataForUpdateDataAccess.cs" />
+    <Compile Include="Core\Generic\DataAccess\StdSelectData.cs" />
+    <Compile Include="Core\Generic\DataAccess\StdFilteredSelectData.cs" />
+    <Compile Include="Core\Common\Boundary\BoundaryUtility.cs" />
+    <Compile Include="Core\Common\Boundary\Tablet\InputUtility.cs" />
+    <Compile Include="Core\Common\DataAccess\DataAccessUtility.cs" />
+    <Compile Include="Core\Common\DataAccess\OptimisticLockUtility.cs" />
+    <Compile Include="Core\Common\DataAccess\StdDBUpdateUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Base\ApplicationLogic\BaseApplicationLogic.cs" />
+    <Compile Include="Core\Base\Boundary\BaseConsole.cs" />
+    <Compile Include="Core\Base\BusinessLogic\BaseBusinessLogic.cs" />
+    <Compile Include="Core\Base\Common\BaseInput.cs" />
+    <Compile Include="Core\Base\Common\BaseOutput.cs" />
+    <Compile Include="Core\Base\Common\Registry.cs" />
+    <Compile Include="Core\Base\Common\TransactionManager.cs" />
+    <Compile Include="Core\Base\DataAccess\BaseDataAccess.cs" />
+    <Compile Include="Core\Common\Boundary\FormLocation.cs" />
+    <Compile Include="Core\Common\Boundary\MessageForm.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DateUtility.cs" />
+    <Compile Include="Utility\ExpEnum.cs" />
+    <Compile Include="Utility\FrameworkParams.cs" />
+    <Compile Include="Utility\MessageResouce.cs" />
+    <Compile Include="Utility\MessageUtility.cs" />
+    <Compile Include="Utility\ResultCode.cs" />
+    <Compile Include="Utility\CustomException.cs" />
+    <Compile Include="Utility\SaveFileMode.cs" />
+    <Compile Include="Utility\PortableSimpleXMLSetting.cs" />
+    <Compile Include="Utility\TraceLog.cs" />
+    <Compile Include="Utility\TypeUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Core\Base\Boundary\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\MajorMf\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Common\BusinessLogic\Printer\" />
+  </ItemGroup>
+</Project>

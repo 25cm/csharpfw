@@ -1,0 +1,17 @@
+*.suo
+*.csproj.user
+/FukjTabletSystem/bin
+/FukjTabletSystem/obj
+/FukjBizSystem/bin
+/FukjBizSystem/obj
+/FukjBizSystem/publish
+/ZynasControl/bin
+/ZynasControl/obj
+/ZynasFramework/bin
+/ZynasFramework/obj
+/FrameworkTest/bin
+/FrameworkTest/obj
+/TestDataSet/bin
+/TestDataSet/obj
+/NumberInputKeybord/bin
+/NumberInputKeybord/obj

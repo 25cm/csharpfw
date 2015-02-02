@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KensaIraishoDataSet" targetNamespace="http://tempuri.org/KensaIraishoDataSet.xsd" xmlns:mstns="http://tempuri.org/KensaIraishoDataSet.xsd" xmlns="http://tempuri.org/KensaIraishoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KensaIraishoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KensaIraishoDataSet" msprop:Generator_UserDSName="KensaIraishoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReadList" msprop:Generator_TableClassName="ReadListDataTable" msprop:Generator_TableVarName="tableReadList" msprop:Generator_RowChangedName="ReadListRowChanged" msprop:Generator_TablePropName="ReadList" msprop:Generator_RowDeletingName="ReadListRowDeleting" msprop:Generator_RowChangingName="ReadListRowChanging" msprop:Generator_RowEvHandlerName="ReadListRowChangeEventHandler" msprop:Generator_RowDeletedName="ReadListRowDeleted" msprop:Generator_RowClassName="ReadListRow" msprop:Generator_UserTableName="ReadList" msprop:Generator_RowEvArgName="ReadListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rowindex" msdata:Caption="No." msprop:Generator_ColumnVarNameInTable="columnRowindex" msprop:Generator_ColumnPropNameInRow="Rowindex" msprop:Generator_ColumnPropNameInTable="RowindexColumn" msprop:Generator_UserColumnName="Rowindex" type="xs:int" minOccurs="0" />
+              <xs:element name="Shisho" msdata:Caption="支所" msprop:Generator_ColumnVarNameInTable="columnShisho" msprop:Generator_ColumnPropNameInRow="Shisho" msprop:Generator_ColumnPropNameInTable="ShishoColumn" msprop:Generator_UserColumnName="Shisho" type="xs:string" minOccurs="0" />
+              <xs:element name="Nendo" msdata:Caption="年度" msprop:Generator_ColumnVarNameInTable="columnNendo" msprop:Generator_ColumnPropNameInRow="Nendo" msprop:Generator_ColumnPropNameInTable="NendoColumn" msprop:Generator_UserColumnName="Nendo" type="xs:string" minOccurs="0" />
+              <xs:element name="Renban" msdata:Caption="受付番号" msprop:Generator_ColumnVarNameInTable="columnRenban" msprop:Generator_ColumnPropNameInRow="Renban" msprop:Generator_ColumnPropNameInTable="RenbanColumn" msprop:Generator_UserColumnName="Renban" type="xs:string" minOccurs="0" />
+              <xs:element name="Barcode" msdata:Caption="バーコード" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="Remark" msdata:Caption="備考" msprop:Generator_ColumnVarNameInTable="columnRemark" msprop:Generator_ColumnPropNameInRow="Remark" msprop:Generator_ColumnPropNameInTable="RemarkColumn" msprop:Generator_UserColumnName="Remark" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HHTLOG" msprop:Generator_TableClassName="HHTLOGDataTable" msprop:Generator_TableVarName="tableHHTLOG" msprop:Generator_TablePropName="HHTLOG" msprop:Generator_RowDeletingName="HHTLOGRowDeleting" msprop:Generator_RowChangingName="HHTLOGRowChanging" msprop:Generator_RowEvHandlerName="HHTLOGRowChangeEventHandler" msprop:Generator_RowDeletedName="HHTLOGRowDeleted" msprop:Generator_UserTableName="HHTLOG" msprop:Generator_RowChangedName="HHTLOGRowChanged" msprop:Generator_RowEvArgName="HHTLOGRowChangeEvent" msprop:Generator_RowClassName="HHTLOGRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HTDATE" msprop:Generator_ColumnVarNameInTable="columnHTDATE" msprop:Generator_ColumnPropNameInRow="HTDATE" msprop:Generator_ColumnPropNameInTable="HTDATEColumn" msprop:Generator_UserColumnName="HTDATE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLER1" msprop:Generator_ColumnVarNameInTable="columnFILLER1" msprop:Generator_ColumnPropNameInRow="FILLER1" msprop:Generator_ColumnPropNameInTable="FILLER1Column" msprop:Generator_UserColumnName="FILLER1" type="xs:string" minOccurs="0" />
+              <xs:element name="HTHH" msprop:Generator_ColumnVarNameInTable="columnHTHH" msprop:Generator_ColumnPropNameInRow="HTHH" msprop:Generator_ColumnPropNameInTable="HTHHColumn" msprop:Generator_UserColumnName="HTHH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HTMM" msprop:Generator_ColumnVarNameInTable="columnHTMM" msprop:Generator_ColumnPropNameInRow="HTMM" msprop:Generator_ColumnPropNameInTable="HTMMColumn" msprop:Generator_UserColumnName="HTMM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLER2" msprop:Generator_ColumnVarNameInTable="columnFILLER2" msprop:Generator_ColumnPropNameInRow="FILLER2" msprop:Generator_ColumnPropNameInTable="FILLER2Column" msprop:Generator_UserColumnName="FILLER2" type="xs:string" minOccurs="0" />
+              <xs:element name="HTSS" msprop:Generator_ColumnVarNameInTable="columnHTSS" msprop:Generator_ColumnPropNameInRow="HTSS" msprop:Generator_ColumnPropNameInTable="HTSSColumn" msprop:Generator_UserColumnName="HTSS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLER3" msdata:Caption="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnFILLER3" msprop:Generator_ColumnPropNameInRow="FILLER3" msprop:Generator_ColumnPropNameInTable="FILLER3Column" msprop:Generator_UserColumnName="FILLER3" type="xs:string" minOccurs="0" />
+              <xs:element name="HTTID" msdata:Caption="DataColumn2" msprop:Generator_ColumnVarNameInTable="columnHTTID" msprop:Generator_ColumnPropNameInRow="HTTID" msprop:Generator_ColumnPropNameInTable="HTTIDColumn" msprop:Generator_UserColumnName="HTTID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLER4" msdata:Caption="DataColumn3" msprop:Generator_ColumnVarNameInTable="columnFILLER4" msprop:Generator_ColumnPropNameInRow="FILLER4" msprop:Generator_ColumnPropNameInTable="FILLER4Column" msprop:Generator_UserColumnName="FILLER4" type="xs:string" minOccurs="0" />
+              <xs:element name="HTITF" msdata:Caption="DataColumn4" msprop:Generator_ColumnVarNameInTable="columnHTITF" msprop:Generator_ColumnPropNameInRow="HTITF" msprop:Generator_ColumnPropNameInTable="HTITFColumn" msprop:Generator_UserColumnName="HTITF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLER5" msdata:Caption="DataColumn5" msprop:Generator_ColumnVarNameInTable="columnFILLER5" msprop:Generator_ColumnPropNameInRow="FILLER5" msprop:Generator_ColumnPropNameInTable="FILLER5Column" msprop:Generator_UserColumnName="FILLER5" type="xs:string" minOccurs="0" />
+              <xs:element name="HTIRNO" msdata:Caption="DataColumn6" msprop:Generator_ColumnVarNameInTable="columnHTIRNO" msprop:Generator_ColumnPropNameInRow="HTIRNO" msprop:Generator_ColumnPropNameInTable="HTIRNOColumn" msprop:Generator_UserColumnName="HTIRNO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

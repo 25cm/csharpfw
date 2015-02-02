@@ -1,0 +1,308 @@
+﻿<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <section name="log4net" type=" log4net.Config.Log4NetConfigurationSectionHandler,log4net"/>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="FukjBizSystem.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+    </sectionGroup>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="FukjBizSystem.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>
+
+  <connectionStrings>
+    <add name="FukjBizSystem.Properties.Settings.FukjBizSystemConnectionString"
+      connectionString="Data Source=192.168.0.91;Initial Catalog=fukjBizSystem;Persist Security Info=True;User ID=sa;Password=fukj_1800"
+      providerName="System.Data.SqlClient" />
+    <add name="FukjBizSystem.Properties.Settings.OVLFukjOverlayConnectionString"
+      connectionString="Data Source=192.168.0.91;Initial Catalog=OVLFukjOverlay;Persist Security Info=True;User ID=sa;Password=fukj_1800"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+
+  <log4net>
+    <!-- ログ出力先の定義 -->
+    <appender name="TraceAppender" type="log4net.Appender.RollingFileAppender">
+      <!-- ログファイル -->
+      <file value="C:\FukjBizSystem\Log\Trace_"/>
+      <!-- 追加モードで書込み -->
+      <appendToFile value="true"/>
+      <!-- ログファイル保存数 -->
+      <maxSizeRollBackups value="10"/>
+      <!-- ログファイルの最大サイズ -->
+      <maximumFileSize value="5MB"/>
+      <!-- 日単位でファイル作成 -->
+      <rollingStyle value="date"/>
+      <staticLogFileName value="false"/>
+      <datePattern value="yyyyMMdd&quot;.log&quot;"/>
+      <!-- ログの書式 -->
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/>
+      </layout>
+    </appender>
+    <root>
+      <!-- すべてのログレベルを出力 -->
+      <level value="ALL"/>
+
+      <!-- どのログ出力先を使用するか -->
+      <appender-ref ref="TraceAppender"/>
+    </root>
+  </log4net>
+
+  <applicationSettings>
+    <FukjBizSystem.Properties.Settings>
+      <setting name="HolidayFile" serializeAs="String">
+        <value>.\HolidayFile.xml</value>
+      </setting>
+      <setting name="ErrMsgFile" serializeAs="String">
+        <value>.\ErrMsgFile.xml</value>
+      </setting>
+      <setting name="ScenarioMode" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="PrintDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\Print</value>
+      </setting>
+      <setting name="PrintFormatFolder" serializeAs="String">
+        <value>\\192.168.0.91\FukjShare\PrintFormat\</value>
+      </setting>
+      <setting name="PrinterSettingFile" serializeAs="String">
+        <value>C:\FukjBizSystem\Printer.xml</value>
+      </setting>
+      <setting name="SystemName" serializeAs="String">
+        <value>浄化槽基幹システム</value>
+      </setting>
+      <setting name="InputCheckFileFolder" serializeAs="String">
+        <value>D:\</value>
+      </setting>
+      <setting name="InputCheckFileNm" serializeAs="String">
+        <value>HOS.xlsm</value>
+      </setting>
+      <setting name="SharedFolderUserId" serializeAs="String">
+        <value>FukjUser</value>
+      </setting>
+      <setting name="SharedFolderUserPw" serializeAs="String">
+        <value>fukj_1800</value>
+      </setting>
+      <setting name="PdfRootDir" serializeAs="String">
+        <value>C:\FukjBizSystem\PDF</value>
+      </setting>
+      <setting name="DefaultCommandTimeoutSec" serializeAs="String">
+        <value>60</value>
+      </setting>
+      <setting name="SharedFolderDirectory" serializeAs="String">
+        <value>\\192.168.0.91\FukjShare</value>
+      </setting>
+      <setting name="LocalTempDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\Temp</value>
+      </setting>
+      <setting name="DefaultMapAddress" serializeAs="String">
+        <value>福岡県糟屋郡篠栗町乙犬９６６−２</value>
+      </setting>
+    </FukjBizSystem.Properties.Settings>
+  </applicationSettings>
+  <userSettings>
+    <FukjBizSystem.Properties.Settings>
+      <setting name="RyosyuFormatFile" serializeAs="String">
+        <value>領収書.xlsx</value>
+      </setting>
+      <setting name="SaisuiinShomeishoFormatFile" serializeAs="String">
+        <value>指定採水員証明書.xlsx</value>
+      </setting>
+      <setting name="SaisuiinShiteishoFormatFile" serializeAs="String">
+        <value>指定採水員指定書.xlsx</value>
+      </setting>
+      <setting name="KaiinJouhouKakuninshoFormatFile" serializeAs="String">
+        <value>会員情報確認書.xlsx</value>
+      </setting>
+      <setting name="JukoMoshikomishoShutsuryokuFormatFile" serializeAs="String">
+        <value>指定採水員指定講習会受講申込書.xlsx</value>
+      </setting>
+      <setting name="HoshoNoFormatFile" serializeAs="String">
+        <value>保証登録申請書.xlsx</value>
+      </setting>
+      <setting name="SealTackFormatFile" serializeAs="String">
+        <value>タックシール.xlsx</value>
+      </setting>
+      <setting name="SofujoFormatFile" serializeAs="String">
+        <value>送付状.xlsx</value>
+      </setting>
+      <setting name="SouShishyo2FormatFile" serializeAs="String">
+        <value>ＦＡＸ送信票２.xlsx</value>
+      </setting>
+      <setting name="SouShishyo1FormatFile" serializeAs="String">
+        <value>ＦＡＸ送信票１.xlsx</value>
+      </setting>
+      <setting name="KensaKeihatsuKyodoKumiaiFormatFile" serializeAs="String">
+        <value>検査啓発推進費支払票(協同組合).xlsx</value>
+      </setting>
+      <setting name="KensaKeihatsuIchiranFormatFile" serializeAs="String">
+        <value>検査啓発推進費一覧.xlsx</value>
+      </setting>
+      <setting name="MoshiKomiGyoshaFormatFile" serializeAs="String">
+        <value>検査啓発推進費支払票(持込業者).xlsx</value>
+      </setting>
+      <setting name="ShushuToriatsukaiGyoshaFormatFile" serializeAs="String">
+        <value>検査啓発推進費支払票(収集取扱業者).xlsx</value>
+      </setting>
+      <setting name="ServerPrintDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\Server\Print</value>
+      </setting>
+      <setting name="KensaIraiToriatsukaiFormatFile" serializeAs="String">
+        <value>7条検査依頼書取扱書.xlsx</value>
+      </setting>
+      <setting name="KensainbetsuKensaJicchisuuListFormatFile" serializeAs="String">
+        <value>検査員別検査実施数一覧.xlsx</value>
+      </setting>
+      <setting name="ShiyoKaishiHagakiFormatFile" serializeAs="String">
+        <value>使用開始はがき.xlsx</value>
+      </setting>
+      <setting name="HoshuTenkenYoteiListFormatFile" serializeAs="String">
+        <value>保守点検予定一覧.xlsx</value>
+      </setting>
+      <setting name="KensaSetchiJokyoHaakuHyoFormatFile" serializeAs="String">
+        <value>7条検査設置状況把握票.xlsx</value>
+      </setting>
+      <setting name="KensaIraiShoHenkyoHokokuShoFormatFile" serializeAs="String">
+        <value>7条検査依頼書現況報告書.xlsx</value>
+      </setting>
+      <setting name="LocalFileDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\File</value>
+      </setting>
+      <setting name="ServerFileDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem\Server\File</value>
+      </setting>
+      <setting name="KensaChienHokokushoFileFolder" serializeAs="String">
+        <value>7条検査遅延報告書</value>
+      </setting>
+      <setting name="KensaChienHokokushoFormatFile" serializeAs="String">
+        <value>7条検査遅延報告書.xls</value>
+      </setting>
+      <setting name="KensatsuchiHagakiFormatFile" serializeAs="String">
+        <value>検査通知はがき.xlsx</value>
+      </setting>
+      <setting name="Jo11KensaJisshiRenrakuhyoFormatFile" serializeAs="String">
+        <value>11条検査実施連絡票(清掃確認表).xlsx</value>
+      </setting>
+      <setting name="SeikyuShoFormatFile" serializeAs="String">
+        <value>請求書.xlsx</value>
+      </setting>
+      <setting name="SeikyuMeisaiShoFormatFile" serializeAs="String">
+        <value>請求明細書.xlsx</value>
+      </setting>
+      <setting name="NyukinUchiwakeFormatFile" serializeAs="String">
+        <value>入金内訳書.xlsx</value>
+      </setting>
+      <setting name="SuitouUkagaishoFormatFile" serializeAs="String">
+        <value>出納伺書.xlsx</value>
+      </setting>
+      <setting name="KensainGeppoListFormatFile" serializeAs="String">
+        <value>検査員別検査件数一覧.xlsx</value>
+      </setting>
+      <setting name="GaikanKensaGeppoFormatFile" serializeAs="String">
+        <value>外観検査月報.xlsx</value>
+      </setting>
+      <setting name="SaiSeikyuFormatFile" serializeAs="String">
+        <value>再請求書.xlsx</value>
+      </setting>
+      <setting name="JinendoGaikanIraiFormatFile" serializeAs="String">
+        <value>次年度外観依頼印刷チェックリスト.xlsx</value>
+      </setting>
+      <setting name="JinendoGaikanYoteiListHasso1FormatFile" serializeAs="String">
+        <value>次年度外観予定一覧発送リスト１.xlsx</value>
+      </setting>
+      <setting name="JinendoGaikanYoteiListHasso2FormatFile" serializeAs="String">
+        <value>次年度外観予定一覧発送リスト２.xlsx</value>
+      </setting>
+      <setting name="SyusyushoPrintFormatFile" serializeAs="String">
+        <value>領収書.xlsx</value>
+      </setting>
+      <setting name="SuishitsuKensaKekkaShoFormatFile" serializeAs="String">
+        <value>水質検査結果書.xlsx</value>
+      </setting>
+      <setting name="LocalDirectory" serializeAs="String">
+        <value>C:\FukjBizSystem</value>
+      </setting>
+      <setting name="KensaKekkashoFormatFile" serializeAs="String">
+        <value>検査結果書.xlsx</value>
+      </setting>
+      <setting name="Kensa7To11JoIkoJokyoFormatFile" serializeAs="String">
+        <value>7条⇒11条検査移行状況表.xlsx</value>
+      </setting>
+      <setting name="Kensa11JoMijukenFormatFile" serializeAs="String">
+        <value>11条検査未受検一覧.xlsx</value>
+      </setting>
+      <setting name="FutekiseiJokasoFormatFile" serializeAs="String">
+        <value>不適正浄化槽一覧.xlsx</value>
+      </setting>
+      <setting name="MukanriJokasoFormatFile" serializeAs="String">
+        <value>無管理浄化槽一覧.xlsx</value>
+      </setting>
+      <setting name="KensaNippoFormatFile" serializeAs="String">
+        <value>検査日報.xlsx</value>
+      </setting>
+      <setting name="ShoyoSanteiJininFormatFile" serializeAs="String">
+        <value>所要算定人員予測.xlsx</value>
+      </setting>
+      <setting name="NodoKeiryoShomeishoFormatFile" serializeAs="String">
+        <value>濃度計量証明書.xlsx</value>
+      </setting>
+      <setting name="BunsekiKekkaHokokushoFormatFile" serializeAs="String">
+        <value>分析結果報告書.xlsx</value>
+      </setting>
+      <setting name="JokasoSuishitsuKensaIraishoFormatFile" serializeAs="String">
+        <value>浄化槽水質検査依頼書(11条検査).xlsx</value>
+      </setting>
+      <setting name="KeiryoShomeiKensaIraishoFormatFile" serializeAs="String">
+        <value>水質検査依頼書(計量証明).xlsx</value>
+      </setting>
+      <setting name="SuishitsuKensaItakuIraiFormatFile" serializeAs="String">
+        <value>水質検査委託依頼書.xlsx</value>
+      </setting>
+      <setting name="KensainBetsuKensaYoteiFormatFile" serializeAs="String">
+        <value>検査員別検査予定一覧.xlsx</value>
+      </setting>
+      <setting name="KentaiJujuHyouFormatFile" serializeAs="String">
+        <value>検体授受票.xlsx</value>
+      </setting>
+      <setting name="JinendoGaikanKensaYoteiListFormatFile" serializeAs="String">
+        <value>次年度外観検査依頼一覧表.xlsx</value>
+      </setting>
+      <setting name="KensaFukaJohoFileFolder" serializeAs="String">
+        <value>KanrenFile</value>
+      </setting>
+      <setting name="GenbaShashinFileFolder" serializeAs="String">
+        <value>GenbaShashin</value>
+      </setting>
+      <setting name="Jo9KakuninKensaJisshiKirokuFormatFile" serializeAs="String">
+        <value>9条検査確認検査実施記録.xlsx</value>
+      </setting>
+      <setting name="Jo11KakuninKensaJisshiKirokuFormatFile" serializeAs="String">
+        <value>11条検査確認検査実施記録.xlsx</value>
+      </setting>
+      <setting name="SuishitsuKensaNippoFormatFile" serializeAs="String">
+        <value>水質検査日報.xlsx</value>
+      </setting>
+      <setting name="FollowKensaListFormatFile" serializeAs="String">
+        <value>フォロー検査対象一覧表.xlsx</value>
+      </setting>
+      <setting name="Hotei11joIjoListFormatFile" serializeAs="String">
+        <value>法定11条水質異常一覧表.xlsx</value>
+      </setting>
+      <setting name="Jo9KensaDaichoFormatFile" serializeAs="String">
+        <value>9条検査台帳.xlsx</value>
+      </setting>
+      <setting name="Jo11KensaDaichoFormatFile" serializeAs="String">
+        <value>11条検査台帳.xlsx</value>
+      </setting>
+      <setting name="KurosuChekkuChosaIchiranpyoFormatFile" serializeAs="String">
+        <value>クロスチェック_調査一覧表.xlsx</value>
+      </setting>
+      <setting name="KurosuChekkuChosaIraishoFormatFile" serializeAs="String">
+        <value>クロスチェック_調査依頼票.xlsx</value>
+      </setting>
+      <setting name="KurosuChekkuChosaHokokushoFormatFile" serializeAs="String">
+        <value>クロスチェック_調査報告書.xlsx</value>
+      </setting>
+    </FukjBizSystem.Properties.Settings>
+  </userSettings>
+<startup><supportedRuntime version="v2.0.50727"/></startup></configuration>

@@ -1,0 +1,142 @@
+/********************************************************************************
+ファイル名	：	JOB3.scp
+バージョン	：	Ver.1.00
+作成日付	：	2002/11/13
+動作説明	：	BT-500アプリケーション
+
+注意		：	本プログラムを修正した場合
+				弊社サポートの対象外となります
+********************************************************************************/
+
+
+
+Include "Lib\Utility"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	// ステータス表示設定
+	Screen:status = true
+	
+	//フォント設定
+	With Screen
+		:fontSize = 12 :fontGapx = 0 :fontGapy = 1 
+	EndWith
+	JOB:job_main()
+	
+End Method
+
+
+/////////////////////////////////////////////////////////
+//ログ送信に関連するPackage
+/////////////////////////////////////////////////////////
+Package JOB
+	m_btvCurrent	// カレント作業番号
+	
+
+	//---------------------------------------------------
+	// メインメソッド
+	Method job_main()
+		
+		btvRet
+                ret
+
+	Begin
+		
+		m_btvCurrent = "sagyou1"
+		disp_normal()
+		Handy:KeyWait()
+
+                Comm:Initialize()
+		Comm:cancelKey = "C"
+
+		 //全ログ送信
+	//Dell	UTL:utlSendAllLog( 7 ) // 引数 3:drv3、4:drv4、7:drv3,4 
+
+		With Screen
+			:Clear()
+			:posx = 1	:posy = 1	:reverse = false	:font = 1	:OutputText("ログファイルを")
+			:posx = 1	:posy = 3	:reverse = false	:font = 1	:OutputText("送信します")
+		EndWith
+
+		// PCとの接続
+		While 1
+			ret = Comm:Connect()
+			If ret Then
+				Wbreak
+			EndIf
+                        
+			If Comm:error eq "TIMEOUT" Then
+				If ( Handy:ShowMessageBox("タイムアウトしました。再試行しますか？","yesno|yes") is false ) Then
+					return()
+				EndIf
+			ElseIf Comm:error eq "CANCELED" Then
+				Handy:ShowMessageBox("キャンセルされました。","confirm")
+				return()
+			Else
+				Handy:ShowMessageBox("接続できませんでした。","confirm")
+				return()
+			EndIf
+		Wend
+
+		// ログファイル送信
+	//Del	If ( driveselect == 3 or driveselect == 7 ) Then
+			If Not Comm:PutFile("logdatHT.txt","logdatHT.txt") Then
+				Comm:Disconnect()
+				Handy:ShowMessageBox("logdatHT.txtの送信に失敗しました","confirm")
+				return()
+			EndIf
+	//Dell	EndIf
+
+	//Dell	If ( driveselect == 4 or driveselect == 7 ) Then
+			If Not Comm:PutFile("logdat10.txt","logdat10.txt") Then
+				Comm:Disconnect()
+				Handy:ShowMessageBox("logdat10.txtの送信に失敗しました","confirm")
+				return()
+			EndIf
+	//Dell	EndIf
+
+		// PCとの切断
+		Comm:Disconnect()
+
+		Handy:ShowMessageBox("送信完了","confirm")
+
+		System:Load(System:arg1, System:arg2, System:arg1, 0,0)
+		Return (0)
+
+	End Method
+	
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+		btvDisp
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText("    HHT→PC    ")
+			:posx = 4 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText("☆データを")
+			:posx = 6 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText("送信します★")
+			:posx = 5 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText("HIT ANY KEY")
+			:update = true
+		EndWith
+
+	End Method
+
+EndPackage
+
+
+Package LOG
+	//---------------------------------------------------
+	// 履歴表示メソッド
+	Method log_main()
+		
+	Begin
+		
+		Handy:ShowMessageBox( "この作業では、履歴表示･編集はできません", "ok" )
+	End Method
+	
+EndPackage

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GenbaShashinListDataSet" targetNamespace="http://tempuri.org/GenbaShashinListDataSet.xsd" xmlns:mstns="http://tempuri.org/GenbaShashinListDataSet.xsd" xmlns="http://tempuri.org/GenbaShashinListDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FukjBizSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FukjBizSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjBizSystem.Properties.Settings.GlobalReference.Default.FukjBizSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GenbaShashinListDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="GenbaShashinListDataSet" msprop:Generator_UserDSName="GenbaShashinListDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GenbaShashinTbl" msprop:Generator_TableClassName="GenbaShashinTblDataTable" msprop:Generator_TableVarName="tableGenbaShashinTbl" msprop:Generator_RowChangedName="GenbaShashinTblRowChanged" msprop:Generator_TablePropName="GenbaShashinTbl" msprop:Generator_RowDeletingName="GenbaShashinTblRowDeleting" msprop:Generator_RowChangingName="GenbaShashinTblRowChanging" msprop:Generator_RowEvHandlerName="GenbaShashinTblRowChangeEventHandler" msprop:Generator_RowDeletedName="GenbaShashinTblRowDeleted" msprop:Generator_RowClassName="GenbaShashinTblRow" msprop:Generator_UserTableName="GenbaShashinTbl" msprop:Generator_RowEvArgName="GenbaShashinTblRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GenbaShashinKensaHoteiKbn" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinKensaHoteiKbn" msprop:Generator_ColumnPropNameInRow="GenbaShashinKensaHoteiKbn" msprop:Generator_ColumnPropNameInTable="GenbaShashinKensaHoteiKbnColumn" msprop:Generator_UserColumnName="GenbaShashinKensaHoteiKbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenbaShashinKensaHokenjoCd" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinKensaHokenjoCd" msprop:Generator_ColumnPropNameInRow="GenbaShashinKensaHokenjoCd" msprop:Generator_ColumnPropNameInTable="GenbaShashinKensaHokenjoCdColumn" msprop:Generator_UserColumnName="GenbaShashinKensaHokenjoCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenbaShashinKensaNendo" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinKensaNendo" msprop:Generator_ColumnPropNameInRow="GenbaShashinKensaNendo" msprop:Generator_ColumnPropNameInTable="GenbaShashinKensaNendoColumn" msprop:Generator_UserColumnName="GenbaShashinKensaNendo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenbaShashinKensaRenban" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinKensaRenban" msprop:Generator_ColumnPropNameInRow="GenbaShashinKensaRenban" msprop:Generator_ColumnPropNameInTable="GenbaShashinKensaRenbanColumn" msprop:Generator_UserColumnName="GenbaShashinKensaRenban">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenbaShashinCd" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinCd" msprop:Generator_ColumnPropNameInRow="GenbaShashinCd" msprop:Generator_ColumnPropNameInTable="GenbaShashinCdColumn" msprop:Generator_UserColumnName="GenbaShashinCd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenbaShashinFilePath" msprop:Generator_ColumnVarNameInTable="columnGenbaShashinFilePath" msprop:Generator_ColumnPropNameInRow="GenbaShashinFilePath" msprop:Generator_ColumnPropNameInTable="GenbaShashinFilePathColumn" msprop:Generator_UserColumnName="GenbaShashinFilePath">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" />
+              <xs:element name="InsertUser" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" />
+              <xs:element name="UpdateUser" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GenbaShashinTbl" />
+      <xs:field xpath="mstns:GenbaShashinKensaHoteiKbn" />
+      <xs:field xpath="mstns:GenbaShashinKensaHokenjoCd" />
+      <xs:field xpath="mstns:GenbaShashinKensaNendo" />
+      <xs:field xpath="mstns:GenbaShashinKensaRenban" />
+      <xs:field xpath="mstns:GenbaShashinCd" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

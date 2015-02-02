@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ShokenKekkaListDataSet" targetNamespace="http://tempuri.org/ShokenKekkaListDataSet.xsd" xmlns:mstns="http://tempuri.org/ShokenKekkaListDataSet.xsd" xmlns="http://tempuri.org/ShokenKekkaListDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="fukjTabletConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="fukjTabletConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FukjTabletSystem.Properties.Settings.GlobalReference.Default.fukjTabletConnectionString" Provider="Microsoft.SqlServerCe.Client.3.5" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ShokenKekkaListDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ShokenKekkaListDataSet" msprop:Generator_UserDSName="ShokenKekkaListDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ShokenKekkaList" msprop:Generator_TableClassName="ShokenKekkaListDataTable" msprop:Generator_TableVarName="tableShokenKekkaList" msprop:Generator_TablePropName="ShokenKekkaList" msprop:Generator_RowDeletingName="ShokenKekkaListRowDeleting" msprop:Generator_RowChangingName="ShokenKekkaListRowChanging" msprop:Generator_RowEvHandlerName="ShokenKekkaListRowChangeEventHandler" msprop:Generator_RowDeletedName="ShokenKekkaListRowDeleted" msprop:Generator_UserTableName="ShokenKekkaList" msprop:Generator_RowChangedName="ShokenKekkaListRowChanged" msprop:Generator_RowEvArgName="ShokenKekkaListRowChangeEvent" msprop:Generator_RowClassName="ShokenKekkaListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiShokanIraiHoteiKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokanIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiShokanIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiShokanIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiShokanIraiHoteiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiHokenjoCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiNendo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenRenbanColumn" msprop:Generator_UserColumnName="KensaIraiShokenRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenKbn" msprop:Generator_ColumnPropNameInRow="ShokenKbn" msprop:Generator_ColumnPropNameInTable="ShokenKbnColumn" msprop:Generator_UserColumnName="ShokenKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCd" msprop:Generator_ColumnPropNameInRow="ShokenCd" msprop:Generator_ColumnPropNameInTable="ShokenCdColumn" msprop:Generator_UserColumnName="ShokenCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHyojiichi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHyojiichi" msprop:Generator_ColumnPropNameInRow="ShokenHyojiichi" msprop:Generator_ColumnPropNameInTable="ShokenHyojiichiColumn" msprop:Generator_UserColumnName="ShokenHyojiichi" type="xs:int" minOccurs="0" />
+              <xs:element name="ShokenTegaki" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenTegaki" msprop:Generator_ColumnPropNameInRow="ShokenTegaki" msprop:Generator_ColumnPropNameInTable="ShokenTegakiColumn" msprop:Generator_UserColumnName="ShokenTegaki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCheckKomoku" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCheckKomoku" msprop:Generator_ColumnPropNameInRow="ShokenCheckKomoku" msprop:Generator_ColumnPropNameInTable="ShokenCheckKomokuColumn" msprop:Generator_UserColumnName="ShokenCheckKomoku" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCheckHantei" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCheckHantei" msprop:Generator_ColumnPropNameInRow="ShokenCheckHantei" msprop:Generator_ColumnPropNameInTable="ShokenCheckHanteiColumn" msprop:Generator_UserColumnName="ShokenCheckHantei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenShitekiKashoNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenShitekiKashoNo" msprop:Generator_ColumnPropNameInRow="ShokenShitekiKashoNo" msprop:Generator_ColumnPropNameInTable="ShokenShitekiKashoNoColumn" msprop:Generator_UserColumnName="ShokenShitekiKashoNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSetchishaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSetchishaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenSetchishaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenSetchishaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenSetchishaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHoshuGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHoshuGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenHoshuGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenHoshuGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenHoshuGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSeisoGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSeisoGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenSeisoGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenSeisoGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenSeisoGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenKojiGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenKojiGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenKojiGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenKojiGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenKojiGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenMakerRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenMakerRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenMakerRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenMakerRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenMakerRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHokenjoRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHokenjoRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenHokenjoRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenHokenjoRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenHokenjoRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHoshuKeiyakuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHoshuKeiyakuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenHoshuKeiyakuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenHoshuKeiyakuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenHoshuKeiyakuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenTenkenKaisuuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenTenkenKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenTenkenKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenTenkenKaisuuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenTenkenKaisuuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSeisouKaisuuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSeisouKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenSeisouKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenSeisouKaisuuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenSeisouKaisuuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsertUser" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateUser" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenWd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenWd" msprop:Generator_ColumnPropNameInRow="ShokenWd" msprop:Generator_ColumnPropNameInTable="ShokenWdColumn" msprop:Generator_UserColumnName="ShokenWd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaniSochiNm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTaniSochiNm" msprop:Generator_ColumnPropNameInRow="TaniSochiNm" msprop:Generator_ColumnPropNameInTable="TaniSochiNmColumn" msprop:Generator_UserColumnName="TaniSochiNm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ShokenKekkaHosokuList" msprop:Generator_TableClassName="ShokenKekkaHosokuListDataTable" msprop:Generator_TableVarName="tableShokenKekkaHosokuList" msprop:Generator_RowChangedName="ShokenKekkaHosokuListRowChanged" msprop:Generator_TablePropName="ShokenKekkaHosokuList" msprop:Generator_RowDeletingName="ShokenKekkaHosokuListRowDeleting" msprop:Generator_RowChangingName="ShokenKekkaHosokuListRowChanging" msprop:Generator_RowEvHandlerName="ShokenKekkaHosokuListRowChangeEventHandler" msprop:Generator_RowDeletedName="ShokenKekkaHosokuListRowDeleted" msprop:Generator_RowClassName="ShokenKekkaHosokuListRow" msprop:Generator_UserTableName="ShokenKekkaHosokuList" msprop:Generator_RowEvArgName="ShokenKekkaHosokuListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KensaIraiShokanIraiHoteiKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokanIraiHoteiKbn" msprop:Generator_ColumnPropNameInRow="KensaIraiShokanIraiHoteiKbn" msprop:Generator_ColumnPropNameInTable="KensaIraiShokanIraiHoteiKbnColumn" msprop:Generator_UserColumnName="KensaIraiShokanIraiHoteiKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiHokenjoCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiHokenjoCd" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiHokenjoCd" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiHokenjoCdColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiHokenjoCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiNendo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiNendo" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiNendo" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiNendoColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiNendo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenIraiRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenIraiRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenIraiRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenIraiRenbanColumn" msprop:Generator_UserColumnName="KensaIraiShokenIraiRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenRenbanColumn" msprop:Generator_UserColumnName="KensaIraiShokenRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KensaIraiShokenHosokuRenban" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKensaIraiShokenHosokuRenban" msprop:Generator_ColumnPropNameInRow="KensaIraiShokenHosokuRenban" msprop:Generator_ColumnPropNameInTable="KensaIraiShokenHosokuRenbanColumn" msprop:Generator_UserColumnName="KensaIraiShokenHosokuRenban" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenKbn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenKbn" msprop:Generator_ColumnPropNameInRow="ShokenKbn" msprop:Generator_ColumnPropNameInTable="ShokenKbnColumn" msprop:Generator_UserColumnName="ShokenKbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCd" msprop:Generator_ColumnPropNameInRow="ShokenCd" msprop:Generator_ColumnPropNameInTable="ShokenCdColumn" msprop:Generator_UserColumnName="ShokenCd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHyojiichi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHyojiichi" msprop:Generator_ColumnPropNameInRow="ShokenHyojiichi" msprop:Generator_ColumnPropNameInTable="ShokenHyojiichiColumn" msprop:Generator_UserColumnName="ShokenHyojiichi" type="xs:int" minOccurs="0" />
+              <xs:element name="ShokenTegaki" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenTegaki" msprop:Generator_ColumnPropNameInRow="ShokenTegaki" msprop:Generator_ColumnPropNameInTable="ShokenTegakiColumn" msprop:Generator_UserColumnName="ShokenTegaki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCheckKomoku" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCheckKomoku" msprop:Generator_ColumnPropNameInRow="ShokenCheckKomoku" msprop:Generator_ColumnPropNameInTable="ShokenCheckKomokuColumn" msprop:Generator_UserColumnName="ShokenCheckKomoku" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenCheckHantei" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenCheckHantei" msprop:Generator_ColumnPropNameInRow="ShokenCheckHantei" msprop:Generator_ColumnPropNameInTable="ShokenCheckHanteiColumn" msprop:Generator_UserColumnName="ShokenCheckHantei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenShitekiKashoNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenShitekiKashoNo" msprop:Generator_ColumnPropNameInRow="ShokenShitekiKashoNo" msprop:Generator_ColumnPropNameInTable="ShokenShitekiKashoNoColumn" msprop:Generator_UserColumnName="ShokenShitekiKashoNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSetchishaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSetchishaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenSetchishaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenSetchishaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenSetchishaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHoshuGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHoshuGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenHoshuGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenHoshuGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenHoshuGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSeisoGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSeisoGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenSeisoGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenSeisoGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenSeisoGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenKojiGyoshaRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenKojiGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenKojiGyoshaRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenKojiGyoshaRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenKojiGyoshaRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenMakerRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenMakerRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenMakerRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenMakerRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenMakerRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHokenjoRenrakuFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHokenjoRenrakuFlg" msprop:Generator_ColumnPropNameInRow="ShokenHokenjoRenrakuFlg" msprop:Generator_ColumnPropNameInTable="ShokenHokenjoRenrakuFlgColumn" msprop:Generator_UserColumnName="ShokenHokenjoRenrakuFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenHoshuKeiyakuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenHoshuKeiyakuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenHoshuKeiyakuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenHoshuKeiyakuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenHoshuKeiyakuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenTenkenKaisuuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenTenkenKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenTenkenKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenTenkenKaisuuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenTenkenKaisuuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenSeisouKaisuuKakuninFlg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenSeisouKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInRow="ShokenSeisouKaisuuKakuninFlg" msprop:Generator_ColumnPropNameInTable="ShokenSeisouKaisuuKakuninFlgColumn" msprop:Generator_UserColumnName="ShokenSeisouKaisuuKakuninFlg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertDt" msprop:Generator_ColumnPropNameInRow="InsertDt" msprop:Generator_ColumnPropNameInTable="InsertDtColumn" msprop:Generator_UserColumnName="InsertDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsertUser" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertUser" msprop:Generator_ColumnPropNameInRow="InsertUser" msprop:Generator_ColumnPropNameInTable="InsertUserColumn" msprop:Generator_UserColumnName="InsertUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsertTarm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsertTarm" msprop:Generator_ColumnPropNameInRow="InsertTarm" msprop:Generator_ColumnPropNameInTable="InsertTarmColumn" msprop:Generator_UserColumnName="InsertTarm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateDt" msprop:Generator_ColumnPropNameInRow="UpdateDt" msprop:Generator_ColumnPropNameInTable="UpdateDtColumn" msprop:Generator_UserColumnName="UpdateDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateUser" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateUser" msprop:Generator_ColumnPropNameInRow="UpdateUser" msprop:Generator_ColumnPropNameInTable="UpdateUserColumn" msprop:Generator_UserColumnName="UpdateUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateTarm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUpdateTarm" msprop:Generator_ColumnPropNameInRow="UpdateTarm" msprop:Generator_ColumnPropNameInTable="UpdateTarmColumn" msprop:Generator_UserColumnName="UpdateTarm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShokenWd" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShokenWd" msprop:Generator_ColumnPropNameInRow="ShokenWd" msprop:Generator_ColumnPropNameInTable="ShokenWdColumn" msprop:Generator_UserColumnName="ShokenWd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
